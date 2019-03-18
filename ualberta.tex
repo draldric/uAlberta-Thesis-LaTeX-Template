@@ -1,0 +1,245 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                          uAlberta Thesis Template                          %%
+%%                                     by                                     %%
+%%                               Daniel Aldrich                               %%
+%%                               Version: 1.0.0                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%       Copyright (c) 2019 Daniel Aldrich                                      %
+%                                                                              %
+%       Permission is hereby granted, free of charge, to any person            %
+%       obtaining a copy of this software and associated documentation         %
+%       files (the "Software"), to deal in the Software without                %
+%       restriction, including without limitation the rights to use,           %
+%       copy, modify, merge, publish, distribute, sublicense, and/or           %
+%       sell copies of the Software, and to permit persons to whom the         %
+%       Software is furnished to do so, subject to the following               %
+%       conditions:                                                            %
+%                                                                              %
+%       The above copyright notice and this permission notice shall be         %
+%       included in all copies or substantial portions of the Software.        %
+%                                                                              % 
+%       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,        % 
+%       EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES        %
+%       OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND               % 
+%       NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT            %
+%       HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,           %
+%       WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING           %
+%       FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR          %
+%       OTHER DEALINGS IN THE SOFTWARE.                                        %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%                                   NOTICE                                     %
+% This template and class assume a basic understanding of how LaTeX works.     %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% To use this template start by entering in your information in the fields     %
+%     below, and in the file `ualberta.xmpdata'. Next remember to delete the   %
+%     auto genterated text `\lipsum[##]'.                                      %
+%                                                                              %
+% Most LaTeX packages required have already been included in this document     %
+%     document class.                                                          %
+%                                                                              %
+% For referencing, use the command \Cref{<label>} for smart referencing that   %
+%     includes the type of reference, i.e., for a figure it will produce the   %
+%     the text `Figure #.#'.                                                   %
+%                                                                              %
+% Compact citations can be made by using a single \cite command, e.g.:         %
+%     `\cite{ref1, ref2, ref3,...}.                                            %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% INCLUDES PACKAGES:
+% array, nomencl, etoolbox, lipsum, xmpincl, xcolor, graphicx, tabularx, 
+%  makecell, subcaption, rotating, booktabs, multicol, multirow, amsmath, 
+%   amsfonts, amssymb, pdflscape, textcomp, longtable, listings, pdfpages
+%    xparse, ifthen, hyphenat, hyperref, cleveref, inputenc
+% 
+% For a full description of each of the included packages please read the 
+%  packages file.
+
+%LIST OF DEFINED SYMBOLS
+        %\regTM                %Registered Trademark\regTM
+        %\nonTM                %Unregistered Trademark
+        %\cRight{}             %Copyright
+        %\cLeft{}              %Copyleft
+        %\degrees{}            %Degrees
+        %\hyp{}                %Hyphen
+        %\latin{<text here>}   %Latin
+        %\etal{}               %et al.
+        %\etc{}                %etc
+        %\eg{}                 %e.g.
+        %\ie{}                 %i.e.
+        %\Kevlar{}             %Kevlar
+        %\Matlab{}             %Matlab
+
+%LIST OF USEFUL COMMANDS:
+        %\comment{}            %Nothing inside the braces will be printed
+        %\nonumeq{}            %Un-numbered, centered equation.
+        %\numeq{}{label}       %Numbered, centered equation.
+        %\brackS{}             %Surrounds the input with []
+        %\brackR{}             %Surrounds the input with ()
+        %\brackC{}             %Surrounds the input with {}
+
+\immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
+% Write command to allow the nomenclature to be generated properly.
+
+
+\documentclass[chapterbib]{ualberta}
+% OPTIONS FOR ualberta.cls:
+% pdfa - to convert the pdfa to PDF/A format
+% 
+% oneside - Standard for submitting to FGSR.
+% 
+% twoside - If you want to print your thesis double sided.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE PAGE INFO
+ \title{Thesis Title}              % Title of your Thesis
+ \author{First Middle Last}        % Your Full Name
+ \degree{\MSc}                     % \MSc or \PhD
+ \specialization{}                 % Leave blank if none
+ \department{Example Department}   % Department you are completing your degree from
+ \convocationdate{Term YYYY}       % Term (Fall, Winter, Spring)
+
+% Don't forget to edit the ualberta.xmpdata file with the same metadata for the PDF/A.
+
+% FRONTMATTER INFO
+ \abstracttext{\lipsum[4-7] }
+ \preface{This thesis is an original work by `Your name here'. No part of this thesis has been previously published.}
+ \thesisquote{``\lipsum*[14]{}''\\-Author of the Quote}
+ \dedication{To...}
+ \acknowledgementtext{\lipsum[2-3]}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  NOMENCLATURE, GLOSSARY, ACRONYMS, ETC                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% NOMENCLATURE
+ % [A] : Constants
+ % [B] : Latin
+ % [C] : Greek
+ % Use \nomunit{Value, Units} to add the value and units for a defined constant
+
+ \nomenclature[A]{$c$}{Speed of light in a vacuum inertial system.\nomunit{$299,792,458\, m/s$}}
+ \nomenclature[B]{$E$}{Elastic Constant (Young's Modulus)}
+ \nomenclature[C]{$\alpha$}{Strain}
+
+% ACRONYMS
+ \addacronym{t}{stands for test}
+
+% GLOSSARY
+ \addterm{test}{this is a test}
+
+% BIBLIOGRAPHY LOCATION
+ % .  - This folder
+ % .. - Up one Folder
+ \addbibresource{./References/References.bib}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              BEGIN DOCUMENT                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+ \maketitle                    % Creates the title page
+ \makeabstract                 % Creates the abstract
+ \makepreface                  % Uncomment line to add Preface Page
+ %\makequote                   % Uncomment line to add Quote Page
+ %\makededication              % Uncomment line to add Dedication Page
+ \acknowledgements             % Uncomment line to add Acknowledgements
+ \tableofcontents              % Create the Table of Contents
+ \listoftables                 % Uncomment line if you have tables
+ \listoffigures                % Uncomment line if you have figures
+ %\listofsymbols               % Uncomment if you have a List of Symbols (Nomenclature)
+ %\abbreviations               % Uncomment if you have a List of Acronyms
+ %\glsaddall \generateglossary % Uncomment if you have Glossary
+ \bodyoftext                   % Switches the style of the document to that required for the body
+
+% SET DOCUMENT SPACING
+ %\onehalfspacing        
+ \truedoublespacing
+ %\triplespacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           ADD YOUR CONTENT HERE                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}\label{ch:Introduction}
+  \lipsum[6-8]
+  \section{Motivation}\label{sec:Motivation}
+    \lipsum[1-3]
+  \section{Thesis Objectives}\label{sec:thesisObjective}
+    \lipsum[14-16]
+  \section{Thesis Outline}\label{sec:thesisOutline}
+    \lipsum[17]
+                
+\chapter{Background}\label{ch:Background}
+  \section{General Information}\label{sec:}
+    \lipsum[23-25]
+  \section{Specific Information}\label{sec:}
+    \lipsum[35-37]
+  \section{Gap in Research}\label{sec:}
+    \lipsum[42-43]
+  \section{Conclusions}\label{sec:}
+    \lipsum[12-13]
+
+\chapter{Paper 1}\label{ch:Paper1}
+  \section{Introduction}\label{sec:}
+    \lipsum[34-36]
+  \section{Methods and Procedure}\label{sec:}
+    \lipsum[46-48]
+  \section{Results and Discussion}\label{sec:}
+    \lipsum[55-57]
+  \section{Conclusions}\label{sec:}
+    \lipsum[12-13]
+                
+\chapter{Paper 2}\label{ch:Paper2}
+  \section{Introduction}\label{sec:}
+    \lipsum[34-36]
+  \section{Methods and Procedure}\label{sec:}
+    \lipsum[46-48]
+  \section{Results and Discussion}\label{sec:}
+    \lipsum[55-57]
+  \section{Conclusions}\label{sec:}
+    \lipsum[12-13]
+                
+\chapter{Conclusions, Recommendations, \& Future Work}\label{ch:Conclusions}
+  \section{Conclusions}\label{sec:}
+    \lipsum[34-36]
+  \section{Future Work}\label{sec:}
+    \lipsum[38]\cite{TEST}
+	\printreferences
+\input{"./Chapters/ExampleChapter.tex"}
+
+\bigskip 
+\clearpage\singlespacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 BIBLIOGRAPHY                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\nocite{*}  % Uncomment if you have a bibliography with work read but not cited
+\printbibliography[heading=bibintoc]
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  APPENDICES                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\chapter{First Appendix}\label{app:}
+  \section{Section 1}\label{sec:}
+    \lipsum[34-36]
+  \section{Section 2}\label{sec:}
+    \lipsum[38]
+
+\chapter{Second Appendix}\label{app:}
+  \section{Section 1}\label{sec:}
+    \lipsum[34-36]
+  \section{Section 2}\label{sec:}
+    \lipsum[38]
+
+\end{document}
