@@ -46,13 +46,13 @@ This sentence shows how a gap in the citations is handled \cite{testone,cite2,ci
   
   
   \section{Figures}
-  This section will provide examples of how to create figures, and different types of multi/sub-figures. Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \textbackslash{}clearpage command can be issued before the next section. However, note that this will force the next section to begin on a new page.
-  \begin{figure}[!htb]
+  This section will provide examples of how to create figures, and different types of multi/sub-figures. Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \textbackslash{}clearpage command can be issued before the next section. However, note that this will force the next section to begin on a new page. Note that the first ``figure'' is actually a plate; a plate is the proper title associated with a photograph, using the environment `plate' instead of figure and command listofplates will generate everything for you.
+  \begin{plate}[!htb]
     \centering
     \includegraphics[width=0.7\textwidth]{example-image}
-    \caption{This is an example of a single image figure.}
+    \caption{This is an example of a single image plate.}
     \label{fig:singleImage}
-  \end{figure}
+  \end{plate}
   
   \begin{figure}[!htb]
     \centering

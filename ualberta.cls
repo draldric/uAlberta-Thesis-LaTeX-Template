@@ -633,6 +633,22 @@
                {\@dblfloat{table}}
                {\end@dblfloat}
                
+\newcounter{plate}[chapter]
+\renewcommand \theplate
+     {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@plate}
+\def\fps@plate{tbp}
+\def\ftype@plate{3}
+\def\ext@plate{lop}
+\def\fnum@plate{\platename\nobreakspace\theplate}
+
+\newenvironment{plate}
+               {\@float{plate}}
+               {\end@float}
+               
+\newenvironment{plate*}
+               {\@dblfloat{plate}}
+               {\end@dblfloat}
+               
 \newlength\abovecaptionskip
 \newlength\belowcaptionskip
 \setlength\abovecaptionskip{10\p@}
@@ -707,6 +723,7 @@
 \newcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
 \newcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
 \newcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
+
 \newcommand\listoffigures{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -720,6 +737,7 @@
     \if@restonecol\twocolumn\fi
     }
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
+
 \newcommand\listoftables{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -734,6 +752,20 @@
     \if@restonecol\twocolumn\fi
     }
 \let\l@table\l@figure
+
+\newcommand\listofplates{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{\listplatename}%
+      \@mkboth{\MakeUppercase\listplatename}%
+              {\MakeUppercase\listplatename}%
+    \@starttoc{lop}%
+    \if@restonecol\twocolumn\fi
+    }
+\let\l@plate\l@figure
 \newdimen\bibindent
 \setlength\bibindent{1.5em}
 
@@ -771,8 +803,8 @@
 
 \newcommand\makededication{\chapter*{}\begin{center}\em \@dedication \em\end{center}}
 
-\def\listofplates{\chapter*{\listplatesname}\pagestyle{plain}\thispagestyle{plain}}
-\def\endlistofplates{\newpage}
+% \def\listofplates{\chapter*{\listplatesname}\pagestyle{plain}\thispagestyle{plain}}
+% \def\endlistofplates{\newpage}
 
 \usepackage[acronym,nonumberlist]{glossaries}
 \makenoidxglossaries
@@ -825,11 +857,12 @@
 \newcommand\listfigurename{List of Figures}
 \newcommand\listtablename{List of Tables}
 \newcommand\listsymbolname{List of Symbols}
-\newcommand\listplatesname{List of Plates}
+\newcommand\listplatename{List of Plates}
 \newcommand\bibname{Bibliography}
 \newcommand\indexname{Index}
 \newcommand\figurename{Figure}
 \renewcommand\tablename{Table}
+\newcommand\platename{Plate}
 \newcommand\partname{Part}
 \newcommand\chaptername{Chapter}
 \newcommand\appendixname{Appendix}
