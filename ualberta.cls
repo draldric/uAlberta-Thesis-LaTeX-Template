@@ -107,6 +107,9 @@
 \@titlepagetrue
 \newif\if@openright
 \newif\if@chapterbib
+\@chapterbibfalse
+\newif\if@pdfa
+\@pdfafalse
 \if@compatibility\else
 \DeclareOption{a4paper}
    {\setlength\paperheight {297mm}%
@@ -170,10 +173,9 @@
       \parsep \z@
       }%
    \renewcommand\newblock{\par}}%
-\DeclareOption{pdfa}{
-  \usepackage[a-3b]{pdfx}
 }
-}
+\DeclareOption{pdfa}{\@pdfatrue}
+\DeclareOption{chapterbib}{\@chapterbibtrue}
 \ExecuteOptions{letterpaper,12pt,oneside,onecolumn,final,openany}
 \ProcessOptions
 \input{size1\@ptsize.clo}
@@ -925,6 +927,8 @@
 
 
 \usepackage{array}
+\usepackage[normalem]{ulem}
+\usepackage[hyphens]{url}
 \usepackage{lipsum}
 \usepackage{xmpincl}
 \usepackage{xcolor}
@@ -951,7 +955,9 @@
 \usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{inputenc}
-\hypersetup{hidelinks,pdfencoding=unicode}
+\hypersetup{hidelinks,pdfencoding=unicode,breaklinks=true}
+\urlstyle{same}
+\Urlmuskip=0mu plus 1mu\relax
 \usepackage[
 	style=ieee,
 	dashed=false,
@@ -960,13 +966,13 @@
 	refsegment=chapter,
 	sorting=none,
 	defernumbers=true]{biblatex}
-
+\if@pdfa
+  \usepackage[a-3b]{pdfx}
+\fi
 \inputencoding{utf8}
   
 \newcolumntype{C}{>{\centering\arraybackslash}X}%
-
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}%
-
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
 
 \renewcommand{\arraystretch}{1.5}
@@ -978,10 +984,44 @@
 \newcommand{\brackR}[1]{\left(#1\right)}
 \newcommand{\brackC}[1]{\left{#1\right}}
 
-\gdef\printreferences{
-\newpage
-\printbibliography[segment=\the\numexpr\thebaseSection\relax,heading=subbibintoc]
+\newcommand{\insertappendix}[1]{
+	\input{"./Appendices/#1.tex"}
 }
+
+\gdef\printreferences{
+  \if@chapterbib
+  \newpage
+  \printbibliography[segment=\the\numexpr\thebaseSection\relax,heading=subbibintoc]
+  \fi
+}
+
+%Common Symbols
+	%Registered Trademark
+		\newcommand\regTM{\textsuperscript{\textregistered{}}}
+	%Unregistered Trademark
+		\newcommand\nonTM{\textsuperscript{\texttrademark{}}}
+	%Copyright
+		\newcommand\cRight{\textsuperscript{\textcopyright{}}}
+	%Copyleft
+		\newcommand\cLeft{\textsuperscript{\textcopyleft{}}}
+	%Degrees
+		\newcommand\degrees{$^\circ$}
+    %Hyphen
+        \def\hyph{-\penalty0\hskip0pt\relax}
+	%Latin
+		\newcommand{\latin}[1]{\em#1\em}
+	%et al.
+		\newcommand\etal{\em et al.\em}
+	%etc
+		\newcommand\etc{\em etc.\em}
+	%e.g.
+		\newcommand\eg{\em e.g.\em}
+	%i.e.
+		\newcommand\ie{\em i.e.\em}
+	%Kevlar
+		\newcommand\Kevlar{Kevlar\regTM{}}
+	%Matlab
+		\newcommand\Matlab{\textsc{Matlab}\regTM{}}
 
 \oddsidemargin 0.5in
 \evensidemargin 0in
@@ -990,5 +1030,7 @@
 \headheight 0in
 \headsep 0in
 \textheight 9in
+
+\include{listingCodeFormatting}
 
 \endinput

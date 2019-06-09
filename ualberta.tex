@@ -66,7 +66,7 @@
         %\cRight{}             %Copyright
         %\cLeft{}              %Copyleft
         %\degrees{}            %Degrees
-        %\hyp{}                %Hyphen
+        %\hyph{}               %Hyphen
         %\latin{<text here>}   %Latin
         %\etal{}               %et al.
         %\etc{}                %etc
@@ -75,6 +75,16 @@
         %\Kevlar{}             %Kevlar
         %\Matlab{}             %Matlab
 
+%LIST OF AVAILABLE THEOREM ENVIRONMENTS
+        % theorem, algorithm, axium, case, claim, conclusion, condition, 
+        % conjecture, corollary, criterion, definition, example, exercise, 
+        % lemma, notation, problem, proposition, remark, solution, summary
+        %
+        % To use:
+        % \begin{<theorem name>}
+        %   <YOUR TEXT HERE>
+        % \end{<theorem name>}
+        
 %LIST OF USEFUL COMMANDS:
         %\comment{}            %Nothing inside the braces will be printed
         %\nonumeq{}            %Un-numbered, centered equation.
@@ -83,12 +93,22 @@
         %\brackR{}             %Surrounds the input with ()
         %\brackC{}             %Surrounds the input with {}
 
+% INCLUDING CODE
+	   % To include code or code snippets in your thesis, the package listings is used.
+	   % A number of predefined code highlighting schemes are included in the file
+	   %   listingCodeFormatting.tex including:
+	   %   Matlab, C/C++, VB/VBA, and XML 
+	   %
+	   % Examples of how to include code are shown in Appendix C
+
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
 % Write command to allow the nomenclature to be generated properly.
 
 
-\documentclass[chapterbib]{ualberta}
+\documentclass[pdfa,chapterbib]{ualberta}
 % OPTIONS FOR ualberta.cls:
+% chapterbib - \printreferences now prints references at the end of a chapter
+% 
 % pdfa - to convert the pdfa to PDF/A format
 % 
 % oneside - Standard for submitting to FGSR.
@@ -103,10 +123,10 @@
  \author{First Middle Last}        % Your Full Name
  \degree{\MSc}                     % \MSc or \PhD
  \specialization{}                 % Leave blank if none
- \department{Example Department}   % Department you are completing your degree from
+ \department{Example Department}   % Department you are completing your degree
  \convocationdate{Term YYYY}       % Term (Fall, Winter, Spring)
 
-% Don't forget to edit the ualberta.xmpdata file with the same metadata for the PDF/A.
+% Don't forget to edit ualberta.xmpdata with the same metadata for the PDF/A
 
 % FRONTMATTER INFO
  \abstracttext{\lipsum[4-7] }
@@ -159,7 +179,8 @@
  \listofplates                 % Uncomment line if you have plates (photographs)
  %\listofsymbols               % Uncomment if you have a List of Symbols (Nomenclature)
  %\abbreviations               % Uncomment if you have a List of Acronyms
- %\glsaddall \generateglossary % Uncomment if you have Glossary
+ \glsaddall                    % Required for List of Acronyms and Glossary (DO NOT COMMENT)
+ %\generateglossary            % Uncomment if you have Glossary
  \bodyoftext                   % Switches the style of the document to that required for the body
 
 % SET DOCUMENT SPACING
@@ -193,6 +214,12 @@
   \section{Introduction}\label{sec:}
     \lipsum[34-36]
   \section{Methods and Procedure}\label{sec:}
+    \begin{case}
+      \lipsum[10]
+    \end{case}
+    \begin{case}
+      \lipsum[15]
+    \end{case}
     \lipsum[46-48]
   \section{Results and Discussion}\label{sec:}
     \lipsum[55-57]
@@ -214,7 +241,7 @@
     \lipsum[34-36]
   \section{Future Work}\label{sec:}
     \lipsum[38]\cite{TEST}
-	\printreferences
+        \printreferences
 \input{"./Chapters/ExampleChapter.tex"}
 
 \bigskip 
@@ -242,5 +269,9 @@
     \lipsum[34-36]
   \section{Section 2}\label{sec:}
     \lipsum[38]
+
+\insertappendix{Appendix_Name}
+
+\insertappendix{PDF_Appendix}
 
 \end{document}
