@@ -674,9 +674,9 @@
 \DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
 \DeclareRobustCommand*\cal{\@fontswitch\relax\mathcal}
 \DeclareRobustCommand*\mit{\@fontswitch\relax\mathnormal}
-\newcommand\@pnumwidth{1.55em}
-\newcommand\@tocrmarg{2.55em}
-\newcommand\@dotsep{4.5}
+%\newcommand\@pnumwidth{1.55em}
+%\newcommand\@tocrmarg{2.55em}
+%\newcommand\@dotsep{4.5}
 \setcounter{tocdepth}{2}
 \newcommand\tableofcontents{%
     \if@twocolumn

@@ -1,0 +1,55 @@
+array - 
+
+nomencl - 
+
+etoolbox - 
+
+lipsum - Used for inserting blocks of random text, for demonstrating the template.
+
+xmpincl - Used for including the XMP data (or metadata for the PDF)
+
+xcolor - Used for adding color within the document
+
+graphicx - Used for inserting the images 
+
+tabularx - Used for adding more control to making tables
+
+makecell - Used for adjusting the properties of a table cell
+
+subcaption - Used for making subfigures.
+
+rotating - Used for rotating 
+
+booktabs - Used for adding other 
+
+multicol - 
+
+multirow - 
+
+amsmath - 
+
+amsfonts - 
+
+amssymb - 
+
+pdflscape - 
+
+textcomp - 
+
+longtable - 
+
+listings - 
+
+pdfpages - 
+
+xparse - 
+
+ifthen - 
+
+hyphenat - 
+
+hyperref - 
+
+cleveref - 
+
+inputenc - 
