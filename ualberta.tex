@@ -93,13 +93,22 @@
         %\brackR{}             %Surrounds the input with ()
         %\brackC{}             %Surrounds the input with {}
 
+%FOR TABLES OF A SPECIFIC WIDTH USE:
+			 % It is recommended to use the tabularx package
+			 % Further, to provide a more professional look to your tables do not use vertical
+			 %   lines. Instead use \toprule, \midrule, and \bottomrule to make the horizontal
+			 %   lines. 
+			 %
+			 % See the Chapters\ExampleChapter.tex for examples on how to make your tables and
+			 %   figures.
+
 % INCLUDING CODE
-	   % To include code or code snippets in your thesis, the package listings is used.
-	   % A number of predefined code highlighting schemes are included in the file
-	   %   listingCodeFormatting.tex including:
-	   %   Matlab, C/C++, VB/VBA, and XML 
-	   %
-	   % Examples of how to include code are shown in Appendix C
+	     % To include code or code snippets in your thesis, the package listings is used.
+	     % A number of predefined code highlighting schemes are included in the file
+	     %   listingCodeFormatting.tex including:
+	     %   Matlab, C/C++, VB/VBA, and XML 
+	     %
+	     % Examples of how to include code are shown in Appendix C
 
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
 % Write command to allow the nomenclature to be generated properly.
@@ -113,7 +122,7 @@
 % 
 % oneside - Standard for submitting to FGSR.
 % 
-% twoside - If you want to print your thesis double sided.
+% twoside - If you want to print your thesis double sided like a novel.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
@@ -184,9 +193,12 @@
  \bodyoftext                   % Switches the style of the document to that required for the body
 
 % SET DOCUMENT SPACING
- %\onehalfspacing        
- \truedoublespacing
- %\triplespacing
+ %\singlespacing               % 1.00x Spacing
+ %\onehalfspacing              % 1.50x Spacing
+ %\doublespacing               % 1.75x Spacing
+ \truedoublespacing            % 2.00x Spacing
+ %\triplespacing               % 3.00x Spacing
+ %\baselineskip #.##em         % #.##x Spacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                           ADD YOUR CONTENT HERE                              %
@@ -247,17 +259,27 @@
         %    This allows you to turn end of chapter references on and off easily.
         %
         % Note: End of chapter references share references with the Bibliography that
-        %    is required at the end of your thesis, so the numbering of the end of 
-        %    chapter references may not start at one and may not increment by one.
+        %    is REQUIRED at the end of your thesis, so the numbering of the end of 
+        %    chapter references may not start at 1 and may not increment by one.
         \printreferences 
 \input{"./Chapters/ExampleChapter.tex"}
-
-\bigskip 
-\clearpage\singlespacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 BIBLIOGRAPHY                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% These two lines make sure that the bibliography starts on a new page.
+\bigskip 
+\clearpage
+
+% SET BIBLIOGRAPHY SPACING
+ \singlespacing                % 1.00x Spacing
+ %\onehalfspacing              % 1.50x Spacing
+ %\doublespacing               % 1.75x Spacing
+ %\truedoublespacing           % 2.00x Spacing
+ %\triplespacing               % 3.00x Spacing
+ %\baselineskip #.##em         % #.##x Spacing
+ 
 %\nocite{*}  % Uncomment if you have a bibliography with work read but not cited
 \printbibliography[heading=bibintoc]
 \bigskip
@@ -266,6 +288,14 @@
 %                                  APPENDICES                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
+% SET APPENDIX SPACING
+ %\singlespacing               % 1.00x Spacing
+ %\onehalfspacing              % 1.50x Spacing
+ %\doublespacing               % 1.75x Spacing
+ \truedoublespacing            % 2.00x Spacing
+ %\triplespacing               % 3.00x Spacing
+ %\baselineskip #.##em         % #.##x Spacing
+
 \chapter{First Appendix}\label{app:}
   \section{Section 1}\label{sec:}
     \lipsum[34-36]
