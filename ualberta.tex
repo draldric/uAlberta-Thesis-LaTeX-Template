@@ -61,54 +61,54 @@
 %  packages file.
 
 %LIST OF DEFINED SYMBOLS
-        %\regTM                %Registered Trademark\regTM
-        %\nonTM                %Unregistered Trademark
-        %\cRight{}             %Copyright
-        %\cLeft{}              %Copyleft
-        %\degrees{}            %Degrees
-        %\hyph{}               %Hyphen
-        %\latin{<text here>}   %Latin
-        %\etal{}               %et al.
-        %\etc{}                %etc
-        %\eg{}                 %e.g.
-        %\ie{}                 %i.e.
-        %\Kevlar{}             %Kevlar
-        %\Matlab{}             %Matlab
+	%\regTM                %Registered Trademark\regTM
+	%\nonTM                %Unregistered Trademark
+	%\cRight{}             %Copyright
+	%\cLeft{}              %Copyleft
+	%\degrees{}            %Degrees
+	%\hyph{}               %Hyphen
+	%\latin{<text here>}   %Latin
+	%\etal{}               %et al.
+	%\etc{}                %etc
+	%\eg{}                 %e.g.
+	%\ie{}                 %i.e.
+	%\Kevlar{}             %Kevlar
+	%\Matlab{}             %Matlab
 
 %LIST OF AVAILABLE THEOREM ENVIRONMENTS
-        % theorem, algorithm, axium, case, claim, conclusion, condition, 
-        % conjecture, corollary, criterion, definition, example, exercise, 
-        % lemma, notation, problem, proposition, remark, solution, summary
-        %
-        % To use:
-        % \begin{<theorem name>}
-        %   <YOUR TEXT HERE>
-        % \end{<theorem name>}
+	% theorem, algorithm, axium, case, claim, conclusion, condition, 
+	% conjecture, corollary, criterion, definition, example, exercise, 
+	% lemma, notation, problem, proposition, remark, solution, summary
+	%
+	% To use:
+	% \begin{<theorem name>}
+	%     <YOUR TEXT HERE>
+	% \end{<theorem name>}
         
 %LIST OF USEFUL COMMANDS:
-        %\comment{}            %Nothing inside the braces will be printed
-        %\nonumeq{}            %Un-numbered, centered equation.
-        %\numeq{}{label}       %Numbered, centered equation.
-        %\brackS{}             %Surrounds the input with []
-        %\brackR{}             %Surrounds the input with ()
-        %\brackC{}             %Surrounds the input with {}
+	%\comment{}            %Nothing inside the braces will be printed
+	%\nonumeq{}            %Un-numbered, centered equation.
+	%\numeq{}{label}       %Numbered, centered equation.
+	%\brackS{}             %Surrounds the input with []
+	%\brackR{}             %Surrounds the input with ()
+	%\brackC{}             %Surrounds the input with {}
 
 %FOR TABLES OF A SPECIFIC WIDTH USE:
-			 % It is recommended to use the tabularx package
-			 % Further, to provide a more professional look to your tables do not use vertical
-			 %   lines. Instead use \toprule, \midrule, and \bottomrule to make the horizontal
-			 %   lines. 
-			 %
-			 % See the Chapters\ExampleChapter.tex for examples on how to make your tables and
-			 %   figures.
+	% It is recommended to use the tabularx package
+	% Further, to provide a more professional look to your tables do not use vertical
+	%   lines. Instead use \toprule, \midrule, and \bottomrule to make the horizontal
+	%   lines. 
+	%
+	% See the Chapters\ExampleChapter.tex for examples on how to make your tables and
+	%   figures.
 
 % INCLUDING CODE
-	     % To include code or code snippets in your thesis, the package listings is used.
-	     % A number of predefined code highlighting schemes are included in the file
-	     %   listingCodeFormatting.tex including:
-	     %   Matlab, C/C++, VB/VBA, and XML 
-	     %
-	     % Examples of how to include code are shown in Appendix C
+	% To include code or code snippets in your thesis, the package listings is used.
+	% A number of predefined code highlighting schemes are included in the file
+	%   listingCodeFormatting.tex including:
+	%   Matlab, C/C++, VB/VBA, and XML 
+	%
+	% Examples of how to include code are shown in Appendix C
 
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
 % Write command to allow the nomenclature to be generated properly.
@@ -132,17 +132,57 @@
  \author{First Middle Last}        % Your Full Name
  \degree{\MSc}                     % \MSc or \PhD
  \specialization{}                 % Leave blank if none
- \department{Example Department}   % Department you are completing your degree
- \convocationdate{Term YYYY}       % Term (Fall, Winter, Spring)
+ \department{Example Department}   % Fill in the Department unless you are non-Departmental
+ \faculty{}                        % Leave blank unless non-Departmental
+ \convocationdate{2020}            % Convocation Year
 
 % Don't forget to edit ualberta.xmpdata with the same metadata for the PDF/A
 
-% FRONTMATTER INFO
- \abstracttext{\lipsum[4-7] }
- \preface{This thesis is an original work by `Your name here'. No part of this thesis has been previously published.}
- \thesisquote{``\lipsum*[14]{}''\\-Author of the Quote}
- \dedication{To...}
- \acknowledgementtext{\lipsum[2-3]}
+% FRONTMATTER INFO 
+%   Preface
+	\abstracttext{%
+		A thesis must have an abstract. 
+		The abstract comes after the title page and is marked page “ii”.
+
+		The abstract is a concise and accurate summary of the thesis. 
+		It states the problem that was researched, the methods of investigation, and the general conclusions. An abstract must not contain non-text content, such as tables, graphs, complex equations, or illustrations.
+		Even for theses containing journal articles, there is one single abstract for the entire work, included within the preliminary pages (front pages) of the thesis.
+
+		For any thesis that is permitted to be written in a language other than English, two abstracts must be included; the first in English and the second in the language of the thesis.
+
+		The font used for the abstract must be at least a 10 point font, with the text double-spaced, to ensure readability. 
+		A strict maximum word count of 700 words applies, regardless of whether the abstract is for a master’s or a doctoral degree (many abstracts are 300-500 words).
+	}
+%  Preface
+ %  Optional
+	\preface{%
+		This thesis is an original work by `Your name here'. No part of this thesis has been previously published.
+	}
+ %  Mandatory due to research ethics approval
+	%\preface{
+		%This thesis is an original work by `Yourname here'. 
+		%The research project, of which this thesis is a part, received research ethics approval from the University of Alberta Research Ethics Board, Project Name “TITLE”, No. 12345, DATE.
+	%}
+ %  Mandatory due to collaborative work
+	%\preface{%
+		%Some of the research conducted for this thesis forms part of an international research collaboration, led by Professor R.C. Smith at the University of Hogwarts, with Professor D.R. Brown being the lead collaborator at the University of Alberta. 
+		%The technical apparatus referred to in chapter 3 was designed by myself, with the assistance of M.C. White and Professor D.R. Brown. 
+		%The data analysis in chapter 4 and concluding analysis in chapter 5 are my original work, as well as the literature review in chapter 2.
+		%
+		%Chapter 3 of this thesis has been published as J.D. Doe, M.C. Smith, and R.C. Smith, “Theoretical Responses to Rays in the Gamma System,” Journal of Scientific Affairs, vol. 165, issue 3, 459-475. 
+		%I was responsible for the data collection and analysis as well as the manuscript composition. 
+		%M.C. Smith assisted with the data collection and contributed to manuscript edits. R.C. Smith was the supervisory author and was involved with concept formation and manuscript composition. 
+	%}
+	\thesisquote{``\lipsum*[14]{}''\\-Author of the Quote}
+	\dedication{To...}
+	\acknowledgementtext{%
+		An Acknowledgments page (no more than 2 pages in length) is a recommended, but not mandatory, component of a thesis.
+		
+		The Acknowledgements page serves as a place within a thesis where students may wish to acknowledge the provision of funding from third parties, such as an external scholarship bodies, research granting agencies, and foreign governments. 
+		It is also appropriate to recognize the assistance provided by the supervisor and members of the supervisory committee.
+		
+		\lipsum[2-3]
+	}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,20 +190,61 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % NOMENCLATURE
+ % Note: Nomenclature is automatically sorted alphabetically
  % [A] : Constants
  % [B] : Latin
  % [C] : Greek
- % Use \nomunit{Value, Units} to add the value and units for a defined constant
+ % Use \nomunit{$Value\, Units$} to add the value and units for a defined constant
 
  \nomenclature[A]{$c$}{Speed of light in a vacuum inertial system.\nomunit{$299,792,458\, m/s$}}
+ \nomenclature[A]{$h$}{Planck constant.\nomunit{$6.62607015E-34\, Js$}}
  \nomenclature[B]{$E$}{Elastic Constant (Young's Modulus)}
- \nomenclature[C]{$\alpha$}{Strain}
+ \nomenclature[B]{$T$}{Torque}
+ \nomenclature[B]{$a$}{Acceleration}
+ \nomenclature[B]{$v$}{Velocity}
+ \nomenclature[B]{$m$}{Mass}
+ \nomenclature[C]{$\varepsilon$}{Strain}
+ \nomenclature[C]{$\alpha$}{Primary Angle}
 
-% ACRONYMS
- \addacronym{t}{stands for test}
+% ACRONYMS (Do NOT include periods at the end)
+ % Note: Acronyms are automatically sorted alphabetically
+ \addacronym{ROFL}{Rolling on floor laughing}
+ \addacronym{STFU}{Shut the *swear word!* up}
+ \addacronym{ICYMI}{In case you missed it}
+ \addacronym{TL;DR}{Too long, didn't read}
+ \addacronym{LMK}{Let me know}
+ \addacronym{NVM}{Nevermind}
+ \addacronym{TGIF}{Thank goodness it's Friday}
+ \addacronym{TBH}{To be honest}
+ \addacronym{TBF}{To be frank}
+ \addacronym{RN}{Right now}
+ \addacronym{QOTD}{Quote of the day}
+ \addacronym{OOTD}{Outfit of the day}
+ \addacronym{BRB}{Be right back}
+ \addacronym{BTW}{By the way}
+ \addacronym{LOL}{Laugh out loud}
+ \addacronym{TTYL}{Talk to you later}
+ \addacronym{HMU}{Hit me up}
+ \addacronym{FWIW}{For what it's worth}
+ \addacronym{IMO}{In my opinion}
+ \addacronym{IMHO}{In my humble opinion}
+ \addacronym{IDK}{I don't know}
+ \addacronym{TBA}{To be announced}
+ \addacronym{TBD}{To be decided}
 
-% GLOSSARY
- \addterm{test}{this is a test}
+% GLOSSARY (Do NOT include periods at the end)
+ % Note: Glossary is automatically sorted alphabetically
+ \addterm{Strength (STR)}{The character's physical strength. This effects the potency of melee attacks}
+ \addterm{Dexterity (DEX)}{Agility and accuracy. This affects ranged attacks and dodging}
+ \addterm{Constitution (CON)}{Physical resilience. This affects hit points and some physical resistances}
+ \addterm{Intelligence (INT)}{The ability to process problems and wield certain magic. INT affects the number of skill points received}
+ \addterm{Wisdom (WIS) }{Common sense and spirituality}
+ \addterm{Charisma (CHR)}{Social skills and sometimes physical appearance}
+ \addterm{Good}{Having a respect for life, altruism, and selflessness}
+ \addterm{Evil}{Wicked and often selfish or oppressive}
+ \addterm{Lawful}{Abides by a core morality or honor system. Can also be judgmental and close-minded}
+ \addterm{Chaotic}{Free-spirited and sometimes unpredictable. Can also be reckless or reactionary}
+ \addterm{Neutral}{A balance between Lawful \& Chaotic or Good \& Evil}
 
 % BIBLIOGRAPHY LOCATION
  % .  - This folder
@@ -182,14 +263,27 @@
  %\makequote                   % Uncomment line to add Quote Page
  %\makededication              % Uncomment line to add Dedication Page
  \acknowledgements             % Uncomment line to add Acknowledgements
+
+% SET ToC...etc SPACING
+ %\singlespacing               % 1.00x Spacing
+ \onehalfspacing              % 1.50x Spacing
+ %\doublespacing               % 1.75x Spacing
+ %\truedoublespacing            % 2.00x Spacing
+ %\triplespacing               % 3.00x Spacing
+ %\baselineskip #.##em         % #.##x Spacing
+
  \tableofcontents              % Create the Table of Contents
  \listoftables                 % Uncomment line if you have tables
  \listoffigures                % Uncomment line if you have figures
  \listofplates                 % Uncomment line if you have plates (photographs)
- %\listofsymbols               % Uncomment if you have a List of Symbols (Nomenclature)
- %\abbreviations               % Uncomment if you have a List of Acronyms
+ \listofsymbols                % Uncomment if you have a List of Symbols (Nomenclature)
+ \abbreviations                % Uncomment if you have a Abbreviations (List of Acronyms)
  \glsaddall                    % Required for List of Acronyms and Glossary (DO NOT COMMENT)
- %\generateglossary            % Uncomment if you have Glossary
+ \generateglossary             % Uncomment if you have Glossary of Terms
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           ADD YOUR CONTENT HERE                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \bodyoftext                   % Switches the style of the document to that required for the body
 
 % SET DOCUMENT SPACING
@@ -199,10 +293,15 @@
  \truedoublespacing            % 2.00x Spacing
  %\triplespacing               % 3.00x Spacing
  %\baselineskip #.##em         % #.##x Spacing
+ 
+% To insert chapters from a seperate tex file use the following commands
+% \insertchapter automatically looks in the Chapters folder and also
+%   appends the file extension (i.e. do NOT include the '.tex')
+\insertchapter{ExampleChapter}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                           ADD YOUR CONTENT HERE                              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input is the standard way of including a seperate tex file
+% \input{"./Chapters/ExampleChapter.tex"}
+
 \chapter{Introduction}\label{ch:Introduction}
   \lipsum[6-8]
   \section{Motivation}\label{sec:Motivation}
@@ -253,16 +352,16 @@
     \lipsum[34-36]
   \section{Future Work}\label{sec:}
     \lipsum[38]\cite{TEST}
-        % \printreferences Prints a reference section at the end of the current chapter
-        %
-        % If the `chapterbib' option is not declaired, \printreferences does nothing
-        %    This allows you to turn end of chapter references on and off easily.
-        %
-        % Note: End of chapter references share references with the Bibliography that
-        %    is REQUIRED at the end of your thesis, so the numbering of the end of 
-        %    chapter references may not start at 1 and may not increment by one.
-        \printreferences 
-\input{"./Chapters/ExampleChapter.tex"}
+	
+  % \printreferences Prints a reference section at the end of the current chapter
+  %
+  % If the `chapterbib' option is not declaired, \printreferences does nothing
+  %    This allows you to turn end of chapter references on and off easily.
+  %
+  % Note: End of chapter references share references with the Bibliography that
+  %    is REQUIRED at the end of your thesis, so the numbering of the end of 
+  %    chapter references may not start at 1 and may not increment by one.
+  \printreferences 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 BIBLIOGRAPHY                                 %
@@ -308,8 +407,12 @@
   \section{Section 2}\label{sec:}
     \lipsum[38]
 
+% To insert appendices from a seperate tex file use the following commands
+% \insertappendix automatically looks in the Appendices folder and also
+%   appends the file extension (i.e. do NOT include the '.tex'
 \insertappendix{Appendix_Name}
 
-\insertappendix{PDF_Appendix}
+% \input is the standard way of including a seperate tex file
+\input{"./Appendices/PDF_Appendix.tex"}
 
 \end{document}

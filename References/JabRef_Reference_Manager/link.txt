@@ -1,0 +1,1 @@
+https://builds.jabref.org/master/
