@@ -25,8 +25,9 @@ Compliant with the FGSR Standards for submitting a thesis, including conversion 
   <a href="#download">Download</a> •
   <a href="#license">License</a>
 </p>
-
-![screenshot](screenshot.png)
+<p align="center">
+    <img src="screenshot.png" width="60%">  
+</p>
 
 ## About
 ### The Long Story Why I Made This
