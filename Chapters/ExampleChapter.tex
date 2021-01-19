@@ -154,20 +154,20 @@ This sentence shows how a gap in the citations is handled \cite{testone,cite2,ci
   \clearpage % forces the remaining images (floats to be placed)
   \section{Equations}
   The following equation has no referencing number:
-  \nonumeq{E = & m\ c^2}
+  \nonumeq{E & = m\ c^2}
   
   \Cref{eq:quickEq} has a reference to it though. Or for more control the source for \Cref{eq:quickEq} can be written out fully as it was for \Cref{eq:quickEq2}.
   
-  \numeq{pi = & 3.1415...}{eq:quickEq} % shorthand for the following way of writing equations.
+  \numeq{pi & = 3.1415...}{eq:quickEq} % shorthand for the following way of writing equations.
   \begin{align}\label{eq:quickEq2}
-    e = & 2.7183...
+    e & = 2.7183...
   \end{align}
   
   If you have multiple equations that you want arranged very neatly, use the align environment and you can assign individual equations numbers as shown in \Cref{eq:multiref:a,eq:multiref:b,eq:multiref:c}.
   \begin{align}%Note: Alignment happens at the "=" character
-    \label{eq:multiref:a} Equation1 = & 1 + 1\\
-    \label{eq:multiref:b} Equation2 = & 2 + 2\\
-    \label{eq:multiref:c} Equation3 = & 3 + 3
+    \label{eq:multiref:a} Equation1 & = 1 + 1\\
+    \label{eq:multiref:b} Equation2 & = 2 + 2\\
+    \label{eq:multiref:c} Equation3 & = 3 + 3
   \end{align}
   
   
