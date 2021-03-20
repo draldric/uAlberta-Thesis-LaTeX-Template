@@ -86,7 +86,7 @@ I love hearing about the incredible successes that we are able to accomplish wit
 
 ## Authors
 
-* **Daniel Aldrich** - [draldric](https://github.com/draldric) - [Website](draldric.github.io)
+* **Daniel Aldrich** - [draldric](https://github.com/draldric) - [Website](https://draldric.github.io/)
 
 ## License
 
