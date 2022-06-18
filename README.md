@@ -2,8 +2,8 @@
   Welcome to the (Un)Offical uAlberta Thesis LaTeX Template
 </h1>
 <p align="center">
-  <a href="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/tag/V1.4.1">
-    <img src="https://img.shields.io/badge/Current-V1.4.1-green">  
+  <a href="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/tag/V1.5.0">
+    <img src="https://img.shields.io/badge/Current-V1.5.0-green">  
   </a>
   <a href="/LICENSE.md">
     <img src="https://img.shields.io/badge/License-MIT-orange">

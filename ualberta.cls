@@ -4,7 +4,7 @@
 %%                               Daniel Aldrich                               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-%       Copyright (c) 2020 Daniel Aldrich                                      %
+%       Copyright (c) 2022 Daniel Aldrich                                      %
 %                                                                              %
 %       Permission is hereby granted, free of charge, to any person            %
 %       obtaining a copy of this software and associated documentation         %
@@ -30,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{ualberta}
-              [2020/11/26 V:1.4.0 ualberta Document Class]
+              [2022/06/18 V:1.5.0 ualberta Document Class]
 \usepackage{nomencl}
 \makenomenclature
 
@@ -107,11 +107,38 @@
 \setcounter{baseSection}{0}
 
 \def\PhD{Doctor of Philosophy}
-\def\MSc{Master of Science}
 \def\PHD{Doctor of Philosophy}
-\def\MSC{Master of Science}
 \def\phd{Doctor of Philosophy}
+
+\def\MSc{Master of Science}
+\def\MSC{Master of Science}
 \def\msc{Master of Science}
+
+\def\MEd{Master of Education}
+\def\MED{Master of Education}
+\def\med{Master of Education}
+
+\def\MBA{Master of Business Administration}
+\def\mba{Master of Business Administration}
+
+\def\MAc{Master of Accounting}
+\def\mac{Master of Accounting}
+
+\def\MFM{Master of Financial Management}
+\def\mfm{Master of Financial Management}
+
+\def\MA{Master of Arts}
+\def\ma{Master of Arts}
+
+\def\MN{Master of Nursing}
+\def\mN{Master of Nursing}
+
+\def\LLM{Master of Laws}
+\def\llm{Master of Laws}
+
+\def\MMus{Master of Music}
+\def\MMUS{Master of Music}
+\def\mmus{Master of Music}
 
 \def\@year{\number\year}
 \newcommand\@ptsize{}

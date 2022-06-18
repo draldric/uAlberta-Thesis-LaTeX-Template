@@ -11,8 +11,8 @@
     https://ctan.org/pkg/amsmath
 
 ## amssymb   
-    
-    
+    Basic LATEX support for the symbol fonts is provided by amsfonts.sty, with names of individual symbols defined in amssymb.sty. The Euler fonts are supported by separate packages; details can be found in the documentation.
+    https://ctan.org/pkg/amsfonts
 
 ## booktabs   
     The package enhances the quality of tables in LATEX, providing extra commands as well as behind-the-scenes optimisation. Guidelines are given as to what constitutes a good table in this context. From version 1.61, the package offers longtable compatibility.
@@ -47,7 +47,7 @@
     https://ctan.org/pkg/inputenc
 
 ## lipsum   
-    his package gives you easy access to the Lorem Ipsum dummy text; an option is available to separate the paragraphs of the dummy text into TEX-paragraphs.
+    This package gives you easy access to the Lorem Ipsum dummy text; an option is available to separate the paragraphs of the dummy text into TEX-paragraphs.
     https://ctan.org/pkg/lipsum
 
 ## listings   
@@ -81,6 +81,10 @@
 ## pdfpages
     This package simplifies the inclusion of external multi-page PDF documents in LATEX documents. Pages may be freely selected and similar to psnup it is possible to put several logical pages onto each sheet of paper. Furthermore a lot of hypertext features like hyperlinks and article threads are provided. The package supports pdfTEX (pdfLATEX) and VTEX. With VTEX it is even possible to use this package to insert PostScript files, in addition to PDF files.
     https://ctan.org/pkg/pdfpages
+
+## pgfplots
+    PGFPlots draws high-quality function plots in normal or logarithmic scaling with a user-friendly interface directly in TEX. The user supplies axis labels, legend entries and the plot coordinates for one or more plots and PGFPlots applies axis scaling, computes any logarithms and axis ticks and draws the plots, supporting line plots, scatter plots, piecewise constant plots, bar plots, area plots, mesh-- and surface plots and some more.
+    https://ctan.org/pkg/pgfplots
 
 ## subcaption   
     The package provides a means of using facilities analagous to those of the caption package, when writing captions for subfigures and the like.
