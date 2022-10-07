@@ -965,9 +965,9 @@
 	\onecolumn
 \fi
 
-\include{includeTheorems}
+\input{includeTheorems}
 
-\include{includePackages}
+\input{includePackages}
 
 \inputencoding{utf8}
 
@@ -985,7 +985,7 @@
 		\printbibliography[segment=\the\numexpr\thebaseSection\relax,heading=subbibintoc]
 	\fi
 }
-\include{includeSymbols}
+\input{includeSymbols}
 
 
 \oddsidemargin 0.5in
@@ -996,6 +996,6 @@
 \headsep 0in
 \textheight 9in
 
-\include{listingCodeFormatting}
+\input{listingCodeFormatting}
 
 \endinput
