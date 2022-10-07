@@ -969,9 +969,6 @@
 
 \include{includePackages}
 
-\if@pdfa
-	\usepackage[a-3b]{pdfx}
-\fi
 \inputencoding{utf8}
 
 \newcommand{\insertappendix}[1]{

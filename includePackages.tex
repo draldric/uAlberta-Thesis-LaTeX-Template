@@ -23,7 +23,10 @@
 \usepackage{pdfpages}
 \usepackage{xparse}
 \usepackage{ifthen}
-\usepackage{hyphenat} 
+\usepackage{hyphenat}
+\if@pdfa
+	\usepackage[a-3b]{pdfx}
+\fi
 \usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{inputenc}
