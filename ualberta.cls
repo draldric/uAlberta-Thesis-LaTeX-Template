@@ -310,7 +310,7 @@
 					~\\[0.5\baselineskip]
 				{\@author}
 			\end{center}
-			~\\[3\baselineskip]
+			\vspace{5\baselineskip}
 
 			\begin{center}
 				A thesis submitted in partial fulfillment of the requirements for the degree of
@@ -320,7 +320,7 @@
 			\end{center}
 			\centerline{\@faculty\@department}
 			\centerline{University of Alberta}
-			~\\[6.5\baselineskip]
+			\vspace{8.5\baselineskip}
 
 			\begin{center}
 				\copyright{} \@author, \@convocationdate
