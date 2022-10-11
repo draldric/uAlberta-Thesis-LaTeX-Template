@@ -310,7 +310,7 @@
 					~\\[0.5\baselineskip]
 				{\@author}
 			\end{center}
-			~\\[3\baselineskip]
+			\vspace{5\baselineskip}
 
 			\begin{center}
 				A thesis submitted in partial fulfillment of the requirements for the degree of
@@ -320,7 +320,7 @@
 			\end{center}
 			\centerline{\@faculty\@department}
 			\centerline{University of Alberta}
-			~\\[6.5\baselineskip]
+			\vspace{8.5\baselineskip}
 
 			\begin{center}
 				\copyright{} \@author, \@convocationdate
@@ -965,13 +965,10 @@
 	\onecolumn
 \fi
 
-\include{includeTheorems}
+\input{includeTheorems}
 
-\include{includePackages}
+\input{includePackages}
 
-\if@pdfa
-	\usepackage[a-3b]{pdfx}
-\fi
 \inputencoding{utf8}
 
 \newcommand{\insertappendix}[1]{
@@ -988,7 +985,7 @@
 		\printbibliography[segment=\the\numexpr\thebaseSection\relax,heading=subbibintoc]
 	\fi
 }
-\include{includeSymbols}
+\input{includeSymbols}
 
 
 \oddsidemargin 0.5in
@@ -999,6 +996,6 @@
 \headsep 0in
 \textheight 9in
 
-\include{listingCodeFormatting}
+\input{listingCodeFormatting}
 
 \endinput
