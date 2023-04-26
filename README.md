@@ -1,5 +1,5 @@
 <h1 align="center">
-  Welcome to the (Un)Offical uAlberta Thesis LaTeX Template
+  Welcome to the (Un)Official uAlberta Thesis LaTeX Template
 </h1>
 <p align="center">
   <a href="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/tag/V1.5.0">
@@ -17,6 +17,8 @@
 A LaTeX template for the University of Alberta. 
 </br>
 Compliant with the FGSR Standards for submitting a thesis, including conversion to PDF/A.
+</br>
+For more information on the template, please visit the dedicated website at: https://ualberta-thesis.daniel-aldrich.ca 
 </p>
 
 <p align="center">
@@ -79,20 +81,13 @@ Additionally, because lets be honest you are here because you want to spend less
 
 You can [download](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/) the latest version of the template.
 
-## Emailware
+## Support this Project
 
-This template is [emailware](https://en.wiktionary.org/wiki/emailware). 
-
-If you liked using this template or it has helped you in any way, I would like you to send me an email at <draldric@ualberta.ca>.
-
-I would love to hear about anything you have to say about this template... how great it is, how bad it is, how unintutitive it is, any suggestions, or new features... whatever the case this is what lets this template grow.
-
-Even if this template just helped you and you don't have much to say, let me know what you accomplished because of your hard work! 
-I love hearing about the incredible successes that we are able to accomplish within our amazing community.
+If you find this template useful and would like to support its development, please consider sending a donation via e-transfer to [donate@daniel-aldrich.ca](donate@daniel-aldrich.ca). Please include "LaTeX Template Donation" in the message section of your e-transfer. Your contribution will help ensure that this template remains free and open-source for all to use.
 
 ## Authors
 
-* **Daniel Aldrich** - [draldric](https://github.com/draldric) - [Website](https://draldric.github.io/)
+* **Daniel Aldrich** - [@draldric](https://github.com/draldric) - [Website](https://daniel-aldrich.ca/)
 
 ## License
 
