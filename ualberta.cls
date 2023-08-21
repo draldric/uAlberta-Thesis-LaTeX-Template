@@ -4,7 +4,7 @@
 %%                               Daniel Aldrich                               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-%       Copyright (c) 2022 Daniel Aldrich                                      %
+%       Copyright (c) 2023 Daniel Aldrich                                      %
 %                                                                              %
 %       Permission is hereby granted, free of charge, to any person            %
 %       obtaining a copy of this software and associated documentation         %
@@ -30,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{ualberta}
-              [2022/06/18 V:1.5.0 ualberta Document Class]
+              [2023/08/21 V:2.0.0 ualberta Document Class]
 \usepackage{nomencl}
 \makenomenclature
 
@@ -105,6 +105,33 @@
 
 \newcounter{baseSection}
 \setcounter{baseSection}{0}
+
+\newcommand\addlatexfiles[1]{\renewcommand\@addlatexfiles{#1}}
+\newcommand\@addlatexfiles{}
+
+\newcommand\addprefatory[1]{\renewcommand\@addprefatory{#1}}
+\newcommand\@addprefatory{}
+
+\newcommand\addchapters[1]{\renewcommand\@addchapters{#1}}
+\newcommand\@addchapters{}
+
+\newcommand\addappendices[1]{\renewcommand\@addappendices{#1}}
+\newcommand\@addappendices{}
+
+\newcommand\addmedia[1]{\renewcommand\@addmedia{#1}}
+\newcommand\@addmedia{}
+
+\newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia{}#1}}
+\newcommand\@addimages{}
+
+\newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia{}#1}}
+\newcommand\@addtables{}
+
+\newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia{}#1}}
+\newcommand\@addcode{}
+
+\newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia{}#1}}
+\newcommand\@addpdf{}
 
 \def\PhD{Doctor of Philosophy}
 \def\PHD{Doctor of Philosophy}
@@ -965,18 +992,12 @@
 	\onecolumn
 \fi
 
-\input{includeTheorems}
-
-\input{includePackages}
-
-\inputencoding{utf8}
-
 \newcommand{\insertappendix}[1]{
-	\input{"./Appendices/#1.tex"}
+	\input{"\@addappendices#1.tex"}
 }
 
 \newcommand{\insertchapter}[1]{
-	\input{"./Chapters/#1.tex"}
+	\input{"\@addchapters#1.tex"}
 }
 
 \gdef\printreferences{
@@ -985,8 +1006,6 @@
 		\printbibliography[segment=\the\numexpr\thebaseSection\relax,heading=subbibintoc]
 	\fi
 }
-\input{includeSymbols}
-
 
 \oddsidemargin 0.5in
 \evensidemargin 0in
@@ -996,6 +1015,13 @@
 \headsep 0in
 \textheight 9in
 
-\input{listingCodeFormatting}
+\newcommand{\insertlatexfile}[1]{
+	\input{"\@addlatexfiles#1.tex"}
+}
+
+% \input{"\@addlatexfiles includeTheorems"}
+% \input{"\@addlatexfiles includePackages"}
+% \input{"\@addlatexfiles includeSymbols"}
+% \input{"\@addlatexfiles listingCodeFormatting"}
 
 \endinput

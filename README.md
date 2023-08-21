@@ -65,12 +65,12 @@ Additionally, because lets be honest you are here because you want to spend less
   - [TeXnicCenter](https://www.texniccenter.org/), 
   - [TeXStudio](https://www.texstudio.org/), or 
   - [TeXMaker](https://www.xm1math.net/texmaker/).
-- Have a pesky paper previously written in word? or have a stickler proffessor who will not read a PDF file:
-  - [pandoc](https://www.pandoc.org/) the increadible document conversion tool.
+- Have a pesky paper previously written in word? or have a stickler professor who will not read a PDF file:
+  - [pandoc](https://www.pandoc.org/) the incredible document conversion tool.
     - LaTeX to Word: pandoc input.tex --filter pandoc-crossref --bibliography=references.bib --csl=ieee.csl -o output.docx
     - Word to LaTeX: pandoc input.docx --filter pandoc-crossref -o output.tex
     - NOTE: to have proper citations in word you need to download a *.csl file - [CSL Repository](https://github.com/citation-style-language/styles)
-    - ALSO NOTE: The conversions can be lossly and is meant to only assist with the conversions (Please double check the conversion results are satifactory do not assume they are)
+    - ALSO NOTE: The conversions can be lossly and is meant to only assist with the conversions (Please double check the conversion results are satisfactory do not assume they are)
   
 ### Prerequisites
 1. A LaTeX Distribution
