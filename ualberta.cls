@@ -31,21 +31,11 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{ualberta}
               [2023/08/21 V:2.0.0 ualberta Document Class]
-\usepackage{nomencl}
-\makenomenclature
+              
 
 \usepackage{etoolbox}
 
-\renewcommand\nomgroup[1]{%
-	\item[\bfseries
-	\ifstrequal{#1}{A}{Constants}{%
-	\ifstrequal{#1}{B}{Latin}{%
-	\ifstrequal{#1}{C}{Greek}{}}}]%
-}
 
-\renewcommand{\nomname}{List of Symbols}
-\newcommand{\nomunit}[1]{%
-\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
 
 \newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
 \newcommand\@convocationdate{}
@@ -897,17 +887,6 @@
 
 \newcommand\makededication{\chapter*{}\begin{center}\em \@dedication \em\end{center}}
 
-\usepackage[acronym,nonumberlist]{glossaries}
-\makenoidxglossaries
-
-\newcommand{\addacronym}[2]{\newacronym{#1}{#1}{#2}}
-
-\newcommand{\addterm}[2]{\newglossaryentry{#1}{name={#1},description={#2}}}
-
-\newcommand\generateglossary{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[title={\glossaryname}]}
-
-\newcommand\abbreviations{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
-
 \def\bodyoftext{
 	\newpage
 	\setlength{\parindent}{2.6ex}
@@ -916,26 +895,7 @@
 	\pagenumbering{arabic}
 }
 
-\newenvironment{theindex}
-   {\if@twocolumn
-		\@restonecolfalse
-	\else
-		\@restonecoltrue
-	\fi
-	\twocolumn[\@makeschapterhead{\indexname}]%
-	\@mkboth{\MakeUppercase\indexname}%
-			{\MakeUppercase\indexname}%
-	\thispagestyle{plain}\parindent\z@
-	\parskip\z@ \@plus .3\p@\relax
-	\columnseprule \z@
-	\columnsep 35\p@
-	\let\item\@idxitem}
-	{\if@restonecol\onecolumn\else\clearpage\fi}
 
-\newcommand\@idxitem{\par\hangindent 40\p@}
-\newcommand\subitem{\@idxitem \hspace*{20\p@}}
-\newcommand\subsubitem{\@idxitem \hspace*{30\p@}}
-\renewcommand\indexspace{\par \vskip 10\p@ \@plus5\p@ \@minus3\p@\relax}
 \renewcommand\footnoterule{%
 	\kern-3\p@
 	\hrule\@width.4\columnwidth
@@ -953,7 +913,7 @@
 \newcommand\bibname{Bibliography}
 \newcommand\indexname{Index}
 \newcommand\figurename{Figure}
-\renewcommand\tablename{Table}
+\newcommand\tablename{Table}
 \newcommand\platename{Plate}
 \newcommand\partname{Part}
 \newcommand\chaptername{Chapter}
@@ -961,7 +921,7 @@
 \newcommand\abstractname{Abstract}
 \newcommand\prefacename{Preface}
 \newcommand\abbreviationsname{Abbreviations}
-\renewcommand\glossaryname{Glossary of Terms}
+\newcommand\glossaryname{Glossary of Terms}
 \newcommand\acknowledgementname{Acknowledgements}
 
 \newcommand\appendix@chapter[1]{%
@@ -1016,12 +976,7 @@
 \textheight 9in
 
 \newcommand{\insertlatexfile}[1]{
-	\input{"\@addlatexfiles#1.tex"}
+    \input{"\@addlatexfiles#1.tex"}
 }
-
-% \input{"\@addlatexfiles includeTheorems"}
-% \input{"\@addlatexfiles includePackages"}
-% \input{"\@addlatexfiles includeSymbols"}
-% \input{"\@addlatexfiles listingCodeFormatting"}
 
 \endinput

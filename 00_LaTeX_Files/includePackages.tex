@@ -1,38 +1,96 @@
-\usepackage{array}
-\usepackage[normalem]{ulem}
-\usepackage[hyphens]{url}
+\usepackage{nomencl}
+    \makenomenclature
+    \renewcommand\nomgroup[1]{%
+        \item[\bfseries
+        \ifstrequal{#1}{A}{Constants}{%
+        \ifstrequal{#1}{B}{Latin}{%
+        \ifstrequal{#1}{C}{Greek}{}}}]%
+    }
+    \renewcommand{\nomname}{List of Symbols}
+    \newcommand{\nomunit}[1]{%
+    \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+
+\usepackage[acronym,nonumberlist]{glossaries}
+    \makenoidxglossaries
+
+    \newcommand{\addacronym}[2]{\newacronym{#1}{#1}{#2}}
+
+    \newcommand{\addterm}[2]{\newglossaryentry{#1}{name={#1},description={#2}}}
+
+    \newcommand\generateglossary{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[title={\glossaryname}]}
+
+    \newcommand\abbreviations{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
+
+    \makeatletter
+    \newenvironment{theindex}
+       {\if@twocolumn
+            \@restonecolfalse
+        \else
+            \@restonecoltrue
+        \fi
+        \twocolumn[\@makeschapterhead{\indexname}]%
+        \@mkboth{\MakeUppercase\indexname}%
+                {\MakeUppercase\indexname}%
+        \thispagestyle{plain}\parindent\z@
+        \parskip\z@ \@plus .3\p@\relax
+        \columnseprule \z@
+        \columnsep 35\p@
+        \let\item\@idxitem}
+        {\if@restonecol\onecolumn\else\clearpage\fi}
+
+    \newcommand\@idxitem{\par\hangindent 40\p@}
+    \newcommand\subitem{\@idxitem \hspace*{20\p@}}
+    \newcommand\subsubitem{\@idxitem \hspace*{30\p@}}
+    \renewcommand\indexspace{\par \vskip 10\p@ \@plus5\p@ \@minus3\p@\relax}
+    \makeatother
+
 \usepackage{lipsum}
-\usepackage{xmpincl}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage{tabularx}
-\usepackage{pgfplots}
-\usepackage{makecell}
-\usepackage{subcaption}
-\usepackage{rotating}
-\usepackage{booktabs}
-\usepackage{multicol}
-\usepackage{multirow}
+
+\usepackage{array}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{pdflscape}
-\usepackage{textcomp}
+
+\usepackage[normalem]{ulem}
+\usepackage[hyphens]{url}
+\usepackage{xmpincl}
+\usepackage{xcolor}
+
+\usepackage{subcaption}
+
+\usepackage{graphicx}
+
+\usepackage{tabularx}
 \usepackage{longtable}
-\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{makecell}
+
+\usepackage{pgfplots}
+
 \usepackage{pdfpages}
+\usepackage{rotating}
+\usepackage{pdflscape}
+
+\usepackage{textcomp}
+
+\usepackage{listings}
+
+\usepackage{hyphenat}
+
 \usepackage{xparse}
 \usepackage{ifthen}
-\usepackage{hyphenat}
 \if@pdfa
 	\usepackage[a-3b]{pdfx}
 \fi
+
 \usepackage{hyperref}
+    \hypersetup{hidelinks,pdfencoding=unicode,breaklinks=true}
+    \urlstyle{same}
+    \Urlmuskip=0mu plus 1mu\relax
 \usepackage{cleveref}
 \usepackage[utf8]{inputenc}
-\hypersetup{hidelinks,pdfencoding=unicode,breaklinks=true}
-\urlstyle{same}
-\Urlmuskip=0mu plus 1mu\relax
 \usepackage[
 	style=ieee,
 	dashed=false,
