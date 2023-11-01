@@ -52,7 +52,7 @@
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
   % Write command to allow the nomenclature to be generated properly.
 
-\documentclass[pdfa,chapterbib]{ualberta}
+\documentclass[pdfa, oneside]{ualberta}
   % OPTIONS FOR ualberta.cls:
   % chapterbib - \printreferences now prints references at the end of a chapter
   % 
@@ -67,6 +67,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LaTeX FILES LOCATION
   \addlatexfiles{./00_LaTeX_Files/}
+  \insertlatexfile{includePackages} % LOAD ALL PACKAGES TO BE INCLUDED
 
 % PREFATORY LOCATION
   \addprefatory{./01_Prefatory/}
@@ -94,9 +95,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                         ADD ADDITIONAL RESOURCES                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \insertlatexfile{includePackages}
   \insertlatexfile{includeTheorems}
-  \insertlatexfile{includeSymbols}
+  \insertlatexfile{includeMacros}
   \insertlatexfile{listingCodeFormatting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -131,13 +131,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % NOMENCLATURE
-  \input{./01_Prefatory/Nomenclature.tex}
+  %\input{./01_Prefatory/Nomenclature.tex}
 
 % ACRONYMS (Do NOT include periods at the end)
-  \input{./01_Prefatory/Acronyms.tex}
+  %\input{./01_Prefatory/Acronyms.tex}
 
 % GLOSSARY (Do NOT include periods at the end)
-  \input{./01_Prefatory/Glossary.tex}
+  %\input{./01_Prefatory/Glossary.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,8 +148,8 @@
   \maketitle                   % Creates the Title Page
   \makeabstract                % Creates the Abstract Page
   \makepreface                 % Creates the Preface Page
-  %\makequote                  % Creates the Quote Page
-  %\makededication             % Creates the Dedication Page
+  \makequote                  % Creates the Quote Page
+  \makededication             % Creates the Dedication Page
   \acknowledgements            % Creates the Acknowledgements Page
 
 % SET ToC...etc SPACING
@@ -193,6 +193,8 @@
 \insertchapter{01_Introduction}
 
 \insertchapter{02_Example_Chapter}
+
+\insertchapter{03_JabRef}
 
 \insertchapter{0X_Background}
 

@@ -895,7 +895,6 @@
 	\pagenumbering{arabic}
 }
 
-
 \renewcommand\footnoterule{%
 	\kern-3\p@
 	\hrule\@width.4\columnwidth

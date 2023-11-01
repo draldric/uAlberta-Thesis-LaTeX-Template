@@ -1,10 +1,90 @@
 \chapter{Example Chapter}\label{ch:ExampleChapter}
-  This chapter aims to provide examples how how to structure and create specific components in your thesis document. 
-  The very first one is showing a citation, like the one at the end of this sentence \cite{TEST}. 
-  The second shows how to create more than one citation and how they are grouped \cite{testone,cite2,cite3,cite4,cite5}.
-  This sentence shows how a gap in the citations is handled \cite{testone,cite2,cite3,cite5}. 
+  This chapter aims to provide examples how how to structure and create specific components in your thesis document.
+  Throughout this section, \LaTeX's automatic placement for figures and tables will be disabled in most cases.
+  This is being done to add a specific flow to \textbf{THIS DOCUMENT}; this should be avoided in one's thesis as it can lead to poor placement of figures, tables, and other ``floats'', as well as cause unnecessary white space.
+  \section{Cross-References and Citations}\label{sec:citref}
+  This section will be showing off some of the different ways to include ``citations'' and ``cross-references'' within your document.
+  Note that \textbf{cross-references} in \LaTeX{} utilize \textbf{ref} as a command, while one might think that this is short for reference this is not the case citation/references utilize the \path{\cite{}} commands.
+  
+  \subsection{Cross-References}\label{subsec:cross-reference}
+      In \LaTeX{}, references will ``reference'' a \path{\label{Reference:Label}} command. 
+      This section has the following command to define the the section:
+      \begin{verbatim}
+    \verb|\section{Citations and References}\label{sec:citref}|\end{verbatim}
+      By using \verb|\ref{sec:citref}|, this allows you to insert a reference that look like this: \ref{sec:citref}.
+      Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\path{Section~\ref{sec:citref}}) and this will display like this: Section~\ref{sec:citref}.
+      Note to ensure the reference is not split we add a non-breaking space (\path{~}) to prevent \LaTeX{} from adding a linebreak.
+      
+      While using the ref command, you might ask ``\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}''
+      The answer is to provide more flexibility to the user.
+      However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
+      Some of these are provided by the \textbf{hyperref} and \textbf{cleveref} packages.
+      To include these packages add the following lines to the bottom of your preamble (order matters, cleveref needs to be after hyperref):
+      \begin{verbatim}
+    \usepackage{hyperref}
+    \usepackage[nameinlink]{cleveref}\end{verbatim}
+      With these packages installed we can now use the commands in \Cref{tab:reftable}.\footnote{Note that becase the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
+      \begin{table}[H]
+        \caption{Built-in, hyperref, and cleveref commands and outputs}\label{tab:reftable}
+        \centering
+        \begin{tabularx}{0.5\textwidth}{CC} 
+          \toprule
+            \textbf{Command} & \textbf{Output} \\
+          \midrule
+            \multicolumn{2}{c}{built-in}\\
+            \verb|\ref{}|           & \ref{tab:reftable} \\
+            \verb|\pageref{}|       & \pageref{tab:reftable} \\
+          \midrule
+            \multicolumn{2}{c}{hyperref}\\
+            \verb|\autoref{}|       & \autoref{tab:reftable} \\
+            %\verb|\autoref*{}|      & \autoref*{tab:reftable} \\
+          \midrule
+            \multicolumn{2}{c}{cleveref}\\
+            \verb|\cref{}|          & \cref{tab:reftable} \\
+            \verb|\Cref{}|          & \Cref{tab:reftable} \\
+            %\verb|\cref*{}|         & \cref*{tab:reftable} \\
+            %\verb|\Cref*{}|         & \Cref*{tab:reftable} \\
+            \verb|\cpageref{}|      & \cpageref{tab:reftable} \\
+            \verb|\Cpageref{}|      & \Cpageref{tab:reftable} \\
+            \verb|\namecref{}|      & \namecref{tab:reftable} \\
+            \verb|\nameCref{}|      & \nameCref{tab:reftable} \\
+            %\verb|\lcnamecref{}|    & \lcnamecref{tab:reftable} \\
+            %\verb|\labelcref{}|     & \labelcref{tab:reftable} \\
+            %\verb|\labelcpageref{}| & \labelcpageref{tab:reftable} \\
+          \bottomrule
+        \end{tabularx}
+        \end{table}
+        Further, the \textbf{cleveref} also includes features that allows for the auto sorting and combining of references.
+        
+        {\small{\path{\Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,        fig:quadImage}}}}
+        
+    Noting that there are \textbf{NO} spaces between the labels; this will produce: \Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}. Allowing one to quickly and efficiently keep references up-to-date and consistent in their style.
+    More examples of the use of the \textbf{cleveref} cross-referencing is found through the rest of the \nameCref{ch:ExampleChapter}.
+  \subsection{Citations}\label{subsec:citations}
+      Citations are a lot easier than dealing with the cross-referencing.
+      There are no additional packages required for citations, the built-in ones are feature-rich enough.
+      Now, while there are no additional packages required to make citations in your document, there are in fact a few programs that should help you manage all of your citations/references.
+      These programs can include Mendeley, JabRef, or Zotero; a comparison of the softwares can be found in \Cref{tab:refSoftware}, and more information of the use of JabRef can be found in \Cref{ch:JabRef}.
+      
+      \begin{table}[htbp]
+          \centering
+          \caption{Comparison of Reference Softwares}\label{tab:refSoftware}%
+            \begin{tabularx}{0.9\textwidth}{Lcccr}
+                \toprule
+                    Software & Developer & Version & Free & License \\
+                \midrule
+                    JabRef   & The JabRef Team & 5.11   & Free   & MIT \\
+                    Mendeley & Elsevier          & 2.99.0 & {Free up to 2 GB} & Proprietary \\
+                    Zotero   & CDS               & 6.0.27 & {Free  up to 300 MB} & AGPL \\
+                \bottomrule
+            \end{tabularx}%
+      \end{table}%
+      
+      Single citations can be included with the \path{\cite{citationKey}} command, the one at the end of this sentence is created with the \path{\cite{TEST}} command\cite{TEST}. 
+      Multiple citations can be included in a single cite command by adding commas in between the citation keys. The citation at the end of this sentence shows how to create more than one citation and how they are grouped together, it is created with the \path{\cite{testone,cite2,cite3,cite4,cite5}} command\cite{testone,cite2,cite3,cite4,cite5}.
+      Finally this sentence shows how a gap in the citations is handled, this is created with the\path{\cite{testone,cite2,cite3,cite5}} command\cite{testone,cite2,cite3,cite5}. 
   \section{Tables}
-	
+  Within this section we will explore some of the typical uses for a table, how to create them, and how to create a consistent look throughout your thesis.
   % X - Justified (Equal Spacing)
   % L - Left Aligned (Equal Spacing)
   % C - Center Aligned (Equal Spacing)
@@ -12,12 +92,39 @@
   % l - Left Aligned (Fit to Contents)
   % c - Center Aligned (Fit to Contents)
   % r - Right Aligned (Fit to Contents)
+  In the following table we are using the packages \path{\usepackage{tabularx}}.
+  This package allows us to set the width of the table and inform it which columns should be scaled to fit the the data.
+  \textbf{Tabularx} uses similar formats to the tabular environment, except there is an additional column type: \path{X}.
+  This column type 
   
-  \begin{table}[!htb]
+  We can also defined the following additional column types:
+  \begin{itemize}
+    \item \textbf{C} - Centred Auto Sizing Column\\\path{\newcolumntype{C}{>{\centering\arraybackslash}X}}
+    \item \textbf{L} - Left Justified Auto Sizing Column \\\path{\newcolumntype{L}{>{\raggedright\arraybackslash}X}}
+    \item \textbf{R} - Right Justified Auto Sizing Column \\\path{\newcolumntype{R}{>{\raggedleft\arraybackslash}X}}
+  \end{itemize}
+  
+  \begin{table}[H]
+    \caption{This is a showing the default \textbf{tabularx} column types}
+    \centering
+    \begin{tabularx}{0.65\textwidth}{cC} 
+      % Equally spaced cells that are left, centre, and right aligned. 
+      % The entire table will be 75% the width of the text.
+      \hline
+      \textbf{Identifier} & \textbf{Description} \\\hline
+      l & Left Aligned (Fit to Contents) \\
+      c & Centre Aligned (Fit to Contents) \\
+      r & Right Aligned (Fit to Contents) \\
+      X & Justified (Equal Spacing) \\\hline
+    \end{tabularx}
+    \label{tab:basicTable}
+  \end{table}
+  
+  \begin{table}[H]
     \caption{This is a basic table}
     \centering
     \begin{tabularx}{0.75\textwidth}{LCR} 
-      % Equally spaced cells that are left, center, and right aligned. 
+      % Equally spaced cells that are left, centre, and right aligned. 
       % The entire table will be 75% the width of the text.
       \hline
       \textbf{Left Aligned Title} & \textbf{Centered Title} & \textbf{Right Aligned Title} \\\hline
@@ -29,20 +136,24 @@
     \label{tab:basicTable}
   \end{table}
   
-  \begin{table}[!htb]
+  \begin{table}[H]
     \caption{This is a complex table.}
     \centering
-    \begin{tabularx}{\textwidth}{lCR}
+    \begin{tabularx}{0.95\textwidth}{lCR}
       % Left most cell is fitted to the content.
-      % The center and right columns are equally spaced cells that are center, and right aligned. 
+      % The centre and right columns are equally spaced cells that are centre, and right aligned. 
       % The entire table will be 75% the width of the text.
-      \hline
-      \multirow{2}{*}{\textbf{This is two row\quad}} & \multicolumn{2}{c}{\textbf{This is two columns}}\\\cline{2-3} % \cline draws a partial line across cells #-#
-       & \textbf{Centered Title} & \textbf{Right Aligned Title} \\\hline
+      \toprule
+      \multirow{2}{*}{\textbf{This is two row\quad}} & \multicolumn{2}{c}{\textbf{This is two columns}}\\
+      \cmidrule(l{2em}){2-3} % \cmidrule draws a partial line across cells #-#
+       & \textbf{Centered Title} & \textbf{Right Aligned Title} \\
+      \midrule
       \multirow{2}{*}{This is two row} & This is centered & This is right aligned \\
-       & This is centered & This is right aligned \\\cline{1-1}
+       & This is centered & This is right aligned \\
+      \cmidrule(r{2em}){1-1}
       \multirow{2}{*}{This is two row} & This is centered & This is right aligned \\
-       & This is centered & This is right aligned \\\hline
+       & This is centered & This is right aligned \\
+      \bottomrule
     \end{tabularx}
     \label{tab:complexTable}
   \end{table}
@@ -53,14 +164,21 @@
   Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \texttt{\textbackslash{}clearpage} command can be issued before the next section. 
   However, note that this will force the next section to begin on a new page. 
   Note that the first ``figure'' is actually a plate; a plate is the proper title associated with a \textit{photograph}, using the environment `plate' instead of `figure' and command \texttt{\textbackslash{listofplates}} will generate everything for you.
-  \begin{plate}[!htb]
+  \begin{plate}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{example-image}
     \caption{This is an example of a single image plate.}
-    \label{fig:singleImage}
+    \label{plate:singleImage}
   \end{plate}
   
-  \begin{figure}[!htb]
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{example-image}
+    \caption{This is an example of a single figure.}
+    \label{fig:singleImage}
+  \end{figure}
+  
+  \begin{figure}[H]
     \centering
     \begin{subfigure}{0.45\textwidth}
       \includegraphics[width=\textwidth]{example-image}
@@ -77,7 +195,7 @@
     \label{fig:doubleImage}
   \end{figure}
   
-  \begin{figure}[!htb]
+  \begin{figure}[H]
     \centering
     \hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
     \begin{subfigure}{0.45\textwidth}
@@ -102,7 +220,7 @@
     \label{fig:tripleImage1}
   \end{figure}
   
-  \begin{figure}[!htb]
+  \begin{figure}[H]
     \centering
     \hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
     \begin{subfigure}{0.90\textwidth+1em} % 0.9 = 0.45 + 0.45, and 1em is the width of ~
@@ -127,7 +245,7 @@
     \label{fig:tripleImage2}
   \end{figure}
   
-  \begin{figure}[!htb]
+  \begin{figure}[H]
     \centering
     \begin{subfigure}{0.45\textwidth}
       \includegraphics[width=\textwidth]{example-image}
@@ -160,7 +278,7 @@
   \section{Graphs \& Plots}
   In the following section there will be a few examples of how to generate plots.
   For more information on how to create plots, \href{https://mirror.its.dal.ca/ctan/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf}{\textcolor{blue}{\underline{here}}} is the manual for pgfplots.
-  \begin{figure}[htb!]
+  \begin{figure}[H]
     \centering
     \begin{tikzpicture}
       \begin{axis}[
@@ -190,7 +308,7 @@
     \caption{Plot of two parabola.}\label{fig:parabolaplot}
   \end{figure}
   
-  \begin{figure}[htb!]
+  \begin{figure}[H]
     \centering
     \begin{tikzpicture}
       \begin{axis}[
@@ -215,7 +333,7 @@
     \caption{Example of a Bar Graph.}\label{fig:bargraph}
   \end{figure}
   
-  \begin{figure}[htb!]
+  \begin{figure}[H]
     \centering
     \begin{tikzpicture}
       \begin{axis}[
@@ -236,7 +354,7 @@
     \caption{Example of a 3D Plot}\label{fig:3dplot}
   \end{figure}
   
-  \begin{figure}[htb!]
+  \begin{figure}[H]
     \centering
     \begin{tikzpicture}
       \begin{axis}[
@@ -257,15 +375,20 @@
   
   \clearpage
   \section{Equations}
+  There are many ways to include formulas in your thesis. 
+  This section will provide some different ways of adding them (inline and standalone), as well as provide some ways of referencing the equations.
+  
+  To start the simplest way to add an equation is using the built-in \LaTeX{} math mode. 
+  To enter and exit math mode one just needs to use the \path{$<Equation Goes Here>$} symbols around an equation.
+  An example of using math mode to get an inline equation is: $\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}$.
   The following equation has no referencing number:
-  \nonumeq{E & = m\ c^2}
+  \nonumeq{E = m\ c^2}
   
-  \Cref{eq:quickEq} has a reference to it though. Or for more control the source for \Cref{eq:quickEq} can be written out fully as it was for \Cref{eq:quickEq2}.
-  
-  \numeq{pi & = 3.1415...}{eq:quickEq} % shorthand for the following way of writing equations.
-  \begin{align}\label{eq:quickEq2}
-    e & = 2.7183...
-  \end{align}
+  \Cref{eq:quickEq} has a reference to it though. Or for more control the source for \Cref{eq:quickEq} can be written out fully as it was for \Cref{eq:quickEq2}.  
+  \numeq{\pi = 3.1415...}{eq:quickEq} % shorthand for the following way of writing equations.
+  \begin{equation}\label{eq:quickEq2}
+    \pi = 3.1415...
+  \end{equation}
   
   If you have multiple equations that you want arranged very neatly, use the align environment and you can assign individual equations numbers as shown in \Cref{eq:multiref:a,eq:multiref:b,eq:multiref:c}.
   \begin{align}%Note: Alignment happens at the "=" character

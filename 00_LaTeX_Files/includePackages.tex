@@ -1,3 +1,4 @@
+
 \usepackage{nomencl}
     \makenomenclature
     \renewcommand\nomgroup[1]{%
@@ -12,13 +13,9 @@
 
 \usepackage[acronym,nonumberlist]{glossaries}
     \makenoidxglossaries
-
     \newcommand{\addacronym}[2]{\newacronym{#1}{#1}{#2}}
-
     \newcommand{\addterm}[2]{\newglossaryentry{#1}{name={#1},description={#2}}}
-
     \newcommand\generateglossary{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[title={\glossaryname}]}
-
     \newcommand\abbreviations{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
 
     \makeatletter
@@ -82,7 +79,7 @@
 \usepackage{xparse}
 \usepackage{ifthen}
 \if@pdfa
-	\usepackage[a-3b]{pdfx}
+       \usepackage[a-3b]{pdfx}
 \fi
 
 \usepackage{hyperref}
@@ -92,10 +89,11 @@
 \usepackage{cleveref}
 \usepackage[utf8]{inputenc}
 \usepackage[
-	style=ieee,
-	dashed=false,
-	citestyle=numeric-comp,
-	backend=bibtex,
-	refsegment=chapter,
-	sorting=none,
-	defernumbers=true]{biblatex}
+    style=ieee,
+    dashed=false,
+    citestyle=numeric-comp,
+    backend=bibtex,
+    refsegment=chapter,
+    sorting=none,
+    defernumbers=true]{biblatex}
+\usepackage{float}
