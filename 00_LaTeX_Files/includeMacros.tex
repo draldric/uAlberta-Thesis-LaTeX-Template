@@ -1,4 +1,4 @@
-%Tablularx Additional Column types (c,l,r work as norm)
+%Tablularx Additional Column types (c,l,r work as normal)
 	%Justified Auto-Width
 		%Use a capitial 'X'
 	%Centered Auto-Width
@@ -10,7 +10,6 @@
 
 \renewcommand{\arraystretch}{1.5}
 
-\newcommand{\comment}[1]{}%
 %Equation Shorthands
 	%Non Numbered Equation
 		\newcommand{\nonumeq}[1]{\begin{equation*}#1\end{equation*}}
@@ -20,31 +19,3 @@
 		\newcommand{\brackS}[1]{\left[#1\right]}
 		\newcommand{\brackR}[1]{\left(#1\right)}
 		\newcommand{\brackC}[1]{\left{#1\right}}
-
-%Common Symbols
-	%Registered Trademark
-		\newcommand\regTM{\textsuperscript{\textregistered{}}}
-	%Unregistered Trademark
-		\newcommand\nonTM{\textsuperscript{\texttrademark{}}}
-	%Copyright
-		\newcommand\cRight{\textsuperscript{\textcopyright{}}}
-	%Copyleft
-		\newcommand\cLeft{\textsuperscript{\textcopyleft{}}}
-	%Degrees
-		\newcommand\degrees{$^\circ$}
-    %Hyphen (To allow hyphenation of words with a dash in them)
-        \def\hyph{-\penalty0\hskip0pt\relax}
-	%Latin
-		\newcommand{\latin}[1]{\em#1\em}
-	%et al.
-		\newcommand\etal{\em et al.\em}
-	%etc
-		\newcommand\etc{\em etc.\em}
-	%e.g.
-		\newcommand\eg{\em e.g.\em}
-	%i.e.
-		\newcommand\ie{\em i.e.\em}
-	%Kevlar
-		\newcommand\Kevlar{Kevlar\regTM{}}
-	%Matlab
-		\newcommand\Matlab{\textsc{Matlab}\regTM{}}

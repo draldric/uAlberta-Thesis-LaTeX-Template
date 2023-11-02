@@ -19,26 +19,34 @@
     \newcommand\abbreviations{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
 
     \makeatletter
-    \newenvironment{theindex}
-       {\if@twocolumn
-            \@restonecolfalse
-        \else
-            \@restonecoltrue
-        \fi
-        \twocolumn[\@makeschapterhead{\indexname}]%
-        \@mkboth{\MakeUppercase\indexname}%
-                {\MakeUppercase\indexname}%
-        \thispagestyle{plain}\parindent\z@
-        \parskip\z@ \@plus .3\p@\relax
-        \columnseprule \z@
-        \columnsep 35\p@
-        \let\item\@idxitem}
-        {\if@restonecol\onecolumn\else\clearpage\fi}
+        \newenvironment{theindex}
+            {
+                \if@twocolumn
+                    \@restonecolfalse
+                \else
+                    \@restonecoltrue
+                \fi
+                \twocolumn[\@makeschapterhead{\indexname}]%
+                \@mkboth{\MakeUppercase\indexname}%
+                        {\MakeUppercase\indexname}%
+                \thispagestyle{plain}\parindent\z@
+                \parskip\z@ \@plus .3\p@\relax
+                \columnseprule \z@
+                \columnsep 35\p@
+                \let\item\@idxitem
+            }
+            {
+                \if@restonecol
+                    \onecolumn
+                \else
+                    \clearpage
+                \fi
+            }
 
-    \newcommand\@idxitem{\par\hangindent 40\p@}
-    \newcommand\subitem{\@idxitem \hspace*{20\p@}}
-    \newcommand\subsubitem{\@idxitem \hspace*{30\p@}}
-    \renewcommand\indexspace{\par \vskip 10\p@ \@plus5\p@ \@minus3\p@\relax}
+        \newcommand\@idxitem{\par\hangindent 40\p@}
+        \newcommand\subitem{\@idxitem \hspace*{20\p@}}
+        \newcommand\subsubitem{\@idxitem \hspace*{30\p@}}
+        \renewcommand\indexspace{\par \vskip 10\p@ \@plus5\p@ \@minus3\p@\relax}
     \makeatother
 
 \usepackage{lipsum}
@@ -97,3 +105,41 @@
     sorting=none,
     defernumbers=true]{biblatex}
 \usepackage{float}
+
+  \usepackage{linegoal}
+
+%% COLOUR DEFINITIONS
+    \definecolor{grey}{rgb}{0.3,0.3,0.3}
+    \definecolor{commentGreen}{rgb}{0,0.8,0}
+    \definecolor{codeGrey}{rgb}{0.9,0.9,0.9}
+    \definecolor{R}{rgb}{0.9,0,0}
+    \definecolor{Y}{rgb}{0.8,0.8,0}
+    \definecolor{G}{rgb}{0,0.75,0}
+    \definecolor{gold}{rgb}{0.4,0.4,0}
+  
+  
+  %% NEW COMMANDS
+    \newcommand{\comment}      [1]{\textcolor{grey}{\textbf{\faCommenting{}} \parbox[t]{\linegoal}{\textit{#1}}}}
+    \newcommand{\danger}       [1]{\scshape{\color{black}\colorbox{red}{\textbf{{\faWarning} DANGER}}} \parbox[t]{\linegoal}{\textbf{\MakeUppercase{#1}}}}
+    \newcommand{\warning}      [1]{\scshape{\color{black}\colorbox{orange}{{\textbf{{\faWarning} WARNING}}}} \parbox[t]{\linegoal}{\textbf{#1}}}
+    \newcommand{\caution}      [1]{\scshape{\color{black}\colorbox{yellow}{{\textbf{{\faWarning} CAUTION}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\notice}       [1]{\scshape{\color{white}\colorbox{black}{{\textbf{\textit{NOTICE}}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\alert}        [1]{\textbf{\faWarning} {\parbox[t]{\linegoal}{#1}}}
+    \newcommand{\note}         [1]{\textbf{\textit{Note: }}\parbox[t]{\linegoal}{\textit{#1}}}
+    \newcommand{\info}         [1]{\textcolor{blue}{\textbf{{\faInfoCircle{}}} \parbox[t]{\linegoal}{#1}}}
+    \newcommand{\question}     [1]{\textcolor{orange}{{\textbf{{\faQuestionCircle}}}} \parbox[t]{\linegoal}{\textbf{#1}}}
+    \newcommand{\answer}       [1]{\-\hspace{4ex}{\scshape{\color{orange}{{\textbf{{\faCheckCircle}}}}}} \parbox[t]{\linegoal}{\textit{#1}}}
+    \newcommand{\qna}          [2]{\textcolor{orange}{{\textbf{{\faQuestionCircle}}}} \textbf{#1}\\\-\hspace{4ex} \parbox[t]{\linegoal}{{\textit{#2}}}}
+    \newcommand{\tip}          [1]{\textcolor{gold}{{\textbf{{\faLightbulbO{}}}} \parbox[t]{\linegoal}{#1}}}
+    \newcommand{\download}     [2]{\textcolor{black}{{\textbf{{\faDownload}}}} \parbox[t]{\linegoal}{\textattachfile[color=0 0 0]{#1}{#2}}}
+    \newcommand{\clouddownload}[2]{\textbf{\faCloudDownload} \parbox[t]{\linegoal}{\href{#1}{#2}}}
+    \newcommand{\important}    [1]{\textcolor{red}{\textbf{\faExclamationCircle{}} \parbox[t]{\linegoal}{#1}}}
+    \newcommand{\key}          [1]{\textcolor{black}{{\textbf{{\faKey}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\tool}         [1]{\textcolor{black}{{\textbf{{\faWrench}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\setting}      [1]{\textcolor{black}{{\textbf{{\faCogs}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\software}     [1]{\textcolor{black}{{\textbf{{\faFileCodeO}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\codeblock}    [1]{\colorbox{codeGrey}{\faTerminal{} \parbox[t]{\linegoal}{\texttt{#1}}}}
+    \newcommand{\option}       [1]{`\textbf{#1}'}
+    \newcommand{\code}         [1]{\texttt{\sethlcolor{codeGrey}\hl{#1}}}
+    \newcommand{\file}         [1]{\texttt{\faFileO{} #1}}
+    \newcommand{\folder}       [1]{\texttt{\faFolderO{} #1}}

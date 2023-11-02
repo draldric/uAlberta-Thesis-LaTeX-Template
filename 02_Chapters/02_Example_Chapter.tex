@@ -9,9 +9,10 @@
   \subsection{Cross-References}\label{subsec:cross-reference}
       In \LaTeX{}, references will ``reference'' a \path{\label{Reference:Label}} command. 
       This section has the following command to define the the section:
-      \begin{verbatim}
-    \verb|\section{Citations and References}\label{sec:citref}|\end{verbatim}
-      By using \verb|\ref{sec:citref}|, this allows you to insert a reference that look like this: \ref{sec:citref}.
+      
+      \path{\section{Citations and References}\label{sec:citref}}
+      
+      By using \path{\ref{sec:citref}}, this allows you to insert a reference that look like this: \ref{sec:citref}.
       Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\path{Section~\ref{sec:citref}}) and this will display like this: Section~\ref{sec:citref}.
       Note to ensure the reference is not split we add a non-breaking space (\path{~}) to prevent \LaTeX{} from adding a linebreak.
       
@@ -19,7 +20,7 @@
       The answer is to provide more flexibility to the user.
       However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
       Some of these are provided by the \textbf{hyperref} and \textbf{cleveref} packages.
-      To include these packages add the following lines to the bottom of your preamble (order matters, cleveref needs to be after hyperref):
+      To include these packages add the following lines to the bottom of your preamble (order matters, cleveref needs to be after hyperref and hyperref should be one of the last packages loaded):
       \begin{verbatim}
     \usepackage{hyperref}
     \usepackage[nameinlink]{cleveref}\end{verbatim}
@@ -32,34 +33,34 @@
             \textbf{Command} & \textbf{Output} \\
           \midrule
             \multicolumn{2}{c}{built-in}\\
-            \verb|\ref{}|           & \ref{tab:reftable} \\
-            \verb|\pageref{}|       & \pageref{tab:reftable} \\
+            \path{\ref{}}           & \ref{tab:reftable} \\
+            \path{\pageref{}}       & \pageref{tab:reftable} \\
           \midrule
             \multicolumn{2}{c}{hyperref}\\
-            \verb|\autoref{}|       & \autoref{tab:reftable} \\
-            %\verb|\autoref*{}|      & \autoref*{tab:reftable} \\
+            \path{\autoref{}}       & \autoref{tab:reftable} \\
+            %\path{\autoref*{}}      & \autoref*{tab:reftable} \\
           \midrule
             \multicolumn{2}{c}{cleveref}\\
-            \verb|\cref{}|          & \cref{tab:reftable} \\
-            \verb|\Cref{}|          & \Cref{tab:reftable} \\
-            %\verb|\cref*{}|         & \cref*{tab:reftable} \\
-            %\verb|\Cref*{}|         & \Cref*{tab:reftable} \\
-            \verb|\cpageref{}|      & \cpageref{tab:reftable} \\
-            \verb|\Cpageref{}|      & \Cpageref{tab:reftable} \\
-            \verb|\namecref{}|      & \namecref{tab:reftable} \\
-            \verb|\nameCref{}|      & \nameCref{tab:reftable} \\
-            %\verb|\lcnamecref{}|    & \lcnamecref{tab:reftable} \\
-            %\verb|\labelcref{}|     & \labelcref{tab:reftable} \\
-            %\verb|\labelcpageref{}| & \labelcpageref{tab:reftable} \\
+            \path{\cref{}}          & \cref{tab:reftable} \\
+            \path{\Cref{}}          & \Cref{tab:reftable} \\
+            \path{\cref*{}}         & \cref*{tab:reftable} \\
+            %\path{\Cref*{}}         & \Cref*{tab:reftable} \\
+            \path{\cpageref{}}      & \cpageref{tab:reftable} \\
+            \path{\Cpageref{}}      & \Cpageref{tab:reftable} \\
+            \path{\namecref{}}      & \namecref{tab:reftable} \\
+            \path{\nameCref{}}      & \nameCref{tab:reftable} \\
+            %\path{\lcnamecref{}}    & \lcnamecref{tab:reftable} \\
+            %\path{\labelcref{}}     & \labelcref{tab:reftable} \\
+            %\path{\labelcpageref{}} & \labelcpageref{tab:reftable} \\
           \bottomrule
         \end{tabularx}
         \end{table}
-        Further, the \textbf{cleveref} also includes features that allows for the auto sorting and combining of references.
+        Further, the \textbf{cleveref} also includes features that allows for the auto sorting and combining of references:
         
         {\small{\path{\Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,        fig:quadImage}}}}
         
     Noting that there are \textbf{NO} spaces between the labels; this will produce: \Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}. Allowing one to quickly and efficiently keep references up-to-date and consistent in their style.
-    More examples of the use of the \textbf{cleveref} cross-referencing is found through the rest of the \nameCref{ch:ExampleChapter}.
+    More examples of the use of the \textbf{cleveref} cross-referencing is found through the rest of this \nameCref{ch:ExampleChapter}.
   \subsection{Citations}\label{subsec:citations}
       Citations are a lot easier than dealing with the cross-referencing.
       There are no additional packages required for citations, the built-in ones are feature-rich enough.
@@ -85,19 +86,42 @@
       Finally this sentence shows how a gap in the citations is handled, this is created with the\path{\cite{testone,cite2,cite3,cite5}} command\cite{testone,cite2,cite3,cite5}. 
   \section{Tables}
   Within this section we will explore some of the typical uses for a table, how to create them, and how to create a consistent look throughout your thesis.
-  % X - Justified (Equal Spacing)
-  % L - Left Aligned (Equal Spacing)
-  % C - Center Aligned (Equal Spacing)
-  % R - Right Aligned (Equal Spacing)
-  % l - Left Aligned (Fit to Contents)
-  % c - Center Aligned (Fit to Contents)
-  % r - Right Aligned (Fit to Contents)
-  In the following table we are using the packages \path{\usepackage{tabularx}}.
-  This package allows us to set the width of the table and inform it which columns should be scaled to fit the the data.
-  \textbf{Tabularx} uses similar formats to the tabular environment, except there is an additional column type: \path{X}.
-  This column type 
+  \LaTeX{} provides the default floats environment \path{table} that can be combined with the \path{tabular} environment to create tables in your works. 
+  While these tables are functional they have a very plain look and feel to them.
+  The package \path{tabularx} can be combined with the \path{booktabs} package to create elegant and consistent looking tables.
+  A direct comparison of a standard table and the \path{tabularx} with \path{booktabs} can be seen in \Cref{tab:tableComparison}.
+  \begin{table}[H]
+    \caption{Tabular vs. Tabularx Comparison}\label{tab:tableComparison}
+    \centering
+    \begin{subtable}{0.45\textwidth}
+        \caption{}\label{tab:tableComparison:b}
+        \begin{tabular}{lcr} 
+          \hline
+            \textbf{Left} & \textbf{Centre} & \textbf{Right}\\%
+          \hline
+            Left Column & Centre Column & Right Column \\%
+          \hline
+        \end{tabular}
+    \end{subtable}
+    ~
+    \begin{subtable}{0.45\textwidth}
+        \caption{}\label{tab:tableComparison:a}
+        \begin{tabularx}{\textwidth}{LCR} 
+          \toprule
+            \textbf{Left} & \textbf{Centre} & \textbf{Right}\\
+          \midrule
+            Left Column & Centre Column & Right Column \\
+          \bottomrule
+        \end{tabularx}
+    \end{subtable}
+  \end{table}
+  As can be see in \Cref{tab:tableComparison}, well maybe not due to the overlap... the included \path{tabular} environment in \LaTeX{} does not restrict a table to being a specific size; it is completely up to the user to determine if a table will overflow, and, if it does, to break or change the layout to make the data fit.
+  On the other hand, the \path{tabularx} package allows us to set the width of the table and inform it which columns should be scaled to fit the the data and the \path{tabularx} package will handle the heavy lifting for us.
+  Thus creating a table that, first, fits in the space one specifies and, secondly, re-flows the data to fit the cells rather than running the contents into neighbouring content or into the margins and off the page.
   
-  We can also defined the following additional column types:
+  \path{Tabularx} uses similar formats to the tabular environment, except there is an additional column type: \path{X}.
+  This column type, or one of the derivative column types shown below, must be included in the use of a \path{tabularx }table. 
+  Failing to do so will cause an error. The additional column types that one might like to create for use with the \path{tabularx} environment are as follows:
   \begin{itemize}
     \item \textbf{C} - Centred Auto Sizing Column\\\path{\newcolumntype{C}{>{\centering\arraybackslash}X}}
     \item \textbf{L} - Left Justified Auto Sizing Column \\\path{\newcolumntype{L}{>{\raggedright\arraybackslash}X}}
@@ -105,33 +129,19 @@
   \end{itemize}
   
   \begin{table}[H]
-    \caption{This is a showing the default \textbf{tabularx} column types}
-    \centering
-    \begin{tabularx}{0.65\textwidth}{cC} 
-      % Equally spaced cells that are left, centre, and right aligned. 
-      % The entire table will be 75% the width of the text.
-      \hline
-      \textbf{Identifier} & \textbf{Description} \\\hline
-      l & Left Aligned (Fit to Contents) \\
-      c & Centre Aligned (Fit to Contents) \\
-      r & Right Aligned (Fit to Contents) \\
-      X & Justified (Equal Spacing) \\\hline
-    \end{tabularx}
-    \label{tab:basicTable}
-  \end{table}
-  
-  \begin{table}[H]
     \caption{This is a basic table}
     \centering
     \begin{tabularx}{0.75\textwidth}{LCR} 
       % Equally spaced cells that are left, centre, and right aligned. 
       % The entire table will be 75% the width of the text.
-      \hline
-      \textbf{Left Aligned Title} & \textbf{Centered Title} & \textbf{Right Aligned Title} \\\hline
-      This is left aligned & This is centered & This is right aligned \\
-      This is left aligned & This is centered & This is right aligned \\
-      This is left aligned & This is centered & This is right aligned \\
-      This is left aligned & This is centered & This is right aligned \\\hline
+      \toprule
+        \textbf{Left Aligned Title} & \textbf{Centred Title} & \textbf{Right Aligned Title} \\
+      \midrule
+        This is left aligned & This is centred & This is right aligned\\
+        This is left aligned & This is centred & This is right aligned\\
+        This is left aligned & This is centred & This is right aligned\\
+        This is left aligned & This is centred & This is right aligned\\
+      \bottomrule
     \end{tabularx}
     \label{tab:basicTable}
   \end{table}
@@ -146,24 +156,23 @@
       \toprule
       \multirow{2}{*}{\textbf{This is two row\quad}} & \multicolumn{2}{c}{\textbf{This is two columns}}\\
       \cmidrule(l{2em}){2-3} % \cmidrule draws a partial line across cells #-#
-       & \textbf{Centered Title} & \textbf{Right Aligned Title} \\
+       & \textbf{Centred Title} & \textbf{Right Aligned Title} \\
       \midrule
-      \multirow{2}{*}{This is two row} & This is centered & This is right aligned \\
-       & This is centered & This is right aligned \\
+      \multirow{2}{*}{This is two row} & This is centred & This is right aligned \\
+       & This is centred & This is right aligned \\
       \cmidrule(r{2em}){1-1}
-      \multirow{2}{*}{This is two row} & This is centered & This is right aligned \\
-       & This is centered & This is right aligned \\
+      \multirow{2}{*}{This is two row} & This is centred & This is right aligned \\
+       & This is centred & This is right aligned \\
       \bottomrule
     \end{tabularx}
     \label{tab:complexTable}
   \end{table}
   
-  
   \section{Figures}
   This section will provide examples of how to create figures, and different types of multi/sub-figures. 
   Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \texttt{\textbackslash{}clearpage} command can be issued before the next section. 
   However, note that this will force the next section to begin on a new page. 
-  Note that the first ``figure'' is actually a plate; a plate is the proper title associated with a \textit{photograph}, using the environment `plate' instead of `figure' and command \texttt{\textbackslash{listofplates}} will generate everything for you.
+  Note that the first ``figure'' is actually a \textbf{plate}; a plate is the proper title associated with a \textit{photograph}, however, is not always used in every department... if your are unsure ask your supervisor if the use of plates is common. Using the environment `plate' instead of `figure' and command \texttt{\textbackslash{listofplates}} will generate everything for you.
   \begin{plate}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{example-image}
