@@ -1,13 +1,93 @@
 \chapter{Example Chapter}\label{ch:ExampleChapter}
   This chapter aims to provide examples how how to structure and create specific components in your thesis document.
   Throughout this section, \LaTeX's automatic placement for figures and tables will be disabled in most cases.
-  This is being done to add a specific flow to \textbf{THIS DOCUMENT}; this should be avoided in one's thesis as it can lead to poor placement of figures, tables, and other ``floats'', as well as cause unnecessary white space.
+  This is being done to add a specific flow to \textbf{THIS DOCUMENT}; this should be avoided in one's thesis as it can lead to poor placement of figures, tables, and other \enquote{floats}, as well as cause unnecessary white space.
+  \section{General Text Layouts}
+    \subsection{Lists}
+        \LaTeX{} has a few built-in ways for handling lists.
+        The three that we will be looking at here (formatted in an enumerated list) are:
+        \begin{enumerate}
+            \item \path{enumerate}
+            \item \path{itemize}
+            \item \path{description}
+        \end{enumerate}
+        These each create lists in a slightly unique way.
+        And all of these lists can be nested in each other.
+        For \path{enumerate}, this creates a numbered list, where each level has a different style of \enquote{numbered list}.
+        \begin{enumerate}
+            \item First Item
+                \begin{enumerate}
+                    \item First Sub Item
+                        \begin{enumerate}
+                            \item First Sub Sub Item
+                            \item Second Sub Sub Item
+                        \end{enumerate}
+                    \item Second Sub Item
+                \end{enumerate}
+            \item Second Item
+        \end{enumerate}
+        For \path{itemize}, this creates a non-numbered list.
+        Every level that is created will have a different style bullet.
+        \begin{itemize}
+            \item First Item
+                \begin{itemize}
+                    \item First Sub Item
+                        \begin{itemize}
+                            \item First Sub Sub Item
+                            \item Second Sub Sub Item
+                        \end{itemize}
+                    \item Second Sub Item
+                \end{itemize}
+            \item Second Item
+        \end{itemize}
+        For \path{description}, this creates a descriptive list.
+        Descriptions should have the optional argument included for each \path{item} otherwise the line will have a blank in the beginning like the \textit{Second Item} in the next list and not align with the other items.
+        \begin{description}
+            \item[LVL1] First Item
+                \begin{description}
+                    \item[LVL1-1] First Sub Item
+                        \begin{description}
+                            \item[LVL1-1-1] First Sub Sub Item
+                            \item[LVL1-1-2] Second Sub Sub Item
+                        \end{description}
+                    \item[LVL1-2] Second Sub Item
+                \end{description}
+            \item Second Item
+        \end{description}
+        Beyond the previous examples, there are no limitation on the types of lists that are nested, allowing for combined styles as shown in the following list.
+        \begin{enumerate}
+            \item First Item
+                \begin{itemize}
+                    \item First Sub Item
+                        \begin{description}
+                            \item[LVL1-1-1] First Sub Sub Item
+                            \item[LVL1-1-2] Second Sub Sub Item
+                        \end{description}
+                    \item Second Sub Item
+                \end{itemize}
+            \item Second Item
+        \end{enumerate}
+    \subsection{Footnotes}
+        \LaTeX{} can have footnotes added in very easily. 
+        Generally these footnotes will be inserted in one of two ways.
+        Using the in-line command:
+        
+        \path{\footnote{This is where the foot note text goes.}}\footnote{This is where the footnote text goes for the in-line footnote.} 
+        
+        Or by using the split footnote.
+        For a split footnote, the macro \path{\footnotemark[n]}\footnotemark{} is used to indicate where the mark should be inserted.
+        And the macro \path{\footnotetext[n]{This is where the footnote text goes for a split footnote.}}.
+        This allow you to help keep your document more organized with the drawback that it is the user's responsibility to keep track of the foot note numbers or ensure that a \path{\footnotemark{}} is followed by it's corresponding \path{\footnotetext{<text>}}.
+        For this reason, I recommend using the in-line footnotes.
+    
+        \footnotetext{This is where the footnote text goes for a split footnote.}
+    
   \section{Cross-References and Citations}\label{sec:citref}
-  This section will be showing off some of the different ways to include ``citations'' and ``cross-references'' within your document.
+  This section will be showing off some of the different ways to include \enquote{citations} and \enquote{cross-references} within your document.
   Note that \textbf{cross-references} in \LaTeX{} utilize \textbf{ref} as a command, while one might think that this is short for reference this is not the case citation/references utilize the \path{\cite{}} commands.
   
   \subsection{Cross-References}\label{subsec:cross-reference}
-      In \LaTeX{}, references will ``reference'' a \path{\label{Reference:Label}} command. 
+      In \LaTeX{}, references will \enquote{reference} a \path{\label{Reference:Label}} command. 
       This section has the following command to define the the section:
       
       \path{\section{Citations and References}\label{sec:citref}}
@@ -16,7 +96,7 @@
       Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\path{Section~\ref{sec:citref}}) and this will display like this: Section~\ref{sec:citref}.
       Note to ensure the reference is not split we add a non-breaking space (\path{~}) to prevent \LaTeX{} from adding a linebreak.
       
-      While using the ref command, you might ask ``\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}''
+      While using the ref command, you might ask \enquote{\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}}
       The answer is to provide more flexibility to the user.
       However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
       Some of these are provided by the \textbf{hyperref} and \textbf{cleveref} packages.
@@ -120,7 +200,7 @@
   Thus creating a table that, first, fits in the space one specifies and, secondly, re-flows the data to fit the cells rather than running the contents into neighbouring content or into the margins and off the page.
   
   \path{Tabularx} uses similar formats to the tabular environment, except there is an additional column type: \path{X}.
-  This column type, or one of the derivative column types shown below, must be included in the use of a \path{tabularx }table. 
+  This column type, or one of the derivative column types shown below, must be included in the use of a \path{tabularx} table. 
   Failing to do so will cause an error. The additional column types that one might like to create for use with the \path{tabularx} environment are as follows:
   \begin{itemize}
     \item \textbf{C} - Centred Auto Sizing Column\\\path{\newcolumntype{C}{>{\centering\arraybackslash}X}}
@@ -145,7 +225,11 @@
     \end{tabularx}
     \label{tab:basicTable}
   \end{table}
-  
+  In the following table, \Cref{tab:complexTable}, we use the \path{multirow} and \path{multicol} packages.
+  These two packages allow one to merge cells together in a table.
+  Beyond this, to include lines, the \path{\cmidrule(l{<length>}r{<length>}){start_cell-end_cell}} from the \path{booktabs} package is used.
+  To add a bit of a cleaner look the lines can be trimmed by including the \path{l{<length>}} or \path{r{<length>}} in the round brackets to trim the lines by the specified length for the left and right sides, respectively.
+  Note that both line trim specifications do not need to be specified, in-fact one or none can be provide if the line does not need to be trimmed, \textit{e.g.}, \path{\cmidrule{1-5}} or \path{\cmidrule(r{3em}){2-3}}
   \begin{table}[H]
     \caption{This is a complex table.}
     \centering
@@ -170,9 +254,9 @@
   
   \section{Figures}
   This section will provide examples of how to create figures, and different types of multi/sub-figures. 
-  Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \texttt{\textbackslash{}clearpage} command can be issued before the next section. 
+  Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \path{\clearpage} command can be issued before the next section. 
   However, note that this will force the next section to begin on a new page. 
-  Note that the first ``figure'' is actually a \textbf{plate}; a plate is the proper title associated with a \textit{photograph}, however, is not always used in every department... if your are unsure ask your supervisor if the use of plates is common. Using the environment `plate' instead of `figure' and command \texttt{\textbackslash{listofplates}} will generate everything for you.
+  Note that the first \enquote{figure} is actually a \textbf{plate}; a plate is the proper title associated with a \textit{photograph}, however, is not always used in every department... if your are unsure ask your supervisor if the use of plates is common. Using the environment \path{plate} instead of \path{figure} and command \path{\listofplates} will generate everything for you.
   \begin{plate}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{example-image}
@@ -186,7 +270,6 @@
     \caption{This is an example of a single figure.}
     \label{fig:singleImage}
   \end{figure}
-  
   \begin{figure}[H]
     \centering
     \begin{subfigure}{0.45\textwidth}
@@ -388,14 +471,25 @@
   This section will provide some different ways of adding them (inline and standalone), as well as provide some ways of referencing the equations.
   
   To start the simplest way to add an equation is using the built-in \LaTeX{} math mode. 
-  To enter and exit math mode one just needs to use the \path{$<Equation Goes Here>$} symbols around an equation.
-  An example of using math mode to get an inline equation is: $\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}$.
-  The following equation has no referencing number:
-  \nonumeq{E = m\ c^2}
+  To enter and exit math mode one just needs to use the \path{\(<Equation>\)} symbols around an equation. While there also exists \path{$<Equation>$} to add math, it is not recommended due to potential compatibility issues. Additionally, this, \path{\(<Equation>\)}, method is capable of being redefined to add further customization. 
+  An example of using math mode to get an inline equation is by using the following command:
   
-  \Cref{eq:quickEq} has a reference to it though. Or for more control the source for \Cref{eq:quickEq} can be written out fully as it was for \Cref{eq:quickEq2}.  
-  \numeq{\pi = 3.1415...}{eq:quickEq} % shorthand for the following way of writing equations.
-  \begin{equation}\label{eq:quickEq2}
+  {\begin{Center}\path{\(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\)}\end{Center}}
+  
+  The above command has the effect of creating the following output: \(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\).
+  Sometimes it can be quite beneficial to separate what would be an in-line equation to be on its own line. for this we have two different ways of doing it. The first was will produce an equation that has no reference:
+  
+  \[
+    E = m\ c^2
+  \] % shorthand for the following way of writing equations.
+  \begin{equation*}
+    E = m\ c^2
+  \end{equation*}
+  The second will produce an equation with a reference. For this, there are two many ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference, the other one, see \Cref{eq:customTag}, creates a reference with a `tag'. The difference between the two is just the inclusion of a \path{\tag{<text>}} command that will replace the regular number with \path{<text>}.
+  \begin{equation}\label{eq:Eq}
+    \pi = 3.1415...
+  \end{equation}
+  \begin{equation}\tag{Constant pi}\label{eq:customTag}
     \pi = 3.1415...
   \end{equation}
   
@@ -406,6 +500,44 @@
     \label{eq:multiref:c} Equation3 & = 3 + 3 + 3
   \end{align}
   
-  
-  
+  \subsection{Math}
+    It may be very important in a math heavy thesis to be able to show your equations, or even data in a readable way. For this, we will explore some of the ways to create specific data.
+    
+        \subsubsection{Vector, Sets, Piecewise Functions, Matrix Math, and More}
+        
+        \begin{equation}
+            \text{f}(x) = 
+                \begin{cases}
+                    x^{2*\ln{x}},&\text{if }x<3\\
+                    -\frac{x}{2},&\text{if }3\leq{}x\leq{}4\\
+                    x,&\text{if }4<x
+                \end{cases}
+        \end{equation}
+        
+        Vectors and Matrices are used in many fields of math and science and provide a convenient way to represent 2-Dimensional arrays of numbers.
+            \begin{align}
+                x&\in{}\left\{1,2,3,4,5,6,7\right\}\\
+                V_{1} &= {\left(
+                \begin{array}{cccc}
+                    a, & b, & c, & d\\
+                \end{array}
+                \right)}\\
+                V_{2} &= \left(
+                \begin{array}{c}
+                    a \\
+                    b \\
+                    c \\
+                    d \\
+                \end{array}
+                \right)\\
+                M &= {\left[
+                \begin{array}{cccc}
+                    a & b & c & d\\
+                    e & f & g & h\\
+                    i & j & k & l\\
+                    m & n & o & p\\
+                \end{array}
+                \right]}
+            \end{align}
+
   \printreferences % Add a Reference Section to the end of the Chapter.
