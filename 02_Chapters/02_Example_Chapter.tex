@@ -1,110 +1,122 @@
 \chapter{Example Chapter}\label{ch:ExampleChapter}
-  This chapter aims to provide examples how how to structure and create specific components in your thesis document.
-  Throughout this section, \LaTeX's automatic placement for figures and tables will be disabled in most cases.
-  This is being done to add a specific flow to \textbf{THIS DOCUMENT}; this should be avoided in one's thesis as it can lead to poor placement of figures, tables, and other \enquote{floats}, as well as cause unnecessary white space.
-  \section{General Text Layouts}
-    \subsection{Lists}
-        \LaTeX{} has a few built-in ways for handling lists.
-        The three that we will be looking at here (formatted in an enumerated list) are:
-        \begin{enumerate}
-            \item \path{enumerate}
-            \item \path{itemize}
-            \item \path{description}
-        \end{enumerate}
-        These each create lists in a slightly unique way.
-        And all of these lists can be nested in each other.
-        For \path{enumerate}, this creates a numbered list, where each level has a different style of \enquote{numbered list}.
-        \begin{enumerate}
-            \item First Item
-                \begin{enumerate}
-                    \item First Sub Item
-                        \begin{enumerate}
-                            \item First Sub Sub Item
-                            \item Second Sub Sub Item
-                        \end{enumerate}
-                    \item Second Sub Item
-                \end{enumerate}
-            \item Second Item
-        \end{enumerate}
-        For \path{itemize}, this creates a non-numbered list.
-        Every level that is created will have a different style bullet.
-        \begin{itemize}
-            \item First Item
-                \begin{itemize}
-                    \item First Sub Item
-                        \begin{itemize}
-                            \item First Sub Sub Item
-                            \item Second Sub Sub Item
-                        \end{itemize}
-                    \item Second Sub Item
-                \end{itemize}
-            \item Second Item
-        \end{itemize}
-        For \path{description}, this creates a descriptive list.
-        Descriptions should have the optional argument included for each \path{item} otherwise the line will have a blank in the beginning like the \textit{Second Item} in the next list and not align with the other items.
-        \begin{description}
-            \item[LVL1] First Item
-                \begin{description}
-                    \item[LVL1-1] First Sub Item
-                        \begin{description}
-                            \item[LVL1-1-1] First Sub Sub Item
-                            \item[LVL1-1-2] Second Sub Sub Item
-                        \end{description}
-                    \item[LVL1-2] Second Sub Item
-                \end{description}
-            \item Second Item
-        \end{description}
-        Beyond the previous examples, there are no limitation on the types of lists that are nested, allowing for combined styles as shown in the following list.
-        \begin{enumerate}
-            \item First Item
-                \begin{itemize}
-                    \item First Sub Item
-                        \begin{description}
-                            \item[LVL1-1-1] First Sub Sub Item
-                            \item[LVL1-1-2] Second Sub Sub Item
-                        \end{description}
-                    \item Second Sub Item
-                \end{itemize}
-            \item Second Item
-        \end{enumerate}
-    \subsection{Footnotes}
-        \LaTeX{} can have footnotes added in very easily. 
-        Generally these footnotes will be inserted in one of two ways.
-        Using the in-line command:
-        
-        \path{\footnote{This is where the foot note text goes.}}\footnote{This is where the footnote text goes for the in-line footnote.} 
-        
-        Or by using the split footnote.
-        For a split footnote, the macro \path{\footnotemark[n]}\footnotemark{} is used to indicate where the mark should be inserted.
-        And the macro \path{\footnotetext[n]{This is where the footnote text goes for a split footnote.}}.
-        This allow you to help keep your document more organized with the drawback that it is the user's responsibility to keep track of the foot note numbers or ensure that a \path{\footnotemark{}} is followed by it's corresponding \path{\footnotetext{<text>}}.
-        For this reason, I recommend using the in-line footnotes.
-    
-        \footnotetext{This is where the footnote text goes for a split footnote.}
-    
-  \section{Cross-References and Citations}\label{sec:citref}
-  This section will be showing off some of the different ways to include \enquote{citations} and \enquote{cross-references} within your document.
-  Note that \textbf{cross-references} in \LaTeX{} utilize \textbf{ref} as a command, while one might think that this is short for reference this is not the case citation/references utilize the \path{\cite{}} commands.
-  
-  \subsection{Cross-References}\label{subsec:cross-reference}
-      In \LaTeX{}, references will \enquote{reference} a \path{\label{Reference:Label}} command. 
-      This section has the following command to define the the section:
-      
-      \path{\section{Citations and References}\label{sec:citref}}
-      
-      By using \path{\ref{sec:citref}}, this allows you to insert a reference that look like this: \ref{sec:citref}.
-      Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\path{Section~\ref{sec:citref}}) and this will display like this: Section~\ref{sec:citref}.
-      Note to ensure the reference is not split we add a non-breaking space (\path{~}) to prevent \LaTeX{} from adding a linebreak.
-      
-      While using the ref command, you might ask \enquote{\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}}
-      The answer is to provide more flexibility to the user.
-      However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
-      Some of these are provided by the \textbf{hyperref} and \textbf{cleveref} packages.
-      To include these packages add the following lines to the bottom of your preamble (order matters, cleveref needs to be after hyperref and hyperref should be one of the last packages loaded):
-      \begin{verbatim}
-    \usepackage{hyperref}
-    \usepackage[nameinlink]{cleveref}\end{verbatim}
-      With these packages installed we can now use the commands in \Cref{tab:reftable}.\footnote{Note that becase the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
+	\lstset{style=LaTeXStyle}
+	This chapter aims to provide examples how how to structure and create specific components in your thesis document.
+	Throughout this section, \LaTeX's automatic placement for figures and tables will be disabled in most cases.
+	This is being done to add a specific flow to \textbf{THIS DOCUMENT}; this should be avoided in one's thesis as it can lead to poor placement of figures, tables, and other \enquote{floats}, as well as cause unnecessary white space.
+	\section{General Text Layouts}
+		\subsection{Lists}
+			\LaTeX{} has a few built-in ways for handling lists.
+			The three that we will be looking at here (formatted in an enumerated list) are:
+			\begin{enumerate}
+				\item \lstinline|enumerate|
+				\item \lstinline|itemize|
+				\item \lstinline|description|
+			\end{enumerate}
+			These each create lists in a slightly unique way.
+			And all of these lists can be nested in each other.
+			For \path{enumerate}, this creates a numbered list, where each level has a different style of \enquote{numbered list}.
+			\begin{enumerate}
+				\item First Item
+					\begin{enumerate}
+						\item First Sub Item
+							\begin{enumerate}
+								\item First Sub Sub Item
+								\item Second Sub Sub Item
+							\end{enumerate}
+						\item Second Sub Item
+					\end{enumerate}
+				\item Second Item
+			\end{enumerate}
+			For \path{itemize}, this creates a non-numbered list.
+			Every level that is created will have a different style bullet.
+			\begin{itemize}
+				\item First Item
+					\begin{itemize}
+						\item First Sub Item
+							\begin{itemize}
+								\item First Sub Sub Item
+								\item Second Sub Sub Item
+							\end{itemize}
+						\item Second Sub Item
+					\end{itemize}
+				\item Second Item
+			\end{itemize}
+			For \path{description}, this creates a descriptive list.
+			Descriptions should have the optional argument included for each \lstinline|\item| otherwise the line will have a blank in the beginning like the \textit{Second Item} in the next list and not align with the other items.
+			\begin{description}
+				\item[LVL1] First Item
+					\begin{description}
+						\item[LVL1-1] First Sub Item
+							\begin{description}
+								\item[LVL1-1-1] First Sub Sub Item
+								\item[LVL1-1-2] Second Sub Sub Item
+							\end{description}
+						\item[LVL1-2] Second Sub Item
+					\end{description}
+				\item Second Item
+			\end{description}
+			Beyond the previous examples, there are no limitation on the types of lists that are nested, allowing for combined styles as shown in the following list.
+			\begin{enumerate}
+				\item First Item
+					\begin{itemize}
+						\item First Sub Item
+							\begin{description}
+								\item[LVL1-1-1] First Sub Sub Item
+								\item[LVL1-1-2] Second Sub Sub Item
+							\end{description}
+						\item Second Sub Item
+					\end{itemize}
+				\item Second Item
+			\end{enumerate}
+		\subsection{Footnotes}
+			\LaTeX{} can have footnotes added in very easily. 
+			Generally these footnotes will be inserted in one of two ways.
+			Using the in-line command:
+			\begin{Center}
+				\lstinline|\footnote{footnote text}|\footnote{footnote text} 
+			\end{Center}
+			Or by using the split footnote.
+			For a split footnote, the macro:
+			\begin{Center}
+				\lstinline|\footnotemark[n]|\footnotemark{}
+			\end{Center}
+			is used to indicate where the mark should be inserted.
+			And the macro: 
+			\begin{Center}
+				\lstinline|\footnotetext[n]{split footnote text}|.
+			\end{Center}
+			is used to signify what the text for the indicated foot note should be.
+			This allow you to help keep your document more organized with the drawback that it is the user's responsibility to keep track of the foot note numbers or ensure that a \lstinline|footnotemark| is followed by it's corresponding \lstinline|footnotetext|.
+			For this reason, I recommend using the in-line footnotes.
+		
+			\footnotetext{split footnote text}
+		
+	\section{Cross-References and Citations}\label{sec:citref}
+		This section will be showing off some of the different ways to include \enquote{citations} and \enquote{cross-references} within your document.
+		Note that \textbf{cross-references} in \LaTeX{} utilize \lstinline|\ref{}| as a command, while one might think that this is short for reference this is not the case citation/references utilize the \lstinline|\cite{}| commands.
+	  
+		\subsection{Cross-References}\label{subsec:cross-reference}
+			In \LaTeX{}, references will \enquote{reference} a \lstinline|\label{Reference:Label}| command. 
+			This section has the following command to define the the section:
+
+			\begin{Center}
+				\lstinline|\section{Citations and References}\label{sec:citref}|
+			\end{Center}
+
+			By using \lstinline|\ref{sec:citref}|, this allows you to insert a reference that look like this: \ref{sec:citref}.
+			Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\lstinline|Section~\ref{sec:citref}|) and this will display like this: Section~\ref{sec:citref}.
+			Note to ensure the reference is not split we add a non-breaking space (\lstinline|~|) to prevent \LaTeX{} from adding a linebreak.
+
+			While using the ref command, you might ask \enquote{\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}}
+			The answer is to provide more flexibility to the user.
+			However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
+			Some of these are provided by the \textbf{hyperref} and \textbf{cleveref} packages.
+			To include these packages add the following lines to the bottom of your preamble (order matters, cleveref needs to be after hyperref and hyperref should be one of the last packages loaded):
+			\begin{lstlisting}[style=LaTeXStyle]
+				\usepackage{hyperref}
+				\usepackage[nameinlink]{cleveref}
+			\end{lstlisting}
+			With these packages installed we can now use the commands in \Cref{tab:reftable}.\footnote{Note that becase the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
       \begin{table}[H]
         \caption{Built-in, hyperref, and cleveref commands and outputs}\label{tab:reftable}
         \centering
@@ -113,31 +125,33 @@
             \textbf{Command} & \textbf{Output} \\
           \midrule
             \multicolumn{2}{c}{built-in}\\
-            \path{\ref{}}           & \ref{tab:reftable} \\
-            \path{\pageref{}}       & \pageref{tab:reftable} \\
+            \verb|\ref{}|           & \ref{tab:reftable} \\
+            \verb|\pageref{}|       & \pageref{tab:reftable} \\
           \midrule
             \multicolumn{2}{c}{hyperref}\\
-            \path{\autoref{}}       & \autoref{tab:reftable} \\
-            %\path{\autoref*{}}      & \autoref*{tab:reftable} \\
+            \verb|\autoref{}|       & \autoref{tab:reftable} \\
+            %\lstinline|\autoref*{}|      & \autoref*{tab:reftable} \\
           \midrule
             \multicolumn{2}{c}{cleveref}\\
-            \path{\cref{}}          & \cref{tab:reftable} \\
-            \path{\Cref{}}          & \Cref{tab:reftable} \\
-            \path{\cref*{}}         & \cref*{tab:reftable} \\
-            %\path{\Cref*{}}         & \Cref*{tab:reftable} \\
-            \path{\cpageref{}}      & \cpageref{tab:reftable} \\
-            \path{\Cpageref{}}      & \Cpageref{tab:reftable} \\
-            \path{\namecref{}}      & \namecref{tab:reftable} \\
-            \path{\nameCref{}}      & \nameCref{tab:reftable} \\
-            %\path{\lcnamecref{}}    & \lcnamecref{tab:reftable} \\
-            %\path{\labelcref{}}     & \labelcref{tab:reftable} \\
-            %\path{\labelcpageref{}} & \labelcpageref{tab:reftable} \\
+            \verb|\cref{}|          & \cref{tab:reftable} \\
+            \verb|\Cref{}|          & \Cref{tab:reftable} \\
+            \verb|\cref*{}|         & \cref*{tab:reftable} \\
+            %\lstinline|\Cref*{}|         & \Cref*{tab:reftable} \\
+            \verb|\cpageref{}|      & \cpageref{tab:reftable} \\
+            \verb|\Cpageref{}|      & \Cpageref{tab:reftable} \\
+            \verb|\namecref{}|      & \namecref{tab:reftable} \\
+            \verb|\nameCref{}|      & \nameCref{tab:reftable} \\
+            %\lstinline|\lcnamecref{}|    & \lcnamecref{tab:reftable} \\
+            %\lstinline|\labelcref{}|     & \labelcref{tab:reftable} \\
+            %\lstinline|\labelcpageref{}| & \labelcpageref{tab:reftable} \\
           \bottomrule
         \end{tabularx}
         \end{table}
         Further, the \textbf{cleveref} also includes features that allows for the auto sorting and combining of references:
         
-        {\small{\path{\Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,        fig:quadImage}}}}
+        \begin{lstlisting}[style=LaTeXStyle]
+			\Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}
+		\end{lstlisting}
         
     Noting that there are \textbf{NO} spaces between the labels; this will produce: \Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}. Allowing one to quickly and efficiently keep references up-to-date and consistent in their style.
     More examples of the use of the \textbf{cleveref} cross-referencing is found through the rest of this \nameCref{ch:ExampleChapter}.
@@ -161,9 +175,9 @@
             \end{tabularx}%
       \end{table}%
       
-      Single citations can be included with the \path{\cite{citationKey}} command, the one at the end of this sentence is created with the \path{\cite{TEST}} command\cite{TEST}. 
-      Multiple citations can be included in a single cite command by adding commas in between the citation keys. The citation at the end of this sentence shows how to create more than one citation and how they are grouped together, it is created with the \path{\cite{testone,cite2,cite3,cite4,cite5}} command\cite{testone,cite2,cite3,cite4,cite5}.
-      Finally this sentence shows how a gap in the citations is handled, this is created with the\path{\cite{testone,cite2,cite3,cite5}} command\cite{testone,cite2,cite3,cite5}. 
+      Single citations can be included with the \lstinline|\cite{citationKey}| command, the one at the end of this sentence is created with the \lstinline|\cite{TEST}| command\cite{TEST}. 
+      Multiple citations can be included in a single cite command by adding commas in between the citation keys. The citation at the end of this sentence shows how to create more than one citation and how they are grouped together, it is created with the \lstinline|\cite{testone,cite2,cite3,cite4,cite5}| command\cite{testone,cite2,cite3,cite4,cite5}.
+      Finally this sentence shows how a gap in the citations is handled, this is created with the \lstinline|\cite{testone,cite2,cite3,cite5}| command\cite{testone,cite2,cite3,cite5}. 
   \section{Tables}
   Within this section we will explore some of the typical uses for a table, how to create them, and how to create a consistent look throughout your thesis.
   \LaTeX{} provides the default floats environment \path{table} that can be combined with the \path{tabular} environment to create tables in your works. 
@@ -203,9 +217,9 @@
   This column type, or one of the derivative column types shown below, must be included in the use of a \path{tabularx} table. 
   Failing to do so will cause an error. The additional column types that one might like to create for use with the \path{tabularx} environment are as follows:
   \begin{itemize}
-    \item \textbf{C} - Centred Auto Sizing Column\\\path{\newcolumntype{C}{>{\centering\arraybackslash}X}}
-    \item \textbf{L} - Left Justified Auto Sizing Column \\\path{\newcolumntype{L}{>{\raggedright\arraybackslash}X}}
-    \item \textbf{R} - Right Justified Auto Sizing Column \\\path{\newcolumntype{R}{>{\raggedleft\arraybackslash}X}}
+    \item \textbf{C} - Centred Auto Sizing Column\\\lstinline|\newcolumntype{C}{>{\centering\arraybackslash}X}|
+    \item \textbf{L} - Left Justified Auto Sizing Column \\\lstinline|\newcolumntype{L}{>{\raggedright\arraybackslash}X}|
+    \item \textbf{R} - Right Justified Auto Sizing Column \\\lstinline|\newcolumntype{R}{>{\raggedleft\arraybackslash}X}|
   \end{itemize}
   
   \begin{table}[H]
@@ -474,7 +488,9 @@
   To enter and exit math mode one just needs to use the \path{\(<Equation>\)} symbols around an equation. While there also exists \path{$<Equation>$} to add math, it is not recommended due to potential compatibility issues. Additionally, this, \path{\(<Equation>\)}, method is capable of being redefined to add further customization. 
   An example of using math mode to get an inline equation is by using the following command:
   
-  {\begin{Center}\path{\(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\)}\end{Center}}
+	\begin{Center}
+		\lstinline|\(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\)|
+	\end{Center}
   
   The above command has the effect of creating the following output: \(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\).
   Sometimes it can be quite beneficial to separate what would be an in-line equation to be on its own line. for this we have two different ways of doing it. The first was will produce an equation that has no reference:
