@@ -98,11 +98,9 @@
 		\subsection{Cross-References}\label{subsec:cross-reference}
 			In \LaTeX{}, references will \enquote{reference} a \lstinline|\label{Reference:Label}| command. 
 			This section has the following command to define the the section:
-
 			\begin{Center}
 				\lstinline|\section{Citations and References}\label{sec:citref}|
 			\end{Center}
-
 			By using \lstinline|\ref{sec:citref}|, this allows you to insert a reference that look like this: \ref{sec:citref}.
 			Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\lstinline|Section~\ref{sec:citref}|) and this will display like this: Section~\ref{sec:citref}.
 			Note to ensure the reference is not split we add a non-breaking space (\lstinline|~|) to prevent \LaTeX{} from adding a linebreak.
@@ -125,25 +123,25 @@
             \textbf{Command} & \textbf{Output} \\
           \midrule
             \multicolumn{2}{c}{built-in}\\
-            \verb|\ref{}|           & \ref{tab:reftable} \\
-            \verb|\pageref{}|       & \pageref{tab:reftable} \\
+            \lstinline|\\ref\{\}|           & \ref{tab:reftable} \\
+            \lstinline|\\pageref\{\}|       & \pageref{tab:reftable} \\
           \midrule
             \multicolumn{2}{c}{hyperref}\\
-            \verb|\autoref{}|       & \autoref{tab:reftable} \\
-            %\lstinline|\autoref*{}|      & \autoref*{tab:reftable} \\
+            \lstinline|\\autoref\{\}|       & \autoref{tab:reftable} \\
+            %\lstinline|\\autoref*\{\}|      & \autoref*{tab:reftable} \\
           \midrule
             \multicolumn{2}{c}{cleveref}\\
-            \verb|\cref{}|          & \cref{tab:reftable} \\
-            \verb|\Cref{}|          & \Cref{tab:reftable} \\
-            \verb|\cref*{}|         & \cref*{tab:reftable} \\
-            %\lstinline|\Cref*{}|         & \Cref*{tab:reftable} \\
-            \verb|\cpageref{}|      & \cpageref{tab:reftable} \\
-            \verb|\Cpageref{}|      & \Cpageref{tab:reftable} \\
-            \verb|\namecref{}|      & \namecref{tab:reftable} \\
-            \verb|\nameCref{}|      & \nameCref{tab:reftable} \\
-            %\lstinline|\lcnamecref{}|    & \lcnamecref{tab:reftable} \\
-            %\lstinline|\labelcref{}|     & \labelcref{tab:reftable} \\
-            %\lstinline|\labelcpageref{}| & \labelcpageref{tab:reftable} \\
+            \lstinline|\\cref\{\}|          & \cref{tab:reftable} \\
+            \lstinline|\\Cref\{\}|          & \Cref{tab:reftable} \\
+            \lstinline|\\cref*\{\}|         & \cref*{tab:reftable} \\
+            %\lstinline|\\Cref*\{\}|         & \Cref*{tab:reftable} \\
+            \lstinline|\\cpageref\{\}|      & \cpageref{tab:reftable} \\
+            \lstinline|\\Cpageref\{\}|      & \Cpageref{tab:reftable} \\
+            \lstinline|\\namecref\{\}|      & \namecref{tab:reftable} \\
+            \lstinline|\\nameCref\{\}|      & \nameCref{tab:reftable} \\
+            %\lstinline|\\lcnamecref\{\}|    & \lcnamecref{tab:reftable} \\
+            %\lstinline|\\labelcref\{\}|     & \labelcref{tab:reftable} \\
+            %\lstinline|\\labelcpageref\{\}| & \labelcpageref{tab:reftable} \\
           \bottomrule
         \end{tabularx}
         \end{table}
@@ -241,9 +239,9 @@
   \end{table}
   In the following table, \Cref{tab:complexTable}, we use the \path{multirow} and \path{multicol} packages.
   These two packages allow one to merge cells together in a table.
-  Beyond this, to include lines, the \path{\cmidrule(l{<length>}r{<length>}){start_cell-end_cell}} from the \path{booktabs} package is used.
+  Beyond this, to include lines, the \lstinline|\cmidrule(l{<length>}r{<length>}){start_cell-end_cell}| from the \path{booktabs} package is used.
   To add a bit of a cleaner look the lines can be trimmed by including the \path{l{<length>}} or \path{r{<length>}} in the round brackets to trim the lines by the specified length for the left and right sides, respectively.
-  Note that both line trim specifications do not need to be specified, in-fact one or none can be provide if the line does not need to be trimmed, \textit{e.g.}, \path{\cmidrule{1-5}} or \path{\cmidrule(r{3em}){2-3}}
+  Note that both line trim specifications do not need to be specified, in-fact one or none can be provide if the line does not need to be trimmed, \textit{e.g.}, \lstinline|\cmidrule{1-5}| or \lstinline|\cmidrule(r{3em}){2-3}|.
   \begin{table}[H]
     \caption{This is a complex table.}
     \centering
@@ -268,9 +266,9 @@
   
   \section{Figures}
   This section will provide examples of how to create figures, and different types of multi/sub-figures. 
-  Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \path{\clearpage} command can be issued before the next section. 
+  Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \lstinline|\clearpage| command can be issued before the next section. 
   However, note that this will force the next section to begin on a new page. 
-  Note that the first \enquote{figure} is actually a \textbf{plate}; a plate is the proper title associated with a \textit{photograph}, however, is not always used in every department... if your are unsure ask your supervisor if the use of plates is common. Using the environment \path{plate} instead of \path{figure} and command \path{\listofplates} will generate everything for you.
+  Note that the first \enquote{figure} is actually a \textbf{plate}; a plate is the proper title associated with a \textit{photograph}, however, is not always used in every department... if your are unsure ask your supervisor if the use of plates is common. Using the environment \path{plate} instead of \path{figure} and command \lstinline|\listofplates| will generate everything for you.
   \begin{plate}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{example-image}
@@ -485,7 +483,7 @@
   This section will provide some different ways of adding them (inline and standalone), as well as provide some ways of referencing the equations.
   
   To start the simplest way to add an equation is using the built-in \LaTeX{} math mode. 
-  To enter and exit math mode one just needs to use the \path{\(<Equation>\)} symbols around an equation. While there also exists \path{$<Equation>$} to add math, it is not recommended due to potential compatibility issues. Additionally, this, \path{\(<Equation>\)}, method is capable of being redefined to add further customization. 
+  To enter and exit math mode one just needs to use the \lstinline|\(<Equation>\)| symbols around an equation. While there also exists \lstinline|$<Equation>$| to add math, it is not recommended due to potential compatibility issues. Additionally, this, \lstinline|\(<Equation>\)|, method is capable of being redefined to add further customization. 
   An example of using math mode to get an inline equation is by using the following command:
   
 	\begin{Center}
@@ -501,7 +499,7 @@
   \begin{equation*}
     E = m\ c^2
   \end{equation*}
-  The second will produce an equation with a reference. For this, there are two many ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference, the other one, see \Cref{eq:customTag}, creates a reference with a `tag'. The difference between the two is just the inclusion of a \path{\tag{<text>}} command that will replace the regular number with \path{<text>}.
+  The second will produce an equation with a reference. For this, there are two many ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference, the other one, see \Cref{eq:customTag}, creates a reference with a `tag'. The difference between the two is just the inclusion of a \lstinline|\tag{<text>}| command that will replace the regular number with \path{<text>}.
   \begin{equation}\label{eq:Eq}
     \pi = 3.1415...
   \end{equation}
@@ -516,10 +514,18 @@
     \label{eq:multiref:c} Equation3 & = 3 + 3 + 3
   \end{align}
   
-  \subsection{Math}
+	\section{Math}
+		
+		
+		\begin{table}
+			\begin{tabularx}{0.85\textwidth}{CCCCCC}
+				\alpha
+			\end{tabularx}
+		\end{table}
+  
     It may be very important in a math heavy thesis to be able to show your equations, or even data in a readable way. For this, we will explore some of the ways to create specific data.
     
-        \subsubsection{Vector, Sets, Piecewise Functions, Matrix Math, and More}
+        \subsection{Vector, Sets, Piecewise Functions, Matrix Math, and More}
         
         \begin{equation}
             \text{f}(x) = 
