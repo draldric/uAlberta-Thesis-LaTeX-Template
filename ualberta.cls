@@ -32,10 +32,7 @@
 \ProvidesClass{ualberta}
               [2023/08/21 V:2.0.0 ualberta Document Class]
               
-
 \usepackage{etoolbox}
-
-
 
 \newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
 \newcommand\@convocationdate{}
@@ -977,5 +974,10 @@
 \newcommand{\insertlatexfile}[1]{
     \input{"\@addlatexfiles#1.tex"}
 }
+
+
+\if@pdfa
+       \usepackage[a-3b]{pdfx}
+\fi
 
 \endinput

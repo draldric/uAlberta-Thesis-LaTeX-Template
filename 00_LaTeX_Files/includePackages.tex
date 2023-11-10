@@ -49,7 +49,8 @@
         \renewcommand\indexspace{\par \vskip 10\p@ \@plus5\p@ \@minus3\p@\relax}
     \makeatother
 
-\usepackage{lipsum}
+
+\usepackage[utf8]{inputenc}
 
 \usepackage{array}
 \usepackage{amsmath}
@@ -57,9 +58,6 @@
 \usepackage{amssymb}
 
 \usepackage[normalem]{ulem}
-\usepackage[hyphens,obeyspaces]{url}
-\usepackage{xmpincl}
-\usepackage{xcolor}
 
 \usepackage{subcaption}
 
@@ -75,10 +73,6 @@
 \usepackage{pgfplots}
 
 \usepackage{pdfpages}
-\usepackage{rotating}
-\usepackage{pdflscape}
-
-\usepackage{textcomp}
 
 \usepackage{listings}
 
@@ -87,18 +81,12 @@
 \usepackage{csquotes}
 \usepackage{ragged2e}
 
-\usepackage{xparse}
-\usepackage{ifthen}
-\if@pdfa
-       \usepackage[a-3b]{pdfx}
-\fi
-
 \usepackage{hyperref}
     \hypersetup{hidelinks,pdfencoding=unicode,breaklinks=true}
     \urlstyle{same}
     \Urlmuskip=0mu plus 1mu\relax
 \usepackage{cleveref}
-\usepackage[utf8]{inputenc}
+
 \usepackage[
     style=ieee,
     dashed=false,
@@ -109,8 +97,10 @@
     defernumbers=true]{biblatex}
 \usepackage{float}
 
-  \usepackage{linegoal}
 
+\usepackage{lipsum}
+\usepackage{linegoal}
+\usepackage{xcolor}
 %% COLOUR DEFINITIONS
     \definecolor{grey}{rgb}{0.3,0.3,0.3}
     \definecolor{commentGreen}{rgb}{0,0.8,0}
