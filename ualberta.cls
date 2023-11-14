@@ -33,7 +33,6 @@
               [2023/08/21 V:2.0.0 ualberta Document Class]
               
 \usepackage{etoolbox}
-
 \newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
 \newcommand\@convocationdate{}
  
@@ -307,118 +306,61 @@
 	\let\sectionmark\@gobble
 }
 
-\if@titlepage
-	\newcommand\maketitle{%
-		\begin{titlepage}%
-			\let\footnotesize\small
-			\let\footnoterule\relax
-			\let \footnote \thanks
-			\pagenumbering{roman}
-			\thispagestyle{empty}
-			\vfill
-			\vspace*{1.75\baselineskip}
-			\begin{center}
-				{\sc \bf \@title}
-					~\\[0.5\baselineskip]
-				by
-					~\\[0.5\baselineskip]
-				{\@author}
-			\end{center}
-			\vspace{5\baselineskip}
+\newcommand\maketitle{%
+	\begin{titlepage}%
+		\let\footnotesize\small
+		\let\footnoterule\relax
+		\let \footnote \thanks
+		\pagenumbering{roman}
+		\thispagestyle{empty}
+		\vfill
+		\vspace*{1.75\baselineskip}
+		\begin{center}
+			{\sc \bf \@title}
+				~\\[0.5\baselineskip]
+			by
+				~\\[0.5\baselineskip]
+			{\@author}
+		\end{center}
+		\vspace{5\baselineskip}
 
-			\begin{center}
-				A thesis submitted in partial fulfillment of the requirements for the degree of
-				~\\[1.25\baselineskip]
-				{\@degree}
-				\@specialization
-			\end{center}
-			\centerline{\@faculty\@department}
-			\centerline{University of Alberta}
-			\vspace{8.5\baselineskip}
+		\begin{center}
+			A thesis submitted in partial fulfillment of the requirements for the degree of
+			~\\[1.25\baselineskip]
+			{\@degree}
+			\@specialization
+		\end{center}
+		\centerline{\@faculty\@department}
+		\centerline{University of Alberta}
+		\vspace{8.5\baselineskip}
 
-			\begin{center}
-				\copyright{} \@author, \@convocationdate
-			\end{center}
-			\newpage
-		\end{titlepage}%
-		\pagestyle{plain}\pagenumbering{roman}\setcounter{page}{2}
-		\setcounter{footnote}{0}%
-		\global\let\thanks\relax
-		\global\let\maketitle\relax
-		\global\let\@thanks\@empty
-		\global\let\@author\@empty
-		\global\let\@convocationdate\@empty
-		\global\let\@title\@empty
-		\global\let\title\relax
-		\global\let\author\relax
-		\global\let\convocationdate\relax
-		\global\let\and\relax
-	}
-\else
-	\newcommand\maketitle{\par
-		\begingroup
-		\renewcommand\thefootnote{\@fnsymbol\c@footnote}%
-		\def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
-		\long\def\@makefntext##1{\parindent 1em\noindent
-			\hb@xt@1.8em{%
-				\hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
-		\if@twocolumn
-			\ifnum \col@number=\@ne
-				\@maketitle
-			\else
-				\twocolumn[\@maketitle]%
-			\fi
-		\else
-			\newpage
-			\global\@topnum\z@   % Prevents figures from going at top of page.
-			\@maketitle
-		\fi
-		\thispagestyle{plain}\@thanks
-		\endgroup
-		\setcounter{footnote}{0}%
-		\global\let\thanks\relax
-		\global\let\maketitle\relax
-		\global\let\@maketitle\relax
-		\global\let\@thanks\@empty
-		\global\let\@author\@empty
-		\global\let\@convocationdate\@empty
-		\global\let\@title\@empty
-		\global\let\title\relax
-		\global\let\author\relax
-		\global\let\convocationdate\relax
-		\global\let\and\relax
-	}
-	\def\@maketitle{%
+		\begin{center}
+			\copyright{} \@author, \@convocationdate
+		\end{center}
 		\newpage
-		\null
-		\vskip 2em%
-		\begin{center}%
-			\let \footnote \thanks
-			{\LARGE \@title \par}%
-			\vskip 1.5em%
-			{\large
-				\lineskip .5em%
-				\begin{tabular}[t]{c}%
-				\@author
-				\end{tabular}\par}%
-			\vskip 1em%
-			{\large \@convocationdate}%
-		\end{center}%
-		\par
-		\vskip 1.5em%
-	}
-\fi
+	\end{titlepage}%
+	\pagestyle{plain}\pagenumbering{roman}\setcounter{page}{2}
+	\setcounter{footnote}{0}%
+	\global\let\thanks\relax
+	\global\let\maketitle\relax
+	\global\let\@thanks\@empty
+	\global\let\@author\@empty
+	\global\let\@convocationdate\@empty
+	\global\let\@title\@empty
+	\global\let\title\relax
+	\global\let\author\relax
+	\global\let\convocationdate\relax
+	\global\let\and\relax
+}
 
 \newcommand*\chaptermark[1]{}
 \setcounter{secnumdepth}{2}
-\newcounter {part}
 \newcounter {chapter}
 \newcounter {section}[chapter]
 \newcounter {subsection}[section]
 \newcounter {subsubsection}[subsection]
 \newcounter {paragraph}[subsubsection]
 \newcounter {subparagraph}[paragraph]
-\renewcommand \thepart {\@Roman\c@part}
 \renewcommand \thechapter {\@arabic\c@chapter}
 \renewcommand \thesection {\thechapter.\@arabic\c@section}
 \renewcommand \thesubsection   {\thesection.\@arabic\c@subsection}
@@ -426,60 +368,6 @@
 \renewcommand \theparagraph    {\thesubsubsection.\@arabic\c@paragraph}
 \renewcommand \thesubparagraph {\theparagraph.\@arabic\c@subparagraph}
 \newcommand\@chapapp{\chaptername}
-
-\newcommand\part{%
-	\if@openright
-		\cleardoublepage
-	\else
-		\clearpage
-	\fi
-	\thispagestyle{plain}%
-	\if@twocolumn
-		\onecolumn
-		\@tempswatrue
-	\else
-		\@tempswafalse
-	\fi
-	\null\vfil
-	\secdef\@part\@spart}
-
-\def\@part[#1]#2{%
-	\ifnum \c@secnumdepth >-2\relax
-		\refstepcounter{part}%
-		\addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
-	\else
-		\addcontentsline{toc}{part}{#1}%
-	\fi
-	\markboth{}{}%
-	{\centering
-		\interlinepenalty \@M
-		\normalfont
-		\ifnum \c@secnumdepth >-2\relax
-			\huge\bfseries \partname\nobreakspace\thepart
-			\par
-			\vskip 20\p@
-		\fi
-		\Huge \bfseries #2\par}%
-		\@endpart}
-	
-\def\@spart#1{%
-	{\centering
-		\interlinepenalty \@M
-		\normalfont
-		\Huge \bfseries #1\par}%
-	\@endpart}
-	
-\def\@endpart{\vfil\newpage
-	\if@twoside
-		\if@openright
-			\null
-			\thispagestyle{empty}%
-			\newpage
-		\fi
-	\fi
-	\if@tempswa
-		\twocolumn
-	\fi}
 
 \newcommand\chapter{\stepcounter{baseSection}
 	\if@openright\cleardoublepage\else\clearpage\fi
@@ -769,21 +657,6 @@
 	\@starttoc{toc}%
 	\if@restonecol\twocolumn\fi
 	}
-\newcommand*\l@part[2]{%
-	\ifnum \c@tocdepth >-2\relax
-		\addpenalty{-\@highpenalty}%
-		\addvspace{2.25em \@plus\p@}%
-		\setlength\@tempdima{3em}%
-		\begingroup
-			\parindent \z@ \rightskip \@pnumwidth
-			\parfillskip -\@pnumwidth
-			{\leavevmode
-				\large \bfseries #1\hfil \hb@xt@\@pnumwidth{\hss #2}}\par
-			\nobreak
-			\global\@nobreaktrue
-			\everypar{\global\@nobreakfalse\everypar{}}%
-		\endgroup
-	\fi}
 \newcommand*\l@chapter[2]{%
 	\ifnum \c@tocdepth >\m@ne
 		\addpenalty{-\@highpenalty}%
@@ -911,7 +784,6 @@
 \newcommand\figurename{Figure}
 \newcommand\tablename{Table}
 \newcommand\platename{Plate}
-\newcommand\partname{Part}
 \newcommand\chaptername{Chapter}
 \newcommand\appendixname{Appendix}
 \newcommand\abstractname{Abstract}
@@ -975,9 +847,7 @@
     \input{"\@addlatexfiles#1.tex"}
 }
 
-
 \if@pdfa
-       \usepackage[a-3b]{pdfx}
+    \usepackage[a-3b]{pdfx}
 \fi
-
 \endinput
