@@ -4,6 +4,32 @@
 	Throughout this section, \LaTeX's automatic placement for figures and tables will be disabled in most cases.
 	This is being done to add a specific flow to \textbf{THIS DOCUMENT}; this should be avoided in one's thesis as it can lead to poor placement of figures, tables, and other \enquote{floats}, as well as cause unnecessary white space.
 	\section{General Text Layouts}
+		\subsection{Document Structure}
+			\LaTeX{} provides a set of commands that can be used to provide the structure for your document.
+			Depending on the document class, the different commands shown in \Cref{tab:docstructure} may be used.
+			Originally this thesis template was created as a modification to the \texttt{book} class, however, it included certain definitions that are unlikely to be included in a thesis document.
+			Due to this, the latest versions of this document (2.0.0+) do not include definitions for \texttt{part}.
+			
+			\begin{table}[H]
+				\caption{Document Structure Commands}
+				\label{tab:docstructure}
+				\centering
+				\begin{tabularx}{0.85\textwidth}{ccC} 
+					\toprule
+						\textbf{Level} & \textbf{Command} & \textbf{Notes}\\
+					\midrule
+						-1 & \lstinline{\\part\{\}} & Not Recommended for Thesis\\
+						 0 & \lstinline{\\chapter\{\}}\\
+						 1 & \lstinline{\\section\{\}}\\
+						 2 & \lstinline{\\subsection\{\}}\\
+						 3 & \lstinline{\\subsubsection\{\}}\\
+						 4 & \lstinline{\\paragraph\{\}}\\
+						 5 & \lstinline{\\subparagraph\{\}}& Not Recommended for Thesis\\
+					\bottomrule
+				\end{tabularx}
+			\end{table}
+			
+			
 		\subsection{Lists}
 			\LaTeX{} has a few built-in ways for handling lists.
 			The three that we will be looking at here (formatted in an enumerated list) are:
