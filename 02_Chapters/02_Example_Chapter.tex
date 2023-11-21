@@ -29,6 +29,24 @@
 				\end{tabularx}
 			\end{table}
 			
+		\subsection{Text Alignment}
+			Generally, the alignment of the text should be left alone and handled by \LaTeX{}.
+			However, in some rare cases it may  be beneficial or even required to change the style of the alignment.
+			While \LaTeX{} does have built in environments for handling the changing of the alignment, the package \lstinline|\usepackage{ragged2e}| provides some improvements.
+			\begin{table}[H]
+				\begin{tabularx}{0.9\textwidth}{cX}
+					\toprule
+						\textbf{Environment Name} & \textbf{Example}\\
+					\midrule
+						flushleft  & \makecell[{{p{0.5\textwidth}}}]{\begin{flushleft}\exampleText\end{flushleft}}\\
+						flushright & \makecell[{{p{0.5\textwidth}}}]{\begin{flushright}\exampleText\end{flushright}}\\
+						center      & \makecell[{{p{0.5\textwidth}}}]{\begin{center}\exampleText\end{center}}\\
+						FlushLeft  & \makecell[{{p{0.5\textwidth}}}]{\begin{FlushLeft}\exampleText\end{FlushLeft}}\\
+						FlushRight & \makecell[{{p{0.5\textwidth}}}]{\begin{FlushRight}\exampleText\end{FlushRight}}\\
+						Center      & \makecell[{{p{0.5\textwidth}}}]{\begin{Center}\exampleText\end{Center}}\\
+					\bottomrule
+				\end{tabularx}
+			\end{table}
 			
 		\subsection{Lists}
 			\LaTeX{} has a few built-in ways for handling lists.
