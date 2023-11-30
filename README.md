@@ -33,7 +33,7 @@ For more information on the template, please visit the dedicated website at: htt
 
 ## About
 ### The Long Story Why I Made This
-As a graduate student from the University of Alberta, I understand the daunting task that is associated with writing a Thesis that conforms the the guidelines outlined in the FGSR Minimum Thesis Formatting Requirements. It can also be very frustrating to write long, equation and figure heavy, document in a word processor that is prone to crashes, file corruption, seemingly random changes to the formatting, and that do not output a document in the required PDF/A format for submission to FGSR.
+As a graduate student from the University of Alberta, I understand the daunting task that is associated with writing a Thesis that conforms to the guidelines outlined in the FGSR Minimum Thesis Formatting Requirements. It can also be very frustrating to write long, equation and figure heavy, document in a word processor that is prone to crashes, file corruption, seemingly random changes to the formatting, and that do not output a document in the required PDF/A format for submission to FGSR.
 
 Due to these problems, lots of students attempt to use an alternative to traditional word processors: LaTeX. 
 

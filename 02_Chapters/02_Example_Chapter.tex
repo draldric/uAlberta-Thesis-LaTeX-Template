@@ -33,20 +33,32 @@
 			Generally, the alignment of the text should be left alone and handled by \LaTeX{}.
 			However, in some rare cases it may  be beneficial or even required to change the style of the alignment.
 			While \LaTeX{} does have built in environments for handling the changing of the alignment, the package \lstinline|\usepackage{ragged2e}| provides some improvements.
-			\begin{table}[H]
-				\begin{tabularx}{0.9\textwidth}{cX}
-					\toprule
-						\textbf{Environment Name} & \textbf{Example}\\
-					\midrule
-						flushleft  & \makecell[{{p{0.5\textwidth}}}]{\begin{flushleft}\exampleText\end{flushleft}}\\
-						flushright & \makecell[{{p{0.5\textwidth}}}]{\begin{flushright}\exampleText\end{flushright}}\\
-						center      & \makecell[{{p{0.5\textwidth}}}]{\begin{center}\exampleText\end{center}}\\
-						FlushLeft  & \makecell[{{p{0.5\textwidth}}}]{\begin{FlushLeft}\exampleText\end{FlushLeft}}\\
-						FlushRight & \makecell[{{p{0.5\textwidth}}}]{\begin{FlushRight}\exampleText\end{FlushRight}}\\
-						Center      & \makecell[{{p{0.5\textwidth}}}]{\begin{Center}\exampleText\end{Center}}\\
-					\bottomrule
-				\end{tabularx}
-			\end{table}
+			Of these improvements, the most obvious is the allowing of hyphenated text to appear in `ragged' or `centred' text.
+			\begin{flushleft}\exampleText\end{flushleft}
+			
+			\begin{FlushLeft}\exampleText\end{FlushLeft}
+			
+			\raggedright\exampleText
+			
+			\RaggedRight\exampleText
+			
+			\begin{flushright}\exampleText\end{flushright}
+			
+			\begin{FlushRight}\exampleText\end{FlushRight}
+			
+			\raggedleft\exampleText
+			
+			\RaggedLeft\exampleText
+			
+			\begin{center}\exampleText\end{center}
+			
+			\begin{Center}\exampleText\end{Center}
+			
+			\centering\exampleText
+			
+			\Centering\exampleText
+			
+			\justifying 
 			
 		\subsection{Lists}
 			\LaTeX{} has a few built-in ways for handling lists.
@@ -177,7 +189,7 @@
 						\lstinline|\\cref\{\}|          & \cref{tab:reftable} \\
 						\lstinline|\\Cref\{\}|          & \Cref{tab:reftable} \\
 						\lstinline|\\cref*\{\}|         & \cref*{tab:reftable} \\
-						%\lstinline|\\Cref*\{\}|         & \Cref*{tab:reftable} \\
+						\lstinline|\\Cref*\{\}|         & \Cref*{tab:reftable} \\
 						\lstinline|\\cpageref\{\}|      & \cpageref{tab:reftable} \\
 						\lstinline|\\Cpageref\{\}|      & \Cpageref{tab:reftable} \\
 						\lstinline|\\namecref\{\}|      & \namecref{tab:reftable} \\
@@ -431,24 +443,24 @@
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
-					width=0.65\textwidth,
-					axis lines = left,
-					xlabel = \(x\),
-					ylabel = {\(f(x)\)},
+						width=0.65\textwidth,
+						axis lines = left,
+						xlabel = \(x\),
+						ylabel = {\(f(x)\)},
 					]
 					%Below the red parabola is defined
-					\addplot [
-						domain=-10:10, 
-						samples=20, 
-						color=red,
+					\addplot[
+							domain=-10:10, 
+							samples=20, 
+							color=red,
 						]
 						{x^2 - 2*x - 1};
 					\addlegendentry{\(x^2 - 2x - 1\)}
 					%Here the blue parabola is defined
-					\addplot [
-						domain=-10:10, 
-						samples=20, 
-						color=blue,
+					\addplot[
+							domain=-10:10, 
+							samples=20, 
+							color=blue,
 						]
 						{x^2 + 2*x + 1};
 					\addlegendentry{\(x^2 + 2x + 1\)}
@@ -462,13 +474,13 @@
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
-					width=0.65\textwidth,
-					x tick label style={/pgf/number format/1000 sep=},
-					ylabel=Year,
-					enlargelimits=0.05,
-					legend style={at={(0.5,-0.1)},
-					anchor=north,legend columns=-1},
-					ybar interval=0.7,
+						width=0.65\textwidth,
+						x tick label style={/pgf/number format/1000 sep=},
+						ylabel=Year,
+						enlargelimits=0.05,
+						legend style={at={(0.5,-0.1)},
+						anchor=north,legend columns=-1},
+						ybar interval=0.7,
 					]
 					\addplot 
 						coordinates {(2012,408184) (2011,408348)
@@ -487,15 +499,15 @@
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
-					width=0.65\textwidth,
-					title=Example using the mesh parameter,
-					hide axis,
-					colormap/cool,
+						width=0.65\textwidth,
+						title=Example using the mesh parameter,
+						hide axis,
+						colormap/cool,
 					]
 					\addplot3[
-						mesh,
-						samples=25,
-						domain=-8:8,
+							mesh,
+							samples=25,
+							domain=-8:8,
 						]
 						{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
 					\addlegendentry{\(\frac{sin(r)}{r}\)}
@@ -509,14 +521,15 @@
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
-					width=0.65\textwidth,
-					enlargelimits=true,
+						width=0.65\textwidth,
+						enlargelimits=true,
 					]
 					\addplot+[
-						only marks,
-						scatter,
-						mark=*,
-						mark size=2.9pt]
+							only marks,
+							scatter,
+							mark=*,
+							mark size=2.9pt
+						]
 						table[meta=ma]
 						{./02_Chapters/scattered_example.dat};
 				\end{axis}

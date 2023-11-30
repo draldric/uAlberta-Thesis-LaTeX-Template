@@ -19,6 +19,7 @@
     \newcommand\abbreviations{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
 
 \usepackage[utf8]{inputenc}
+\usepackage{comment}
 
 % The basics for using math in LaTeX
 \usepackage{array}
@@ -62,10 +63,17 @@
 
 % Used for including hyperlinks, document links, and better cross-references
 \usepackage{hyperref}
-    \hypersetup{hidelinks,pdfencoding=unicode,breaklinks=true}
+    \hypersetup{
+		colorlinks,
+		linkcolor={red!50!black},
+		citecolor={blue!50!black},
+		urlcolor={blue!80!black},
+		pdfencoding=unicode,
+		breaklinks=true
+	}
     \urlstyle{same}
     \Urlmuskip=0mu plus 1mu\relax
-\usepackage{cleveref}
+\usepackage[nameinlink]{cleveref}
 
 % Used for creating the Bibliography
 %   Currently set up for IEEE style citations, with compact number in-text [1 - 3] vs [1, 2, 3]
@@ -82,6 +90,7 @@
 % USED ONLY FOR FORMATTING EXAMPLE DOCUMENT (DO NOT USE IN THESIS)
 \usepackage{float}
 
+\usepackage{fontawesome}
 \usepackage{lipsum}
 \usepackage{linegoal}
 \usepackage{xcolor}
@@ -97,29 +106,29 @@
   
   %% NEW COMMANDS
     
-	\newcommand{\exampleText}{Light of whose darkness. Image creeping from evening given fourth kind two there bring. Heaven winged, midst, behold a have.}
+	\newcommand{\exampleText}{\lipsum[1][1-4]}
   
-    \newcommand{\comment}      [1]{\textcolor{grey}{\textbf{\faCommenting{}} \parbox[t]{\linegoal}{\textit{#1}}}}
-    \newcommand{\danger}       [1]{\scshape{\color{black}\colorbox{red}{\textbf{{\faWarning} DANGER}}} \parbox[t]{\linegoal}{\textbf{\MakeUppercase{#1}}}}
-    \newcommand{\warning}      [1]{\scshape{\color{black}\colorbox{orange}{{\textbf{{\faWarning} WARNING}}}} \parbox[t]{\linegoal}{\textbf{#1}}}
-    \newcommand{\caution}      [1]{\scshape{\color{black}\colorbox{yellow}{{\textbf{{\faWarning} CAUTION}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\notice}       [1]{\scshape{\color{white}\colorbox{black}{{\textbf{\textit{NOTICE}}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\alert}        [1]{\textbf{\faWarning} {\parbox[t]{\linegoal}{#1}}}
-    \newcommand{\note}         [1]{\textbf{\textit{Note: }}\parbox[t]{\linegoal}{\textit{#1}}}
-    \newcommand{\info}         [1]{\textcolor{blue}{\textbf{{\faInfoCircle{}}} \parbox[t]{\linegoal}{#1}}}
-    \newcommand{\question}     [1]{\textcolor{orange}{{\textbf{{\faQuestionCircle}}}} \parbox[t]{\linegoal}{\textbf{#1}}}
-    \newcommand{\answer}       [1]{\-\hspace{4ex}{\scshape{\color{orange}{{\textbf{{\faCheckCircle}}}}}} \parbox[t]{\linegoal}{\textit{#1}}}
-    \newcommand{\qna}          [2]{\textcolor{orange}{{\textbf{{\faQuestionCircle}}}} \textbf{#1}\\\-\hspace{4ex} \parbox[t]{\linegoal}{{\textit{#2}}}}
-    \newcommand{\tip}          [1]{\textcolor{gold}{{\textbf{{\faLightbulbO{}}}} \parbox[t]{\linegoal}{#1}}}
-    \newcommand{\download}     [2]{\textcolor{black}{{\textbf{{\faDownload}}}} \parbox[t]{\linegoal}{\textattachfile[color=0 0 0]{#1}{#2}}}
-    \newcommand{\clouddownload}[2]{\textbf{\faCloudDownload} \parbox[t]{\linegoal}{\href{#1}{#2}}}
-    \newcommand{\important}    [1]{\textcolor{red}{\textbf{\faExclamationCircle{}} \parbox[t]{\linegoal}{#1}}}
-    \newcommand{\key}          [1]{\textcolor{black}{{\textbf{{\faKey}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\tool}         [1]{\textcolor{black}{{\textbf{{\faWrench}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\setting}      [1]{\textcolor{black}{{\textbf{{\faCogs}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\software}     [1]{\textcolor{black}{{\textbf{{\faFileCodeO}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\codeblock}    [1]{\colorbox{codeGrey}{\faTerminal{} \parbox[t]{\linegoal}{\texttt{#1}}}}
-    \newcommand{\option}       [1]{`\textbf{#1}'}
-    \newcommand{\code}         [1]{\texttt{\sethlcolor{codeGrey}\hl{#1}}}
-    \newcommand{\file}         [1]{\texttt{\faFileO{} #1}}
-    \newcommand{\folder}       [1]{\texttt{\faFolderO{} #1}}
+    \newcommand{\commenting}   [1]{\noindent\textcolor{grey}{\textbf{\faCommenting{}} \parbox[t]{\linegoal}{\textit{#1}}}}
+    \newcommand{\danger}       [1]{\noindent\textsc{\color{black}\colorbox{red}{\textbf{{\faWarning} DANGER}}} \parbox[t]{\linegoal}{\textbf{\MakeUppercase{#1}}}}
+    \newcommand{\warning}      [1]{\noindent\textsc{\color{black}\colorbox{orange}{{\textbf{{\faWarning} WARNING}}}} \parbox[t]{\linegoal}{\textbf{#1}}}
+    \newcommand{\caution}      [1]{\noindent\textsc{\color{black}\colorbox{yellow}{{\textbf{{\faWarning} CAUTION}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\notice}       [1]{\noindent\textsc{\color{white}\colorbox{black}{{\textbf{\textit{NOTICE}}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\alert}        [1]{\noindent\textbf{\faWarning} {\parbox[t]{\linegoal}{#1}}}
+    \newcommand{\note}         [1]{\noindent\textbf{\textit{Note: }}\parbox[t]{\linegoal}{\textit{#1}}}
+    \newcommand{\info}         [1]{\noindent\textcolor{blue}{\textbf{{\faInfoCircle{}}} \parbox[t]{\linegoal}{#1}}}
+    \newcommand{\question}     [1]{\noindent\textcolor{orange}{{\textbf{{\faQuestionCircle}}}} \parbox[t]{\linegoal}{\textbf{#1}}}
+    \newcommand{\answer}       [1]{\noindent\-\hspace{4ex}{\textsc{\color{orange}{{\textbf{{\faCheckCircle}}}}}} \parbox[t]{\linegoal}{\textit{#1}}}
+    \newcommand{\qna}          [2]{\noindent\textcolor{orange}{{\textbf{{\faQuestionCircle}}}} \textbf{#1}\\\-\hspace{4ex} \parbox[t]{\linegoal}{{\textit{#2}}}}
+    \newcommand{\tip}          [1]{\noindent\textcolor{gold}{{\textbf{{\faLightbulbO{}}}} \parbox[t]{\linegoal}{#1}}}
+    \newcommand{\download}     [2]{\noindent\textcolor{black}{{\textbf{{\faDownload}}}} \parbox[t]{\linegoal}{\textattachfile[color=0 0 0]{#1}{#2}}}
+    \newcommand{\clouddownload}[2]{\noindent\textbf{\faCloudDownload} \parbox[t]{\linegoal}{\href{#1}{#2}}}
+    \newcommand{\important}    [1]{\noindent\textcolor{red}{\textbf{\faExclamationCircle{}} \parbox[t]{\linegoal}{#1}}}
+    \newcommand{\key}          [1]{\noindent\textcolor{black}{{\textbf{{\faKey}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\tool}         [1]{\noindent\textcolor{black}{{\textbf{{\faWrench}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\setting}      [1]{\noindent\textcolor{black}{{\textbf{{\faCogs}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\software}     [1]{\noindent\textcolor{black}{{\textbf{{\faFileCodeO}}}} \parbox[t]{\linegoal}{#1}}
+    \newcommand{\codeblock}    [1]{\noindent\colorbox{codeGrey}{\faTerminal{} \parbox[t]{\linegoal}{\texttt{#1}}}}
+    \newcommand{\option}       [1]{\noindent`\textbf{#1}'}
+    \newcommand{\code}         [1]{\noindent\texttt{\sethlcolor{codeGrey}\hl{#1}}}
+    \newcommand{\file}         [1]{\noindent\texttt{\faFileO{} #1}}
+    \newcommand{\folder}       [1]{\noindent\texttt{\faFolderO{} #1}}
