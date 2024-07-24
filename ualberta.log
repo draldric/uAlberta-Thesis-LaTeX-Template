@@ -1,0 +1,61 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.4)  8 JUN 2024 15:57
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/drald/OneDrive/Documents/Github/uAlberta-Thesis-LaTeX-Template/ualberta
+(c:/Users/drald/OneDrive/Documents/Github/uAlberta-Thesis-LaTeX-Template/ualberta.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-04-11>
+runsystem(makeindex ualberta.nlo -s nomencl.ist -o ualberta.nls)...executed safely (allowed).
+
+(./ualberta.cls
+Document Class: ualberta 2023/08/21 V:2.0.0 ualberta Document Class
+(c:/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count189
+)
+\c@baseSection=\count190
+ (c:/texlive/2024/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@chapter=\count191
+\c@section=\count192
+\c@subsection=\count193
+\c@subsubsection=\count194
+\c@paragraph=\count195
+\c@subparagraph=\count196
+\c@figure=\count197
+\c@table=\count198
+\c@plate=\count199
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+ (c:/texlive/2024/texmf-dist/tex/latex/pdfx/pdfx.sty
+Package: pdfx 2019/02/27 v1.6.3 PDF/X and PDF/A support (CVR/HTH/RRM/PS)
+\pdfx@minorversion=\count266
+
+
+! LaTeX Error: File `iftex.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+c:/texlive/2024/texmf-dist/tex/latex/pdfx/pdfx.sty:398: Emergency stop.
+<read *> 
+         
+l.398 \RequirePackage
+                     {ifpdf}^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 835 strings out of 474050
+ 9957 string characters out of 5746293
+ 1925754 words of memory out of 5000000
+ 23343 multiletter control sequences out of 15000+600000
+ 558367 words of font info for 37 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 49i,0n,57p,237b,36s stack positions out of 10000i,1000n,20000p,200000b,200000s
+c:/texlive/2024/texmf-dist/tex/latex/pdfx/pdfx.sty:398:  ==> Fatal error occurred, no output PDF file produced!

@@ -1,0 +1,152 @@
+\chapter{Citations/References, and Cross-References}\label{ch:citref}
+	This section will be showing off some of the different ways to include \enquote{citations} and \enquote{cross-references} within your document.
+	Note that \textbf{cross-references} in \LaTeX{} utilize \lstinline|\ref{}| as a command, while one might think that this is short for reference this is not the case citation/references utilize the \lstinline|\cite{}| commands.
+	\section{Cross-References}
+		In \LaTeX{}, references will \enquote{reference} a \lstinline|\label{Reference:Label}| command. 
+		This section has the following command to define the chapter:
+		\begin{Center}
+			\lstinline|\chapter{Citations/References, and Cross-References}\label{ch:citref}|
+		\end{Center}
+		By using \lstinline|\ref{ch:citref}|, this allows you to insert a reference that look like this: \ref{ch:citref}.
+		Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Chapter}, and add this label in front of the reference (\lstinline|Chapter~\ref{sec:citref}|) and this will display like this: Chapter~\ref{ch:citref}.
+		Note to ensure the reference is not split we add a non-breaking space (\lstinline|~|) to prevent \LaTeX{} from accidentally adding a linebreak.
+
+		While using the \path{ref} command, you might ask \enquote{\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}}
+		The answer is to provide more flexibility to the user.
+		However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
+		Some of these are provided by the \textbf{hyperref} and \textbf{cleveref} packages.
+		To include these packages add the following lines to the \textbf{bottom} of your preamble (order matters, cleveref needs to be after hyperref and hyperref should be one of the last packages loaded):
+		\begin{lstlisting}[style=LaTeXStyle]
+			\usepackage{hyperref}
+			\usepackage[nameinlink]{cleveref}
+		\end{lstlisting}
+		With these packages loaded we can now use the commands listed in \Cref{tab:reftable}.\footnote{Note that because the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
+		\begin{table}[H]
+			\caption{Built-in, hyperref, and cleveref commands and outputs}
+			\label{tab:reftable}
+			\centering
+			\begin{tabularx}{0.5\textwidth}{CC} 
+				\toprule
+					\textbf{Command} & \textbf{Output} \\
+				\midrule
+					\multicolumn{2}{c}{built-in}\\
+					\lstinline|\\ref\{\}|           & \ref{tab:reftable} \\
+					\lstinline|\\pageref\{\}|       & \pageref{tab:reftable} \\
+				\midrule
+					\multicolumn{2}{c}{hyperref}\\
+					\lstinline|\\autoref\{\}|       & \autoref{tab:reftable} \\
+					%\lstinline|\\autoref*\{\}|      & \autoref*{tab:reftable} \\
+				\midrule
+					\multicolumn{2}{c}{cleveref}\\
+					\lstinline|\\cref\{\}|          & \cref{tab:reftable} \\
+					\lstinline|\\Cref\{\}|          & \Cref{tab:reftable} \\
+					\lstinline|\\cref*\{\}|         & \cref*{tab:reftable} \\
+					\lstinline|\\Cref*\{\}|         & \Cref*{tab:reftable} \\
+					\lstinline|\\cpageref\{\}|      & \cpageref{tab:reftable} \\
+					\lstinline|\\Cpageref\{\}|      & \Cpageref{tab:reftable} \\
+					\lstinline|\\namecref\{\}|      & \namecref{tab:reftable} \\
+					\lstinline|\\nameCref\{\}|      & \nameCref{tab:reftable} \\
+					%\lstinline|\\lcnamecref\{\}|    & \lcnamecref{tab:reftable} \\
+					%\lstinline|\\labelcref\{\}|     & \labelcref{tab:reftable} \\
+					%\lstinline|\\labelcpageref\{\}| & \labelcpageref{tab:reftable} \\
+				\bottomrule
+			\end{tabularx}
+		\end{table}
+		Further, the \textbf{cleveref} also includes features that allows for the auto sorting and combining of references:
+		\begin{lstlisting}[style=LaTeXStyle]
+			\Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}
+		\end{lstlisting}
+		Noting that there are \textbf{NO} spaces between the labels; this will produce: \Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}. 
+		Allowing one to quickly and efficiently keep references up-to-date and consistent in their style.
+		More examples of the use of the \textbf{cleveref} cross-referencing is found through the rest of this \nameCref{ch:ExampleChapter}.
+	\section{Citations/References}
+		
+	
+	\section{Citation Managers}
+		
+		\subsection{JabRef}
+			
+	
+	This section will be showing off some of the different ways to include \enquote{citations} and \enquote{cross-references} within your document.
+		Note that \textbf{cross-references} in \LaTeX{} utilize \lstinline|\ref{}| as a command, while one might think that this is short for reference this is not the case citation/references utilize the \lstinline|\cite{}| commands.
+		\subsection{Cross-References}\label{subsec:cross-reference}
+			In \LaTeX{}, references will \enquote{reference} a \lstinline|\label{Reference:Label}| command. 
+			This section has the following command to define the the section:
+			\begin{Center}
+				\lstinline|\section{Citations and References}\label{sec:citref}|
+			\end{Center}
+			By using \lstinline|\ref{sec:citref}|, this allows you to insert a reference that look like this: \ref{sec:citref}.
+			Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\lstinline|Section~\ref{sec:citref}|) and this will display like this: Section~\ref{sec:citref}.
+			Note to ensure the reference is not split we add a non-breaking space (\lstinline|~|) to prevent \LaTeX{} from adding a linebreak.
+
+			While using the ref command, you might ask \enquote{\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}}
+			The answer is to provide more flexibility to the user.
+			However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
+			Some of these are provided by the \textbf{hyperref} and \textbf{cleveref} packages.
+			To include these packages add the following lines to the bottom of your preamble (order matters, cleveref needs to be after hyperref and hyperref should be one of the last packages loaded):
+			\begin{lstlisting}[style=LaTeXStyle]
+				\usepackage{hyperref}
+				\usepackage[nameinlink]{cleveref}
+			\end{lstlisting}
+			With these packages installed we can now use the commands in \Cref{tab:reftable}.\footnote{Note that becase the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
+			\begin{table}[H]
+				\caption{Built-in, hyperref, and cleveref commands and outputs}
+				\label{tab:reftable}
+				\centering
+				\begin{tabularx}{0.5\textwidth}{CC} 
+					\toprule
+						\textbf{Command} & \textbf{Output} \\
+					\midrule
+						\multicolumn{2}{c}{built-in}\\
+						\lstinline|\\ref\{\}|           & \ref{tab:reftable} \\
+						\lstinline|\\pageref\{\}|       & \pageref{tab:reftable} \\
+					\midrule
+						\multicolumn{2}{c}{hyperref}\\
+						\lstinline|\\autoref\{\}|       & \autoref{tab:reftable} \\
+						%\lstinline|\\autoref*\{\}|      & \autoref*{tab:reftable} \\
+					\midrule
+						\multicolumn{2}{c}{cleveref}\\
+						\lstinline|\\cref\{\}|          & \cref{tab:reftable} \\
+						\lstinline|\\Cref\{\}|          & \Cref{tab:reftable} \\
+						\lstinline|\\cref*\{\}|         & \cref*{tab:reftable} \\
+						\lstinline|\\Cref*\{\}|         & \Cref*{tab:reftable} \\
+						\lstinline|\\cpageref\{\}|      & \cpageref{tab:reftable} \\
+						\lstinline|\\Cpageref\{\}|      & \Cpageref{tab:reftable} \\
+						\lstinline|\\namecref\{\}|      & \namecref{tab:reftable} \\
+						\lstinline|\\nameCref\{\}|      & \nameCref{tab:reftable} \\
+						%\lstinline|\\lcnamecref\{\}|    & \lcnamecref{tab:reftable} \\
+						%\lstinline|\\labelcref\{\}|     & \labelcref{tab:reftable} \\
+						%\lstinline|\\labelcpageref\{\}| & \labelcpageref{tab:reftable} \\
+					\bottomrule
+				\end{tabularx}
+			\end{table}
+			Further, the \textbf{cleveref} also includes features that allows for the auto sorting and combining of references:
+			\begin{lstlisting}[style=LaTeXStyle]
+				\Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}
+			\end{lstlisting}
+			Noting that there are \textbf{NO} spaces between the labels; this will produce: \Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}. 
+			Allowing one to quickly and efficiently keep references up-to-date and consistent in their style.
+			More examples of the use of the \textbf{cleveref} cross-referencing is found through the rest of this \nameCref{ch:ExampleChapter}.
+		\subsection{Citations}\label{subsec:citations}
+			Citations are a lot easier than dealing with the cross-referencing.
+			There are no additional packages required for citations, the built-in ones are feature-rich enough.
+			Now, while there are no additional packages required to make citations in your document, there are in fact a few programs that should help you manage all of your citations/references.
+			These programs can include Mendeley, JabRef, or Zotero; a comparison of the softwares can be found in \Cref{tab:refSoftware}, and more information of the use of JabRef can be found in \Cref{ch:JabRef}.
+			\begin{table}[htbp]
+				\centering
+				\caption{Comparison of Reference Softwares}
+				\label{tab:refSoftware}%
+				\begin{tabularx}{0.9\textwidth}{Lcccr}
+					\toprule
+						Software & Developer         & Version & Cost                    & License \\
+					\midrule
+						JabRef   & The JabRef Team   & 5.11     & Free                    & MIT \\
+						Mendeley & Elsevier          & 2.99.0   & {Free up to 2 GB}    & Proprietary \\
+						Zotero   & CDS               & 6.0.27   & {Free  up to 300 MB} & AGPL \\
+					\bottomrule
+				\end{tabularx}%
+			\end{table}%
+			Single citations can be included with the \lstinline|\cite{citationKey}| command, the one at the end of this sentence is created with the \lstinline|\cite{TEST}| command\cite{TEST}. 
+			Multiple citations can be included in a single cite command by adding commas in between the citation keys. 
+			The citation at the end of this sentence shows how to create more than one citation and how they are grouped together, it is created with the \lstinline|\cite{testone,cite2,cite3,cite4,cite5}| command\cite{testone,cite2,cite3,cite4,cite5}.
+			Finally this sentence shows how a gap in the citations is handled, this is created with the \lstinline|\cite{testone,cite2,cite3,cite5}| command\cite{testone,cite2,cite3,cite5}. 

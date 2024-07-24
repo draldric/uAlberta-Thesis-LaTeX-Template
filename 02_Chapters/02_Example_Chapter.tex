@@ -1,13 +1,13 @@
 \chapter{Example Chapter}\label{ch:ExampleChapter}
-	This chapter aims to provide examples how how to structure and create specific components in your thesis document.
+	This chapter aims to provide examples of how to structure and create specific components in your thesis document.
 	Throughout this section, \LaTeX's automatic placement for figures and tables will be disabled in most cases.
-	This is being done to add a specific flow to \textbf{THIS DOCUMENT}; this should be avoided in one's thesis as it can lead to poor placement of figures, tables, and other \enquote{floats}, as well as cause unnecessary white space.
+	This is being done to add a specific flow to \textbf{THIS DOCUMENT}; this should be avoided in one's own thesis as it can lead to poor placement of figures, tables, and other \enquote{floats}, as well as cause unnecessary white space.
 	\section{General Text Layouts}
 		\subsection{Document Structure}
 			\LaTeX{} provides a set of commands that can be used to provide the structure for your document.
 			Depending on the document class, the different commands shown in \Cref{tab:docstructure} may be used.
 			Originally this thesis template was created as a modification to the \texttt{book} class, however, it included certain definitions that are unlikely to be included in a thesis document.
-			Due to this, the latest versions of this document (2.0.0+) do not include definitions for \texttt{part}.
+			Due to this, the latest versions of this document (2.0.0+) \textbf{do not} include definitions for \texttt{part}.
 			
 			\begin{table}[H]
 				\caption{Document Structure Commands}
@@ -67,7 +67,7 @@
 				\item \lstinline|itemize|
 				\item \lstinline|description|
 			\end{enumerate}
-			These each create lists in a slightly unique way.
+			These each create lists in a slightly different way.
 			And all of these lists can be nested in each other.
 			For \path{enumerate}, this creates a numbered list, where each level has a different style of \enquote{numbered list}.
 			\begin{enumerate}
@@ -217,11 +217,11 @@
 				\label{tab:refSoftware}%
 				\begin{tabularx}{0.9\textwidth}{Lcccr}
 					\toprule
-						Software & Developer & Version & Free & License \\
+						Software & Developer         & Version & Cost                    & License \\
 					\midrule
-						JabRef   & The JabRef Team & 5.11   & Free   & MIT \\
-						Mendeley & Elsevier          & 2.99.0 & {Free up to 2 GB} & Proprietary \\
-						Zotero   & CDS               & 6.0.27 & {Free  up to 300 MB} & AGPL \\
+						JabRef   & The JabRef Team   & 5.11     & Free                    & MIT \\
+						Mendeley & Elsevier          & 2.99.0   & {Free up to 2 GB}    & Proprietary \\
+						Zotero   & CDS               & 6.0.27   & {Free  up to 300 MB} & AGPL \\
 					\bottomrule
 				\end{tabularx}%
 			\end{table}%
@@ -232,7 +232,7 @@
 	\section{Tables}
 		Within this section we will explore some of the typical uses for a table, how to create them, and how to create a consistent look throughout your thesis.
 		\LaTeX{} provides the default floats environment \path{table} that can be combined with the \path{tabular} environment to create tables in your works. 
-		While these tables are functional they have a very plain look and feel to them.
+		While these tables are perfectly functional they have a very plain look and feel to them.
 		The package \path{tabularx} can be combined with the \path{booktabs} package to create elegant and consistent looking tables.
 		A direct comparison of a standard table and the \path{tabularx} with \path{booktabs} can be seen in \Cref{tab:tableComparison}.
 		\begin{table}[H]
@@ -263,13 +263,13 @@
 				\end{tabularx}
 			\end{subtable}
 		\end{table}
-		As can be see in \Cref{tab:tableComparison}, well maybe not due to the overlap... the included \path{tabular} environment in \LaTeX{} does not restrict a table to being a specific size; it is completely up to the user to determine if a table will overflow, and, if it does, to break or change the layout to make the data fit.
-		On the other hand, the \path{tabularx} package allows us to set the width of the table and inform it which columns should be scaled to fit the the data and the \path{tabularx} package will handle the heavy lifting for us.
-		Thus creating a table that, first, fits in the space one specifies and, secondly, re-flows the data to fit the cells rather than running the contents into neighbouring content or into the margins and off the page.
+		As can be see in \Cref{tab:tableComparison}, well maybe not due to the overlap... the included \path{tabular} environment in \LaTeX{} does not restrict a table to being a specific size; it is completely up to the user to determine if a table will overflow and, if it does, to break or change the layout to make the data fit.
+		On the other hand, the \path{tabularx} package allows us to set the width of the table and inform it which columns should be scaled to fit the data and the \path{tabularx} package will handle the heavy lifting for us.
+		Thus creating a table that, firstly, fits in the space one specifies and, secondly, re-flows the data to fit the cells rather than running the contents into neighbouring content or into the margins and off the page.
   
-		\path{Tabularx} uses similar formats to the tabular environment, except there is an additional column type: \path{X}.
-		This column type, or one of the derivative column types shown below, must be included in the use of a \path{tabularx} table. 
-		Failing to do so will cause an error. The additional column types that one might like to create for use with the \path{tabularx} environment are as follows:
+		\path{tabularx} uses similar formats to the tabular environment, except there is an additional column type: \path{X}.
+		This column type, or one of the derivatived column types shown below, must be included in the use of a \path{tabularx} table. 
+		Failing to do so will cause an error. The additional column types that one might like to create for use with the \path{tabularx} environment are as follows (Note that the \path{X} column type is a Fully Justified Auto Sizing Column):
 		\begin{itemize}
 			\item \textbf{C} - Centred Auto Sizing Column\\\lstinline|\newcolumntype{C}{>{\centering\arraybackslash}X}|
 			\item \textbf{L} - Left Justified Auto Sizing Column \\\lstinline|\newcolumntype{L}{>{\raggedright\arraybackslash}X}|
@@ -294,9 +294,9 @@
 			\end{tabularx}
 		\end{table}
 		In the following table, \Cref{tab:complexTable}, we use the \path{multirow} and \path{multicol} packages.
-		These two packages allow one to merge cells together in a table.
-		Beyond this, to include lines, the \lstinline|\cmidrule(l{<length>}r{<length>}){start_cell-end_cell}| from the \path{booktabs} package is used.
-		To add a bit of a cleaner look the lines can be trimmed by including the \path{l{<length>}} or \path{r{<length>}} in the round brackets to trim the lines by the specified length for the left and right sides, respectively.
+		These two packages allows one to merge cells together in a table.
+		Beyond this, to include horizontal lines, the \lstinline|\cmidrule(l{<length>}r{<length>}){start_cell-end_cell}| from the \path{booktabs} package is used.
+		To add a bit of a cleaner look the lines can be trimmed by including the \path{l{<length>}} or \path{r{<length>}} in the \textbf{round} brackets to trim the lines by the specified length for the left and right sides, respectively.
 		Note that both line trim specifications do not need to be specified, in-fact one or none can be provide if the line does not need to be trimmed, \textit{e.g.}, \lstinline|\cmidrule{1-5}| or \lstinline|\cmidrule(r{3em}){2-3}|.
 		\begin{table}[H]
 			\caption{This is a complex table.}
@@ -324,7 +324,7 @@
 		This section will provide examples of how to create figures, and different types of multi/sub-figures. 
 		Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \lstinline|\clearpage| command can be issued before the next section. 
 		However, note that this will force the next section to begin on a new page. 
-		Note that the first \enquote{figure} is actually a \textbf{plate}; a plate is the proper title associated with a \textit{photograph}, however, is not always used in every department... if your are unsure ask your supervisor if the use of plates is common. Using the environment \path{plate} instead of \path{figure} and command \lstinline|\listofplates| will generate everything for you.
+		Note that the first \enquote{figure} is actually a \textbf{plate}; a plate is the proper title associated with a \textit{photograph}, however, is not always used in every department... if your are unsure \textbf{ask your supervisor} if the use of plates is common. Using the environment \path{plate} instead of \path{figure} and command \lstinline|\listofplates| will generate everything for you.
 		\begin{plate}[H]
 			\centering
 			\includegraphics[width=0.7\textwidth]{example-image}
@@ -342,13 +342,13 @@
 			\centering
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:doubleImage:a}
 			\end{subfigure}
 			~
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:doubleImage:b}
 			\end{subfigure}
 			\caption{This is an example of a double image figure.}
@@ -360,20 +360,20 @@
 			\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage1:a}
 			\end{subfigure}
 			\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
 			\par\vspace{1em}% Adds space between upper and lower images
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage1:b}
 			\end{subfigure}
 			~ % Adds space between the two lower figures
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage1:c}
 			\end{subfigure}
 			\caption{This is an example of a triple image figure.}
@@ -385,20 +385,20 @@
 			\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
 			\begin{subfigure}{0.90\textwidth+1em} % 0.9 = 0.45 + 0.45, and 1em is the width of ~
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage2:a}
 			\end{subfigure}
 			\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
 			\par\vspace{1em}% Adds space between upper and lower images
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage2:b}
 			\end{subfigure}
 			~ % Adds space between the two lower figures
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage2:c}
 			\end{subfigure}
 			\caption{This is a second example of a triple image figure.}
@@ -409,25 +409,25 @@
 			\centering
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:quadImage:a}
 			\end{subfigure}
 			~ % Adds space between the two top figures
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:quadImage:b}
 			\end{subfigure}
 			\par\vspace{1em} % Adds space between upper and lower images
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:quadImage:c}
 			\end{subfigure}
 			~ % Adds space between the two lower figures
 			\begin{subfigure}{0.45\textwidth}
 				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
+				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:quadImage:d}
 			\end{subfigure}
 			\caption{This is an example of a quad image figure.}
@@ -437,6 +437,7 @@
 		\clearpage % forces the remaining images (floats to be placed)
 	\section{Graphs \& Plots}
 		In the following section there will be a few examples of how to generate plots.
+		Though this can be quite useful, I will be excluding indepth information on creating these.
 		For more information on how to create plots, \href{https://mirror.its.dal.ca/ctan/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf}{\textcolor{blue}{\underline{here}}} is the manual for pgfplots.
 		\begin{figure}[H]
 			\centering
@@ -551,7 +552,7 @@
 		\end{Center}
   
 		The above command has the effect of creating the following output: \(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\).
-		Sometimes it can be quite beneficial to separate what would be an in-line equation to be on its own line. 
+		Sometimes it can be quite beneficial to separate what would be an inline equation to be on its own line. 
 		For this, we have two different ways of doing it. 
 		The first was will produce an equation that has no reference:
 		\[
@@ -561,7 +562,7 @@
 			E = m\ c^2
 		\end{equation*}
 		The second will produce an equation with a reference. 
-		For this, there are two many ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference, the other one, see \Cref{eq:customTag}, creates a reference with a `tag'. 
+		For this, there are two main ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference, the other one, see \Cref{eq:customTag}, creates a reference with a `tag'. 
 		The difference between the two is just the inclusion of a \lstinline|\tag{<text>}| command that will replace the regular number with \path{<text>}.
 		\begin{equation}
 			\label{eq:Eq}
@@ -573,6 +574,8 @@
 			\pi = 3.1415...
 		\end{equation}
 		If you have multiple equations that you want arranged very neatly, use the align environment and you can assign individual equations numbers as shown in \Cref{eq:multiref:a,eq:multiref:b,eq:multiref:c}.
+		Note that it is the \& symbol that determines what will be aligned.
+		Further note that spaces in \enquote{math mode} are ignored and need to be specifed using the space commands in %\Cref{}
 		\begin{align}%Note: Alignment happens at the "&" character
 			\label{eq:multiref:a} Equation1 & = 1\\
 			\label{eq:multiref:b} Equation2 & = 2 + 2\\

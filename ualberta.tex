@@ -56,7 +56,7 @@
   % OPTIONS FOR ualberta.cls:
   % chapterbib - \printreferences now prints references at the end of a chapter
   % 
-  % pdfa - to convert the pdfa to PDF/A format (Required for RGSR Submission)
+  % pdfa - to convert the pdfa to PDF/A format (Required for FGSR Submission)
   % 
   % oneside - Standard for submitting to FGSR.
   % 
@@ -190,13 +190,15 @@
 % \input is the standard way of including a separate tex file
 % \input{"./Chapters/ExampleChapter.tex"}
 
-\lstset{style=LaTeXStyle}
+\lstset{style=LaTeXStyle} %NOTE This line can be removed as it is only for this demo.
 
 \insertchapter{01_Introduction}
 \insertchapter{02_Getting_Started}
 \insertchapter{03_Document_Structure}
 \insertchapter{04_Figures_Tables}
-
+%\insertchapter{05_Mathematical_Equations}
+%\insertchapter{06_Citations_And_References}
+%\insertchapter{07_Advanced_Topics_And_Packages}
 
 
 \insertchapter{02_Example_Chapter}
@@ -216,8 +218,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % These two lines make sure that the bibliography starts on a new page.
-\bigskip 
-\clearpage
+  \bigskip 
+  \clearpage
 
 % SET BIBLIOGRAPHY SPACING
   \singlespacing                % 1.00x Spacing
@@ -227,9 +229,9 @@
   %\triplespacing               % 3.00x Spacing
   %\baselineskip #.##em         % #.##x Spacing
  
-%\nocite{*}  % Uncomment if you have a bibliography with works read but not cited
-\printbibliography[heading=bibintoc]
-\bigskip
+%  \nocite{*}  % Uncomment if you have a bibliography with works read but not cited
+  \printbibliography[heading=bibintoc]
+  \bigskip
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
