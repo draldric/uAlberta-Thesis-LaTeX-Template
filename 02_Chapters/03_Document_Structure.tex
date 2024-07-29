@@ -1,88 +1,89 @@
 \chapter{Document Structure and Formatting}
-A thesis for the University of Alberta can consist of many different parts that come together to create the final document.
-These will include the Title Page, Abstract, and other prefatory pages; and the chapters, sections, and subsections.
-In the following sections, we will look into how we can add these different sections and how to manipulate them too.
-\section{Title Page, Abstract, and Other Prefatory Pages}
-To create a title page in \LaTeX{}, you can use the \lstinline|\maketitle| command after providing the necessary title, author, and date information. 
-This is usually performed in the following way:
+	A thesis for the University of Alberta can consist of many different parts that come together to create the final document.
+	These will include the Title Page, Abstract, and other prefatory pages; and the chapters, sections, and subsections.
+	In the following sections, we will look into how we can add these different sections and how to manipulate them too.
+	
+	\section{Title Page, Abstract, and Other Prefatory Pages}
+		To create a title page in \LaTeX{}, you can use the \lstinline|\maketitle| command after providing the necessary title, author, and date information. 
+		This is usually performed in the following way:
 
-\begin{lstlisting}[style=LaTeXStyle]
-\title{Your Thesis Title}
-\author{Your Name}
-\date{\today}
+		\begin{lstlisting}[style=LaTeXStyle]
+		\title{Your Thesis Title}
+		\author{Your Name}
+		\date{\today}
 
-\begin{document}
-	\maketitle
-\end{document}
-\end{lstlisting}
+		\begin{document}
+			\maketitle
+		\end{document}
+		\end{lstlisting}
 
-For a thesis at the University of Alberta, there are a few more pages that are required (Abstract and Preface) and some that are optional (Quote, Dedication, and Acknowledgements), but all of them have specific formatting requirements.
-To aid you in the creation of these pages a few new macros have been provided.
-\begin{itemize}
-	\item \lstinline|\abstracttext{Abstract Text goes here.}|
-	\item \lstinline|\preface{Preface Text goes here.}|
-	\item \lstinline|\thesisquote{Quote Text goes here.}|
-	\item \lstinline|\dedication{Dedication Text goes here}|
-	\item \lstinline|\acknowledgementtext{Acknowledgement Text goes here.}|
-\end{itemize}
+		For a thesis at the University of Alberta, there are a few more pages that are required (Abstract and Preface) and some that are optional (Quote, Dedication, and Acknowledgements), but all of them have specific formatting requirements.
+		To aid you in the creation of these pages a few new macros have been provided.
+		\begin{itemize}
+			\item \lstinline|\abstracttext{Abstract Text goes here.}|
+			\item \lstinline|\preface{Preface Text goes here.}|
+			\item \lstinline|\thesisquote{Quote Text goes here.}|
+			\item \lstinline|\dedication{Dedication Text goes here}|
+			\item \lstinline|\acknowledgementtext{Acknowledgement Text goes here.}|
+		\end{itemize}
 
-\subsection{Title Page}
-The thesis Title Page has a few more fields to be filled in than a regular \LaTeX{} document.
-These include \lstinline|\degree|, \lstinline|\specialization|, \lstinline|\department|, \lstinline|\faculty|, and \lstinline|\convocationdate|.
-An example of how to fill these in can be seen in the original \LaTeX{} code (\path{ualberta.tex}) or in \Cref{lst:TitlePage}.
+		\subsection{Title Page}
+			The thesis Title Page has a few more fields to be filled in than a regular \LaTeX{} document.
+			These include \lstinline|\degree|, \lstinline|\specialization|, \lstinline|\department|, \lstinline|\faculty|, and \lstinline|\convocationdate|.
+			An example of how to fill these in can be seen in the original \LaTeX{} code (\path{ualberta.tex}) or in \Cref{lst:TitlePage}.
 
-Most of the fields are fairly self explanatory, however, to be extra clear as to what needs to be included I will now provide an explanation of each field.:
+			Most of the fields are fairly self explanatory, however, to be extra clear as to what needs to be included I will now provide an explanation of each field.:
 
-\begin{table}[H]
-\caption{Title Page Macro Definitions and Examples}
-\label{tab:titlePage}
-\begin{tabularx}{0.9\textwidth}{cCC}
-	\toprule
-		\textbf{Field} & \textbf{Description} & \textbf{Example}\\
-	\midrule
-		\lstinline|\\title|  & The Title of your Thesis. & The Perfect Thesis Title That is Perfectly Captivating\\
-		\lstinline|\\author| & Your Full Name. & Daniel Ryan Aldrich\\
-		\lstinline|\\degree| & Degree or one of the premade macros (note they are \textbf{not} case sensitive) \textit{e.g.}, \lstinline|\\MSc|. & Master of Science or \lstinline|\\Msc|\\
-		\lstinline|\\specialization| & Specialization, otherwise, leave it blank. & Applied Math\\
-		\lstinline|\\department| & Department, or if you are non-departmentalized, leave this blank. & Mechanical Engineering\\
-		\lstinline|\\faculty| & If you are non-departmentalized, fill this in, otherwise, leave this blank. & \\
-		\lstinline|\\convocationdate| & The year in which you will \textbf{convocate}. & 2024\\
-	\bottomrule
-\end{tabularx}
-\end{table}
+			\begin{table}[H]
+			\caption{Title Page Macro Definitions and Examples}
+			\label{tab:titlePage}
+			\begin{tabularx}{0.9\textwidth}{cCC}
+				\toprule
+					\textbf{Field} & \textbf{Description} & \textbf{Example}\\
+				\midrule
+					\lstinline|\\title|  & The Title of your Thesis. & The Perfect Thesis Title That is Perfectly Captivating\\
+					\lstinline|\\author| & Your Full Name. & Daniel Ryan Aldrich\\
+					\lstinline|\\degree| & Degree or one of the premade macros (note they are \textbf{not} case sensitive) \textit{e.g.}, \lstinline|\\MSc|. & Master of Science or \lstinline|\\Msc|\\
+					\lstinline|\\specialization| & Specialization, otherwise, leave it blank. & Applied Math\\
+					\lstinline|\\department| & Department, or if you are non-departmentalized, leave this blank. & Mechanical Engineering\\
+					\lstinline|\\faculty| & If you are non-departmentalized, fill this in, otherwise, leave this blank. & \\
+					\lstinline|\\convocationdate| & The year in which you will \textbf{convocate}. & 2024\\
+				\bottomrule
+			\end{tabularx}
+			\end{table}
 
-\begin{lstlisting}[float=h,caption=Example of How to Set Title Page Info,label=lst:TitlePage,style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TITLE PAGE INFO
-  \title{Thesis Title}              % Title of your Thesis
-  \author{First Middle Last}        % Your Full Name
-  \degree{\MSc}                     % \MSc, \PhD, \MA, \MEd, \MBA, \MAc, \MFM, \MN, \LLM, or \MMus
-  \specialization{}                 % Leave blank if none
-  \department{Example Department}   % Fill in the Department unless you are non-Departmental
-  \faculty{}                        % Leave blank unless non-Departmental
-  \convocationdate{2023}            % Convocation Year
-\end{lstlisting}
+			\begin{lstlisting}[float=h,caption=Example of How to Set Title Page Info,label=lst:TitlePage,style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,]
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			%                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			% TITLE PAGE INFO
+			  \title{Thesis Title}              % Title of your Thesis
+			  \author{First Middle Last}        % Your Full Name
+			  \degree{\MSc}                     % \MSc, \PhD, \MA, \MEd, \MBA, \MAc, \MFM, \MN, \LLM, or \MMus
+			  \specialization{}                 % Leave blank if none
+			  \department{Example Department}   % Fill in the Department unless you are non-Departmental
+			  \faculty{}                        % Leave blank unless non-Departmental
+			  \convocationdate{2023}            % Convocation Year
+			\end{lstlisting}
 
-\section{Chapters, Sections, and Subsections}
-Organize your document hierarchically using chapters, sections, subsections, \textit{ect}.
-These structures all utilize the base macros from \LaTeX{} including:
-	\begin{itemize}
-		\item \lstinline|\chapter{Chapter Heading}|, 
-		\item \lstinline|\section{Section Heading}|, 
-		\item \lstinline|\subsection{Subsection Heading}|, 
-		\item \lstinline|\subsubsection{Sub-Subsection Heading}|, 
-		\item \lstinline|\paragraph{Paragraph Heading}|, 
-		\item \lstinline|\subparagraph{Subparagraph Heading}|. 
-	\end{itemize}
-\tip{For writing your thesis, it is strongly recommended that one outlines the thesis using these commands first, while also added in a small description of what that chapter, section, \textit{ect.}, should accomplish. This will help you stay organized and on track. Remembering that you can use comments, \%, to hide these descriptions when you start to fill in your content.}
+	\section{Chapters, Sections, and Subsections}
+		Organize your document hierarchically using chapters, sections, subsections, \textit{ect}.
+		These structures all utilize the base macros from \LaTeX{} including:
+			\begin{itemize}
+				\item \lstinline|\chapter{Chapter Heading}|, 
+				\item \lstinline|\section{Section Heading}|, 
+				\item \lstinline|\subsection{Subsection Heading}|, 
+				\item \lstinline|\subsubsection{Sub-Subsection Heading}|, 
+				\item \lstinline|\paragraph{Paragraph Heading}|, 
+				\item \lstinline|\subparagraph{Subparagraph Heading}|. 
+			\end{itemize}
+		\tip{For writing your thesis, it is strongly recommended that one outlines the thesis using these commands first, while also added in a small description of what that chapter, section, \textit{ect.}, should accomplish. This will help you stay organized and on track. Remembering that you can use comments, \%, to hide these descriptions when you start to fill in your content.}
 
-\section{Page Layout and Margins}
-\warning{While one can adjust the values using the commands provided by the following packages, unless you really know \LaTeX{} inside and out this should be avoided.
-Everything provided in these files are aimed at making writing your thesis as easy as possible.}\\
+	\section{Page Layout and Margins}
+		\warning{While one can adjust the values using the commands provided by the following packages, unless you really know \LaTeX{} inside and out this should be avoided.
+		Everything provided in these files are aimed at making writing your thesis as easy as possible.}\\
 
-You can customize the layout and margins of your document using the \texttt{geometry} package. 
-Additionally, you can use the \texttt{titlesec} package to customize the formatting of chapter and section titles.
+		You can customize the layout and margins of your document using the \texttt{geometry} package. 
+		Additionally, you can use the \texttt{titlesec} package to customize the formatting of chapter and section titles.
 
 

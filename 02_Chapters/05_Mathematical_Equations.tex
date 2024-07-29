@@ -1,1 +1,174 @@
 \chapter{Mathematical Equations}
+	There are many ways to include formulas in your thesis. 
+	This section will provide some different ways of adding them (inline and standalone), as well as provide some ways of referencing the equations.
+
+	To start the simplest way to add an equation is using the built-in \LaTeX{} math mode. 
+	To enter and exit math mode one just needs to use the \lstinline|\(<Equation>\)| symbols around an equation. While there also exists \lstinline|$<Equation>$| to add math, it is not recommended due to potential compatibility issues. Additionally, this, \lstinline|\(<Equation>\)|, method is capable of being redefined to add further customization. 
+	An example of using math mode to get an inline equation is by using the following command:
+
+	\begin{Center}
+		\lstinline|\(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\)|
+	\end{Center}
+
+	The above command has the effect of creating the following output: \(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\).
+	Sometimes it can be quite beneficial to separate what would be an inline equation to be on its own line. 
+	For this, we have two different ways of doing it. 
+	The first was will produce an equation that has no reference:
+	\[
+		E = m\ c^2
+	\] % shorthand for the following way of writing equations.
+	\begin{equation*}
+		E = m\ c^2
+	\end{equation*}
+	The second will produce an equation with a reference. 
+	For this, there are two main ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference, the other one, see \Cref{eq:customTag}, creates a reference with a `tag'. 
+	The difference between the two is just the inclusion of a \lstinline|\tag{<text>}| command that will replace the regular number with \path{<text>}.
+	\begin{equation}
+		\label{eq:Eq}
+		\pi = 3.1415...
+	\end{equation}
+	\begin{equation}
+		\tag{Constant pi}
+		\label{eq:customTag}
+		\pi = 3.1415...
+	\end{equation}
+	If you have multiple equations that you want arranged very neatly, use the align environment and you can assign individual equations numbers as shown in \Cref{eq:multiref:a,eq:multiref:b,eq:multiref:c}.
+	Note that it is the \& symbol that determines what will be aligned.
+	Further note that spaces in \enquote{math mode} are ignored and need to be specifed using the space commands in %\Cref{}
+	\begin{align}%Note: Alignment happens at the "&" character
+		\label{eq:multiref:a} Equation1 & = 1\\
+		\label{eq:multiref:b} Equation2 & = 2 + 2\\
+		\label{eq:multiref:c} Equation3 & = 3 + 3 + 3
+	\end{align}
+	
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Math Mode Greek Letters}
+		\label{tab:greek_letters}
+		\begin{tabularx}{\textwidth}{CCCCCC}
+		\toprule
+				\textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} \\
+			\midrule
+				\lstinline|\\alpha| & \(\alpha\) & \lstinline|\\beta| & \(\beta\) & \lstinline|\\gamma| & \(\gamma\) \\
+				\lstinline|\\delta| & \(\delta\) & \lstinline|\\epsilon| & \(\epsilon\) & \lstinline|\\zeta| & \(\zeta\) \\
+				\lstinline|\\eta| & \(\eta\) & \lstinline|\\theta| & \(\theta\) & \lstinline|\\iota| & \(\iota\) \\
+				\lstinline|\\kappa| & \(\kappa\) & \lstinline|\\lambda| & \(\lambda\) & \lstinline|\\mu| & \(\mu\) \\
+				\lstinline|\\nu| & \(\nu\) & \lstinline|\\xi| & \(\xi\) & \lstinline|o| & \(o\) \\
+				\lstinline|\\pi| & \(\pi\) & \lstinline|\\rho| & \(\rho\) & \lstinline|\\sigma| & \(\sigma\) \\
+				\lstinline|\\tau| & \(\tau\) & \lstinline|\\upsilon| & \(\upsilon\) & \lstinline|\\phi| & \(\phi\) \\
+				\lstinline|\\chi| & \(\chi\) & \lstinline|\\psi| & \(\psi\) & \lstinline|\\omega| & \(\omega\) \\
+			\midrule
+				\lstinline|A| & \(A\) & \lstinline|B| & \(B\) & \lstinline|\\Gamma| & \(\Gamma\) \\
+				\lstinline|\\Delta| & \(\Delta\) & \lstinline|E| & \(E\) & \lstinline|Z| & \(Z\) \\
+				\lstinline|H| & \(H\) & \lstinline|\\Theta| & \(\Theta\) & \lstinline|I| & \(I\) \\
+				\lstinline|K| & \(K\) & \lstinline|\\Lambda| & \(\Lambda\) & \lstinline|M| & \(M\) \\
+				\lstinline|N| & \(N\) & \lstinline|\\Xi| & \(\Xi\) & \lstinline|O| & \(O\) \\
+				\lstinline|\\Pi| & \(\Pi\) & \lstinline|P| & \(P\) & \lstinline|\\Sigma| & \(\Sigma\) \\
+				\lstinline|T| & \(T\) & \lstinline|\\Upsilon| & \(\Upsilon\) & \lstinline|\\Phi| & \(\Phi\) \\
+				\lstinline|X| & \(X\) & \lstinline|\\Psi| & \(\Psi\) & \lstinline|\\Omega| & \(\Omega\) \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Blackboard Bold Letters}
+		\label{tab:bb_letters}
+		\begin{tabularx}{\textwidth}{CcCcCc}
+			\toprule
+				\textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} \\
+			\midrule
+				\lstinline|\\mathbb\{A\}| & \(\mathbb{A}\) & \lstinline|\\mathbb\{B\}| & \(\mathbb{B}\) & \lstinline|\\mathbb\{C\}| & \(\mathbb{C}\) \\
+				\lstinline|\\mathbb\{D\}| & \(\mathbb{D}\) & \lstinline|\\mathbb\{E\}| & \(\mathbb{E}\) & \lstinline|\\mathbb\{F\}| & \(\mathbb{F}\) \\
+				\lstinline|\\mathbb\{G\}| & \(\mathbb{G}\) & \lstinline|\\mathbb\{H\}| & \(\mathbb{H}\) & \lstinline|\\mathbb\{I\}| & \(\mathbb{I}\) \\
+				\lstinline|\\mathbb\{J\}| & \(\mathbb{J}\) & \lstinline|\\mathbb\{K\}| & \(\mathbb{K}\) & \lstinline|\\mathbb\{L\}| & \(\mathbb{L}\) \\
+				\lstinline|\\mathbb\{M\}| & \(\mathbb{M}\) & \lstinline|\\mathbb\{N\}| & \(\mathbb{N}\) & \lstinline|\\mathbb\{O\}| & \(\mathbb{O}\) \\
+				\lstinline|\\mathbb\{P\}| & \(\mathbb{P}\) & \lstinline|\\mathbb\{Q\}| & \(\mathbb{Q}\) & \lstinline|\\mathbb\{R\}| & \(\mathbb{R}\) \\
+				\lstinline|\\mathbb\{S\}| & \(\mathbb{S}\) & \lstinline|\\mathbb\{T\}| & \(\mathbb{T}\) & \lstinline|\\mathbb\{U\}| & \(\mathbb{U}\) \\
+				\lstinline|\\mathbb\{V\}| & \(\mathbb{V}\) & \lstinline|\\mathbb\{W\}| & \(\mathbb{W}\) & \lstinline|\\mathbb\{X\}| & \(\mathbb{X}\) \\
+				\lstinline|\\mathbb\{Y\}| & \(\mathbb{Y}\) & \lstinline|\\mathbb\{Z\}| & \(\mathbb{Z}\) & & \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Calligraphic  Letters}
+		\label{tab:cal_letters}
+		\begin{tabularx}{\textwidth}{CcCcCc}
+			\toprule
+				\textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} \\
+			\midrule
+				\lstinline|\\mathcal\{A\}| & \(\mathcal{A}\) & \lstinline|\\mathcal\{B\}| & \(\mathcal{B}\) & \lstinline|\\mathcal\{C\}| & \(\mathcal{C}\) \\
+				\lstinline|\\mathcal\{D\}| & \(\mathcal{D}\) & \lstinline|\\mathcal\{E\}| & \(\mathcal{E}\) & \lstinline|\\mathcal\{F\}| & \(\mathcal{F}\) \\
+				\lstinline|\\mathcal\{G\}| & \(\mathcal{G}\) & \lstinline|\\mathcal\{H\}| & \(\mathcal{H}\) & \lstinline|\\mathcal\{I\}| & \(\mathcal{I}\) \\
+				\lstinline|\\mathcal\{J\}| & \(\mathcal{J}\) & \lstinline|\\mathcal\{K\}| & \(\mathcal{K}\) & \lstinline|\\mathcal\{L\}| & \(\mathcal{L}\) \\
+				\lstinline|\\mathcal\{M\}| & \(\mathcal{M}\) & \lstinline|\\mathcal\{N\}| & \(\mathcal{N}\) & \lstinline|\\mathcal\{O\}| & \(\mathcal{O}\) \\
+				\lstinline|\\mathcal\{P\}| & \(\mathcal{P}\) & \lstinline|\\mathcal\{Q\}| & \(\mathcal{Q}\) & \lstinline|\\mathcal\{R\}| & \(\mathcal{R}\) \\
+				\lstinline|\\mathcal\{S\}| & \(\mathcal{S}\) & \lstinline|\\mathcal\{T\}| & \(\mathcal{T}\) & \lstinline|\\mathcal\{U\}| & \(\mathcal{U}\) \\
+				\lstinline|\\mathcal\{V\}| & \(\mathcal{V}\) & \lstinline|\\mathcal\{W\}| & \(\mathcal{W}\) & \lstinline|\\mathcal\{X\}| & \(\mathcal{X}\) \\
+				\lstinline|\\mathcal\{Y\}| & \(\mathcal{Y}\) & \lstinline|\\mathcal\{Z\}| & \(\mathcal{Z}\) & & \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Fraktur Letters}
+		\label{tab:frak_letters}
+		\begin{tabularx}{\textwidth}{CcCcCc}
+			\toprule
+				\textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} \\
+			\midrule
+				\lstinline|\\mathfrak\{A\}| & \(\mathfrak{A}\) & \lstinline|\\mathfrak\{B\}| & \(\mathfrak{B}\) & \lstinline|\\mathfrak\{C\}| & \(\mathfrak{C}\) \\
+				\lstinline|\\mathfrak\{D\}| & \(\mathfrak{D}\) & \lstinline|\\mathfrak\{E\}| & \(\mathfrak{E}\) & \lstinline|\\mathfrak\{F\}| & \(\mathfrak{F}\) \\
+				\lstinline|\\mathfrak\{G\}| & \(\mathfrak{G}\) & \lstinline|\\mathfrak\{H\}| & \(\mathfrak{H}\) & \lstinline|\\mathfrak\{I\}| & \(\mathfrak{I}\) \\
+				\lstinline|\\mathfrak\{J\}| & \(\mathfrak{J}\) & \lstinline|\\mathfrak\{K\}| & \(\mathfrak{K}\) & \lstinline|\\mathfrak\{L\}| & \(\mathfrak{L}\) \\
+				\lstinline|\\mathfrak\{M\}| & \(\mathfrak{M}\) & \lstinline|\\mathfrak\{N\}| & \(\mathfrak{N}\) & \lstinline|\\mathfrak\{O\}| & \(\mathfrak{O}\) \\
+				\lstinline|\\mathfrak\{P\}| & \(\mathfrak{P}\) & \lstinline|\\mathfrak\{Q\}| & \(\mathfrak{Q}\) & \lstinline|\\mathfrak\{R\}| & \(\mathfrak{R}\) \\
+				\lstinline|\\mathfrak\{S\}| & \(\mathfrak{S}\) & \lstinline|\\mathfrak\{T\}| & \(\mathfrak{T}\) & \lstinline|\\mathfrak\{U\}| & \(\mathfrak{U}\) \\
+				\lstinline|\\mathfrak\{V\}| & \(\mathfrak{V}\) & \lstinline|\\mathfrak\{W\}| & \(\mathfrak{W}\) & \lstinline|\\mathfrak\{X\}| & \(\mathfrak{X}\) \\
+				\lstinline|\\mathfrak\{Y\}| & \(\mathfrak{Y}\) & \lstinline|\\mathfrak\{Z\}| & \(\mathfrak{Z}\) & & \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	It may be very important in a math heavy thesis to be able to show your equations, or even data in a readable way. For this, we will explore some of the ways to create specific data.
+
+	\section{Vector, Sets, Piecewise Functions, Matrix Math, and More}
+		\begin{equation}
+			\text{f}(x) = 
+				\begin{cases}
+					x^{2*\ln{x}},&\text{if }x<3\\
+					-\frac{x}{2},&\text{if }3\leq{}x\leq{}4\\
+					x,&\text{if }4<x
+				\end{cases}
+		\end{equation}
+	
+		Vectors and Matrices are used in many fields of math and science and provide a convenient way to represent 2-Dimensional arrays of numbers.
+		\begin{align}
+			x&\in{}\left\{1,2,3,4,5,6,7\right\}\\
+			V_{1} &= {\left(
+			\begin{array}{cccc}
+				a, & b, & c, & d\\
+			\end{array}
+			\right)}\\
+			V_{2} &= \left(
+			\begin{array}{c}
+				a \\
+				b \\
+				c \\
+				d \\
+			\end{array}
+			\right)\\
+			M &= {\left[
+			\begin{array}{cccc}
+				a & b & c & d\\
+				e & f & g & h\\
+				i & j & k & l\\
+				m & n & o & p\\
+			\end{array}
+			\right]}
+		\end{align}

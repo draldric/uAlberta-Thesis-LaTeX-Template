@@ -1,59 +1,94 @@
 \chapter{Figures, Tables, \& Plates}
+	\section{Introduction}
+		Figures and Tables play a crucial role in conveying information effectively in academic documents. 
+		This chapter will delve into the intricacies of incorporating figures and tables in your LaTeX document, exploring various features and advanced techniques to enhance the visual appeal and clarity of your content.\\
 
-\section{Introduction}
+		\warning{Throughout this Chapter there will be code listings that include lines that show the required packages. These lines should be included in your \LaTeX preamble, not in the body of your document. To make this easy I have actually included a document specifically to add your packages too. This can be found: \path{./00_LaTeX_Files/includePackages.tex}}\\\\
 
-Figures and Tables play a crucial role in conveying information effectively in academic documents. 
-This chapter will delve into the intricacies of incorporating figures and tables in your LaTeX document, exploring various features and advanced techniques to enhance the visual appeal and clarity of your content.
+		\tip{\path{./00_LaTeX_Files/includePackages.tex} includes all the packages required for creating all the examples in this document, some of these will not be necessary, however, I have included comments on all packages for what they are used for. This allows you to make a decision on if you will need them as well. If you are unsure, you may just comment out the line.}
 
-\section{Inserting Figures}
+	\section{Inserting Figures}
+		In \LaTeX, figures are included using the \texttt{graphicx} package. 
+		The \lstinline|\includegraphics| command is used to insert an image. 
+		Let's consider an example:
 
-In LaTeX, figures are included using the \texttt{graphicx} package. The \lstinline|\includegraphics| command is used to insert an image. 
-Let's consider an example:
-
-\begin{lstlisting}[float=h,caption=A Basic Example of Including a Figure.,label=lst:figureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=h,caption=A Basic Example of Including a Figure.,label=lst:figureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{graphicx}
 
 \begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.8\linewidth]{example-image}
-    \caption{Example Figure}
-    \label{fig:example}
+	\centering
+	\includegraphics[width=0.7\linewidth]{example-image}
+	\caption{Example Figure}
+	\label{fig:example}
 \end{figure}
-\end{lstlisting}
+		\end{lstlisting}
 
-In this example, the figure environment is used to contain the image. The \lstinline|\centering| command ensures the image is centred horizontally. Adjust the width parameter to control the size of the image. The \lstinline|\caption| and \lstinline|\label| commands provide a caption and label for referencing, respectively.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.7\textwidth]{example-image}
+			\caption{This is an example of a single figure similar to that produced by \Cref{lst:figureExample}.}
+			\label{fig:singleImage}
+		\end{figure}
 
-Figures can be formatted to meet specific requirements. The \lstinline|\subfigure| command from the subcaption package can be used for side-by-side figures:
+		In this example, the figure environment is used to contain the image. 
+		The \lstinline|\centering| command ensures the image is centred horizontally. 
+		The width parameter is used to control the size of the image. 
+		The \lstinline|\caption| and \lstinline|\label| commands provide a caption and label for referencing, respectively.
 
-\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		Figures can be formatted to meet specific requirements. 
+		The \lstinline|\subfigure| command from the subcaption package can be used for side-by-side figures:
+
+		\begin{lstlisting}[float=h,caption=,label=lst:subfigureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{subcaption}
 
 \begin{figure}[htb]
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{example-image-a}
-        \caption{Subfigure A}
-        \label{subfig:a}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{example-image-b}
-        \caption{Subfigure B}
-        \label{subfig:b}
-    \end{subfigure}
-    \caption{Example with Subfigures}
-    \label{fig:subfigures}
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{example-image-a}
+		\caption{Subfigure A} % Leave blank for just letter
+		\label{subfig:a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{example-image-b}
+		\caption{Subfigure B} % Leave blank for just letter
+		\label{subfig:b}
+	\end{subfigure}
+	\caption{Example with Subfigures}
+	\label{fig:subfigures}
 \end{figure}
-\end{lstlisting}
+		\end{lstlisting}
 
-This example uses the subfigure environment to create subfigures within a larger figure. The \lstinline|\hfill| command adds horizontal space between the subfigures.
+		This example uses the subfigure environment to create subfigures within a larger figure (as show in \Cref{fig:doubleImage}. 
+		The \lstinline|\hfill| command adds horizontal space between the subfigures.
 
-\section{Tables and Tabularx}
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{0.45\textwidth}
+				\includegraphics[width=\textwidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:doubleImage:a}
+			\end{subfigure}
+			~
+			\begin{subfigure}{0.45\textwidth}
+				\includegraphics[width=\textwidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:doubleImage:b}
+			\end{subfigure}
+			\caption{This is an example of a double image figure similar to that produced by \Cref{lst:subfigureExample}.}
+			\label{fig:doubleImage}
+		\end{figure}
 
-Tables in LaTeX are created using the tabular environment. The tabularx package is particularly useful when you want the table to automatically adjust its width. Let's define some custom column types for convenience:
+		While this section provided a few examples on how to make some figures and sub figures, I would strongly recommend checking out the examples in "SEE APPENDINX EXAMPE FIGURES".
+		This will provide the code and examples for how to create more intricate subfigures.
+		
+	\section{Tables and Tabularx}
+		Tables in \LaTeX are created using the tabular environment. 
+		The tabularx package is particularly useful when you want the table to automatically adjust its width. 
+		Let's define some custom column types for convenience:
 
-\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{tabularx}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
@@ -61,106 +96,101 @@ Tables in LaTeX are created using the tabular environment. The tabularx package 
 Now, let's create a table using tabularx:
 
 \begin{table}[htb]
-    \centering
-    \begin{tabularx}{\linewidth}{|C|L|R|}
-        \hline
-        \textbf{Centered} & \textbf{Left Justified} & \textbf{Right Justified} \\
-        \hline
-        Content & More content & Additional content \\
-        \hline
-    \end{tabularx}
-    \caption{Example Table with Tabularx}
-    \label{tab:example}
+	\centering
+	\begin{tabularx}{\linewidth}{|C|L|R|}
+		\hline
+		\textbf{Centered} & \textbf{Left Justified} & \textbf{Right Justified} \\
+		\hline
+		Content & More content & Additional content \\
+		\hline
+	\end{tabularx}
+	\caption{Example Table with Tabularx}
+	\label{tab:example}
 \end{table}
-\end{lstlisting}
+		\end{lstlisting}
 
-In this example, the tabularx environment is used, and the custom column types C, L, and R are applied to the columns. This ensures the content is centered, left-justified, and right-justified, respectively.
+		In this example, the tabularx environment is used, and the custom column types C, L, and R are applied to the columns. 
+		This ensures the content is centered, left-justified, and right-justified, respectively.
 
-\section{Advanced Table Features}
+	\section{Advanced Table Features}
 
-To create professional-looking tables, the booktabs package can be employed. It provides commands for better spacing and styling of tables:
+		To create professional-looking tables, the booktabs package can be employed. 
+		It provides commands for better spacing and styling of tables:
 
-\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{booktabs}
 
 \begin{table}[htb]
-    \centering
-    \begin{tabular}{ccc}
-        \toprule
-        \textbf{Header 1} & \textbf{Header 2} & \textbf{Header 3} \\
-        \midrule
-        Content 1 & Content 2 & Content 3 \\
-        Content 4 & Content 5 & Content 6 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Example Table with Booktabs}
-    \label{tab:booktabs_example}
+	\centering
+	\begin{tabular}{ccc}
+		\toprule
+		\textbf{Header 1} & \textbf{Header 2} & \textbf{Header 3} \\
+		\midrule
+		Content 1 & Content 2 & Content 3 \\
+		Content 4 & Content 5 & Content 6 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Example Table with Booktabs}
+	\label{tab:booktabs_example}
 \end{table}
-\end{lstlisting}
+		\end{lstlisting}
 
-The \lstinline|\toprule|, \lstinline|\midrule|, and \lstinline|\bottomrule| commands create horizontal rules with appropriate spacing.
+		The \lstinline|\toprule|, \lstinline|\midrule|, and \lstinline|\bottomrule| commands create horizontal rules with appropriate spacing.
 
-\section{Additional Packages for Enhanced Table Functionality}
+	\section{Additional Packages for Enhanced Table Functionality}
 
-Several other packages can be employed to enhance table functionality:
+		Several other packages can be employed to enhance table functionality:
 
-The longtable package allows tables to span multiple pages, which is useful for large datasets.
-The multirow and multicolumn packages provide commands for cells that span multiple rows or columns, respectively.
-The makecell package enables more complex table layouts.
-Each of these packages comes with its set of commands and options. Let's briefly explore the usage of longtable, multirow, and multicolumn:
+		The longtable package allows tables to span multiple pages, which is useful for large datasets.
+		The multirow and multicolumn packages provide commands for cells that span multiple rows or columns, respectively.
+		The makecell package enables more complex table layouts.
+		Each of these packages comes with its set of commands and options. Let's briefly explore the usage of longtable, multirow, and multicolumn:
 
-\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{multicolumn}
 
 % Example Longtable
 \begin{longtable}{|c|c|}
-    \caption{Longtable Example} \label{tab:longtable} \\
-    \hline
-    \textbf{Header 1} & \textbf{Header 2} \\
-    \hline
-    \endfirsthead
-    \hline
-    \textbf{Header 1} & \textbf{Header 2} \\
-    \hline
-    \endhead
-    Content 1 & Content 2 \\
-    Content 3 & Content 4 \\
-    \hline
+	\caption{Longtable Example} \label{tab:longtable} \\
+	\hline
+	\textbf{Header 1} & \textbf{Header 2} \\
+	\hline
+	\endfirsthead
+	\hline
+	\textbf{Header 1} & \textbf{Header 2} \\
+	\hline
+	\endhead
+	Content 1 & Content 2 \\
+	Content 3 & Content 4 \\
+	\hline
 \end{longtable}
 
 % Example Multirow and Multicolumn
 \begin{table}[htb]
-    \centering
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \multirow{2}{*}{\textbf{Multirow-Col1}} & \multicolumn{2}{c|}{\textbf{Multicolumn-Col2-3}} \\
-        \cline{2-3}
-        & \textbf{Column 2} & \textbf{Column 3} \\
-        \hline
-        Content 1 & Content 2 & Content 3 \\
-        \hline
-    \end{tabular}
-    \caption{Example Table with Multirow and Multicolumn}
-    \label{tab:multirow_multicolumn}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multirow{2}{*}{\textbf{Multirow-Col1}} & \multicolumn{2}{c|}{\textbf{Multicolumn-Col2-3}} \\
+		\cline{2-3}
+		& \textbf{Column 2} & \textbf{Column 3} \\
+		\hline
+		Content 1 & Content 2 & Content 3 \\
+		\hline
+	\end{tabular}
+	\caption{Example Table with Multirow and Multicolumn}
+	\label{tab:multirow_multicolumn}
 \end{table}
-\end{lstlisting}
+		\end{lstlisting}
 
-In these examples, the longtable environment is used for tables that span multiple pages. The multirow command is employed to create cells that span multiple rows, while multicolumn is used for cells that span multiple columns.
+		In these examples, the longtable environment is used for tables that span multiple pages. 
+		The multirow command is employed to create cells that span multiple rows, while multicolumn is used for cells that span multiple columns.
 
-\section{Conclusion}
+	\section{Conclusion}
+		This chapter provided a comprehensive overview of including figures and tables in your \LaTeX document. 
+		From basic insertion of figures to advanced table formatting using packages like tabularx, booktabs, and others, you now have a solid foundation to include tables and figures in your thesis.
 
-This chapter provided a comprehensive overview of including figures and tables in your LaTeX document. From basic insertion of figures to advanced table formatting using packages like tabularx, booktabs, and others, you now have a solid
-
-
-
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=0.7\textwidth]{example-image}
-			\caption{This is an example of a single figure.}
-			\label{fig:singleImage}
-		\end{figure}
 		\begin{figure}[H]
 			\centering
 			\begin{subfigure}{0.45\textwidth}

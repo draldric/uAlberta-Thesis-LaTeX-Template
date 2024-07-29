@@ -53,14 +53,14 @@
 			
 			\begin{figure}[htbp]
 				\centering
-				\includegraphics[width=0.7\textwidth]{example-image}
-				\caption{This is an example of a single figure.}
+				\includegraphics[width=0.7\textwidth]{\insertimage{JabRef_Main_Window.png}}
+				\caption{JabRef Main Window.}
 				\label{fig:JabRefProgram}
 			\end{figure}
 			
 			Now that the program is open, to create a new bibliography:
 			\begin{enumerate}
-				\item Click on `File $\rightarrow$ New Library' to create a new reference database.
+				\item Click on `File $\rightarrow$ New Library'.
 			\end{enumerate}
 			To save the database:
 			\begin{enumerate}
@@ -76,8 +76,15 @@
 			Some of the methods are generally more useful than others but we will go over a few that you are likely to use:
 
 			\subsubsection{Web Search}
-				JabRef's integrated web search feature simplifies the process of importing references from online sources.
+				JabRef's integrated web search (see \Cref{fig:JabRefWebSearch}) feature simplifies the process of importing references from online sources.
 				This is by-far the easiest way to enter a reference.
+				
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.35\textwidth]{\insertimage{JabRef_Web_Search.png}}
+					\caption{JabRef Web Search Tool.}
+					\label{fig:JabRefWebSearch}
+				\end{figure}
 				
 				\begin{enumerate}
 					\item Click on `Web Search'.
@@ -87,16 +94,28 @@
 					\item The references are added to your library.
 				\end{enumerate}
 				
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.7\textwidth]{\insertimage{JabRef_Example_Web_Search.png}}
+					\caption{Example Web Search Results for \texttt{``OSM-Classic''}.}
+					\label{fig:JabRefWebSearch}
+				\end{figure}
+				
+				\note{The Web Search tool by default uses a general search, however, a specific database can be chosen as well using the drop down arrow next to ``Search Selected''.}
+				
 			\subsubsection{Manual Entry}
-				To manually enter a reference:
+				Manually adding a reference can be done in a `manual' and `automatic' way.
+				When adding a new entry you will be faced with the option to select an entry type or to enter an ID (DOI, ArXiv, ISBN, \textit{etc.}).
+				If you enter an ID, the information for the reference will be automatically pulled from the internet.
+				Otherwise to manually enter all the information for a reference:
 
 				\begin{enumerate}
-					\item Click Library $\rightarrow$ `New entry' or use the shortcut `Ctrl + N'.
+					\item Click Library $\rightarrow$ `New entry' or use the shortcut `Ctrl + N' and this will show the following window.
+					\par\begin{center}\includegraphics[width=0.5\textwidth]{\insertimage{JabRef_New_Entry.png}}\end{center}
 					\item Choose the entry type (\textit{e.g.}, article, book, inproceedings).
 					\item Fill in the required fields like author, title, journal, \textit{etc}.
 				\end{enumerate}
 				
-
 				By following these steps, you can efficiently populate your JabRef database with the necessary references.
 
 		\subsection{Organizing References}
@@ -116,65 +135,27 @@
 			\note{Groups can even be nested into groups to provide more levels of organization.}
 			Organizing references into groups enhances accessibility and facilitates a more systematic approach to bibliography management.
 
-	\section{Example: Building a Bibliography}
-		Now, let's apply the acquired knowledge by building a sample bibliography for a hypothetical research paper. 
-		This ongoing example will serve as a practical illustration of JabRef's features and their application in real-world scenarios.
-
-		\subsection{Initial References}
-			To initiate our bibliography, let's add a few references related to the research topic:
-
-			\subsubsection{Reference 1}
-				\begin{description}
-					\item[Author:] John A. Researcher
-					\item[Title:] Advances in LaTeX
-					\item[Journal:] Journal of Scientific Typesetting
-					\item[Year:] 2021
-				\end{description}
-
-			\subsubsection{Reference 2}
-				\begin{description}
-					\item[Author:] Alice B. Scholar
-					\item[Title:] The Art of BibTeX
-					\item[Book Title:] BibTeX Unleashed
-					\item[Publisher:] Tech Publishing
-					\item[Year:] 2022
-				\end{description}
-
-				These initial references lay the foundation for our bibliography. 
-				In the subsequent sections, we will build upon this foundation, exploring more features of JabRef and expanding our bibliography.
-
 	\section{Exploring Advanced Features of JabRef}
 		JabRef's capabilities extend beyond the basics covered in the previous sections. 
-		In this section, we'll explore advanced features that enhance the efficiency and effectiveness of reference management.
-		\subsection{Custom Fields and Entry Types}
-			JabRef allows users to define custom fields and entry types to accommodate diverse reference types. 
-			This flexibility ensures that the software adapts to the specific needs of various research projects.
-			
-			To create a custom field:
-			\begin{enumerate}
-				\item Open the entry editor for a reference.
-				\item Click on `Add Field' and enter the field name.
-				\item Enter the field value.
-				\item Click `OK' to save the custom field.
-			\end{enumerate}
-			
-			Custom entry types can be defined similarly, providing a tailored solution for unique reference sources.
+		In this section, we'll explore some of the advanced features that enhance the efficiency and effectiveness of JabRef as a reference manager.
 
 		\subsection{Quality Assurance: Checking and Correcting Entries}
-
-			Ensuring the accuracy and completeness of references is crucial. JabRef provides tools for quality assurance, allowing users to check and correct entries.
+			Ensuring the accuracy and completeness of references is crucial. 
+			JabRef provides tools for quality assurance, allowing users to check and correct entries.
 
 			To check for duplicate entries:
 			\begin{enumerate}
-				\item Click on `Quality $\rightarrow$ Check integrity'.
+				\item Click on `Quality $\rightarrow$ Find duplicates'.
 				\item JabRef will identify and display duplicate entries.
 			\end{enumerate}
 			
 			To correct entries:
 			\begin{enumerate}
-				\item Click on `Quality $\rightarrow$ BibTeX key generator'.
-				\item JabRef will suggest a BibTeX key based on the available information.
+				\item Click on `Quality $\rightarrow$ Cleanup entries'.
+				\item JabRef will provide some useful option to ensure conformity within the different references.
+					This includes renaming Linked PDFs to match the standard of \texttt{``CitationKey - Title''}.
 			\end{enumerate}
+						
 			These quality assurance features contribute to maintaining a clean and error-free bibliography.
 
 		\subsection{Managing PDFs and File Links}
@@ -186,20 +167,28 @@
 				\item Click on `General' and use the `PDF' or `File' field to link the document.
 			\end{enumerate}
 			This integration streamlines the retrieval of associated documents directly from JabRef.
+			Further, this allows JabRef to keep track of the comments and highlights in a single place (see \Cref{fig:JabRefFileAnnotations}).
+			These annotations can be found by selecting the entry, and selecting the `File annotations' tab.
 
-		\subsection{Collaboration: Sharing and Syncing Databases}
-			For collaborative research projects, JabRef supports the sharing and syncing of databases, ensuring seamless collaboration among team members.
+				\begin{figure}[htbp]
+					\centering
+					\includegraphics[width=0.7\textwidth]{\insertimage{JabRef_File_Annotations.png}}
+					\caption{JabRef Web Search Tool.}
+					\label{fig:JabRefFileAnnotations}
+				\end{figure}
 
-			To share a database:
-			\begin{enumerate}
-				\item Click on `File $\rightarrow$ Share Database'.
-				\item Choose a method for sharing, such as via cloud storage or a version control system.
-			\end{enumerate}
-			Syncing databases allows multiple users to work on the same reference library concurrently, enhancing collaboration.
-
-	\section{Conclusion}
-		This section provided a comprehensive overview of JabRef, covering its key features, installation, and practical steps for creating and managing bibliographies. The ongoing example illustrated the application of JabRef in building a bibliography for a research paper.
-
-		The subsequent exploration of advanced features demonstrated JabRef's versatility in handling diverse reference sources, ensuring quality assurance, managing associated files, facilitating collaboration, and extending functionality through plugins.
-
-		As we continue to delve into JabRef's capabilities, the following sections will focus on specific aspects, providing in-depth insights and practical examples to empower users in harnessing the full potential of JabRef for efficient bibliography management in LaTeX documents.
+		\subsection{Additional Information}
+			JabRef keeps track of a lot of information and can even help you with your research.
+			Some additional information JabRef provides includes:
+			\begin{itemize}
+				\item Citation information
+				\item Citation relationships (what the reference cites and who has cited the reference). 
+					This further lets you open the links to the reference's source, or even add these references directly to your library.
+				\item If one right clicks an entry you are provided the following options:
+					\begin{itemize}
+						\item Rank - rank the reference with one to five stars.
+						\item Toggle Relevance - add a marker to show this is a relevant source.
+						\item Priority - rank items as low, medium, or high priority.
+						\item Read Status - set the status to read or skimmed.
+					\end{itemize}
+			\end{itemize}

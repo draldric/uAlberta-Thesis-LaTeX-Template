@@ -107,16 +107,16 @@
 \newcommand\addmedia[1]{\renewcommand\@addmedia{#1}}
 \newcommand\@addmedia{}
 
-\newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia{}#1}}
+\newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia#1}}
 \newcommand\@addimages{}
 
-\newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia{}#1}}
+\newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia#1}}
 \newcommand\@addtables{}
 
-\newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia{}#1}}
+\newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia#1}}
 \newcommand\@addcode{}
 
-\newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia{}#1}}
+\newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia#1}}
 \newcommand\@addpdf{}
 
 \def\PhD{Doctor of Philosophy}
@@ -846,6 +846,16 @@
 \newcommand{\insertlatexfile}[1]{
     \input{"\@addlatexfiles#1.tex"}
 }
+
+\newcommand{\insertimage}[1]{
+    "\@addimages#1"
+}
+
+\newcommand{\inserttable}[1]{
+    \input{"\@addtables#1.tex"}
+}
+
+
 
 \if@pdfa
     \usepackage[a-3b]{pdfx}
