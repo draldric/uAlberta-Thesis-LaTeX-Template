@@ -4,7 +4,7 @@
 	In the following sections, we will look into how we can add these different sections and how to manipulate them too.
 	
 	\section{Title Page, Abstract, and Other Prefatory Pages}
-		To create a title page in \LaTeX{}, you can use the \lstinline|\maketitle| command after providing the necessary title, author, and date information. 
+		To create a title page in \LaTeX, you can use the \lstinline|\maketitle| command after providing the necessary title, author, and date information. 
 		This is usually performed in the following way:
 
 		\begin{lstlisting}[style=LaTeXStyle]
@@ -28,7 +28,7 @@
 		\end{itemize}
 
 		\subsection{Title Page}
-			The thesis Title Page has a few more fields to be filled in than a regular \LaTeX{} document.
+			The thesis Title Page has a few more fields to be filled in than a regular \LaTeX\ document.
 			These include \lstinline|\degree|, \lstinline|\specialization|, \lstinline|\department|, \lstinline|\faculty|, and \lstinline|\convocationdate|.
 			An example of how to fill these in can be seen in the original \LaTeX{} code (\path{ualberta.tex}) or in \Cref{lst:TitlePage}.
 
@@ -53,20 +53,133 @@
 			\end{table}
 
 			\begin{lstlisting}[float=h,caption=Example of How to Set Title Page Info,label=lst:TitlePage,style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,]
-			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			%                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
-			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			% TITLE PAGE INFO
-			  \title{Thesis Title}              % Title of your Thesis
-			  \author{First Middle Last}        % Your Full Name
-			  \degree{\MSc}                     % \MSc, \PhD, \MA, \MEd, \MBA, \MAc, \MFM, \MN, \LLM, or \MMus
-			  \specialization{}                 % Leave blank if none
-			  \department{Example Department}   % Fill in the Department unless you are non-Departmental
-			  \faculty{}                        % Leave blank unless non-Departmental
-			  \convocationdate{2023}            % Convocation Year
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE PAGE INFO
+  \title{Thesis Title}              % Title of your Thesis
+  \author{First Middle Last}        % Your Full Name
+  \degree{\MSc}                     % \MSc, \PhD, \MA, \MEd, \MBA, \MAc, \MFM, \MN, \LLM, or \MMus
+  \specialization{}                 % Leave blank if none
+  \department{Example Department}   % Fill in the Department unless you are non-Departmental
+  \faculty{}                        % Leave blank unless non-Departmental
+  \convocationdate{2023}            % Convocation Year
+			\end{lstlisting}
+	
+		\subsection{Abstract}
+			
+
+		\subsection{Preface}
+			The following sections will provide you with examples of how to include specific elements into your preface.
+			The examples in the following sections have been included from the document titled ``Appendix for Thesis Formatting Guidelines'' by GPS\cite{FGPS2024}.
+			Due to the ``Appendix for Thesis Formatting Guidelines'' being generated using ChatGPT3.5 there are some inconsistencies within the document and the examples provided; while these are fine for providing a general idea of what to include, this goes against the ideology of this document.
+			To combat this I have taken the liberty of adapting the examples to better blend into the style of this document and to increase the consistency, however, full credit still goes to the University of Alberta's Faculty of Graduate and Postdoctoral Studies for providing the document and I would strongly suggest anyone writing their thesis at the University of Alberta to read the updated documentation that they have put out this year (2024).
+			This new documentation provides much more guidance than previous iterations.
+			Fun fact before you read on, Professor C. Ayranci who was mentioned in a few of the following examples was in-fact the supervisor for my Master's thesis.
+			
+			\note{Before preceeding I would like to emphasize that the following examples are are not a one-and-done, you might need to combine elements from multiple of the following sections to build an appropriate preface for your thesis.}\\
+
+			\tip{If none of the following apply make sure to include a preface in the style of the one shown in \Cref{sssec:preface}.}
+			\subsubsection{Research Ethics Approval}
+				If your thesis required you to get Research Ethics Approval, then you should include a preface based on the one here.
+
+				\begin{quote}
+					\enquote{
+						This thesis is an original work by \texttt{YOUR FULL NAME}. 
+						The research project, of which this thesis is a part, received research ethics approval from the University of Alberta Research Ethics Board 3, Project Name "Etymologies and Entomologies: Unraveling the Threads of Language and Ecology," No. 12345, January 15, 2022.  
+					}
+				\end{quote}
+
+			\subsubsection{Collaborative Work}
+				If your thesis required you to work collaboratively with other, organizations, researchers or otherwise, then you should include a preface based on the one here.
+
+				\begin{quote}
+					\enquote{
+						Some of the research conducted for this thesis forms part of an international research collaboration, led by Professor T. Raivio at the University of Hogwarts, with Professor S. Agrawal being the lead collaborator at the University of Alberta. 
+						The technical apparatus referred to in chapter 3 was designed by myself, with the assistance of Professor A. Shiri and Professor C. Ayranci. 
+						The data analysis in chapter 4 and concluding analysis in chapter 5 are my own work, as well as the literature review in chapter 2.  
+					}
+				\end{quote}
+
+			\subsubsection{Previously Published Material}
+				If your thesis is based on or includes work previously published by yourself, or work you co-authored, then you should include a preface based on the one here.
+
+				\begin{quote}
+					\enquote{
+						Chapter 2 of this thesis has been published as A.D. Lee, C. Ayranci, and S. Persad,  “Unraveling Entomologies,” Journal of Scientific Affairs, vol. 165, issue 3, 459-475. 
+						I was responsible for the data collection and analysis as well as the manuscript composition. C. Ayranci assisted with the data collection and contributed to manuscript edits. S. Persad was the supervisory author and was involved with concept formation and manuscript composition.
+					}
+				\end{quote}
+
+			\subsubsection{Use of Artificial Intelligence (AI)}
+				If your thesis used AI to help you outline, or otherwise write sections of including help with analyzing, summarizing, \textit{etc.}, then you should include a preface based on the one here.
+
+				\begin{quote}
+					\enquote{
+						The generative artificial intelligence application or Large Language Model ChatGPT 3.5 was used for data analysis, summarization, synthesis, and simulation in chapter three of this thesis, as well as to generate a preliminary draft of the literature review in chapter one. 
+					}
+				\end{quote}
+				
+			\subsubsection{Receiving of Competitive Funding}
+				If your thesis required you to get Research Ethics Approval, then you should include a preface based on the one here.
+
+				\begin{quote}
+					\enquote{
+						This work was supported by a Doctoral Fellowship from the Social Sciences and Humanities Research Council, a grant from the Entomological Association of Edmonton, and the National Scholarship Council of Narnia. 
+					}
+				\end{quote}
+				
+			\subsubsection{Previous Prefaces Did Not Apply}\label{sssec:preface}
+				If your thesis did not fall into any of the categories shown previously, then you should include a preface based on the one here.
+
+				\begin{quote}
+					\enquote{
+						This thesis is an original work by \texttt{YOUR FULL NAME}. 
+						No part of this thesis has been previously published. 
+					}
+				\end{quote}
+
+		\subsection{Dedication or Quotations}
+			Dedications or Quotations are limited to maximum of one page.
+			
+			In the template provided you may fill in the appropriate Quote and Dedication fields in the document \path{01_Prefatory/Quotes_Dedications.tex}.
+			These can be filled out if you plan to include them or not.
+			To control whether they show up in the document you will want to uncomment \textbf{ONLY ONE} of the following commands in the \path{ualberta.tex} file.
+
+			\begin{lstlisting}[float=h,caption=Quote and Dedication Inclusion Options (uncomment only one),label=lst:QuotesAndDedication,style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,]
+  %\makequote                  % Creates the Quote Page
+  %\makededication             % Creates the Dedication Page
+  %\makededicationandquote     % Creates the Quote/Dedication Page
 			\end{lstlisting}
 
-	\section{Chapters, Sections, and Subsections}
+		\subsection{Acknowledgments}
+			This is an optional section but it is strongly recommended: acknowledge the assistance of your supervisor, committee, and others. 2 pages maximum. 
+
+		\subsection{Table of Contents}
+			Include chapter headings and 2--4 levels of subheadings. 
+			This template will automatically include all required chapters including the correct ones from the prefatory pages.
+			However, due to stylistic considerations you may want more or less levels included the in the Table of Contents.
+			To accomplish this I have created the command near the top of the \path{ualberta.tex} file that allows you to set both the depth of the Numbered Headings and the level of depth for the Table of Contents.
+			To do this change the number shown in \Cref{lst:tocLevels} to 2, 3, or 4.
+			\begin{lstlisting}[float=h,caption=Set Numbered Heading and ToC Level,label=lst:tocLevels,style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,]
+% Option to change the Level of subheading included in the Table of Contents
+%  This should be set at 2, 3, or 4 (As per GPS)
+  \settoclevel{3}
+			\end{lstlisting}
+
+			\tip{For the \lstinline|\\settoclevel\{n\}| command, setting n to 2 will included everything down to \texttt{subsection}, 3 will include everything down to \texttt{subsubsection}, and 4 will include everything down to \texttt{paragraph} in the Table of Contents.}
+
+		\subsection{Lists of Figures, Tables, ...}
+			Include a separate list, beginning on a new page, for each kind of nontextual item appearing in the body of the thesis (one list for tables, another for illustrations, etc.). Lists can be in any order.  
+
+	\section{Nomenclature, Glossary, \& Acronyms}
+		\subsection{Lists of Symbols/Abbreviations}
+			
+
+		\subsection{Glossary of Terms}
+			
+
+	\section{Chapters, Sections, Subsections, and Paragraphs}
 		Organize your document hierarchically using chapters, sections, subsections, \textit{ect}.
 		These structures all utilize the base macros from \LaTeX{} including:
 			\begin{itemize}
@@ -80,8 +193,8 @@
 		\tip{For writing your thesis, it is strongly recommended that one outlines the thesis using these commands first, while also added in a small description of what that chapter, section, \textit{ect.}, should accomplish. This will help you stay organized and on track. Remembering that you can use comments, \%, to hide these descriptions when you start to fill in your content.}
 
 	\section{Page Layout and Margins}
-		\warning{While one can adjust the values using the commands provided by the following packages, unless you really know \LaTeX{} inside and out this should be avoided.
-		Everything provided in these files are aimed at making writing your thesis as easy as possible.}\\
+		\warning{While one can adjust the values using the commands provided by the following packages, unless you really know \LaTeX\ inside and out this should be avoided.
+			Everything provided in these files are aimed at making writing your thesis as easy as possible.}\\
 
 		You can customize the layout and margins of your document using the \texttt{geometry} package. 
 		Additionally, you can use the \texttt{titlesec} package to customize the formatting of chapter and section titles.

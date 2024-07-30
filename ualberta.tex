@@ -56,12 +56,16 @@
   % OPTIONS FOR ualberta.cls:
   % chapterbib - \printreferences now prints references at the end of a chapter
   % 
-  % pdfa - to convert the pdfa to PDF/A format (Required for FGSR Submission)
+  % pdfa - to convert the pdfa to PDF/A format (Required for GPS Submission)
   % 
-  % oneside - Standard for submitting to FGSR.
+  % oneside - Standard for submitting to GPS.
   % 
   % twoside - If you want to print your thesis double sided like a novel.
 
+% Option to change the Level of subheading included in the Table of Contents
+%  This should be set at 2, 3, or 4 (As per GPS)
+  \settoclevel{3}
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                FILE LOCATIONS                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,7 +113,7 @@
   \specialization{}                 % Leave blank if none
   \department{Example Department}   % Fill in the Department unless you are non-Departmental
   \faculty{}                        % Leave blank unless non-Departmental
-  \convocationdate{2023}            % Convocation Year
+  \convocationdate{\the\year}            % Convocation Year
 
 % DON'T FORGET to edit ualberta.xmpdata with the same metadata for the PDF/A
 
@@ -119,7 +123,7 @@
 % PREFACE
   \input{./01_Prefatory/Preface.tex}
 
-% DEDICATION
+% DEDICATION OR QUOTE
   \input{./01_Prefatory/Quotes_Dedications.tex}
 
 % ACKNOWLEDGEMENTS
@@ -148,8 +152,9 @@
   \maketitle                   % Creates the Title Page
   \makeabstract                % Creates the Abstract Page
   \makepreface                 % Creates the Preface Page
-  \makequote                   % Creates the Quote Page
-  \makededication              % Creates the Dedication Page
+  %\makequote                  % Creates the Quote Page
+  %\makededication             % Creates the Dedication Page
+  %\makededicationandquote     % Creates the Quote/Dedication Page
   \acknowledgements            % Creates the Acknowledgements Page
 
 % SET ToC...etc SPACING
@@ -196,12 +201,12 @@
 \insertchapter{02_Getting_Started}
 \insertchapter{03_Document_Structure}
 \insertchapter{04_Figures_Tables}
-\insertchapter{05_Mathematical_Equations}
-\insertchapter{06_Citations_And_References}
-\insertchapter{07_Advanced_Topics_And_Packages}
+\insertchapter{05_Plots_And_Graphs}
+\insertchapter{06_Mathematical_Equations}
+\insertchapter{07_Citations_And_References}
 
 % How to use the Recommended Softwares
-\insertchapter{03_JabRef}
+\insertchapter{08_JabRef}
 
 
 

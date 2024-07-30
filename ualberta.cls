@@ -33,6 +33,9 @@
               [2023/08/21 V:2.0.0 ualberta Document Class]
               
 \usepackage{etoolbox}
+
+\newcommand\settoclevel[1]{\setcounter{secnumdepth}{#1}\setcounter{tocdepth}{#1}}
+
 \newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
 \newcommand\@convocationdate{}
  
@@ -720,9 +723,9 @@
 	\if@restonecol\twocolumn\fi
 }
 \let\l@plate\l@figure
+
 \newdimen\bibindent
 \setlength\bibindent{1.5em}
-
 \newenvironment{thebibliography}[1]
 	{\chapter*{\bibname}%
 		\@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
@@ -756,6 +759,9 @@
 \newcommand\makequote{\chapter*{}\begin{center}\em \@thesisquote \em\end{center}}
 
 \newcommand\makededication{\chapter*{}\begin{center}\em \@dedication \em\end{center}}
+
+\newcommand\makededicationandquote{\chapter*{}\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}
+
 
 \def\bodyoftext{
 	\newpage
@@ -855,7 +861,9 @@
     \input{"\@addtables#1.tex"}
 }
 
-
+\newcommand{\insertpdf}[1]{
+    \input{"\@addpdf#1"}
+}
 
 \if@pdfa
     \usepackage[a-3b]{pdfx}

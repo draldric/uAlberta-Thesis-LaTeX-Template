@@ -3,7 +3,7 @@
 		Figures and Tables play a crucial role in conveying information effectively in academic documents. 
 		This chapter will delve into the intricacies of incorporating figures and tables in your LaTeX document, exploring various features and advanced techniques to enhance the visual appeal and clarity of your content.\\
 
-		\warning{Throughout this Chapter there will be code listings that include lines that show the required packages. These lines should be included in your \LaTeX preamble, not in the body of your document. To make this easy I have actually included a document specifically to add your packages too. This can be found: \path{./00_LaTeX_Files/includePackages.tex}}\\\\
+		\warning{Throughout this Chapter there will be code listings that include lines that show the required packages. These lines should be included in your \LaTeX\ preamble, not in the body of your document. To make this easy I have actually included a document specifically to add your packages too. This can be found: \path{./00_LaTeX_Files/includePackages.tex}}\\\\
 
 		\tip{\path{./00_LaTeX_Files/includePackages.tex} includes all the packages required for creating all the examples in this document, some of these will not be necessary, however, I have included comments on all packages for what they are used for. This allows you to make a decision on if you will need them as well. If you are unsure, you may just comment out the line.}
 
@@ -80,11 +80,11 @@
 			\label{fig:doubleImage}
 		\end{figure}
 
-		While this section provided a few examples on how to make some figures and sub figures, I would strongly recommend checking out the examples in "SEE APPENDINX EXAMPE FIGURES".
-		This will provide the code and examples for how to create more intricate subfigures.
+		While this section provided a few examples on how to make some figures and sub figures, I would strongly recommend checking out some of the provided examples in \Cref{app:examplefigures}.
+		This will provide the code and examples for how to create more intricate subfigures and layouts.
 		
 	\section{Tables and Tabularx}
-		Tables in \LaTeX are created using the tabular environment. 
+		Tables in \LaTeX\ are created using the tabular environment. 
 		The tabularx package is particularly useful when you want the table to automatically adjust its width. 
 		Let's define some custom column types for convenience:
 
@@ -184,105 +184,12 @@ Now, let's create a table using tabularx:
 \end{table}
 		\end{lstlisting}
 
-		In these examples, the longtable environment is used for tables that span multiple pages. 
+		In these examples, the \texttt{longtable} environment is used for tables that span multiple pages. 
 		The multirow command is employed to create cells that span multiple rows, while multicolumn is used for cells that span multiple columns.
 
 	\section{Conclusion}
-		This chapter provided a comprehensive overview of including figures and tables in your \LaTeX document. 
-		From basic insertion of figures to advanced table formatting using packages like tabularx, booktabs, and others, you now have a solid foundation to include tables and figures in your thesis.
+		This chapter provided a comprehensive overview of including figures and tables in your \LaTeX\ document. 
+		From basic insertion of figures to advanced table formatting using packages like \texttt{tabularx}, \texttt{booktabs}, and others, you now have a solid foundation to include tables and figures in your thesis.
+		While this provides a lot of details on how to add figures that have already been pre-generated, one might want to generate figures on the spot potentially even using data generated from other programs (such as MatLab\textsuperscript{\tiny\textregistered}, Python, \textit{etc.}).
+		For this \Cref{ch:plots} provides in-depth workings of the \texttt{pgfplots} package and how to generate consistent and professional looking plots and graphs.
 
-		\begin{figure}[H]
-			\centering
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:doubleImage:a}
-			\end{subfigure}
-			~
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:doubleImage:b}
-			\end{subfigure}
-			\caption{This is an example of a double image figure.}
-			\label{fig:doubleImage}
-		\end{figure}
-	  
-		\begin{figure}[H]
-			\centering
-			\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:tripleImage1:a}
-			\end{subfigure}
-			\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
-			\par\vspace{1em}% Adds space between upper and lower images
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:tripleImage1:b}
-			\end{subfigure}
-			~ % Adds space between the two lower figures
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:tripleImage1:c}
-			\end{subfigure}
-			\caption{This is an example of a triple image figure.}
-			\label{fig:tripleImage1}
-		\end{figure}
-	  
-		\begin{figure}[H]
-			\centering
-			\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
-			\begin{subfigure}{0.90\textwidth+1em} % 0.9 = 0.45 + 0.45, and 1em is the width of ~
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:tripleImage2:a}
-			\end{subfigure}
-			\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
-			\par\vspace{1em}% Adds space between upper and lower images
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:tripleImage2:b}
-			\end{subfigure}
-			~ % Adds space between the two lower figures
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:tripleImage2:c}
-			\end{subfigure}
-			\caption{This is a second example of a triple image figure.}
-			\label{fig:tripleImage2}
-		\end{figure}
-	  
-		\begin{figure}[H]
-			\centering
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:quadImage:a}
-			\end{subfigure}
-			~ % Adds space between the two top figures
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:quadImage:b}
-			\end{subfigure}
-			\par\vspace{1em} % Adds space between upper and lower images
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:quadImage:c}
-			\end{subfigure}
-			~ % Adds space between the two lower figures
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:quadImage:d}
-			\end{subfigure}
-			\caption{This is an example of a quad image figure.}
-			\label{fig:quadImage}
-		\end{figure}
