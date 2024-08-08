@@ -4,7 +4,7 @@
 %%                               Daniel Aldrich                               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-%       Copyright (c) 2023 Daniel Aldrich                                      %
+%       Copyright (c) 2024 Daniel Aldrich                                      %
 %                                                                              %
 %       Permission is hereby granted, free of charge, to any person            %
 %       obtaining a copy of this software and associated documentation         %
@@ -30,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{ualberta}
-              [2023/08/21 V:2.0.0 ualberta Document Class]
+              [2024/08/081 V:2.0.0 ualberta Document Class]
               
 \usepackage{etoolbox}
 
