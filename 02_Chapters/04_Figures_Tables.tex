@@ -1,9 +1,9 @@
 \chapter{Figures, Tables, \& Plates}
 	\section{Introduction}
 		Figures and Tables play a crucial role in conveying information effectively in academic documents. 
-		This chapter will delve into the intricacies of incorporating figures and tables in your LaTeX document, exploring various features and advanced techniques to enhance the visual appeal and clarity of your content.\\
+		This chapter will delve into the intricacies of incorporating figures and tables in your LaTeX document, exploring various features and advanced techniques to enhance the visual appeal and clarity of your content.
 
-		\warning{Throughout this Chapter there will be code listings that include lines that show the required packages. These lines should be included in your \LaTeX\ preamble, not in the body of your document. To make this easy I have actually included a document specifically to add your packages too. This can be found: \path{./00_LaTeX_Files/includePackages.tex}}\\\\
+		\warning{Throughout this Chapter there will be code listings that include lines that show the required packages. These lines should be included in your \LaTeX\ preamble, not in the body of your document. To make this easy I have actually included a document specifically to add your packages too. This can be found: \path{./00_LaTeX_Files/includePackages.tex}}
 
 		\tip{\path{./00_LaTeX_Files/includePackages.tex} includes all the packages required for creating all the examples in this document, some of these will not be necessary, however, I have included comments on all packages for what they are used for. This allows you to make a decision on if you will need them as well. If you are unsure, you may just comment out the line.}
 
@@ -12,7 +12,7 @@
 		The \lstinline|\includegraphics| command is used to insert an image. 
 		Let's consider an example:
 
-		\begin{lstlisting}[float=h,caption=A Basic Example of Including a Figure.,label=lst:figureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=A Basic Example of Including a Figure.,label=lst:figureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{graphicx}
 
 \begin{figure}[htb]
@@ -38,7 +38,7 @@
 		Figures can be formatted to meet specific requirements. 
 		The \lstinline|\subfigure| command from the subcaption package can be used for side-by-side figures:
 
-		\begin{lstlisting}[float=h,caption=,label=lst:subfigureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=,label=lst:subfigureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{subcaption}
 
 \begin{figure}[htb]
@@ -88,7 +88,7 @@
 		The tabularx package is particularly useful when you want the table to automatically adjust its width. 
 		Let's define some custom column types for convenience:
 
-		\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=,label=lst:tabularx,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{tabularx}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
@@ -117,7 +117,7 @@ Now, let's create a table using tabularx:
 		To create professional-looking tables, the booktabs package can be employed. 
 		It provides commands for better spacing and styling of tables:
 
-		\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=,label=lst:booktabs,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{booktabs}
 
 \begin{table}[htb]
@@ -146,7 +146,7 @@ Now, let's create a table using tabularx:
 		The makecell package enables more complex table layouts.
 		Each of these packages comes with its set of commands and options. Let's briefly explore the usage of longtable, multirow, and multicolumn:
 
-		\begin{lstlisting}[float=h,caption=,label=lst:,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=,label=lst:additionaltablepackages,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{multicolumn}

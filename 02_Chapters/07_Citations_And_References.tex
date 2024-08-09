@@ -46,9 +46,6 @@
 					\lstinline|\\Cpageref\{\}|      & \Cpageref{tab:reftable} \\
 					\lstinline|\\namecref\{\}|      & \namecref{tab:reftable} \\
 					\lstinline|\\nameCref\{\}|      & \nameCref{tab:reftable} \\
-					%\lstinline|\\lcnamecref\{\}|    & \lcnamecref{tab:reftable} \\
-					%\lstinline|\\labelcref\{\}|     & \labelcref{tab:reftable} \\
-					%\lstinline|\\labelcpageref\{\}| & \labelcpageref{tab:reftable} \\
 				\bottomrule
 			\end{tabularx}
 		\end{table}
@@ -58,7 +55,7 @@
 		\end{lstlisting}
 		Noting that there are \textbf{NO} spaces between the labels; this will produce: \Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}. 
 		Allowing one to quickly and efficiently keep references up-to-date and consistent in their style.
-		More examples of the use of the \textbf{cleveref} cross-referencing is found through the rest of this \nameCref{ch:ExampleChapter}.
+		More examples of the use of the \textbf{cleveref} cross-referencing is found through the rest of this \nameCref{ch:citref}.
 	\section{Citations/References}
 		
 	
@@ -74,10 +71,10 @@
 			In \LaTeX, references will \enquote{reference} a \lstinline|\label{Reference:Label}| command. 
 			This section has the following command to define the the section:
 			\begin{Center}
-				\lstinline|\section{Citations and References}\label{sec:citref}|
+				\lstinline|\subsection{Cross-References}\label{subsec:cross-reference}|
 			\end{Center}
-			By using \lstinline|\ref{sec:citref}|, this allows you to insert a reference that look like this: \ref{sec:citref}.
-			Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\lstinline|Section~\ref{sec:citref}|) and this will display like this: Section~\ref{sec:citref}.
+			By using \lstinline|\ref{subsec:cross-reference}|, this allows you to insert a reference that look like this: \ref{subsec:cross-reference}.
+			Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Section}, and add this label in front of the reference (\lstinline|Section~\ref{subsec:cross-reference}|) and this will display like this: Section~\ref{subsec:cross-reference}.
 			Note to ensure the reference is not split we add a non-breaking space (\lstinline|~|) to prevent \LaTeX\ from adding a line break.
 
 			While using the ref command, you might ask \enquote{\textit{Why does \LaTeX\ not just know what it is that I am referencing and insert that automatically in front of the reference?}}
@@ -92,32 +89,28 @@
 			With these packages installed we can now use the commands in \Cref{tab:reftable}.\footnote{Note that because the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
 			\begin{table}[H]
 				\caption{Built-in, hyperref, and cleveref commands and outputs}
-				\label{tab:reftable}
+				\label{tab:reftable2}
 				\centering
 				\begin{tabularx}{0.5\textwidth}{CC} 
 					\toprule
 						\textbf{Command} & \textbf{Output} \\
 					\midrule
 						\multicolumn{2}{c}{built-in}\\
-						\lstinline|\\ref\{\}|           & \ref{tab:reftable} \\
-						\lstinline|\\pageref\{\}|       & \pageref{tab:reftable} \\
+						\lstinline|\\ref\{\}|           & \ref{tab:reftable2} \\
+						\lstinline|\\pageref\{\}|       & \pageref{tab:reftable2} \\
 					\midrule
 						\multicolumn{2}{c}{hyperref}\\
-						\lstinline|\\autoref\{\}|       & \autoref{tab:reftable} \\
-						%\lstinline|\\autoref*\{\}|      & \autoref*{tab:reftable} \\
+						\lstinline|\\autoref\{\}|       & \autoref{tab:reftable2} \\
 					\midrule
 						\multicolumn{2}{c}{cleveref}\\
-						\lstinline|\\cref\{\}|          & \cref{tab:reftable} \\
-						\lstinline|\\Cref\{\}|          & \Cref{tab:reftable} \\
-						\lstinline|\\cref*\{\}|         & \cref*{tab:reftable} \\
-						\lstinline|\\Cref*\{\}|         & \Cref*{tab:reftable} \\
-						\lstinline|\\cpageref\{\}|      & \cpageref{tab:reftable} \\
-						\lstinline|\\Cpageref\{\}|      & \Cpageref{tab:reftable} \\
-						\lstinline|\\namecref\{\}|      & \namecref{tab:reftable} \\
-						\lstinline|\\nameCref\{\}|      & \nameCref{tab:reftable} \\
-						%\lstinline|\\lcnamecref\{\}|    & \lcnamecref{tab:reftable} \\
-						%\lstinline|\\labelcref\{\}|     & \labelcref{tab:reftable} \\
-						%\lstinline|\\labelcpageref\{\}| & \labelcpageref{tab:reftable} \\
+						\lstinline|\\cref\{\}|          & \cref{tab:reftable2} \\
+						\lstinline|\\Cref\{\}|          & \Cref{tab:reftable2} \\
+						\lstinline|\\cref*\{\}|         & \cref*{tab:reftable2} \\
+						\lstinline|\\Cref*\{\}|         & \Cref*{tab:reftable2} \\
+						\lstinline|\\cpageref\{\}|      & \cpageref{tab:reftable2} \\
+						\lstinline|\\Cpageref\{\}|      & \Cpageref{tab:reftable2} \\
+						\lstinline|\\namecref\{\}|      & \namecref{tab:reftable2} \\
+						\lstinline|\\nameCref\{\}|      & \nameCref{tab:reftable2} \\
 					\bottomrule
 				\end{tabularx}
 			\end{table}
@@ -143,7 +136,7 @@
 					\midrule
 						JabRef   & The JabRef Team   & 5.11     & Free                    & MIT \\
 						Mendeley & Elsevier          & 2.99.0   & {Free up to 2~GB}    & Proprietary \\
-						Zotero   & CDS               & 6.0.27   & {Free  up to 300~MB} & AGPL \\
+						Zotero   & CDS               & 6.0.27   & {Free  up to 300~MB} & AGPL  \\
 					\bottomrule
 				\end{tabularx}%
 			\end{table}%

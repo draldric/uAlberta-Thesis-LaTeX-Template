@@ -31,7 +31,7 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{ualberta}
               [2024/08/081 V:2.0.0 ualberta Document Class]
-              
+\pdfminorversion=7
 \usepackage{etoolbox}
 
 \newcommand\settoclevel[1]{\setcounter{secnumdepth}{#1}\setcounter{tocdepth}{#1}}
@@ -72,6 +72,9 @@
 
 \newcommand\abstracttext[1]{\renewcommand\@abstracttext{#1}}
 \newcommand\@abstracttext{}
+
+\newcommand\keywords[1]{\renewcommand\@keywords{#1}}
+\newcommand\@keywords{}
 
 \newcommand\thesisquote[1]{\renewcommand\@thesisquote{#1}}
 \newcommand\@thesisquote{}
@@ -310,6 +313,7 @@
 }
 
 \newcommand\maketitle{%
+	\hypersetup{pageanchor=false}
 	\begin{titlepage}%
 		\let\footnotesize\small
 		\let\footnoterule\relax
@@ -342,14 +346,15 @@
 		\end{center}
 		\newpage
 	\end{titlepage}%
+	\hypersetup{pageanchor=true}
 	\pagestyle{plain}\pagenumbering{roman}\setcounter{page}{2}
 	\setcounter{footnote}{0}%
 	\global\let\thanks\relax
 	\global\let\maketitle\relax
 	\global\let\@thanks\@empty
-	\global\let\@author\@empty
-	\global\let\@convocationdate\@empty
-	\global\let\@title\@empty
+	%\global\let\@author\@empty
+	%\global\let\@convocationdate\@empty
+	%\global\let\@title\@empty
 	\global\let\title\relax
 	\global\let\author\relax
 	\global\let\convocationdate\relax
@@ -866,6 +871,19 @@
 }
 
 \if@pdfa
-    \usepackage[a-3b]{pdfx}
+	\AtBeginDocument{%
+		\begin{filecontents}[overwrite,noheader]{\jobname.xmpdata} 
+			\textbackslash{}Title\{\@title\} 
+			\textbackslash{}Author\{\@author\} 
+			\textbackslash{}Copyright\{Copyright \textbackslash{}copyright\textbackslash{} \@convocationdate\ \@author\}
+			\textbackslash{}Language\{en-GB\} 
+			\textbackslash{}Keywords\{\@keywords\} 
+			\textbackslash{}Subject\{\@abstracttext\} 
+		\end{filecontents}
+	}
+	\usepackage[a-3b]{pdfx}
 \fi
+
 \endinput
+
+

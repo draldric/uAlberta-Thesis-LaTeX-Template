@@ -8,7 +8,7 @@
 		A simple line plot can be created using the \texttt{axis} environment from \texttt{pgfplots}.
 		The following code (see \Cref{lst:line-plot}) can be used to create the figure shown in \Cref{fig:line-plot}.
 
-		\begin{lstlisting}[float=h,caption=,label=lst:line-plot,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=,label=lst:line-plot,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
@@ -53,7 +53,7 @@
 		\end{figure}
 
 		Expanding on this example, we can add a second plot by adding the following code below the closing bracket and semi-colon (\texttt{\};}) of the \texttt{addplot} command:
-		\begin{lstlisting}[float=h,caption=,label=lst:line-plot-2,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=,label=lst:line-plot-2,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \addplot coordinates {
 	(0,16)
 	(1,9)
@@ -100,7 +100,7 @@
 			
 			\note{The position of the legend can be specified by using the optional parameter \texttt{legend pos=}} followed by a set of compass coordinates.
 			
-			\begin{lstlisting}[float=h,caption=,label=lst:legend-plot,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+			\begin{lstlisting}[float=ht,caption=,label=lst:legend-plot,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
