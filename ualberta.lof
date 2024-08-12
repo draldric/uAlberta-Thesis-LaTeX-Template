@@ -1,0 +1,35 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces This is an example of a single figure similar to that produced by \Cref {lst:figureExample}.}}{17}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces This is an example of a double image figure similar to that produced by \Cref {lst:subfigureExample}.}}{18}{figure.caption.16}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces A simple line plot.}}{24}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces A simple line plot with two sets of data.}}{25}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces A customized plot with a legend.}}{27}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces A customized plot with added gridlines.}}{27}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces A plot with customized colors and line styles}}{28}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Plot of two parabola.}}{28}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Example of a Scatter Plot.}}{29}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces A bar plot}}{29}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Example of a Bar Graph.}}{30}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces A pie chart}}{30}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces A pie chart}}{31}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces A pie chart}}{31}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces A 3D surface plot}}{32}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Example of a 3D Plot}}{32}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces A polar plot}}{33}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces A box plot}}{33}{figure.caption.38}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces JabRef Main Window.}}{49}{figure.caption.47}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces JabRef Web Search Tool.}}{50}{figure.caption.48}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Example Web Search Results for \texttt {``OSM-Classic''}.}}{50}{figure.caption.49}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Showcase of the file annotations in JabRef.}}{53}{figure.caption.50}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces This is an example of a double image figure.}}{58}{figure.caption.53}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces This is an example of a triple image figure.}}{59}{figure.caption.55}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces This is a second example of a triple image figure.}}{60}{figure.caption.57}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces This is an example of a quad image figure.}}{61}{figure.caption.59}%

@@ -1,0 +1,192 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global/global}
+  \entry{FGPS2024}{online}{}{}
+    \name{author}{1}{}{%
+      {{hash=F}{%
+         family={{Faculty of Graduate \& Postdoctoral Studies}},
+         familyi={F\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {University of Alberta}%
+    }
+    \strng{namehash}{F1}
+    \strng{fullhash}{F1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{Online PDF}
+    \field{title}{Appendix for Thesis Formatting Guidelines}
+    \verb{url}
+    \verb https://www.ualberta.ca/graduate-studies/media-library/current-studen
+    \verb ts/appendix-for-thesis-formatting-guidelines.pdf
+    \endverb
+    \field{month}{06}
+    \field{year}{2024}
+  \endentry
+
+  \entry{TEST}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=TA}{%
+         family={Thor},
+         familyi={T\bibinitperiod},
+         given={A.U.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TA1}
+    \strng{fullhash}{TA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Cited Article}
+    \field{journaltitle}{Journal Name}
+    \field{year}{2020}
+  \endentry
+
+  \entry{testone}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=oA}{%
+         family={one},
+         familyi={o\bibinitperiod},
+         given={Author},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{oA1}
+    \strng{fullhash}{oA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Article 1}
+    \field{journaltitle}{Journal 1}
+    \field{year}{1989}
+  \endentry
+
+  \entry{cite2}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=tA}{%
+         family={two},
+         familyi={t\bibinitperiod},
+         given={Author},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{tA2}
+    \strng{fullhash}{tA2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Article 2}
+    \field{journaltitle}{Journal 2}
+    \field{year}{1900}
+  \endentry
+
+  \entry{cite3}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=tA}{%
+         family={three},
+         familyi={t\bibinitperiod},
+         given={Author},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{tA1}
+    \strng{fullhash}{tA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Article 3}
+    \field{journaltitle}{Journal 3}
+    \field{year}{1990}
+  \endentry
+
+  \entry{cite4}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=fA}{%
+         family={four},
+         familyi={f\bibinitperiod},
+         given={Author},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{fA2}
+    \strng{fullhash}{fA2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Article 4}
+    \field{journaltitle}{Journal 4}
+    \field{year}{1990}
+  \endentry
+
+  \entry{cite5}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=fA}{%
+         family={five},
+         familyi={f\bibinitperiod},
+         given={Author},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{fA1}
+    \strng{fullhash}{fA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Article five}
+    \field{journaltitle}{Journal five}
+    \field{year}{1990}
+  \endentry
+
+  \entry{Aldrich2017}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=ADR}{%
+         family={Aldrich},
+         familyi={A\bibinitperiod},
+         given={Daniel\bibnamedelima R.},
+         giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=AC}{%
+         family={Ayranci},
+         familyi={A\bibinitperiod},
+         given={Cagri},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=NDS}{%
+         family={Nobes},
+         familyi={N\bibinitperiod},
+         given={David\bibnamedelima S.},
+         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ADR+1}
+    \strng{fullhash}{ADRACNDS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/J.SOFTX.2017.08.007
+    \endverb
+    \field{pages}{225\bibrangedash 230}
+    \field{title}{OSM-Classic: An optical imaging technique for accurately
+  determining strain}
+    \field{volume}{6}
+    \verb{file}
+    \verb :Reference PDFs/Aldrich2017 - OSM Classic_ an Optical Imaging Techniq
+    \verb ue for Accurately Determining Strain.pdf:PDF
+    \endverb
+    \field{journaltitle}{SoftwareX}
+    \field{year}{2017}
+  \endentry
+\enddatalist
+\endinput

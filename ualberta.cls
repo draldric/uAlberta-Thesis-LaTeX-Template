@@ -125,6 +125,9 @@
 \newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia#1}}
 \newcommand\@addpdf{}
 
+\newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia#1}}
+\newcommand\@adddata{}
+
 \def\PhD{Doctor of Philosophy}
 \def\PHD{Doctor of Philosophy}
 \def\phd{Doctor of Philosophy}
@@ -832,19 +835,16 @@
 \fi
 
 \newcommand{\insertappendix}[1]{
-	\input{"\@addappendices#1.tex"}
-}
+	\input{"\@addappendices#1.tex"}}
 
 \newcommand{\insertchapter}[1]{
-	\input{"\@addchapters#1.tex"}
-}
+	\input{"\@addchapters#1.tex"}}
 
-\gdef\printreferences{
+\gdef\printreferences{%
 	\if@chapterbib
 		\newpage
-		\printbibliography[segment=\the\numexpr\thebaseSection\relax,heading=subbibintoc]
-	\fi
-}
+		\printbibliography[segment=\the\numexpr\thebaseSection\relax,heading=subbibintoc]{}%
+	\fi}%
 
 \oddsidemargin 0.5in
 \evensidemargin 0in
@@ -854,35 +854,26 @@
 \headsep 0in
 \textheight 9in
 
-\newcommand{\insertlatexfile}[1]{
-    \input{"\@addlatexfiles#1.tex"}
-}
+\newcommand{\insertlatexfile}[1]{%
+    \input{"\@addlatexfiles#1.tex"}}
 
-\newcommand{\insertimage}[1]{
-    "\@addimages#1"
-}
+\newcommand{\insertimage}[1]{%
+    "\@addimages#1"}
 
-\newcommand{\inserttable}[1]{
-    \input{"\@addtables#1.tex"}
-}
+\newcommand{\inserttable}[1]{%
+    \input{"\@addtables#1.tex"}}
 
-\newcommand{\insertpdf}[1]{
-    \input{"\@addpdf#1"}
-}
+\newcommand{\insertpdf}[1]{%
+    \input{"\@addpdf#1"}}
+
+\newcommand{\insertdata}[1]{%
+	\input{"\@adddata#1"}}
 
 \if@pdfa
-	\AtBeginDocument{%
-		\begin{filecontents}[overwrite,noheader]{\jobname.xmpdata} 
-			\textbackslash{}Title\{\@title\} 
-			\textbackslash{}Author\{\@author\} 
-			\textbackslash{}Copyright\{Copyright \textbackslash{}copyright\textbackslash{} \@convocationdate\ \@author\}
-			\textbackslash{}Language\{en-GB\} 
-			\textbackslash{}Keywords\{\@keywords\} 
-			\textbackslash{}Subject\{\@abstracttext\} 
-		\end{filecontents}
-	}
 	\usepackage[a-3b]{pdfx}
 \fi
+
+\newcommand\crlf{\vspace{\baselineskip}}
 
 \endinput
 

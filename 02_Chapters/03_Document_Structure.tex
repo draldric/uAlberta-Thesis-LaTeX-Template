@@ -1,24 +1,24 @@
-\chapter{Document Structure and Formatting}
+\chapter{Document Structure and Formatting}%
 	A thesis for the University of Alberta can consist of many different parts that come together to create the final document.
-	These will include the Title Page, Abstract, and other prefatory pages; and the chapters, sections, and subsections.
-	In the following sections, we will look into how we can add these different sections and how to manipulate them too.
+	These will include the Title Page, Abstract, and other Prefatory pages; and the chapters, sections, and subsections.
+	In the following Sections, we will look into how we can add these different sections and how to manipulate them too.
 	
 	\section{Title Page, Abstract, and Other Prefatory Pages}
 		To create a title page in \LaTeX, you can use the \lstinline|\maketitle| command after providing the necessary title, author, and date information. 
 		This is usually performed in the following way:
 
 		\begin{lstlisting}[style=LaTeXStyle]
-		\title{Your Thesis Title}
-		\author{Your Name}
-		\date{\today}
+\title{Your Thesis Title}
+\author{Your Name}
+\date{\today}
 
-		\begin{document}
-			\maketitle
-		\end{document}
+\begin{document}
+	\maketitle
+\end{document}
 		\end{lstlisting}
 
 		For a thesis at the University of Alberta, there are a few more pages that are required (Abstract and Preface) and some that are optional (Quote, Dedication, and Acknowledgements), but all of them have specific formatting requirements.
-		To aid you in the creation of these pages a few new macros have been provided.
+		To aid you in the creation of these pages I have created a few new macros:
 		\begin{itemize}
 			\item \lstinline|\abstracttext{Abstract Text goes here.}|
 			\item \lstinline|\preface{Preface Text goes here.}|
@@ -30,7 +30,7 @@
 		\subsection{Title Page}
 			The thesis Title Page has a few more fields to be filled in than a regular \LaTeX\ document.
 			These include \lstinline|\degree|, \lstinline|\specialization|, \lstinline|\department|, \lstinline|\faculty|, and \lstinline|\convocationdate|.
-			An example of how to fill these in can be seen in the original \LaTeX{} code (\path{ualberta.tex}) or in \Cref{lst:TitlePage}.
+			An example of how to fill these in can be seen in the original \LaTeX\ code (\path{ualberta.tex}) or in \Cref{lst:TitlePage}.
 
 			Most of the fields are fairly self explanatory, however, to be extra clear as to what needs to be included I will now provide an explanation of each field.:
 
@@ -43,7 +43,7 @@
 				\midrule
 					\lstinline|\\title|  & The Title of your Thesis. & The Perfect Thesis Title That is Perfectly Captivating\\
 					\lstinline|\\author| & Your Full Name. & Daniel Ryan Aldrich\\
-					\lstinline|\\degree| & Degree or one of the premade macros (note they are \textbf{not} case sensitive) \textit{e.g.}, \lstinline|\\MSc|. & Master of Science or \lstinline|\\Msc|\\
+					\lstinline|\\degree| & Degree or one of the premade macros (note they are \textbf{fairly} case insensitive) \textit{e.g.}, \lstinline|\\MSc|. & Master of Science or \lstinline|\\Msc|\\
 					\lstinline|\\specialization| & Specialization, otherwise, leave it blank. & Applied Math\\
 					\lstinline|\\department| & Department, or if you are non-departmentalized, leave this blank. & Mechanical Engineering\\
 					\lstinline|\\faculty| & If you are non-departmentalized, fill this in, otherwise, leave this blank. & \\
@@ -66,18 +66,18 @@
   \convocationdate{2023}            % Convocation Year
 			\end{lstlisting}
 	
-		\subsection{Abstract}
+		\subsection{Abstract}\label{abstract}
 			
 
-		\subsection{Preface}
-			The following sections will provide you with examples of how to include specific elements into your preface.
+		\subsection{Preface}\label{preface}
+			The following Sections will provide you with examples of how to include specific elements into your preface.
 			The examples in the following sections have been included from the document titled ``Appendix for Thesis Formatting Guidelines'' by GPS\cite{FGPS2024}.
 			Due to the ``Appendix for Thesis Formatting Guidelines'' being generated using ChatGPT3.5 there are some inconsistencies within the document and the examples provided; while these are fine for providing a general idea of what to include, this goes against the ideology of this document.
 			To combat this I have taken the liberty of adapting the examples to better blend into the style of this document and to increase the consistency, however, full credit still goes to the University of Alberta's Faculty of Graduate and Postdoctoral Studies for providing the document and I would strongly suggest anyone writing their thesis at the University of Alberta to read the updated documentation that they have put out this year (2024).
 			This new documentation provides much more guidance than previous iterations.
 			Fun fact before you read on, Professor C. Ayranci who was mentioned in a few of the following examples was in-fact the supervisor for my Master's thesis.
 			
-			\note{Before preceeding I would like to emphasize that the following examples are are not a one-and-done, you might need to combine elements from multiple of the following sections to build an appropriate preface for your thesis.}
+			\note{Before preceding I would like to emphasize that the following examples are are not a one-and-done, you might need to combine elements from multiple of the following sections to build an appropriate preface for your thesis.}
 
 			\tip{If none of the following apply make sure to include a preface in the style of the one shown in \Cref{sssec:preface}.}
 			\subsubsection{Research Ethics Approval}
@@ -86,8 +86,7 @@
 				\begin{quote}
 					\enquote{
 						This thesis is an original work by \texttt{YOUR FULL NAME}. 
-						The research project, of which this thesis is a part, received research ethics approval from the University of Alberta Research Ethics Board 3, Project Name "Etymologies and Entomologies: Unraveling the Threads of Language and Ecology," No. 12345, January 15, 2022.  
-					}
+						The research project, of which this thesis is a part, received research ethics approval from the University of Alberta Research Ethics Board 3, Project Name "Etymologies and Entomologies: Unraveling the Threads of Language and Ecology," No. 12345, January 15, 2022.}
 				\end{quote}
 
 			\subsubsection{Collaborative Work}
@@ -97,8 +96,7 @@
 					\enquote{
 						Some of the research conducted for this thesis forms part of an international research collaboration, led by Professor T. Raivio at the University of Hogwarts, with Professor S. Agrawal being the lead collaborator at the University of Alberta. 
 						The technical apparatus referred to in chapter 3 was designed by myself, with the assistance of Professor A. Shiri and Professor C. Ayranci. 
-						The data analysis in chapter 4 and concluding analysis in chapter 5 are my own work, as well as the literature review in chapter 2.  
-					}
+						The data analysis in chapter 4 and concluding analysis in chapter 5 are my own work, as well as the literature review in chapter 2.}
 				\end{quote}
 
 			\subsubsection{Previously Published Material}
@@ -107,8 +105,7 @@
 				\begin{quote}
 					\enquote{
 						Chapter 2 of this thesis has been published as A.D. Lee, C. Ayranci, and S. Persad,  “Unraveling Entomologies,” Journal of Scientific Affairs, vol. 165, issue 3, 459-475. 
-						I was responsible for the data collection and analysis as well as the manuscript composition. C. Ayranci assisted with the data collection and contributed to manuscript edits. S. Persad was the supervisory author and was involved with concept formation and manuscript composition.
-					}
+						I was responsible for the data collection and analysis as well as the manuscript composition. C. Ayranci assisted with the data collection and contributed to manuscript edits. S. Persad was the supervisory author and was involved with concept formation and manuscript composition.}
 				\end{quote}
 
 			\subsubsection{Use of Artificial Intelligence (AI)}
@@ -116,8 +113,7 @@
 
 				\begin{quote}
 					\enquote{
-						The generative artificial intelligence application or Large Language Model ChatGPT 3.5 was used for data analysis, summarization, synthesis, and simulation in chapter three of this thesis, as well as to generate a preliminary draft of the literature review in chapter one. 
-					}
+						The generative artificial intelligence application or Large Language Model ChatGPT 3.5 was used for data analysis, summarization, synthesis, and simulation in Chapter 3 of this thesis, as well as to generate a preliminary draft of the literature review in Chapter 1.}
 				\end{quote}
 				
 			\subsubsection{Receiving of Competitive Funding}
@@ -125,8 +121,7 @@
 
 				\begin{quote}
 					\enquote{
-						This work was supported by a Doctoral Fellowship from the Social Sciences and Humanities Research Council, a grant from the Entomological Association of Edmonton, and the National Scholarship Council of Narnia. 
-					}
+						This work was supported by a Doctoral Fellowship from the Social Sciences and Humanities Research Council, a grant from the Entomological Association of Edmonton, and the National Scholarship Council of Narnia.}
 				\end{quote}
 				
 			\subsubsection{Previous Prefaces Did Not Apply}\label{sssec:preface}
@@ -135,27 +130,26 @@
 				\begin{quote}
 					\enquote{
 						This thesis is an original work by \texttt{YOUR FULL NAME}. 
-						No part of this thesis has been previously published. 
-					}
+						No part of this thesis has been previously published.}
 				\end{quote}
 
-		\subsection{Dedication or Quotations}
+		\subsection{Dedication or Quotations}\label{quote}\label{dedication}
 			Dedications or Quotations are limited to maximum of one page.
 			
 			In the template provided you may fill in the appropriate Quote and Dedication fields in the document \path{01_Prefatory/Quotes_Dedications.tex}.
 			These can be filled out if you plan to include them or not.
-			To control whether they show up in the document you will want to uncomment \textbf{ONLY ONE} of the following commands in the \path{ualberta.tex} file.
+			To control whether they show up in the document you will want to un-comment \textbf{ONLY ONE} of the following commands in the \path{ualberta.tex} file.
 
-			\begin{lstlisting}[float=ht,caption=Quote and Dedication Inclusion Options (uncomment only one),label=lst:QuotesAndDedication,style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,]
+			\begin{lstlisting}[float=ht,caption=Quote and Dedication Inclusion Options (un-comment only one),label=lst:QuotesAndDedication,style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,]
   %\makequote                  % Creates the Quote Page
   %\makededication             % Creates the Dedication Page
   %\makededicationandquote     % Creates the Quote/Dedication Page
 			\end{lstlisting}
 
-		\subsection{Acknowledgments}
+		\subsection{Acknowledgements}\label{acknowledgement}
 			This is an optional section but it is strongly recommended: acknowledge the assistance of your supervisor, committee, and others. 2 pages maximum. 
 
-		\subsection{Table of Contents}
+		\subsection{Table of Contents}\label{toc}
 			Include chapter headings and 2--4 levels of subheadings. 
 			This template will automatically include all required chapters including the correct ones from the prefatory pages.
 			However, due to stylistic considerations you may want more or less levels included the in the Table of Contents.
@@ -169,17 +163,17 @@
 
 			\tip{For the \lstinline|\\settoclevel\{n\}| command, setting n to 2 will included everything down to \texttt{subsection}, 3 will include everything down to \texttt{subsubsection}, and 4 will include everything down to \texttt{paragraph} in the Table of Contents.}
 
-		\subsection{Lists of Figures, Tables, ...}
-			Include a separate list, beginning on a new page, for each kind of nontextual item appearing in the body of the thesis (one list for tables, another for illustrations, etc.). Lists can be in any order.  
+		\subsection{Lists of Figures, Tables, ...}\label{listsof}
+			Include a separate list, beginning on a new page, for each kind of non-textual item appearing in the body of the thesis (one list for tables, another for illustrations, etc.). Lists can be in any order.  
 
-	\section{Nomenclature, Glossary, \& Acronyms}
+	\section{Nomenclature, Glossary, \& Acronyms}\label{nomenclature}\label{glossary}\label{acronyms}
 		\subsection{Lists of Symbols/Abbreviations}
 			
 
 		\subsection{Glossary of Terms}
 			
 
-	\section{Chapters, Sections, Subsections, and Paragraphs}
+	\section{Chapters, Sections, Subsections, \textit{etc.}}
 		Organize your document hierarchically using chapters, sections, subsections, \textit{ect}.
 		These structures all utilize the base macros from \LaTeX{} including:
 			\begin{itemize}

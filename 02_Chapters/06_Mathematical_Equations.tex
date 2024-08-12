@@ -5,9 +5,9 @@
 	To start the simplest way to add an equation is using the built-in \LaTeX\ math mode. 
 	To enter and exit math mode one just needs to use the \lstinline|\(<Equation>\)| symbols around an equation. While there also exists \lstinline|$<Equation>$| to add math, it is not recommended due to potential compatibility issues. Additionally, this, \lstinline|\(<Equation>\)|, method is capable of being redefined to add further customization. 
 	An example of using math mode to get an inline equation is by using the following command:
-	\begin{Center}
+	\begin{center}
 		\lstinline|\(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\)|
-	\end{Center}
+	\end{center}
 	The above command has the effect of creating the following output: \(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\).
 	Sometimes it can be quite beneficial to separate what would be an inline equation to be on its own line. 
 	For this, we have two different ways of doing it. 
@@ -32,7 +32,7 @@
 	\end{equation}
 	If you have multiple equations that you want arranged very neatly, use the align environment and you can assign individual equations numbers as shown in \Cref{eq:multiref:a,eq:multiref:b,eq:multiref:c}.
 	Note that it is the \& symbol that determines what will be aligned.
-	Further note that spaces in \enquote{math mode} are ignored and need to be specifed using the space commands in %\Cref{}
+	Further note that spaces in \enquote{math mode} are ignored and need to be specified using the space commands in %\Cref{}
 	\begin{align}%Note: Alignment happens at the "&" character
 		\label{eq:multiref:a} Equation1 & = 1\\
 		\label{eq:multiref:b} Equation2 & = 2 + 2\\
@@ -139,7 +139,7 @@
 	
 	It may be very important in a math heavy thesis to be able to show your equations, or even data in a readable way. For this, we will explore some of the ways to create specific data.
 
-	\section{Vector, Sets, Piecewise Functions, Matrix Math, and More}
+	\section{Vector, Sets, Piece-wise Functions, Matrix Math, and More}
 		\begin{equation}
 			\text{f}(x) = 
 				\begin{cases}
