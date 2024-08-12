@@ -1,65 +1,15 @@
-This is BibTeX, Version 0.99d (TeX Live 2024)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: ualberta.aux
-The style file: biblatex.bst
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=200001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Database file #1: ualberta-blx.bib
-Database file #2: ./03_References/References.bib
-Biblatex version: 3.20
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 9 entries,
-            6402 wiz_defined-function locations,
-            1250 strings with 9808 characters,
-and the built_in function-call counts, 39903 in all, are:
-= -- 2777
-> -- 727
-< -- 168
-+ -- 936
-- -- 234
-* -- 2469
-:= -- 4192
-add.period$ -- 0
-call.type$ -- 9
-change.case$ -- 78
-chr.to.int$ -- 48
-cite$ -- 16
-duplicate$ -- 4244
-empty$ -- 3814
-format.name$ -- 392
-if$ -- 8372
-int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 0
-newline$ -- 191
-num.names$ -- 340
-pop$ -- 2758
-preamble$ -- 1
-purify$ -- 106
-quote$ -- 0
-skip$ -- 1348
-stack$ -- 0
-substring$ -- 4616
-swap$ -- 862
-text.length$ -- 174
-text.prefix$ -- 0
-top$ -- 1
-type$ -- 293
-warning$ -- 0
-while$ -- 533
-width$ -- 0
-write$ -- 183
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'ualberta.blg'
+[89] biber-MSWIN64:340> INFO - === 
+[127] Biber.pm:420> INFO - Reading 'ualberta.bcf'
+[212] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[222] Biber.pm:4463> INFO - Processing section 0
+[232] Biber.pm:4654> INFO - Looking for bibtex file './03_References/References.bib' for section 0
+[292] bibtex.pm:1713> INFO - LaTeX decoding ...
+[312] bibtex.pm:1519> INFO - Found BibTeX data source './03_References/References.bib'
+[353] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[353] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[353] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[353] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[360] bbl.pm:676> INFO - Writing 'ualberta.bbl' with encoding 'UTF-8'
+[363] bbl.pm:779> INFO - Output to ualberta.bbl

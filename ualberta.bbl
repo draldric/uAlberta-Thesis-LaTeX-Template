@@ -3,8 +3,8 @@
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
-% This file may safely be deleted. It will be recreated as
-% required.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
 %
 \begingroup
 \makeatletter
@@ -16,177 +16,230 @@
   {}
 \endgroup
 
-\datalist[entry]{none/global//global/global/global}
-  \entry{FGPS2024}{online}{}{}
-    \name{author}{1}{}{%
-      {{hash=F}{%
-         family={{Faculty of Graduate \& Postdoctoral Studies}},
-         familyi={F\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {University of Alberta}%
-    }
-    \strng{namehash}{F1}
-    \strng{fullhash}{F1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{howpublished}{Online PDF}
-    \field{title}{Appendix for Thesis Formatting Guidelines}
-    \verb{url}
-    \verb https://www.ualberta.ca/graduate-studies/media-library/current-studen
-    \verb ts/appendix-for-thesis-formatting-guidelines.pdf
-    \endverb
-    \field{month}{06}
-    \field{year}{2024}
-  \endentry
 
-  \entry{TEST}{article}{}{}
-    \name{author}{1}{}{%
-      {{hash=TA}{%
-         family={Thor},
-         familyi={T\bibinitperiod},
-         given={A.U.},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{TA1}
-    \strng{fullhash}{TA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Cited Article}
-    \field{journaltitle}{Journal Name}
-    \field{year}{2020}
-  \endentry
-
-  \entry{testone}{article}{}{}
-    \name{author}{1}{}{%
-      {{hash=oA}{%
-         family={one},
-         familyi={o\bibinitperiod},
-         given={Author},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{oA1}
-    \strng{fullhash}{oA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Article 1}
-    \field{journaltitle}{Journal 1}
-    \field{year}{1989}
-  \endentry
-
-  \entry{cite2}{article}{}{}
-    \name{author}{1}{}{%
-      {{hash=tA}{%
-         family={two},
-         familyi={t\bibinitperiod},
-         given={Author},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{tA2}
-    \strng{fullhash}{tA2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Article 2}
-    \field{journaltitle}{Journal 2}
-    \field{year}{1900}
-  \endentry
-
-  \entry{cite3}{article}{}{}
-    \name{author}{1}{}{%
-      {{hash=tA}{%
-         family={three},
-         familyi={t\bibinitperiod},
-         given={Author},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{tA1}
-    \strng{fullhash}{tA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Article 3}
-    \field{journaltitle}{Journal 3}
-    \field{year}{1990}
-  \endentry
-
-  \entry{cite4}{article}{}{}
-    \name{author}{1}{}{%
-      {{hash=fA}{%
-         family={four},
-         familyi={f\bibinitperiod},
-         given={Author},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{fA2}
-    \strng{fullhash}{fA2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Article 4}
-    \field{journaltitle}{Journal 4}
-    \field{year}{1990}
-  \endentry
-
-  \entry{cite5}{article}{}{}
-    \name{author}{1}{}{%
-      {{hash=fA}{%
-         family={five},
-         familyi={f\bibinitperiod},
-         given={Author},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{fA1}
-    \strng{fullhash}{fA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Article five}
-    \field{journaltitle}{Journal five}
-    \field{year}{1990}
-  \endentry
-
-  \entry{Aldrich2017}{article}{}{}
-    \name{author}{3}{}{%
-      {{hash=ADR}{%
-         family={Aldrich},
-         familyi={A\bibinitperiod},
-         given={Daniel\bibnamedelima R.},
-         giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod},
-      }}%
-      {{hash=AC}{%
-         family={Ayranci},
-         familyi={A\bibinitperiod},
-         given={Cagri},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=NDS}{%
-         family={Nobes},
-         familyi={N\bibinitperiod},
-         given={David\bibnamedelima S.},
-         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{ADR+1}
-    \strng{fullhash}{ADRACNDS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb 10.1016/J.SOFTX.2017.08.007
-    \endverb
-    \field{pages}{225\bibrangedash 230}
-    \field{title}{OSM-Classic: An optical imaging technique for accurately
-  determining strain}
-    \field{volume}{6}
-    \verb{file}
-    \verb :Reference PDFs/Aldrich2017 - OSM Classic_ an Optical Imaging Techniq
-    \verb ue for Accurately Determining Strain.pdf:PDF
-    \endverb
-    \field{journaltitle}{SoftwareX}
-    \field{year}{2017}
-  \endentry
-\enddatalist
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{FGPS2024}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=00e69c19a9d0e682292ccb41648d92c8}{%
+           family={{Faculty of Graduate \& Postdoctoral Studies}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {University of Alberta}%
+      }
+      \strng{namehash}{00e69c19a9d0e682292ccb41648d92c8}
+      \strng{fullhash}{00e69c19a9d0e682292ccb41648d92c8}
+      \strng{fullhashraw}{00e69c19a9d0e682292ccb41648d92c8}
+      \strng{bibnamehash}{00e69c19a9d0e682292ccb41648d92c8}
+      \strng{authorbibnamehash}{00e69c19a9d0e682292ccb41648d92c8}
+      \strng{authornamehash}{00e69c19a9d0e682292ccb41648d92c8}
+      \strng{authorfullhash}{00e69c19a9d0e682292ccb41648d92c8}
+      \strng{authorfullhashraw}{00e69c19a9d0e682292ccb41648d92c8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Online PDF}
+      \field{month}{6}
+      \field{title}{Appendix for Thesis Formatting Guidelines}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.ualberta.ca/graduate-studies/media-library/current-students/appendix-for-thesis-formatting-guidelines.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ualberta.ca/graduate-studies/media-library/current-students/appendix-for-thesis-formatting-guidelines.pdf
+      \endverb
+    \endentry
+    \entry{TEST}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c42777936b4de772194b720e3a4e99b8}{%
+           family={Thor},
+           familyi={T\bibinitperiod},
+           given={A.U.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{c42777936b4de772194b720e3a4e99b8}
+      \strng{fullhash}{c42777936b4de772194b720e3a4e99b8}
+      \strng{fullhashraw}{c42777936b4de772194b720e3a4e99b8}
+      \strng{bibnamehash}{c42777936b4de772194b720e3a4e99b8}
+      \strng{authorbibnamehash}{c42777936b4de772194b720e3a4e99b8}
+      \strng{authornamehash}{c42777936b4de772194b720e3a4e99b8}
+      \strng{authorfullhash}{c42777936b4de772194b720e3a4e99b8}
+      \strng{authorfullhashraw}{c42777936b4de772194b720e3a4e99b8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal Name}
+      \field{title}{Cited Article}
+      \field{year}{2020}
+    \endentry
+    \entry{testone}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=94ab74269a70ab31c8dd1fdd8c40ace4}{%
+           family={one},
+           familyi={o\bibinitperiod},
+           given={Author},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{94ab74269a70ab31c8dd1fdd8c40ace4}
+      \strng{fullhash}{94ab74269a70ab31c8dd1fdd8c40ace4}
+      \strng{fullhashraw}{94ab74269a70ab31c8dd1fdd8c40ace4}
+      \strng{bibnamehash}{94ab74269a70ab31c8dd1fdd8c40ace4}
+      \strng{authorbibnamehash}{94ab74269a70ab31c8dd1fdd8c40ace4}
+      \strng{authornamehash}{94ab74269a70ab31c8dd1fdd8c40ace4}
+      \strng{authorfullhash}{94ab74269a70ab31c8dd1fdd8c40ace4}
+      \strng{authorfullhashraw}{94ab74269a70ab31c8dd1fdd8c40ace4}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal 1}
+      \field{title}{Article 1}
+      \field{year}{1989}
+    \endentry
+    \entry{cite2}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=7ffad04ed59a30151a29483439a9f52b}{%
+           family={two},
+           familyi={t\bibinitperiod},
+           given={Author},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ffad04ed59a30151a29483439a9f52b}
+      \strng{fullhash}{7ffad04ed59a30151a29483439a9f52b}
+      \strng{fullhashraw}{7ffad04ed59a30151a29483439a9f52b}
+      \strng{bibnamehash}{7ffad04ed59a30151a29483439a9f52b}
+      \strng{authorbibnamehash}{7ffad04ed59a30151a29483439a9f52b}
+      \strng{authornamehash}{7ffad04ed59a30151a29483439a9f52b}
+      \strng{authorfullhash}{7ffad04ed59a30151a29483439a9f52b}
+      \strng{authorfullhashraw}{7ffad04ed59a30151a29483439a9f52b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal 2}
+      \field{title}{Article 2}
+      \field{year}{1900}
+    \endentry
+    \entry{cite3}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=eb9d50b89d2f34a2714f777c79e356d2}{%
+           family={three},
+           familyi={t\bibinitperiod},
+           given={Author},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb9d50b89d2f34a2714f777c79e356d2}
+      \strng{fullhash}{eb9d50b89d2f34a2714f777c79e356d2}
+      \strng{fullhashraw}{eb9d50b89d2f34a2714f777c79e356d2}
+      \strng{bibnamehash}{eb9d50b89d2f34a2714f777c79e356d2}
+      \strng{authorbibnamehash}{eb9d50b89d2f34a2714f777c79e356d2}
+      \strng{authornamehash}{eb9d50b89d2f34a2714f777c79e356d2}
+      \strng{authorfullhash}{eb9d50b89d2f34a2714f777c79e356d2}
+      \strng{authorfullhashraw}{eb9d50b89d2f34a2714f777c79e356d2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal 3}
+      \field{title}{Article 3}
+      \field{year}{1990}
+    \endentry
+    \entry{cite4}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=547de2279029760a86972dadc9ab9442}{%
+           family={four},
+           familyi={f\bibinitperiod},
+           given={Author},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{547de2279029760a86972dadc9ab9442}
+      \strng{fullhash}{547de2279029760a86972dadc9ab9442}
+      \strng{fullhashraw}{547de2279029760a86972dadc9ab9442}
+      \strng{bibnamehash}{547de2279029760a86972dadc9ab9442}
+      \strng{authorbibnamehash}{547de2279029760a86972dadc9ab9442}
+      \strng{authornamehash}{547de2279029760a86972dadc9ab9442}
+      \strng{authorfullhash}{547de2279029760a86972dadc9ab9442}
+      \strng{authorfullhashraw}{547de2279029760a86972dadc9ab9442}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal 4}
+      \field{title}{Article 4}
+      \field{year}{1990}
+    \endentry
+    \entry{cite5}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c0b677f6a2856a13b06a3a2ecb6404a4}{%
+           family={five},
+           familyi={f\bibinitperiod},
+           given={Author},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0b677f6a2856a13b06a3a2ecb6404a4}
+      \strng{fullhash}{c0b677f6a2856a13b06a3a2ecb6404a4}
+      \strng{fullhashraw}{c0b677f6a2856a13b06a3a2ecb6404a4}
+      \strng{bibnamehash}{c0b677f6a2856a13b06a3a2ecb6404a4}
+      \strng{authorbibnamehash}{c0b677f6a2856a13b06a3a2ecb6404a4}
+      \strng{authornamehash}{c0b677f6a2856a13b06a3a2ecb6404a4}
+      \strng{authorfullhash}{c0b677f6a2856a13b06a3a2ecb6404a4}
+      \strng{authorfullhashraw}{c0b677f6a2856a13b06a3a2ecb6404a4}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal five}
+      \field{title}{Article five}
+      \field{year}{1990}
+    \endentry
+    \entry{Aldrich2017}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=2085ffcef3504877a712498df94abf45}{%
+           family={Aldrich},
+           familyi={A\bibinitperiod},
+           given={Daniel\bibnamedelima R.},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=62e1fe7729bcf06f154b0b102c0f780c}{%
+           family={Ayranci},
+           familyi={A\bibinitperiod},
+           given={Cagri},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4cac561c20ea8ceb2d379b5fd63f426f}{%
+           family={Nobes},
+           familyi={N\bibinitperiod},
+           given={David\bibnamedelima S.},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{f5036d90dcf3931640cfe6158f6a0aac}
+      \strng{fullhash}{9b61fe146c5e6f9e97efa5072c44d9c9}
+      \strng{fullhashraw}{9b61fe146c5e6f9e97efa5072c44d9c9}
+      \strng{bibnamehash}{9b61fe146c5e6f9e97efa5072c44d9c9}
+      \strng{authorbibnamehash}{9b61fe146c5e6f9e97efa5072c44d9c9}
+      \strng{authornamehash}{f5036d90dcf3931640cfe6158f6a0aac}
+      \strng{authorfullhash}{9b61fe146c5e6f9e97efa5072c44d9c9}
+      \strng{authorfullhashraw}{9b61fe146c5e6f9e97efa5072c44d9c9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SoftwareX}
+      \field{title}{OSM-Classic: An optical imaging technique for accurately determining strain}
+      \field{volume}{6}
+      \field{year}{2017}
+      \true{nocite}
+      \field{pages}{225\bibrangedash 230}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1016/J.SOFTX.2017.08.007
+      \endverb
+      \verb{file}
+      \verb :Reference PDFs/Aldrich2017 - OSM Classic_ an Optical Imaging Technique for Accurately Determining Strain.pdf:PDF
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
+

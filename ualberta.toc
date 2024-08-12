@@ -4,95 +4,97 @@
 \contentsline {section}{\numberline {1.3}Scope and Limitations}{2}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Organization of the Thesis}{3}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Summary}{3}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Getting Started with \LaTeX }{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Installation}{4}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Windows}{4}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Mac}{4}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Linux}{4}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Basic Document Structure}{4}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Other Software Considerations}{5}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Document Structure and Formatting}{7}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Title Page, Abstract, and Other Prefatory Pages}{7}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Title Page}{8}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Abstract}{10}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Preface}{10}{subsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.3.1}Research Ethics Approval}{10}{subsubsection.3.1.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.3.2}Collaborative Work}{11}{subsubsection.3.1.3.2}%
-\contentsline {subsubsection}{\numberline {3.1.3.3}Previously Published Material}{11}{subsubsection.3.1.3.3}%
-\contentsline {subsubsection}{\numberline {3.1.3.4}Use of Artificial Intelligence (AI)}{12}{subsubsection.3.1.3.4}%
-\contentsline {subsubsection}{\numberline {3.1.3.5}Receiving of Competitive Funding}{12}{subsubsection.3.1.3.5}%
-\contentsline {subsubsection}{\numberline {3.1.3.6}Previous Prefaces Did Not Apply}{12}{subsubsection.3.1.3.6}%
-\contentsline {subsection}{\numberline {3.1.4}Dedication or Quotations}{12}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Acknowledgements}{13}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6}Table of Contents}{13}{subsection.3.1.6}%
-\contentsline {subsection}{\numberline {3.1.7}Lists of Figures, Tables, ...}{14}{subsection.3.1.7}%
-\contentsline {section}{\numberline {3.2}Nomenclature, Glossary, \& Acronyms}{14}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Lists of Symbols/Abbreviations}{14}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Glossary of Terms}{14}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Chapters, Sections, Subsections, \textit {etc.}}{14}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Page Layout and Margins}{15}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Figures, Tables, \& Plates}{16}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction}{16}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Inserting Figures}{16}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Tables and Tabularx}{19}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Advanced Table Features}{19}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Additional Packages for Enhanced Table Functionality}{20}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Conclusion}{20}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Plots, Charts, \& Graphs}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Line Plots}{23}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Customizing Plots}{25}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Adding a Legend}{25}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Adding Grid Lines}{27}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Changing Colors and Line Styles}{27}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4}Advanced Plot Types}{28}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Equations}{28}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Scatter Plot with External Data}{29}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Bar Plot}{29}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Pie Chart}{30}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}3D Plot}{31}{subsection.5.4.5}%
-\contentsline {subsection}{\numberline {5.4.6}Polar Plot}{32}{subsection.5.4.6}%
-\contentsline {subsection}{\numberline {5.4.7}Box Plot}{33}{subsection.5.4.7}%
-\contentsline {section}{\numberline {5.5}Conclusion}{34}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Mathematical Equations}{35}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Vector, Sets, Piece-wise Functions, Matrix Math, and More}{36}{section.6.1}%
-\contentsline {chapter}{\numberline {7}Citations/References, and Cross-References}{40}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Cross-References}{40}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Citations/References}{42}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Citation Managers}{42}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}JabRef}{42}{subsection.7.3.1}%
-\contentsline {section}{\numberline {7.4}This is old Material}{42}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Cross-References}{42}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Citations}{45}{subsection.7.4.2}%
-\contentsline {chapter}{\numberline {8}JabRef: Managing Bibliographies Efficiently}{46}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Introduction}{46}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Key Features of JabRef}{46}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}BibTeX Compatibility}{46}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Reference Import}{47}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}Customizable Entry Types}{47}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Search and Filter}{47}{subsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.2.5}Grouping}{47}{subsection.8.2.5}%
-\contentsline {subsection}{\numberline {8.2.6}Integration with \LaTeX }{48}{subsection.8.2.6}%
-\contentsline {section}{\numberline {8.3}Getting Started with JabRef}{48}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Installation}{48}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Creating a New Bibliography}{48}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}Adding References}{49}{subsection.8.3.3}%
-\contentsline {subsubsection}{\numberline {8.3.3.1}Web Search}{49}{subsubsection.8.3.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.3.2}Manual Entry}{50}{subsubsection.8.3.3.2}%
-\contentsline {subsection}{\numberline {8.3.4}Organizing References}{51}{subsection.8.3.4}%
-\contentsline {section}{\numberline {8.4}Exploring Advanced Features of JabRef}{52}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Quality Assurance: Checking and Correcting Entries}{52}{subsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.4.2}Managing PDFs and File Links}{53}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}Additional Information}{53}{subsection.8.4.3}%
-\contentsline {chapter}{\numberline {9}Submitting Your Thesis}{55}{chapter.9}%
-\contentsline {chapter}{Bibliography}{56}{chapter*.51}%
-\contentsline {chapter}{Appendix A: Additional Example Figures}{57}{appendix*.52}%
-\contentsline {chapter}{Appendix B: Additional Example Tables}{62}{appendix*.61}%
-\contentsline {section}{\numberline {B.1}Section 1}{62}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Section 2}{63}{section.B.2}%
-\contentsline {chapter}{Appendix C: Including Code Listings}{64}{appendix*.62}%
-\contentsline {section}{\numberline {C.1}Section 1}{64}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Section 2}{64}{section.C.2}%
-\contentsline {chapter}{Appendix D: Including PDFs}{65}{appendix*.63}%
-\contentsline {section}{\numberline {D.1}How to Insert a Portrait PDF}{65}{section.D.1}%
-\contentsline {section}{\numberline {D.2}How to Insert a Landscape PDF}{68}{section.D.2}%
+\contentsline {chapter}{\numberline {2}Getting Started with \LaTeX }{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Installation}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Windows}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Mac}{5}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Linux}{5}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Basic Document Structure}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Other Software Considerations}{6}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Document Structure and Formatting}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Title Page, Abstract, and Other Prefatory Pages}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Title Page}{10}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Abstract}{12}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Preface}{12}{subsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}Research Ethics Approval}{12}{subsubsection.3.1.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.3.2}Collaborative Work}{13}{subsubsection.3.1.3.2}%
+\contentsline {subsubsection}{\numberline {3.1.3.3}Previously Published Material}{13}{subsubsection.3.1.3.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.4}Use of Artificial Intelligence (AI)}{14}{subsubsection.3.1.3.4}%
+\contentsline {subsubsection}{\numberline {3.1.3.5}Receiving of Competitive Funding}{14}{subsubsection.3.1.3.5}%
+\contentsline {subsubsection}{\numberline {3.1.3.6}Previous Prefaces Did Not Apply}{14}{subsubsection.3.1.3.6}%
+\contentsline {subsection}{\numberline {3.1.4}Dedication or Quotations}{14}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Acknowledgements}{15}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Table of Contents}{15}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}Lists of Figures, Tables, ...}{16}{subsection.3.1.7}%
+\contentsline {section}{\numberline {3.2}Nomenclature, Glossary, \& Acronyms}{16}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Lists of Symbols/Abbreviations}{16}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Glossary of Terms}{16}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Chapters, Sections, Subsections, \textit {etc.}}{16}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Page Layout and Margins}{17}{section.3.4}%
+\contentsline {section}{References}{18}{section*.13}%
+\contentsline {chapter}{\numberline {4}Figures, Tables, \& Plates}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Inserting Figures}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Tables and Tabularx}{22}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Advanced Table Features}{22}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Additional Packages for Enhanced Table Functionality}{23}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Conclusion}{23}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Plots, Charts, \& Graphs}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Line Plots}{27}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Customizing Plots}{29}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Adding a Legend}{29}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Adding Grid Lines}{31}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Changing Colors and Line Styles}{31}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Advanced Plot Types}{32}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Equations}{32}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Scatter Plot with External Data}{33}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Bar Plot}{33}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Pie Chart}{34}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}3D Plot}{35}{subsection.5.4.5}%
+\contentsline {subsection}{\numberline {5.4.6}Polar Plot}{36}{subsection.5.4.6}%
+\contentsline {subsection}{\numberline {5.4.7}Box Plot}{37}{subsection.5.4.7}%
+\contentsline {section}{\numberline {5.5}Conclusion}{38}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Mathematical Equations}{39}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Vector, Sets, Piece-wise Functions, Matrix Math, and More}{40}{section.6.1}%
+\contentsline {chapter}{\numberline {7}Citations/References, and Cross-References}{45}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Cross-References}{45}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Citations/References}{47}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Citation Managers}{47}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}JabRef}{47}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.4}This is old Material}{47}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Cross-References}{47}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Citations}{50}{subsection.7.4.2}%
+\contentsline {section}{References}{51}{section*.48}%
+\contentsline {chapter}{\numberline {8}JabRef: Managing Bibliographies Efficiently}{53}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Introduction}{53}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Key Features of JabRef}{53}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}BibTeX Compatibility}{53}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Reference Import}{54}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Customizable Entry Types}{54}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Search and Filter}{54}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Grouping}{54}{subsection.8.2.5}%
+\contentsline {subsection}{\numberline {8.2.6}Integration with \LaTeX }{55}{subsection.8.2.6}%
+\contentsline {section}{\numberline {8.3}Getting Started with JabRef}{55}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Installation}{55}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Creating a New Bibliography}{55}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Adding References}{56}{subsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.3.1}Web Search}{56}{subsubsection.8.3.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.3.2}Manual Entry}{57}{subsubsection.8.3.3.2}%
+\contentsline {subsection}{\numberline {8.3.4}Organizing References}{58}{subsection.8.3.4}%
+\contentsline {section}{\numberline {8.4}Exploring Advanced Features of JabRef}{59}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Quality Assurance: Checking and Correcting Entries}{59}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Managing PDFs and File Links}{60}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}Additional Information}{60}{subsection.8.4.3}%
+\contentsline {chapter}{\numberline {9}Submitting Your Thesis}{63}{chapter.9}%
+\contentsline {chapter}{Bibliography}{65}{chapter*.53}%
+\contentsline {chapter}{Appendix A: Additional Example Figures}{67}{appendix*.54}%
+\contentsline {chapter}{Appendix B: Additional Example Tables}{73}{appendix*.63}%
+\contentsline {section}{\numberline {B.1}Section 1}{73}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Section 2}{74}{section.B.2}%
+\contentsline {chapter}{Appendix C: Including Code Listings}{75}{appendix*.64}%
+\contentsline {section}{\numberline {C.1}Section 1}{75}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Section 2}{75}{section.C.2}%
+\contentsline {chapter}{Appendix D: Including PDFs}{77}{appendix*.65}%
+\contentsline {section}{\numberline {D.1}How to Insert a Portrait PDF}{77}{section.D.1}%
+\contentsline {section}{\numberline {D.2}How to Insert a Landscape PDF}{80}{section.D.2}%

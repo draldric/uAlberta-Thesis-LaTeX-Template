@@ -772,6 +772,12 @@
 
 
 \def\bodyoftext{
+	\if@chapterbib
+		\preto\chapter{%
+			\newpage
+			\printbibliography[segment=\thebaseSection,heading=subbibintoc,title=References]%
+		}
+	\fi
 	\newpage
 	\setlength{\parindent}{2.6ex}
 	\setcounter{page}{0}
