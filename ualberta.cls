@@ -276,6 +276,7 @@
 \renewcommand\dblfloatpagefraction{.5}
 
 \if@twoside
+	\raggedbottom
 	\def\ps@headings{%
 		\let\@oddfoot\@empty\let\@evenfoot\@empty
 		\def\@evenhead{\thepage\hfil\slshape\leftmark}%
@@ -771,13 +772,8 @@
 \newcommand\makededicationandquote{\chapter*{}\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}
 
 
-\def\bodyoftext{
-	\if@chapterbib
-		\preto\chapter{%
-			\newpage
-			\printbibliography[segment=\thebaseSection,heading=subbibintoc,title=References]%
-		}
-	\fi
+\def\bodyoftext{%
+	\if@chapterbib\preto{\chapter}{\clearpage\printbibliography[segment=\thebaseSection,heading=subbibintoc,title=References]}\fi%
 	\newpage
 	\setlength{\parindent}{2.6ex}
 	\setcounter{page}{0}
@@ -846,19 +842,24 @@
 \newcommand{\insertchapter}[1]{
 	\input{"\@addchapters#1.tex"}}
 
-\gdef\printreferences{%
-	\if@chapterbib
-		\newpage
-		\printbibliography[segment=\the\numexpr\thebaseSection\relax,heading=subbibintoc]{}%
-	\fi}%
-
-\oddsidemargin 0.5in
-\evensidemargin 0in
-\textwidth 6in
-\topmargin 0in
-\headheight 0in
-\headsep 0in
-\textheight 9in
+\RequirePackage[heightrounded]{geometry}
+% \oddsidemargin 0.5in
+% \evensidemargin 0in
+% \textwidth 6in
+% \topmargin 0in
+% \headheight 0in
+% \headsep 0in
+% \textheight 9in
+\geometry{
+  left=1.5in,       % Equivalent to setting the left margin
+  right=1in,    % Adjusts the right margin for a 6in text width
+  top=1in,        % Adjusts the top margin
+  bottom=1in,     % This will be adjusted to achieve the desired text height
+  headheight=0in, % No space for the header
+  headsep=0in,    % No separation between header and text
+  textwidth=6in,  % Desired text width
+  textheight=9in, % Desired text height
+}
 
 \newcommand{\insertlatexfile}[1]{%
     \input{"\@addlatexfiles#1.tex"}}
@@ -878,8 +879,6 @@
 \if@pdfa
 	\usepackage[a-3b]{pdfx}
 \fi
-
-\newcommand\crlf{\vspace{\baselineskip}}
 
 \endinput
 

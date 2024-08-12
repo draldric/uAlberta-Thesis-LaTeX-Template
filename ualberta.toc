@@ -31,7 +31,6 @@
 \contentsline {subsection}{\numberline {3.2.2}Glossary of Terms}{16}{subsection.3.2.2}%
 \contentsline {section}{\numberline {3.3}Chapters, Sections, Subsections, \textit {etc.}}{16}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Page Layout and Margins}{17}{section.3.4}%
-\contentsline {section}{References}{18}{section*.13}%
 \contentsline {chapter}{\numberline {4}Figures, Tables, \& Plates}{19}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Introduction}{19}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Inserting Figures}{19}{section.4.2}%
@@ -65,36 +64,35 @@
 \contentsline {section}{\numberline {7.4}This is old Material}{47}{section.7.4}%
 \contentsline {subsection}{\numberline {7.4.1}Cross-References}{47}{subsection.7.4.1}%
 \contentsline {subsection}{\numberline {7.4.2}Citations}{50}{subsection.7.4.2}%
-\contentsline {section}{References}{51}{section*.48}%
-\contentsline {chapter}{\numberline {8}JabRef: Managing Bibliographies Efficiently}{53}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Introduction}{53}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Key Features of JabRef}{53}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}BibTeX Compatibility}{53}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Reference Import}{54}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}Customizable Entry Types}{54}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Search and Filter}{54}{subsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.2.5}Grouping}{54}{subsection.8.2.5}%
-\contentsline {subsection}{\numberline {8.2.6}Integration with \LaTeX }{55}{subsection.8.2.6}%
-\contentsline {section}{\numberline {8.3}Getting Started with JabRef}{55}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Installation}{55}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}Creating a New Bibliography}{55}{subsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.3.3}Adding References}{56}{subsection.8.3.3}%
-\contentsline {subsubsection}{\numberline {8.3.3.1}Web Search}{56}{subsubsection.8.3.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.3.2}Manual Entry}{57}{subsubsection.8.3.3.2}%
-\contentsline {subsection}{\numberline {8.3.4}Organizing References}{58}{subsection.8.3.4}%
-\contentsline {section}{\numberline {8.4}Exploring Advanced Features of JabRef}{59}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Quality Assurance: Checking and Correcting Entries}{59}{subsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.4.2}Managing PDFs and File Links}{60}{subsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.4.3}Additional Information}{60}{subsection.8.4.3}%
-\contentsline {chapter}{\numberline {9}Submitting Your Thesis}{63}{chapter.9}%
-\contentsline {chapter}{Bibliography}{65}{chapter*.53}%
-\contentsline {chapter}{Appendix A: Additional Example Figures}{67}{appendix*.54}%
-\contentsline {chapter}{Appendix B: Additional Example Tables}{73}{appendix*.63}%
-\contentsline {section}{\numberline {B.1}Section 1}{73}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Section 2}{74}{section.B.2}%
-\contentsline {chapter}{Appendix C: Including Code Listings}{75}{appendix*.64}%
-\contentsline {section}{\numberline {C.1}Section 1}{75}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Section 2}{75}{section.C.2}%
-\contentsline {chapter}{Appendix D: Including PDFs}{77}{appendix*.65}%
-\contentsline {section}{\numberline {D.1}How to Insert a Portrait PDF}{77}{section.D.1}%
-\contentsline {section}{\numberline {D.2}How to Insert a Landscape PDF}{80}{section.D.2}%
+\contentsline {chapter}{\numberline {8}JabRef: Managing Bibliographies Efficiently}{51}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Introduction}{51}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Key Features of JabRef}{51}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}BibTeX Compatibility}{51}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Reference Import}{52}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Customizable Entry Types}{52}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Search and Filter}{52}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Grouping}{52}{subsection.8.2.5}%
+\contentsline {subsection}{\numberline {8.2.6}Integration with \LaTeX }{53}{subsection.8.2.6}%
+\contentsline {section}{\numberline {8.3}Getting Started with JabRef}{53}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Installation}{53}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Creating a New Bibliography}{53}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Adding References}{54}{subsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.3.1}Web Search}{54}{subsubsection.8.3.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.3.2}Manual Entry}{55}{subsubsection.8.3.3.2}%
+\contentsline {subsection}{\numberline {8.3.4}Organizing References}{56}{subsection.8.3.4}%
+\contentsline {section}{\numberline {8.4}Exploring Advanced Features of JabRef}{57}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Quality Assurance: Checking and Correcting Entries}{57}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Managing PDFs and File Links}{58}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}Additional Information}{58}{subsection.8.4.3}%
+\contentsline {chapter}{\numberline {9}Submitting Your Thesis}{61}{chapter.9}%
+\contentsline {chapter}{Bibliography}{63}{chapter*.51}%
+\contentsline {chapter}{Appendix A: Additional Example Figures}{65}{appendix*.52}%
+\contentsline {chapter}{Appendix B: Additional Example Tables}{71}{appendix*.61}%
+\contentsline {section}{\numberline {B.1}Section 1}{71}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Section 2}{72}{section.B.2}%
+\contentsline {chapter}{Appendix C: Including Code Listings}{73}{appendix*.62}%
+\contentsline {section}{\numberline {C.1}Section 1}{73}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Section 2}{73}{section.C.2}%
+\contentsline {chapter}{Appendix D: Including PDFs}{75}{appendix*.63}%
+\contentsline {section}{\numberline {D.1}How to Insert a Portrait PDF}{75}{section.D.1}%
+\contentsline {section}{\numberline {D.2}How to Insert a Landscape PDF}{78}{section.D.2}%

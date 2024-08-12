@@ -88,13 +88,14 @@
 		The tabularx package is particularly useful when you want the table to automatically adjust its width. 
 		Let's define some custom column types for convenience:
 
-		\begin{lstlisting}[float=ht,caption=,label=lst:tabularx,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=,label=lst:newcolumntyps,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{tabularx}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+		\end{lstlisting}
 Now, let's create a table using tabularx:
-
+\begin{lstlisting}[float=ht,caption=,label=lst:tabularx,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \begin{table}[htb]
 	\centering
 	\begin{tabularx}{\linewidth}{|C|L|R|}
@@ -192,4 +193,3 @@ Now, let's create a table using tabularx:
 		From basic insertion of figures to advanced table formatting using packages like \texttt{tabularx}, \texttt{booktabs}, and others, you now have a solid foundation to include tables and figures in your thesis.
 		While this provides a lot of details on how to add figures that have already been pre-generated, one might want to generate figures on the spot potentially even using data generated from other programs (such as MatLab\textsuperscript{\tiny\textregistered}, Python, \textit{etc.}).
 		For this \Cref{ch:plots} provides in-depth workings of the \texttt{pgfplots} package and how to generate consistent and professional looking plots and graphs.
-

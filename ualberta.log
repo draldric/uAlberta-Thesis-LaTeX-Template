@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.12)  12 AUG 2024 12:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.12)  12 AUG 2024 14:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2452,9 +2452,6 @@ File: lstlang3.sty 2024/05/25 1.10b listings language file
 (C:\Users\daldrich\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2024/05/25 1.10b (Carsten Heinz)
 ) (02_Chapters/01_Introduction.tex
-
-LaTeX Warning: Empty bibliography on input line 1.
-
 Chapter 1.
 Package biblatex Info: Reference segment=9 on input line 1.
 Package biblatex Info: Setting label 'refsegment:09' on input line 1.
@@ -2467,10 +2464,6 @@ Package biblatex Info: Setting label 'refsegment:09' on input line 1.
 [2]) (02_Chapters/02_Getting_Started.tex
 
 [3]
-
-LaTeX Warning: Empty bibliography on input line 1.
-
-
 
 [4
 
@@ -2485,10 +2478,6 @@ Package biblatex Info: Setting label 'refsegment:010' on input line 1.
 [6]) (02_Chapters/03_Document_Structure.tex
 
 [7]
-
-LaTeX Warning: Empty bibliography on input line 1.
-
-
 
 [8
 
@@ -2534,11 +2523,13 @@ somethree.fd)
 [17{C:/Users/daldrich/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome
 /fontawesomethree.enc}]
 
-[18]
+[18
+
+]
 Chapter 4.
 Package biblatex Info: Reference segment=12 on input line 1.
 Package biblatex Info: Setting label 'refsegment:012' on input line 1.
-<example-image.pdf, id=832, 321.2pt x 240.9pt>
+<example-image.pdf, id=819, 321.2pt x 240.9pt>
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 Package pdftex.def Info: example-image.pdf  used on input line 28.
@@ -2548,9 +2539,7 @@ Underfull \vbox (badness 5475) has occurred while \output is active []
 
 
 
-[19
-
-]
+[19]
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 Package pdftex.def Info: example-image.pdf  used on input line 69.
@@ -2574,10 +2563,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [23]) (02_Chapters/05_Plots_And_Graphs.tex
 
 [24]
-
-LaTeX Warning: Empty bibliography on input line 1.
-
-
 
 [25]
 
@@ -2676,9 +2661,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [37]
 
 [38]
-
-LaTeX Warning: Empty bibliography on input line 1.
-
 Chapter 6.
 Package biblatex Info: Reference segment=14 on input line 1.
 Package biblatex Info: Setting label 'refsegment:014' on input line 1.
@@ -2712,10 +2694,6 @@ Overfull \vbox (36.00784pt too high) has occurred while \output is active []
 
 [42]
 
-LaTeX Warning: Empty bibliography on input line 1.
-
-
-
 [43]
 
 [44
@@ -2743,21 +2721,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [49] (02_Chapters/08_JabRef.tex
 
 [50]
-
-[51]
-
-[52
-
-]
 Chapter 8.
 Package biblatex Info: Reference segment=16 on input line 1.
 Package biblatex Info: Setting label 'refsegment:016' on input line 1.
 
 
-[53]
+[51
 
-[54]
-<./99_Inclusions/Images/JabRef_Main_Window.png, id=1283, 1506.3778pt x 865.7343
+]
+
+[52]
+<./99_Inclusions/Images/JabRef_Main_Window.png, id=1259, 1506.3778pt x 865.7343
 8pt>
 File: ./99_Inclusions/Images/JabRef_Main_Window.png Graphic file (type png)
 <use ./99_Inclusions/Images/JabRef_Main_Window.png>
@@ -2766,8 +2740,8 @@ Package pdftex.def Info: ./99_Inclusions/Images/JabRef_Main_Window.png  used on
 (pdftex.def)             Requested size: 303.53267pt x 174.43839pt.
 
 
-[55]
-<./99_Inclusions/Images/JabRef_Web_Search.png, id=1293, 152.82094pt x 88.83188p
+[53]
+<./99_Inclusions/Images/JabRef_Web_Search.png, id=1269, 152.82094pt x 88.83188p
 t>
 File: ./99_Inclusions/Images/JabRef_Web_Search.png Graphic file (type png)
 <use ./99_Inclusions/Images/JabRef_Web_Search.png>
@@ -2776,8 +2750,8 @@ input line 82.
 (pdftex.def)             Requested size: 151.76964pt x 88.2244pt.
 
 
-[56 <./99_Inclusions/Images/JabRef_Main_Window.png>]
-<./99_Inclusions/Images/JabRef_Example_Web_Search.png, id=1305, 754.31813pt x 5
+[54 <./99_Inclusions/Images/JabRef_Main_Window.png>]
+<./99_Inclusions/Images/JabRef_Example_Web_Search.png, id=1282, 754.31813pt x 5
 51.05875pt>
 File: ./99_Inclusions/Images/JabRef_Example_Web_Search.png Graphic file (type p
 ng)
@@ -2787,9 +2761,9 @@ used on input line 97.
 (pdftex.def)             Requested size: 303.53267pt x 221.73972pt.
 
 
-[57 <./99_Inclusions/Images/JabRef_Web_Search.png> <./99_Inclusions/Images/JabR
+[55 <./99_Inclusions/Images/JabRef_Web_Search.png> <./99_Inclusions/Images/JabR
 ef_Example_Web_Search.png>]
-<./99_Inclusions/Images/JabRef_New_Entry.png, id=1314, 359.84438pt x 298.11375p
+<./99_Inclusions/Images/JabRef_New_Entry.png, id=1291, 359.84438pt x 298.11375p
 t>
 File: ./99_Inclusions/Images/JabRef_New_Entry.png Graphic file (type png)
 <use ./99_Inclusions/Images/JabRef_New_Entry.png>
@@ -2798,10 +2772,10 @@ nput line 113.
 (pdftex.def)             Requested size: 216.81pt x 179.62018pt.
 
 
-[58 <./99_Inclusions/Images/JabRef_New_Entry.png>]
+[56 <./99_Inclusions/Images/JabRef_New_Entry.png>]
 
-[59]
-<./99_Inclusions/Images/JabRef_File_Annotations.png, id=1337, 991.45406pt x 305
+[57]
+<./99_Inclusions/Images/JabRef_File_Annotations.png, id=1314, 991.45406pt x 305
 .64188pt>
 File: ./99_Inclusions/Images/JabRef_File_Annotations.png Graphic file (type png
 )
@@ -2811,16 +2785,12 @@ ed on input line 175.
 (pdftex.def)             Requested size: 303.53267pt x 93.57274pt.
 
 
-[60 <./99_Inclusions/Images/JabRef_File_Annotations.png>])
+[58 <./99_Inclusions/Images/JabRef_File_Annotations.png>])
 (02_Chapters/XX_Submitting_Your_Thesis.tex
 
-[61]
+[59]
 
-LaTeX Warning: Empty bibliography on input line 1.
-
-
-
-[62
+[60
 
 ]
 Chapter 9.
@@ -2828,27 +2798,23 @@ Package biblatex Info: Reference segment=17 on input line 1.
 Package biblatex Info: Setting label 'refsegment:017' on input line 1.
 )
 
-[63]
+[61]
 
-LaTeX Warning: Empty bibliography on input line 238.
-
-
-
-[64
+[62
 
 
 ] (04_Appendices/0A_Additional_Figures.tex
 
-[65]
+[63]
 
-[66
+[64
 
 ]
 Package biblatex Info: Reference segment=18 on input line 1.
 Package biblatex Info: Setting label 'refsegment:018' on input line 1.
 
 
-[67]
+[65]
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 Package pdftex.def Info: example-image.pdf  used on input line 14.
@@ -2859,7 +2825,7 @@ Package pdftex.def Info: example-image.pdf  used on input line 20.
 (pdftex.def)             Requested size: 195.12767pt x 146.34961pt.
 
 
-[68
+[66
 
 ]
 File: example-image.pdf Graphic file (type pdf)
@@ -2876,7 +2842,7 @@ Package pdftex.def Info: example-image.pdf  used on input line 68.
 (pdftex.def)             Requested size: 195.12767pt x 146.34961pt.
 
 
-[69]
+[67]
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 Package pdftex.def Info: example-image.pdf  used on input line 111.
@@ -2891,7 +2857,7 @@ Package pdftex.def Info: example-image.pdf  used on input line 124.
 (pdftex.def)             Requested size: 130.08731pt x 97.56763pt.
 
 
-[70]
+[68]
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 Package pdftex.def Info: example-image.pdf  used on input line 166.
@@ -2910,18 +2876,18 @@ Package pdftex.def Info: example-image.pdf  used on input line 184.
 (pdftex.def)             Requested size: 195.12767pt x 146.34961pt.
 )
 
-[71] (04_Appendices/0B_Additional_Tables.tex
+[69] (04_Appendices/0B_Additional_Tables.tex
 
-[72
+[70
 
 ]
 Package biblatex Info: Reference segment=19 on input line 1.
 Package biblatex Info: Setting label 'refsegment:019' on input line 1.
 
 
-[73]) (04_Appendices/0C_Code_Listings.tex
+[71]) (04_Appendices/0C_Code_Listings.tex
 
-[74]
+[72]
 Package biblatex Info: Reference segment=20 on input line 1.
 Package biblatex Info: Setting label 'refsegment:020' on input line 1.
 
@@ -2937,16 +2903,16 @@ File: lstlang1.sty 2024/05/25 1.10b listings language file
 File: lstmisc.sty 2024/05/25 1.10b (Carsten Heinz)
 ) (99_Inclusions/Code/cCode.cpp)) (04_Appendices/0D_Including_PDFs.tex
 
-[75
+[73
 
 ]
 
-[76
+[74
 
 ]
 Package biblatex Info: Reference segment=21 on input line 1.
 Package biblatex Info: Setting label 'refsegment:021' on input line 1.
-<./99_Inclusions/PDFs/examplePDF.pdf, id=1553, 614.295pt x 794.97pt>
+<./99_Inclusions/PDFs/examplePDF.pdf, id=1532, 614.295pt x 794.97pt>
 File: ./99_Inclusions/PDFs/examplePDF.pdf Graphic file (type pdf)
 <use ./99_Inclusions/PDFs/examplePDF.pdf>
 Package pdftex.def Info: ./99_Inclusions/PDFs/examplePDF.pdf  used on input lin
@@ -2957,7 +2923,7 @@ File: ./99_Inclusions/PDFs/examplePDF.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./99_Inclusions/PDFs/examplePDF.pdf  used on input lin
 e 17.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<./99_Inclusions/PDFs/examplePDF.pdf, id=1556, page=1, 614.295pt x 794.97pt>
+<./99_Inclusions/PDFs/examplePDF.pdf, id=1535, page=1, 614.295pt x 794.97pt>
 File: ./99_Inclusions/PDFs/examplePDF.pdf Graphic file (type pdf)
 <use ./99_Inclusions/PDFs/examplePDF.pdf, page 1>
 Package pdftex.def Info: ./99_Inclusions/PDFs/examplePDF.pdf , page1 used on in
@@ -2970,7 +2936,7 @@ put line 17.
 (pdftex.def)             Requested size: 522.15321pt x 675.72769pt.
 
 
-[77]
+[75]
 File: ./99_Inclusions/PDFs/examplePDF.pdf Graphic file (type pdf)
 <use ./99_Inclusions/PDFs/examplePDF.pdf, page 1>
 Package pdftex.def Info: ./99_Inclusions/PDFs/examplePDF.pdf , page1 used on in
@@ -2988,10 +2954,10 @@ File: ./99_Inclusions/PDFs/examplePDF.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./99_Inclusions/PDFs/examplePDF.pdf , page1 used on in
 put line 17.
 (pdftex.def)             Requested size: 522.15321pt x 675.72769pt.
-[78
+[76
 
  <./99_Inclusions/PDFs/examplePDF.pdf>]
-<./99_Inclusions/PDFs/examplePDF.pdf, id=1588, page=2, 614.295pt x 794.97pt>
+<./99_Inclusions/PDFs/examplePDF.pdf, id=1566, page=2, 614.295pt x 794.97pt>
 File: ./99_Inclusions/PDFs/examplePDF.pdf Graphic file (type pdf)
 <use ./99_Inclusions/PDFs/examplePDF.pdf, page 2>
 Package pdftex.def Info: ./99_Inclusions/PDFs/examplePDF.pdf , page2 used on in
@@ -3009,55 +2975,55 @@ File: ./99_Inclusions/PDFs/examplePDF.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./99_Inclusions/PDFs/examplePDF.pdf , page2 used on in
 put line 17.
 (pdftex.def)             Requested size: 522.15321pt x 675.72769pt.
+[77
+
+ <./99_Inclusions/PDFs/examplePDF.pdf>]
+<./99_Inclusions/PDFs/landscapePDF.pdf, id=1572, 794.97pt x 614.295pt>
+File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
+<use ./99_Inclusions/PDFs/landscapePDF.pdf>
+Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf  used on input l
+ine 29.
+(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
+File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
+<use ./99_Inclusions/PDFs/landscapePDF.pdf>
+Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf  used on input l
+ine 29.
+(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
+<./99_Inclusions/PDFs/landscapePDF.pdf, id=1575, page=1, 794.97pt x 614.295pt>
+File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
+<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
+Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
+input line 29.
+(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
+File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
+<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
+Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
+input line 29.
+(pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
+
+
+[78]
+File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
+<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
+Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
+input line 29.
+(pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
+File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
+<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
+Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
+input line 29.
+(pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
+
+
+File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
+<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
+Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
+input line 29.
+(pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
 [79
 
- <./99_Inclusions/PDFs/examplePDF.pdf>]
-<./99_Inclusions/PDFs/landscapePDF.pdf, id=1594, 794.97pt x 614.295pt>
-File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
-<use ./99_Inclusions/PDFs/landscapePDF.pdf>
-Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf  used on input l
-ine 29.
-(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
-File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
-<use ./99_Inclusions/PDFs/landscapePDF.pdf>
-Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf  used on input l
-ine 29.
-(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
-<./99_Inclusions/PDFs/landscapePDF.pdf, id=1597, page=1, 794.97pt x 614.295pt>
-File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
-<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
-Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
-input line 29.
-(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
-File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
-<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
-Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
-input line 29.
-(pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
-
-
-[80]
-File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
-<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
-Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
-input line 29.
-(pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
-File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
-<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
-Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
-input line 29.
-(pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
-
-
-File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
-<use ./99_Inclusions/PDFs/landscapePDF.pdf, page 1>
-Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page1 used on 
-input line 29.
-(pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
-[81
-
  <./99_Inclusions/PDFs/landscapePDF.pdf>]
-<./99_Inclusions/PDFs/landscapePDF.pdf, id=1628, page=2, 794.97pt x 614.295pt>
+<./99_Inclusions/PDFs/landscapePDF.pdf, id=1607, page=2, 794.97pt x 614.295pt>
 File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
 <use ./99_Inclusions/PDFs/landscapePDF.pdf, page 2>
 Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page2 used on 
@@ -3075,7 +3041,7 @@ File: ./99_Inclusions/PDFs/landscapePDF.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./99_Inclusions/PDFs/landscapePDF.pdf , page2 used on 
 input line 29.
 (pdftex.def)             Requested size: 675.72769pt x 522.15321pt.
-[82
+[80
 
  <./99_Inclusions/PDFs/landscapePDF.pdf>]) (ualberta.aux)
  ***********
@@ -3090,7 +3056,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ualberta.out' has not changed.
-(rerunfilecheck)             Checksum: 2D7AD39FD363551CDC987C2724B00F68;16534.
+(rerunfilecheck)             Checksum: 31C6480D99A20278F7170F44A9E54B3C;16323.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                ualberta
@@ -3101,10 +3067,10 @@ Package logreq Info: Writing requests to 'ualberta.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 60434 strings out of 473899
- 1277382 string characters out of 5725084
- 2583016 words of memory out of 5000000
- 81602 multiletter control sequences out of 15000+600000
+ 60426 strings out of 473899
+ 1277301 string characters out of 5725084
+ 2582374 words of memory out of 5000000
+ 81598 multiletter control sequences out of 15000+600000
  591898 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,20n,145p,2421b,2648s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -3150,9 +3116,9 @@ ts/cm/cmsy8.pfb><C:/Users/daldrich/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/euler/eufm10.pfb><C:/Users/daldrich/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/lm/lmss17.pfb><C:/Users/daldrich/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ualberta.pdf (101 pages, 999013 bytes).
+Output written on ualberta.pdf (99 pages, 995061 bytes).
 PDF statistics:
- 2665 PDF objects out of 2984 (max. 8388607)
- 648 named destinations out of 1000 (max. 500000)
- 905 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2644 PDF objects out of 2984 (max. 8388607)
+ 644 named destinations out of 1000 (max. 500000)
+ 889 words of extra memory for PDF output out of 10000 (max. 10000000)
 
