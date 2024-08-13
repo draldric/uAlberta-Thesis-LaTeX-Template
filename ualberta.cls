@@ -171,6 +171,8 @@
 \newif\if@openright
 \newif\if@chapterbib
 \@chapterbibfalse
+\newif\if@saychapter
+\@saychapterfalse
 \newif\if@pdfa
 \@pdfafalse
 \if@compatibility
@@ -254,6 +256,7 @@
 }
 \DeclareOption{pdfa}{\@pdfatrue}
 \DeclareOption{chapterbib}{\@chapterbibtrue}
+\DeclareOption{saychapter}{\@saychaptertrue}
 \ExecuteOptions{letterpaper,12pt,oneside,onecolumn,final,openany}
 \ProcessOptions
 \input{size1\@ptsize.clo}
@@ -394,7 +397,7 @@
 		\refstepcounter{chapter}%
 		\typeout{\@chapapp\space\thechapter.}%
 		\addcontentsline{toc}{chapter}%
-		{\protect\numberline{\thechapter}#1}%
+		{\if@saychapter Chapter \fi\protect\numberline{\thechapter\if@saychapter:\fi}#1}%
 	\else
 		\addcontentsline{toc}{chapter}{#1}%
 	\fi
@@ -421,6 +424,10 @@
 		\vskip 40\p@}}
 
 \def\@schapter#1{%
+	\if#1\relax
+	\else
+		\addcontentsline{toc}{chapter}{#1}%
+	\fi
 	\if@twocolumn
 		\@topnewpage[\@makeschapterhead{#1}]%
 	\else
@@ -659,14 +666,23 @@
 
 \setcounter{tocdepth}{2}
 \newcommand\tableofcontents{%
+	\if@openright\cleardoublepage\else\clearpage\fi
+	\thispagestyle{plain}%
 	\if@twocolumn
 		\@restonecoltrue\onecolumn
 	\else
 		\@restonecolfalse
 	\fi
-	\chapter*{\contentsname
+	\if@twocolumn
+		\@topnewpage[\@makeschapterhead{\contentsname
+		\@mkboth{%
+			\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}]%
+	\else
+		\@makeschapterhead{\contentsname
 		\@mkboth{%
 			\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+		\@afterheading
+	\fi%
 	\@starttoc{toc}%
 	\if@restonecol\twocolumn\fi
 	}
@@ -812,7 +828,6 @@
 \newcommand\appendix@chapter[1]{%
 	\refstepcounter{chapter}%
 	\orig@chapter*{Appendix \@Alph\c@chapter: #1}%
-	\addcontentsline{toc}{chapter}{Appendix \@Alph\c@chapter: #1}%
 }
 \let\orig@chapter\chapter
 \g@addto@macro\appendix{\let\chapter\appendix@chapter}

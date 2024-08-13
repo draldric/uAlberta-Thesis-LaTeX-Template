@@ -52,7 +52,7 @@
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
   % Write command to allow the nomenclature to be generated properly.
 
-\documentclass[pdfa, oneside]{ualberta}
+\documentclass[pdfa, oneside, chapterbib, saychapter]{ualberta}
   % OPTIONS FOR ualberta.cls:
   % chapterbib - \printreferences now prints references at the end of a chapter
   % 
@@ -247,7 +247,7 @@
   %\baselineskip #.##em         % #.##x Spacing
  
   %\nocite{*}  % Uncomment if you have a bibliography with works read but not cited
-  \printbibliography[heading=bibintoc]
+  \printbibliography
   \bigskip
 
 
