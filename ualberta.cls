@@ -92,7 +92,7 @@
 \newcommand{\onehalfspacing}{\baselineskip 1.50em}
 \newcommand{\doublespacing}{\baselineskip 1.75em}
 \newcommand{\truedoublespacing}{\baselineskip 2em}
-\newcommand{\normalspacing}{\singlespacing}
+\newcommand{\normalspacing}{\baselineskip 1em}
 \newcommand{\triplespacing}{\baselineskip 3em}
 
 \newcounter{baseSection}
@@ -144,6 +144,7 @@
 \def\mba{Master of Business Administration}
 
 \def\MAc{Master of Accounting}
+\def\MAC{Master of Accounting}
 \def\mac{Master of Accounting}
 
 \def\MFM{Master of Financial Management}
@@ -153,7 +154,7 @@
 \def\ma{Master of Arts}
 
 \def\MN{Master of Nursing}
-\def\mN{Master of Nursing}
+\def\mn{Master of Nursing}
 
 \def\LLM{Master of Laws}
 \def\llm{Master of Laws}
@@ -842,7 +843,6 @@
 \newcommand{\insertchapter}[1]{
 	\input{"\@addchapters#1.tex"}}
 
-\RequirePackage[heightrounded]{geometry}
 % \oddsidemargin 0.5in
 % \evensidemargin 0in
 % \textwidth 6in
@@ -850,6 +850,8 @@
 % \headheight 0in
 % \headsep 0in
 % \textheight 9in
+
+\RequirePackage[heightrounded]{geometry}
 \geometry{
   left=1.5in,       % Equivalent to setting the left margin
   right=1in,    % Adjusts the right margin for a 6in text width
@@ -857,8 +859,6 @@
   bottom=1in,     % This will be adjusted to achieve the desired text height
   headheight=0in, % No space for the header
   headsep=0in,    % No separation between header and text
-  textwidth=6in,  % Desired text width
-  textheight=9in, % Desired text height
 }
 
 \newcommand{\insertlatexfile}[1]{%
