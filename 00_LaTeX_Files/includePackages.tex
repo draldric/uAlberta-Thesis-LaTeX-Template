@@ -7,19 +7,29 @@
 		\ifstrequal{#1}{C}{Greek}{}}}]%
 	}
 	\renewcommand{\nomname}{List of Symbols}
-	\newcommand{\nomunit}[1]{%
-	\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+	\newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
 
 \usepackage[acronym,nonumberlist]{glossaries}
 	\makenoidxglossaries
 	\newcommand{\addacronym}[2]{\newacronym{#1}{#1}{#2}}
 	\newcommand{\addterm}[2]{\newglossaryentry{#1}{name={#1},description={#2}}}
-	\newcommand\generateglossary{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[title={\glossaryname}]}
-	\newcommand\abbreviations{\pagestyle{plain}\thispagestyle{plain}\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
+	\newcommand\generateglossary{
+		\pagestyle{plain}
+		\thispagestyle{plain}
+		\printnoidxglossary[title={\glossaryname}]}
+	\newcommand\abbreviations{
+		\pagestyle{plain}
+		\thispagestyle{plain}
+		\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{comment}
+
+% Provides the comment environment (Block Comments)
+%   \begin{comment}
+%       <Anything goes here>
+%   \end{comment}
+	\usepackage{comment} 
 
 % The basics for using math in LaTeX
 	\usepackage{array}
@@ -49,8 +59,9 @@
 	\usepackage{pgfplots}
 		\pgfplotsset{compat=newest}
 		\usepgfplotslibrary{statistics, polar}
-	\usepackage{pgf-pie}
-% 
+	\usepackage{pgf-pie}  % Adds Pie charts to PGF
+
+% Allows the inclusion PDF files
 	\usepackage{pdfpages}
 
 % Used for inserting syntax highlighted code
@@ -97,112 +108,142 @@
 
 	\usepackage{fontawesome}
 	\usepackage{lipsum}
-	\usepackage{linegoal}
 	\usepackage{xcolor}
 %% COLOUR DEFINITIONS
+	\definecolor{yellow}{rgb}{0.8,0.8,0}
 	\definecolor{grey}{rgb}{0.3,0.3,0.3}
-	\definecolor{commentGreen}{rgb}{0,0.8,0}
-	\definecolor{codeGrey}{rgb}{0.9,0.9,0.9}
-	\definecolor{R}{rgb}{0.9,0,0}
-	\definecolor{Y}{rgb}{0.8,0.8,0}
-	\definecolor{G}{rgb}{0,0.75,0}
-	\definecolor{gold}{rgb}{0.4,0.4,0}
+	\definecolor{gold}{rgb}{0.4,0.4,0.0}
 
 %% NEW COMMANDS
-	
 	\newcommand{\exampleText}{\lipsum[1][1-4]}
+
 	\newcommand{\commenting}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textcolor{grey}{\textbf{\faCommenting}} & \textcolor{grey}{\textit{#1}}
 		\end{tabularx}}
+
 	\newcommand{\danger}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textsc{\color{black}\colorbox{red}{\textbf{\faWarning\ DANGER}}} & {\textbf{\MakeUppercase{#1}}}
 		\end{tabularx}}
+
 	\newcommand{\warning}[1]{%
 		\noindent
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textsc{\color{black}\colorbox{orange}{\textbf{\faWarning\ WARNING}}} & {\textbf{#1}}
 		\end{tabularx}}
+
 	\newcommand{\caution}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textsc{\color{black}\colorbox{yellow}{\textbf{\faWarning\ CAUTION}}} & {#1}
 		\end{tabularx}}
+
 	\newcommand{\notice}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textsc{\color{white}\colorbox{black}{\textbf{\textit{NOTICE}}}} & {#1}
 		\end{tabularx}}
+
 	\newcommand{\alert}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textbf{\faWarning} & {#1}
 		\end{tabularx}}
+
 	\newcommand{\note}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textbf{\textit{Note: }} & {\textit{#1}}
 		\end{tabularx}}
+
 	\newcommand{\info}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textcolor{blue}{\textbf{\faInfoCircle}} & \textcolor{blue}{#1}
 		\end{tabularx}}
+
 	\newcommand{\question}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{orange}{\textbf{\faQuestionCircle}} \textbf{#1}&
+			\textcolor{orange}{\textbf{\faQuestionCircle}} & \textbf{#1}
 		\end{tabularx}}
+
 	\newcommand{\answer}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\-\hspace{4ex}{\textsc{\color{orange}{\textbf{\faCheckCircle}}}} & \textit{#1}
 		\end{tabularx}}
+
 	\newcommand{\qna}[2]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{orange}{\textbf{\faQuestionCircle}} \textbf{#1}&
+			\textcolor{orange}{\textbf{\faQuestionCircle}} & \textbf{#1}
 		\end{tabularx}
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\-\hspace{4ex} & \textit{#2}
 		\end{tabularx}}
+
 	\newcommand{\tip}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textcolor{gold}{{\textbf{{\faLightbulbO{}}}}} & \textcolor{gold}{#1}
 		\end{tabularx}}
+		
 	\newcommand{\key}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
 			\textcolor{black}{{\textbf{{\faKey}}}} & {#1}
 		\end{tabularx}}
 
-    % \newcommand{\commenting}   [1]{\noindent\textcolor{grey}{\textbf{\faCommenting{}} \parbox[t]{\linegoal}{\textit{#1}}}}
-    % \newcommand{\danger}       [1]{\noindent\textsc{\color{black}\colorbox{red}{\textbf{{\faWarning} DANGER}}} \parbox[t]{\linegoal}{\textbf{\MakeUppercase{#1}}}}
-    % \newcommand{\warning}      [1]{\noindent\textsc{\color{black}\colorbox{orange}{{\textbf{{\faWarning} WARNING}}}} \parbox[t]{\linegoal}{\textbf{#1}}}
-    % \newcommand{\caution}      [1]{\noindent\textsc{\color{black}\colorbox{yellow}{{\textbf{{\faWarning} CAUTION}}}} \parbox[t]{\linegoal}{#1}}
-    % \newcommand{\notice}       [1]{\noindent\textsc{\color{white}\colorbox{black}{{\textbf{\textit{NOTICE}}}}} \parbox[t]{\linegoal}{#1}}
-    % \newcommand{\alert}        [1]{\noindent\textbf{\faWarning} {\parbox[t]{\linegoal}{#1}}}
-    % \newcommand{\note}         [1]{\noindent\textbf{\textit{Note: }}\parbox[t]{\linegoal}{\textit{#1}}}
-    % \newcommand{\info}         [1]{\noindent\textcolor{blue}{\textbf{{\faInfoCircle{}}} \parbox[t]{\linegoal}{#1}}}
-    % \newcommand{\question}     [1]{\noindent\textcolor{orange}{{\textbf{{\faQuestionCircle}}}} \parbox[t]{\linegoal}{\textbf{#1}}}
-    % \newcommand{\answer}       [1]{\noindent\-\hspace{4ex}{\textsc{\color{orange}{{\textbf{{\faCheckCircle}}}}}} \parbox[t]{\linegoal}{\textit{#1}}}
-    % \newcommand{\qna}          [2]{\noindent\textcolor{orange}{{\textbf{{\faQuestionCircle}}}} \textbf{#1}\\\-\hspace{4ex} \parbox[t]{\linegoal}{{\textit{#2}}}}
-    % \newcommand{\tip}          [1]{\noindent\textcolor{gold}{{\textbf{{\faLightbulbO{}}}} \parbox[t]{\linegoal}{#1}}}
-    \newcommand{\download}     [2]{\noindent\textcolor{black}{{\textbf{{\faDownload}}}} \parbox[t]{\linegoal}{\textattachfile[color=0 0 0]{#1}{#2}}}
-    \newcommand{\clouddownload}[2]{\noindent\textbf{\faCloudDownload} \parbox[t]{\linegoal}{\href{#1}{#2}}}
-    \newcommand{\important}    [1]{\noindent\textcolor{red}{\textbf{\faExclamationCircle{}} \parbox[t]{\linegoal}{#1}}}
-    % \newcommand{\key}          [1]{\noindent\textcolor{black}{{\textbf{{\faKey}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\tool}         [1]{\noindent\textcolor{black}{{\textbf{{\faWrench}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\setting}      [1]{\noindent\textcolor{black}{{\textbf{{\faCogs}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\software}     [1]{\noindent\textcolor{black}{{\textbf{{\faFileCodeO}}}} \parbox[t]{\linegoal}{#1}}
-    \newcommand{\codeblock}    [1]{\noindent\colorbox{codeGrey}{\faTerminal{} \parbox[t]{\linegoal}{\texttt{#1}}}}
-    \newcommand{\option}       [1]{\noindent`\textbf{#1}'}
-    \newcommand{\code}         [1]{\noindent\texttt{\sethlcolor{codeGrey}\hl{#1}}}
-    \newcommand{\file}         [1]{\noindent\texttt{\faFileO{} #1}}
-    \newcommand{\folder}       [1]{\noindent\texttt{\faFolderO{} #1}}
+	\newcommand{\clouddownload}[2]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textbf{\faCloudDownload} & \href{#1}{#2}
+		\end{tabularx}}
+
+	\newcommand{\important}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{red}{\textbf{\faExclamationCircle}} & \textcolor{red}{#1}
+		\end{tabularx}}
+
+	\newcommand{\tool}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{black}{\textbf{\faWrench}} & #1
+		\end{tabularx}}
+
+	\newcommand{\setting}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{black}{\textbf{\faCogs}} & #1
+		\end{tabularx}}
+
+	\newcommand{\software}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{black}{\textbf{\faFileCodeO}} & #1
+		\end{tabularx}}
+
+	\newcommand{\option}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}X@{}}
+			`\textbf{#1}'
+		\end{tabularx}}
+
+	\newcommand{\file}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}X@{}}
+			\faFileO{} \texttt{#1}
+		\end{tabularx}}
+
+	\newcommand{\folder}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}X@{}}
+			\faFolderO{} \texttt{#1}
+		\end{tabularx}}

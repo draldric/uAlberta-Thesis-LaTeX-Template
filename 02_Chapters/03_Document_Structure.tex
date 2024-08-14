@@ -1,7 +1,7 @@
 \chapter{Document Structure and Formatting}\label{ch:documentstructure}
 	A thesis for the University of Alberta can consist of many different parts that come together to create the final document.
-	These will include the Title Page, Abstract, and other Prefatory pages; and the chapters, sections, and subsections.
-	In the following Sections, we will look into how we can add these different sections and how to manipulate them too.
+	These will include the Title Page, Abstract, and other Prefatory pages; and the chapters, sections, and paragraphs; as well as the content, figures, tables, and other content you would like to include.
+	In the rest of this \nameCref{ch:documentstructure}, we will look more specifically on the inclusion of the prefatory pages and how to structure your document with the various chapter, section, and paragraph commands.
 	
 	\section{Title Page, Abstract, and Other Prefatory Pages}
 		To create a title page in \LaTeX, you can use the \lstinline|\maketitle| command after providing the necessary title, author, and date information. 
@@ -17,14 +17,36 @@
 \end{document}
 		\end{lstlisting}
 
-		For a thesis at the University of Alberta, there are a few more pages that are required (Abstract and Preface) and some that are optional (Quote, Dedication, and Acknowledgements), but all of them have specific formatting requirements.
-		To aid you in the creation of these pages I have created a few new macros:
+		For a thesis at the University of Alberta, there is more information that is required, as well as a few more pages that are required (Abstract and Preface) and some that are optional (Quote, Dedication, and Acknowledgements), but all of them have specific formatting requirements.
+		GPS even provides a few different documents that attempt to provide the necessary information to create these pages\cite{FGPS2024}.
+		To aid you in the creation of these pages I have created a few new pairs of macros (one sets the text for the section, the other one generates the page with the text):
+		\note{I chose to separate the two macros to better compartmentalize the thesis (each prefatory page has its own file), as well as allow an easy way to include and exclude each of the prefatory pages via commenting}
 		\begin{itemize}
-			\item \lstinline|\abstracttext{Abstract Text goes here.}|
-			\item \lstinline|\preface{Preface Text goes here.}|
-			\item \lstinline|\thesisquote{Quote Text goes here.}|
-			\item \lstinline|\dedication{Dedication Text goes here}|
-			\item \lstinline|\acknowledgementtext{Acknowledgement Text goes here.}|
+			\item Abstract
+				\begin{itemize}
+					\item \lstinline|\abstracttext{Abstract Text goes here.}|
+					\item \lstinline|\makeabstract|
+				\end{itemize}
+			\item Preface
+				\begin{itemize}
+					\item \lstinline|\preface{Preface Text goes here.}|
+					\item \lstinline|\makepreface|
+				\end{itemize}
+			\item Quote
+				\begin{itemize}
+					\item \lstinline|\thesisquote{Quote Text goes here.}|
+					\item \lstinline|\makequote|
+				\end{itemize}
+			\item Dedication
+				\begin{itemize}
+					\item \lstinline|\dedication{Dedication Text goes here}|
+					\item \lstinline|\makededication|
+				\end{itemize}
+			\item Acknowledgement
+				\begin{itemize}
+					\item \lstinline|\acknowledgementtext{Acknowledgement Text goes here.}|
+					\item \lstinline|\acknowledgements|
+				\end{itemize}
 		\end{itemize}
 
 		\subsection{Title Page}
@@ -32,7 +54,7 @@
 			These include \lstinline|\degree|, \lstinline|\specialization|, \lstinline|\department|, \lstinline|\faculty|, and \lstinline|\convocationdate|.
 			An example of how to fill these in can be seen in the original \LaTeX\ code (\path{ualberta.tex}) or in \Cref{lst:TitlePage}.
 
-			Most of the fields are fairly self explanatory, however, to be extra clear as to what needs to be included I will now provide an explanation of each field.:
+			Most of the fields are fairly self explanatory, however, to be extra clear as to what needs to be included I will now provide an explanation of each field:
 
 			\begin{table}[H]
 			\caption{Title Page Macro Definitions and Examples}
@@ -67,7 +89,11 @@
 			\end{lstlisting}
 	
 		\subsection{Abstract}\label{abstract}
+			This is probably one of the simplest sections that need to be created for you thesis.
+			Mainly because the content that can be included is so restrictive.
+			Further, the limit on the word count makes this section quite short.
 			
+			\warning{Just because of the above does not mean this section won't be difficult to write. It will be. But the best piece of advice I can offer is write this section last. In fact, just to prove a point, I will add an appendix to this document that will go over the actual writing of this section.}
 
 		\subsection{Preface}\label{preface}
 			The following Sections will provide you with examples of how to include specific elements into your preface.

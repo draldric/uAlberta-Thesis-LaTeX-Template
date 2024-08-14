@@ -29,20 +29,10 @@
 %       OTHER DEALINGS IN THE SOFTWARE.                                        %
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                              %
-%                                   NOTICE                                     %
-% This template and class assume a basic understanding of how LaTeX works.     %
-%                                                                              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                              %
-% To use this template start by entering in your information in the fields     %
-%     below, and in the file `ualberta.xmpdata'. Next remember to delete the   %
-%     auto generated text `\lipsum[##]'.                                       %
-%                                                                              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %LIST OF AVAILABLE THEOREM ENVIRONMENTS
-  % For the full list of theorems included please see `includeTheroems.tex'
+  % For the full list of available theorems OR to add your own theorems please 
+  %  see the `includeTheroems.tex' file located in the 00_LaTeX_Files Folder.
   %
   % To use:
   % \begin{<theorem name>}
@@ -70,26 +60,38 @@
 %                                FILE LOCATIONS                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LaTeX FILES LOCATION
+  % .  - This folder
+  % .. - Up one Folder
   \addlatexfiles{./00_LaTeX_Files/}
   \insertlatexfile{includePackages} % LOAD ALL PACKAGES TO BE INCLUDED
 
 % PREFATORY LOCATION
+  % .  - This folder
+  % .. - Up one Folder
   \addprefatory{./01_Prefatory/}
 
 % CHAPTER LOCATION
+  % .  - This folder
+  % .. - Up one Folder
   \addchapters{./02_Chapters/}
 
 % BIBLIOGRAPHY LOCATION
   % NOTE: if you add bibliography entries after a compilation, you might notice 
-  %   references marked `[0]' to fix this just delete the auxiliary files. (*.aux, *.bbl, ... etc)
+  %  references marked `[0]' to fix this just delete the auxiliary files. 
+  %  (*.aux, *.bbl, ... etc)
+  %
   % .  - This folder
   % .. - Up one Folder
   \addbibresource{./03_References/References.bib}
 
 % APPENDICES LOCATION
+  % .  - This folder
+  % .. - Up one Folder
   \addappendices{./04_Appendices/}
 
 % MEDIA LOCATION
+  % .  - This folder
+  % .. - Up one Folder
   \addmedia{./99_Inclusions/}
   \addimages{Images/}
   \addtables{Tables/}
@@ -112,6 +114,7 @@
   \author{First Middle Last}        % Your Full Name
   \degree{\MSc}                     % \MSc, \PhD, \MA, \MEd, \MBA, \MAc, \MFM, \MN, \LLM, or \MMus
   \specialization{}                 % Leave blank if none
+  %TODO: Fix Department/Faculty to a single input
   \department{Example Department}   % Fill in the Department unless you are non-Departmental
   \faculty{}                        % Leave blank unless non-Departmental
   \convocationdate{\the\year}            % Convocation Year
@@ -138,10 +141,10 @@
 % NOMENCLATURE
   %\input{./01_Prefatory/Nomenclature.tex}
 
-% ACRONYMS (Do NOT include periods at the end)
+% ACRONYMS
   %\input{./01_Prefatory/Acronyms.tex}
 
-% GLOSSARY (Do NOT include periods at the end)
+% GLOSSARY
   %\input{./01_Prefatory/Glossary.tex}
 
 

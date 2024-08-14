@@ -1,13 +1,14 @@
-\chapter{Introduction}\label{ch:Introduction}\section{Background}
-	As a graduate student from the University of Alberta, I understand the daunting task that is associated with writing a Thesis that conforms to the guidelines outlined in the GPS Minimum Thesis Formatting Requirements. 
-	It can also be very frustrating to write long, equation and figure heavy, document in a word processor that is prone to crashes, file corruption, seemingly random changes to the formatting, and that do not output a document in the required PDF/A format for submission to GPS.
-	
-	Due to these problems, lots of students attempt to use an alternative to traditional word processors: \LaTeX. 
-	
-	\LaTeX\ allows students/researchers to focus on either the writing of the document or the formatting. 
-	Because the writing is separated from the formatting, the writing of the documents can be performed in much more lightweight text editors, or \TeX\ editors (that also allow for the compilation of the documents). 
-	These editors are usually able to save the work after every keystroke and due to the plaintext nature, are not generally susceptible to file corruption.
-	\LaTeX\ has the added benefit of providing a consistent and professional look and feel throughout the document. 
+\chapter{Introduction}\label{ch:Introduction}
+	\section{Background}
+		As a graduate student from the University of Alberta, I am familiar with the challenging task of writing a thesis that adheres to the GPS Minimum Thesis Formatting Requirements. 
+		Using a traditional word processor to create a long document filled with equations and figures can be frustrating due to frequent crashes, file corruption, unpredictable formatting changes, and the inability to output a document in the required PDF/A format for submission to GPS.
+		
+		To overcome these issues, many students turn to \LaTeX\ as an alternative to conventional word processors. 
+		
+		\LaTeX\ allows students and researchers to focus separately on the content and the formatting of their documents. 
+		Because the writing is independent of the formatting, documents can be written in lightweight text editors or \TeX\ editors, which also facilitate the compilation of the documents. 
+		These editors often save work after every keystroke, and due to the plaintext format, they are less prone to file corruption.
+		Moreover, \LaTeX\ ensures a consistent and professional appearance throughout the document. 
 
 	\section{Objectives}
 		The main objectives of this thesis are:
@@ -18,7 +19,11 @@
 		\end{enumerate}
 
 	\section{Scope and Limitations}
-		While there are existing templates for writing a thesis for the University of Alberta in \LaTeX\ (see \Cref{tab:OtherTemplates} for a list of all other templates I was able to find), there does not appear to be a template for \LaTeX\ that provides students all the information required to write an outstanding thesis.
+		Although there are existing templates for writing a thesis in \LaTeX\ for the University of Alberta (see \Cref{tab:OtherTemplates} for a list of available templates), none seem to provide all the necessary information for creating an outstanding thesis.
+		Most templates apply "band-aid" solutions to existing classes, such as \texttt{report} or \texttt{book}, offering a customized title page and methods for including prefatory pages.
+		However, these templates often fall short by not providing tips and best practices on how to include the various sections and parts that make up a thesis.
+		They also fail to offer a solid foundation for those who are new to \LaTeX.
+		Many of these templates involve extensive patching and fixing, resulting in large sections at the beginning of the template that can be confusing to new \LaTeX\ users and add to the already steep learning curve.
 		
 		\begin{landscape}
 			\begin{table}[p]
@@ -43,8 +48,12 @@
 			\end{table}
 		\end{landscape}
 		
-		This template/document aims to defeat this shortcoming by providing all the necessary information to create a well structured thesis, as well as providing examples to assist in the formatting of documents written in \LaTeX{}.
-		This thesis focuses on the following aspects:
+		This template and document class aim to address these shortcomings by providing all the necessary information to create a well-structured thesis, along with examples to assist in formatting documents written in \LaTeX.
+		To ensure robustness and ease of maintenance, I developed the class file from the ground up, keeping the additional required packages to a minimum.
+		This makes the solution easier to maintain, update, and customize to suit different needs.
+		A key goal was to reduce the traditionally steep learning curve associated with \LaTeX.
+		
+		While the class file deserves its own comprehensive documentation, this thesis will focus on the following aspects of the template:
 		\begin{itemize}
 			\item Installation and basic usage of \LaTeX.
 			\item Document structure and formatting.
@@ -54,8 +63,9 @@
 			\item Introduction to advanced topics and recommended packages.
 		\end{itemize}
 
-		However, it does not cover advanced \LaTeX\ programming or extensive customization of document classes.
-		Mainly because I did the heavy lifting for you; the class file, \path{ualberta.cls}, provides all the major document requirements while this document provides the references of how to include all the bits and bobs that one might what in a thesis.
+		This guide does not cover advanced \LaTeX\ programming or extensive customization of document classes.
+		Instead, the class file \path{ualberta.cls} provides all the major document requirements, while this document offers references on how to include the various elements that might be required in a thesis.
+		This includes all of the explanations of the packages and macros needed to perform the examples.
 
 	\section{Organization of the Thesis}
 		The thesis is organized into several chapters, each addressing a specific aspect of writing a thesis in \LaTeX. 
@@ -71,9 +81,9 @@
 			%\item \textbf{\Cref{ch:}:}  \nameref{ch:}
 		\end{itemize}
 
-		Each chapter provides detailed information, examples, and recommendations to help you navigate the Thesis writing process and how that integrates within the \LaTeX\ ecosystem.
+		Each chapter provides detailed information, examples, and recommendations to help you navigate the thesis writing process within the \LaTeX\ ecosystem.
 
 	\section{Summary}
 		This chapter introduced the background, objectives, scope, and organization of the thesis. 
-		The subsequent chapters delve into specific topics, providing practical guidance and examples for mastering the art of writing a thesis in \LaTeX.
-		Further, you will develop an understanding of both how to create a Thesis, and how to manipulate the content within the \LaTeX\ ecosystem to create an incredible document.
+		The subsequent chapters delve into specific topics, offering practical guidance and examples for mastering the art of writing a thesis in \LaTeX.
+		Through this process, you will develop an understanding of how to create a thesis and manipulate content within the \LaTeX\ ecosystem to produce an exceptional document.
