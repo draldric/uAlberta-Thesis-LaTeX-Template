@@ -1,16 +1,21 @@
 \chapter{Plots, Charts, \& Graphs}\label{ch:plotsandgraphs}
-	\label{ch:plots}
-	\section{Introduction}
+		Throughout this chapter we will be exploring some of the different ways of displaying your data in your thesis.
+		Mainly this will be accomplished with the \pkg{pgfplots} package.
 		In the following sections, there will be a few examples of how to generate different plots.
-		Though this can be quite useful, I will be excluding in-depth information on creating these.
-		For more information on how to create plots, \href{https://mirror.its.dal.ca/ctan/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf}{\textcolor{blue}{\underline{here}}} is the manual for \texttt{pgfplots}.
+		For more information on how to create plots, \href{https://mirror.its.dal.ca/ctan/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf}{\textcolor{blue}{\underline{here}}} is the manual for \pkg{pgfplots}(the package used to generate the information for TikZ to create the plots).
 
 	\section{Line Plots}
-		A simple line plot can be created using the \texttt{axis} environment from \texttt{pgfplots}.
-		The following code (see \Cref{lst:line-plot}) can be used to create the figure shown in \Cref{fig:line-plot}.
+		A simple line plot can be effectively created using the \env{axis} environment from the \pkg{pgfplots} package in \LaTeX. 
+		The \pkg{pgfplots} package is a powerful tool for creating high-quality plots directly within \LaTeX\ documents. 
+		It builds upon the \pkg{TikZ} package and provides a comprehensive set of options for plotting and customizing graphs.
 
-		\begin{lstlisting}[float=ht,caption=,label=lst:line-plot,style=LaTeXStyle,basicstyle=\small\ttfamily,]
-\begin{figure}[H]
+		The following code (see \Cref{lst:line-plot}) can be used to create the figure shown in \Cref{plt:line-plot}.
+		\begin{figure}[!h]
+		\centering
+		\begin{subfigure}[b]{0.45\linewidth}
+		\centering
+		\begin{lstlisting}[style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,frame=single]
+\begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[
@@ -31,11 +36,15 @@
 	\label{fig:line-plot}
 \end{figure}
 		\end{lstlisting}
-
-		\begin{figure}[H]
+		\caption{}
+		\label{lst:line-plot}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.45\linewidth}
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
+					width=\linewidth,
 					title={Simple Line Plot},
 					xlabel={X-axis},
 					ylabel={Y-axis},
@@ -49,11 +58,12 @@
 					};
 				\end{axis}
 			\end{tikzpicture}
-			\caption{A simple line plot.}
-			\label{fig:line-plot}
+			\caption{}
+			\label{plt:line-plot}
+		\end{subfigure}
+			\caption[A simple line plot.]{A simple line plot (\subref{plt:line-plot}) and the code to generate the plot (\subref{lst:line-plot})}\label{fig:line-plot}
 		\end{figure}
-
-		Expanding on this example, we can add a second plot by adding the following code below the closing bracket and semi-colon (\texttt{\};}) of the \texttt{addplot} command:
+		Expanding on this example, we can add a second plot by adding the following code below the closing bracket and semi-colon (\texttt{\};}) of the \cmd{addplot} command:
 		\begin{lstlisting}[float=ht,caption=,label=lst:line-plot-2,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \addplot coordinates {
 	(0,16)
@@ -64,10 +74,42 @@
 };
 		\end{lstlisting}
 		This will result in the addition of the second red line shown in \Cref{fig:line-plot-2}.
-		\begin{figure}[H]
+		\begin{figure}[htbp]
+			\begin{subfigure}[b]{0.45\linewidth}
+				\centering
+				\begin{lstlisting}[style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,frame=single]
+\begin{tikzpicture}
+	\begin{axis}[
+		title={Dual Line Plot},
+		xlabel={X-axis},
+		ylabel={Y-axis},
+	]
+		\addplot coordinates {
+			(0,0)
+			(1,1)
+			(2,4)
+			(3,9)
+			(4,16)
+		};
+		\addplot coordinates {
+			(0,16)
+			(1,9)
+			(2,4)
+			(3,1)
+			(4,0)
+		};
+	\end{axis}
+\end{tikzpicture}
+				\end{lstlisting}
+				\caption{}
+				\label{lst:line-plot-2}
+			\end{subfigure}
+			\hfill
+			\begin{subfigure}[b]{0.45\linewidth}
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
+						width=\linewidth,
 						title={Dual Line Plot},
 						xlabel={X-axis},
 						ylabel={Y-axis},
@@ -88,20 +130,23 @@
 						};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{A simple line plot with two sets of data.}
-				\label{fig:line-plot-2}
-			\end{figure}
+				\caption{}
+				\label{plt:line-plot-2}
+			\end{subfigure}
+			\caption{A simple line plot with two sets of data.}
+			\label{fig:line-plot-2}
+		\end{figure}
 
 	\section{Customizing Plots}
 		This section provides some ways to increase the readability and customization of the plots we generate.
 		\subsection{Adding a Legend}
 			Legends can be added to plots for better readability.
 			To add a legend to your plot you can use the code in \Cref{lst:legend-plot} to generate the plot shown in \Cref{fig:legend-plot}.
-			Each plot is individually added to the legend by adding a \lstinline|\addlegendentry{YOUR LEGEND ENTRY HERE}| command following the \texttt{addplot} command.
+			Each plot is individually added to the legend by adding a \cmd{addlegendentry}\mopt{YOUR LEGEND ENTRY HERE} command following the \cmd{addplot} command.
 			
-			\note{The position of the legend can be specified by using the optional parameter \texttt{legend pos=}} followed by a set of compass coordinates.
+			\note{The position of the legend can be specified by using the optional parameter \opt{legend pos=}} followed by a set of compass coordinates.
 			
-			\begin{lstlisting}[float=htbp,caption=,label=lst:legend-plot,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+			\begin{lstlisting}[float=htbp,caption=,label=lst:legend-plot-header,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
@@ -111,6 +156,8 @@
 			ylabel={Y-axis},
 			legend pos=north west,
 		]
+			\end{lstlisting}
+			\begin{lstlisting}[float=htbp,caption=,label=lst:legend-plot-plots,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 			\addplot coordinates {
 				(0,0)
 				(1,1)
@@ -246,7 +293,7 @@
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
-							width=0.65\textwidth,
+							width=0.65\linewidth,
 							axis lines = left,
 							xlabel = \(x\),
 							ylabel = {\(f(x)\)},
@@ -275,7 +322,7 @@
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
-							width=0.65\textwidth,
+							width=0.65\linewidth,
 							enlargelimits=true,
 						]
 						\addplot+[
@@ -317,7 +364,7 @@
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
-							width=0.65\textwidth,
+							width=0.65\linewidth,
 							x tick label style={/pgf/number format/1000 sep=},
 							ylabel=Year,
 							enlargelimits=0.05,
@@ -339,7 +386,7 @@
 			\end{figure}
 		
 		\subsection{Pie Chart}
-			Pie charts are less common in \LaTeX, but can still be created using \texttt{pgf-pie}:
+			Pie charts are less common in \LaTeX, but can still be created using the package \pkg{pgf-pie}:
 			\begin{figure}[H]
 				\centering
 				\begin{tikzpicture}
@@ -407,7 +454,7 @@
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
-							width=0.65\textwidth,
+							width=0.65\linewidth,
 							title=Example using the mesh parameter,
 							hide axis,
 							colormap/cool,
@@ -492,6 +539,6 @@
 			\end{figure}
 
 	\section{Conclusion}
-		The \texttt{pgfplots} package is an incredibly versatile tool for creating a wide range of plots and graphs in \LaTeX. 
-		This chapter has provided examples of various plot types and customization options, showcasing the power and flexibility of \texttt{pgfplots}. 
+		The \pkg{pgfplots} package is an incredibly versatile tool for creating a wide range of plots and graphs in \LaTeX. 
+		This chapter has provided examples of various plot types and customization options, showcasing the power and flexibility of \pkg{pgfplots}. 
 		By leveraging these capabilities, you can create high-quality, publication-ready figures for your thesis.

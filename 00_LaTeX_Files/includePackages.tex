@@ -109,13 +109,22 @@
 	\usepackage{fontawesome}
 	\usepackage{lipsum}
 	\usepackage{xcolor}
+	\usepackage{fancyvrb}
 %% COLOUR DEFINITIONS
 	\definecolor{yellow}{rgb}{0.8,0.8,0}
 	\definecolor{grey}{rgb}{0.3,0.3,0.3}
 	\definecolor{gold}{rgb}{0.4,0.4,0.0}
+	\definecolor{cmd}{rgb}{1,0,1}
+	\definecolor{cmd}{rgb}{0,0,1}
+	\definecolor{env}{rgb}{0.5,0,1}
+	\definecolor{pkg}{rgb}{0,1,0}
+	\definecolor{opt}{rgb}{1,0.5,0}
+	
 
 %% NEW COMMANDS
 	\newcommand{\exampleText}{\lipsum[1][1-4]}
+
+	\newcommand{\UofA}{University of Alberta}
 
 	\newcommand{\commenting}[1]{%
 		\noindent
@@ -247,3 +256,28 @@
 		\begin{tabularx}{\linewidth}{@{}X@{}}
 			\faFolderO{} \texttt{#1}
 		\end{tabularx}}
+	
+	\newcommand{\str}[1]{%
+		\texttt{\textcolor{pkg}{#1}}}
+	
+	\newcommand{\pkg}[1]{%
+		\texttt{\textcolor{pkg}{#1}}}
+	
+	\newcommand{\cmd}[1]{%
+		\texttt{\textcolor{cmd}{\textbackslash#1}}}
+	
+	\newcommand{\opt}[1]{%
+		\texttt{\textcolor{opt}{#1}}}
+	\newcommand{\oopt}[1]{%
+		\texttt{[\textcolor{opt}{#1}]}}
+	\newcommand{\mopt}[1]{%
+		\texttt{\{\textcolor{opt}{#1}\}}}
+	
+	\newcommand{\env}[1]{%
+		\texttt{\textcolor{env}{#1}}}
+		
+	\newcommand{\benv}[1]{%
+		\texttt{\cmd{begin}\{\textcolor{env}{#1}\}}}
+	\newcommand{\eenv}[1]{%
+		\texttt{\cmd{end}\{\textcolor{env}{#1}\}}}
+	

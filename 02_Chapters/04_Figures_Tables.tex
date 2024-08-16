@@ -8,8 +8,8 @@
 		\tip{\path{./00_LaTeX_Files/includePackages.tex} includes all the packages required for creating all the examples in this document, some of these will not be necessary, however, I have included comments on all packages for what they are used for. This allows you to make a decision on if you will need them as well. If you are unsure, you may just comment out the line.}
 
 	\section{Inserting Figures}
-		In \LaTeX, figures are included using the \texttt{graphicx} package. 
-		The \lstinline|\includegraphics| command is used to insert an image. 
+		In \LaTeX, figures are included using the \pkg{graphicx} package. 
+		The \cmd{includegraphics} command is used to insert an image. 
 		Let's consider an example:
 
 		\begin{lstlisting}[float=ht,caption=A Basic Example of Including a Figure.,label=lst:figureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
@@ -25,18 +25,18 @@
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.7\textwidth]{example-image}
+			\includegraphics[width=0.7\linewidth]{example-image}
 			\caption{This is an example of a single figure similar to that produced by \Cref{lst:figureExample}.}
 			\label{fig:singleImage}
 		\end{figure}
 
-		In this example, the figure environment is used to contain the image. 
-		The \lstinline|\centering| command ensures the image is centred horizontally. 
-		The width parameter is used to control the size of the image. 
-		The \lstinline|\caption| and \lstinline|\label| commands provide a caption and label for referencing, respectively.
+		In this example, the \env{figure} environment is used to contain the image. 
+		The \cmd{centering} command ensures the image is centred horizontally. 
+		The \opt{width} parameter is used to control the size of the image; in this case, it has been set to \opt{0.45\cmd{linewidth}} which will make it fill a space that is 0.45 tiems the width of the current line.
+		The \cmd{caption} and \cmd{label} commands provide a caption and label for referencing, respectively.
 
 		Figures can be formatted to meet specific requirements. 
-		The \lstinline|\subfigure| command from the subcaption package can be used for side-by-side figures:
+		The \cmd{subfigure} command from the \pkg{subcaption} package can be used for side-by-side figures:
 
 		\begin{lstlisting}[float=ht,caption=,label=lst:subfigureExample,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{subcaption}
@@ -60,19 +60,19 @@
 \end{figure}
 		\end{lstlisting}
 
-		This example uses the subfigure environment to create subfigures within a larger figure (as show in \Cref{fig:doubleImage}. 
-		The \lstinline|\hfill| command adds horizontal space between the subfigures.
+		This example uses the \env{subfigure} environment to create subfigures within a larger figure (as show in \Cref{fig:doubleImage}. 
+		The \cmd{hfill} command adds horizontal space between the subfigures.
 
 		\begin{figure}[H]
 			\centering
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just letter
 				\label{fig:doubleImage:a}
 			\end{subfigure}
 			~
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just letter
 				\label{fig:doubleImage:b}
 			\end{subfigure}
@@ -80,12 +80,12 @@
 			\label{fig:doubleImage}
 		\end{figure}
 
-		While this section provided a few examples on how to make some figures and sub figures, I would strongly recommend checking out some of the provided examples in \Cref{app:examplefigures}.
+		While this section provided a few examples on how to make some figures and subfigures, I would strongly recommend checking out some of the more complex examples of figures shown in \Cref{app:examplefigures}.
 		This will provide the code and examples for how to create more intricate subfigures and layouts.
 		
 	\section{Tables and Tabularx}
-		Tables in \LaTeX\ are created using the tabular environment. 
-		The tabularx package is particularly useful when you want the table to automatically adjust its width. 
+		Tables in \LaTeX\ are created using the \env{tabular} environment. 
+		The \pkg{tabularx} package is particularly useful when you want the table to automatically adjust its width. 
 		Let's define some custom column types for convenience:
 
 		\begin{lstlisting}[float=ht,caption=,label=lst:newcolumntyps,style=LaTeXStyle,basicstyle=\small\ttfamily,]
@@ -110,12 +110,12 @@ Now, let's create a table using tabularx:
 \end{table}
 		\end{lstlisting}
 
-		In this example, the tabularx environment is used, and the custom column types C, L, and R are applied to the columns. 
+		In this example, the \env{tabularx} environment is used, and the custom column types \opt{C}, \opt{L}, and \opt{R} are applied to the columns. 
 		This ensures the content is centered, left-justified, and right-justified, respectively.
 
 	\section{Advanced Table Features}
 
-		To create professional-looking tables, the booktabs package can be employed. 
+		To create professional-looking tables, the \pkg{booktabs} package can be employed. 
 		It provides commands for better spacing and styling of tables:
 
 		\begin{lstlisting}[float=ht,caption=,label=lst:booktabs,style=LaTeXStyle,basicstyle=\small\ttfamily,]
@@ -136,16 +136,16 @@ Now, let's create a table using tabularx:
 \end{table}
 		\end{lstlisting}
 
-		The \lstinline|\toprule|, \lstinline|\midrule|, and \lstinline|\bottomrule| commands create horizontal rules with appropriate spacing.
+		The \cmd{toprule}, \cmd{midrule}, and \cmd{bottomrule} commands create horizontal rules with appropriate spacing.
 
 	\section{Additional Packages for Enhanced Table Functionality}
 
 		Several other packages can be employed to enhance table functionality:
 
-		The longtable package allows tables to span multiple pages, which is useful for large datasets.
-		The multirow and multicolumn packages provide commands for cells that span multiple rows or columns, respectively.
-		The makecell package enables more complex table layouts.
-		Each of these packages comes with its set of commands and options. Let's briefly explore the usage of longtable, multirow, and multicolumn:
+		The \pkg{longtable} package allows tables to span multiple pages, which is useful for large datasets.
+		The \pkg{multirow} and \pkg{multicolumn} packages provide commands for cells that span multiple rows or columns, respectively.
+		The \pkg{makecell} package enables more complex table layouts.
+		Each of these packages comes with its set of commands and options. Let's briefly explore the usage of \pkg{longtable}, \pkg{multirow}, and \pkg{multicolumn}:
 
 		\begin{lstlisting}[float=ht,caption=,label=lst:additionaltablepackages,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \usepackage{longtable}
@@ -185,11 +185,11 @@ Now, let's create a table using tabularx:
 \end{table}
 		\end{lstlisting}
 
-		In these examples, the \texttt{longtable} environment is used for tables that span multiple pages. 
-		The multirow command is employed to create cells that span multiple rows, while multicolumn is used for cells that span multiple columns.
+		In these examples, the \env{longtable} environment is used for tables that span multiple pages. 
+		The \cmd{multirow} command is employed to create cells that span multiple rows, while \cmd{multicolumn} is used for cells that span multiple columns.
 
 	\section{Conclusion}
-		This chapter provided a comprehensive overview of including figures and tables in your \LaTeX\ document. 
-		From basic insertion of figures to advanced table formatting using packages like \texttt{tabularx}, \texttt{booktabs}, and others, you now have a solid foundation to include tables and figures in your thesis.
-		While this provides a lot of details on how to add figures that have already been pre-generated, one might want to generate figures on the spot potentially even using data generated from other programs (such as MatLab\textsuperscript{\tiny\textregistered}, Python, \textit{etc.}).
-		For this \Cref{ch:plots} provides in-depth workings of the \texttt{pgfplots} package and how to generate consistent and professional looking plots and graphs.
+		This Chapter provided a comprehensive overview of including figures and tables in your \LaTeX\ document. 
+		From basic insertion of figures to advanced table formatting using packages like \pkg{tabularx}, \pkg{booktabs}, and others, you now have a solid foundation to include tables and figures in your thesis.
+		While this provides a lot of details on how to add figures that have already been pre-generated, one might want to generate figures on the spot potentially even using data generated from other programs (such as MatLab\textsuperscript{\tiny\textregistered}, Python, \textit{etc}.).
+		For this \Cref{ch:plots} provides in-depth workings of the \pkg{pgfplots} package and how to generate consistent and professional looking plots and graphs.

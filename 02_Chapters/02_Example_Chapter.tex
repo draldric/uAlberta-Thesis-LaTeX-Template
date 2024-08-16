@@ -13,7 +13,7 @@
 				\caption{Document Structure Commands}
 				\label{tab:docstructure}
 				\centering
-				\begin{tabularx}{0.85\textwidth}{ccC} 
+				\begin{tabularx}{0.85\linewidth}{ccC} 
 					\toprule
 						\textbf{Level} & \textbf{Command} & \textbf{Notes}\\
 					\midrule
@@ -172,7 +172,7 @@
 				\caption{Built-in, hyperref, and cleveref commands and outputs}
 				\label{tab:reftable}
 				\centering
-				\begin{tabularx}{0.5\textwidth}{CC} 
+				\begin{tabularx}{0.5\linewidth}{CC} 
 					\toprule
 						\textbf{Command} & \textbf{Output} \\
 					\midrule
@@ -215,7 +215,7 @@
 				\centering
 				\caption{Comparison of Reference Softwares}
 				\label{tab:refSoftware}%
-				\begin{tabularx}{0.9\textwidth}{Lcccr}
+				\begin{tabularx}{0.9\linewidth}{Lcccr}
 					\toprule
 						Software & Developer         & Version & Cost                    & License \\
 					\midrule
@@ -239,7 +239,7 @@
 			\caption{Tabular vs. Tabularx Comparison}
 			\label{tab:tableComparison}
 			\centering
-			\begin{subtable}{0.45\textwidth}
+			\begin{subtable}{0.45\linewidth}
 				\caption{}
 				\label{tab:tableComparison:b}
 				\begin{tabular}{lcr} 
@@ -251,10 +251,10 @@
 				\end{tabular}
 			\end{subtable}
 			~
-			\begin{subtable}{0.45\textwidth}
+			\begin{subtable}{0.45\linewidth}
 				\caption{}
 				\label{tab:tableComparison:a}
-				\begin{tabularx}{\textwidth}{LCR} 
+				\begin{tabularx}{\linewidth}{LCR} 
 					\toprule
 						\textbf{Left} & \textbf{Centre} & \textbf{Right}\\
 					\midrule
@@ -280,7 +280,7 @@
 			\caption{This is a basic table}
 			\label{tab:basicTable}
 			\centering
-			\begin{tabularx}{0.75\textwidth}{LCR} 
+			\begin{tabularx}{0.75\linewidth}{LCR} 
 				% Equally spaced cells that are left, centre, and right aligned. 
 				% The entire table will be 75% the width of the text.
 				\toprule
@@ -302,7 +302,7 @@
 			\caption{This is a complex table.}
 			\label{tab:complexTable}
 			\centering
-			\begin{tabularx}{0.95\textwidth}{lCR}
+			\begin{tabularx}{0.95\linewidth}{lCR}
 				% Left most cell is fitted to the content.
 				% The centre and right columns are equally spaced cells that are centre, and right aligned. 
 				% The entire table will be 75% the width of the text.
@@ -327,27 +327,27 @@
 		Note that the first \enquote{figure} is actually a \textbf{plate}; a plate is the proper title associated with a \textit{photograph}, however, is not always used in every department... if your are unsure \textbf{ask your supervisor} if the use of plates is common. Using the environment \path{plate} instead of \path{figure} and command \lstinline|\listofplates| will generate everything for you.
 		\begin{plate}[H]
 			\centering
-			\includegraphics[width=0.7\textwidth]{example-image}
+			\includegraphics[width=0.7\linewidth]{example-image}
 			\caption{This is an example of a single image plate.}
 			\label{plate:singleImage}
 		\end{plate}
   
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.7\textwidth]{example-image}
+			\includegraphics[width=0.7\linewidth]{example-image}
 			\caption{This is an example of a single figure.}
 			\label{fig:singleImage}
 		\end{figure}
 		\begin{figure}[H]
 			\centering
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:doubleImage:a}
 			\end{subfigure}
 			~
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:doubleImage:b}
 			\end{subfigure}
@@ -358,21 +358,21 @@
 		\begin{figure}[H]
 			\centering
 			\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage1:a}
 			\end{subfigure}
 			\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
 			\par\vspace{1em}% Adds space between upper and lower images
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage1:b}
 			\end{subfigure}
 			~ % Adds space between the two lower figures
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage1:c}
 			\end{subfigure}
@@ -383,21 +383,21 @@
 		\begin{figure}[H]
 			\centering
 			\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
-			\begin{subfigure}{0.90\textwidth+1em} % 0.9 = 0.45 + 0.45, and 1em is the width of ~
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.90\linewidth+1em} % 0.9 = 0.45 + 0.45, and 1em is the width of ~
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage2:a}
 			\end{subfigure}
 			\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
 			\par\vspace{1em}% Adds space between upper and lower images
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage2:b}
 			\end{subfigure}
 			~ % Adds space between the two lower figures
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:tripleImage2:c}
 			\end{subfigure}
@@ -407,26 +407,26 @@
 	  
 		\begin{figure}[H]
 			\centering
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:quadImage:a}
 			\end{subfigure}
 			~ % Adds space between the two top figures
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:quadImage:b}
 			\end{subfigure}
 			\par\vspace{1em} % Adds space between upper and lower images
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:quadImage:c}
 			\end{subfigure}
 			~ % Adds space between the two lower figures
-			\begin{subfigure}{0.45\textwidth}
-				\includegraphics[width=\textwidth]{example-image}
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
 				\caption{} % Leave blank for just the letter to show up.
 				\label{fig:quadImage:d}
 			\end{subfigure}
@@ -443,7 +443,7 @@
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
-						width=0.65\textwidth,
+						width=0.65\linewidth,
 						axis lines = left,
 						xlabel = \(x\),
 						ylabel = {\(f(x)\)},
@@ -474,7 +474,7 @@
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
-						width=0.65\textwidth,
+						width=0.65\linewidth,
 						x tick label style={/pgf/number format/1000 sep=},
 						ylabel=Year,
 						enlargelimits=0.05,
@@ -499,7 +499,7 @@
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
-						width=0.65\textwidth,
+						width=0.65\linewidth,
 						title=Example using the mesh parameter,
 						hide axis,
 						colormap/cool,
@@ -521,7 +521,7 @@
 			\centering
 			\begin{tikzpicture}
 				\begin{axis}[
-						width=0.65\textwidth,
+						width=0.65\linewidth,
 						enlargelimits=true,
 					]
 					\addplot+[
@@ -587,7 +587,7 @@
 			\centering
 			\caption{Math Mode Greek Letters}
 			\label{tab:greek_letters}
-			\begin{tabularx}{\textwidth}{CCCCCC}
+			\begin{tabularx}{\linewidth}{CCCCCC}
 			\toprule
 					\textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} \\
 				\midrule
@@ -617,7 +617,7 @@
 			\centering
 			\caption{Blackboard Bold Letters}
 			\label{tab:bb_letters}
-			\begin{tabularx}{\textwidth}{CcCcCc}
+			\begin{tabularx}{\linewidth}{CcCcCc}
 				\toprule
 					\textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} \\
 				\midrule
@@ -638,7 +638,7 @@
 			\centering
 			\caption{Calligraphic  Letters}
 			\label{tab:cal_letters}
-			\begin{tabularx}{\textwidth}{CcCcCc}
+			\begin{tabularx}{\linewidth}{CcCcCc}
 				\toprule
 					\textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} \\
 				\midrule
@@ -659,7 +659,7 @@
 			\centering
 			\caption{Fraktur Letters}
 			\label{tab:frak_letters}
-			\begin{tabularx}{\textwidth}{CcCcCc}
+			\begin{tabularx}{\linewidth}{CcCcCc}
 				\toprule
 					\textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} & \textbf{Command} & \textbf{Output} \\
 				\midrule

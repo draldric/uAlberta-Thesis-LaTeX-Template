@@ -404,6 +404,7 @@
 	\chaptermark{#1}%
 	\addtocontents{lof}{\protect\addvspace{10\p@}}%
 	\addtocontents{lot}{\protect\addvspace{10\p@}}%
+	\addtocontents{lop}{\protect\addvspace{10\p@}}%
 	\if@twocolumn
 		\@topnewpage[\@makechapterhead{#2}]%
 	\else
