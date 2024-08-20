@@ -44,13 +44,16 @@
 
 \documentclass[pdfa, oneside, chapterbib, saychapter]{ualberta}
   % OPTIONS FOR ualberta.cls:
-  % chapterbib - \printreferences now prints references at the end of a chapter
+  % chapterbib - Automatically prints references at the end of each chapter.
   % 
-  % pdfa - to convert the pdfa to PDF/A format (Required for GPS Submission)
+  % pdfa - To convert the pdfa to PDF/A format (Required for GPS Submission)
   % 
   % oneside - Standard for submitting to GPS.
   % 
   % twoside - If you want to print your thesis double sided like a novel.
+  % 
+  % saychapter - If you want your thesis to say Chapter # in the ToC instead of 
+  %               just having the #.
 
 % Option to change the Level of subheading included in the Table of Contents
 %  This should be set at 2, 3, or 4 (As per GPS)
@@ -110,14 +113,12 @@
 %                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TITLE PAGE INFO
-  \title{Thesis Title}              % Title of your Thesis
-  \author{First Middle Last}        % Your Full Name
-  \degree{\MSc}                     % \MSc, \PhD, \MA, \MEd, \MBA, \MAc, \MFM, \MN, \LLM, or \MMus
-  \specialization{}                 % Leave blank if none
-  %TODO: Fix Department/Faculty to a single input
-  \department{Example Department}   % Fill in the Department unless you are non-Departmental
-  \faculty{}                        % Leave blank unless non-Departmental
-  \convocationdate{\the\year}            % Convocation Year
+  \title{Thesis Title}                         % Title of your Thesis
+  \author{First Middle Last}                   % Your Full Name
+  \degree{\insertlatexfile{selectDegree}}      % Uncomment Degree in file
+  \specialization{}                            % Leave blank if none
+  \deptfac{\insertlatexfile{selectDepartment}} % Uncomment Department in file
+  \convocationdate{\the\year}                  % Convocation Year
 
 % DON'T FORGET to edit ualberta.xmpdata with the same metadata for the PDF/A
 
@@ -175,22 +176,23 @@
   \listofplates                % Creates the List of Plates (photographs)
   \listofsymbols               % Creates the List of Symbols (Nomenclature)
   \abbreviations               % Creates the List of Acronyms (Abbreviations)
-  \glsaddall                   % Required for List of Acronyms and Glossary (DO NOT COMMENT)
+  \glsaddall                   % Required for List of Acronyms and Glossary 
+                               %  (DO NOT COMMENT)
   \generateglossary            % Creates the Glossary of Terms
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                           ADD YOUR CONTENT HERE                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \bodyoftext                  % Switches the style of the document to that required for the body
+  \bodyoftext % Switches the style of the document to that required for the body
 
 % SET DOCUMENT SPACING
-  %\singlespacing              % 1.00x Spacing **Allowed for FOOTNOTES and LONG QUOTES**
-  %\onehalfspacing             % 1.50x Spacing **Minimum Spacing for the THESIS BODY**
-  %\doublespacing              % 1.75x Spacing
-  \truedoublespacing           % 2.00x Spacing **Required for the ABSTRACT**
-  %\triplespacing              % 3.00x Spacing
-  %\baselineskip #.##em        % #.##x Spacing
+  %\singlespacing        % 1.00x Spacing **Allowed for FOOTNOTES and LONG QUOTES
+  %\onehalfspacing       % 1.50x Spacing **Minimum Spacing for the THESIS BODY
+  %\doublespacing        % 1.75x Spacing
+  \truedoublespacing     % 2.00x Spacing **Required for the ABSTRACT
+  %\triplespacing        % 3.00x Spacing
+  %\baselineskip #.##em  % #.##x Spacing
 
 % To insert chapters from a separate tex file use the following commands
 % \insertchapter automatically looks in the Chapters folder and also
@@ -199,7 +201,7 @@
 % \input is the standard way of including a separate tex file
 % \input{"./Chapters/ExampleChapter.tex"}
 
-\lstset{style=LaTeXStyle} %NOTE This line can be removed as it is only for this demo.
+\lstset{style=LaTeXStyle} %NOTE Line can be removed it is only for this demo.
 
 \insertchapter{01_Introduction}
 \insertchapter{02_Getting_Started}
@@ -249,7 +251,9 @@
   %\triplespacing               % 3.00x Spacing
   %\baselineskip #.##em         % #.##x Spacing
  
-  %\nocite{*}  % Uncomment if you have a bibliography with works read but not cited
+% Uncomment the next line if you want to include works read, but not cited 
+%   within the body of your work.
+  % \nocite{*}  
   \printbibliography
   \bigskip
 

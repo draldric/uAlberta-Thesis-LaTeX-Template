@@ -30,11 +30,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{ualberta}
-              [2024/08/081 V:2.0.0 ualberta Document Class]
+              [2024/08/20 V:2.0.0 ualberta Document Class]
 \pdfminorversion=7
 \usepackage{etoolbox}
 
 \newcommand\settoclevel[1]{\setcounter{secnumdepth}{#1}\setcounter{tocdepth}{#1}}
+	\setcounter{tocdepth}{2}
 
 \newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
 \newcommand\@convocationdate{}
@@ -51,21 +52,13 @@
 }}
 \newcommand\@specialization{~\\[8\baselineskip]}
 
-\newcommand\department[1]{\renewcommand\@department{\def\temp{#1}\ifx\temp\empty
+\newcommand\deptfac[1]{\renewcommand\@deptfac{\def\temp{#1}\ifx\temp\empty
 		
 		\else
-		Department of #1
+		#1
 		\fi
 }}
-\newcommand\@department{}
-
-\newcommand\faculty[1]{\renewcommand\@faculty{\def\temp{#1}\ifx\temp\empty
-		
-		\else
-		Faculty of #1
-		\fi
-}}
-\newcommand\@faculty{}
+\newcommand\@deptfac{}
 
 \newcommand\degree[1]{\renewcommand\@degree{#1}}
 \newcommand\@degree{}
@@ -127,41 +120,6 @@
 
 \newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia#1}}
 \newcommand\@adddata{}
-
-\def\PhD{Doctor of Philosophy}
-\def\PHD{Doctor of Philosophy}
-\def\phd{Doctor of Philosophy}
-
-\def\MSc{Master of Science}
-\def\MSC{Master of Science}
-\def\msc{Master of Science}
-
-\def\MEd{Master of Education}
-\def\MED{Master of Education}
-\def\med{Master of Education}
-
-\def\MBA{Master of Business Administration}
-\def\mba{Master of Business Administration}
-
-\def\MAc{Master of Accounting}
-\def\MAC{Master of Accounting}
-\def\mac{Master of Accounting}
-
-\def\MFM{Master of Financial Management}
-\def\mfm{Master of Financial Management}
-
-\def\MA{Master of Arts}
-\def\ma{Master of Arts}
-
-\def\MN{Master of Nursing}
-\def\mn{Master of Nursing}
-
-\def\LLM{Master of Laws}
-\def\llm{Master of Laws}
-
-\def\MMus{Master of Music}
-\def\MMUS{Master of Music}
-\def\mmus{Master of Music}
 
 \def\@year{\number\year}
 \newcommand\@ptsize{}
@@ -280,7 +238,6 @@
 \renewcommand\dblfloatpagefraction{.5}
 
 \if@twoside
-	\raggedbottom
 	\def\ps@headings{%
 		\let\@oddfoot\@empty\let\@evenfoot\@empty
 		\def\@evenhead{\thepage\hfil\slshape\leftmark}%
@@ -345,7 +302,7 @@
 			{\@degree}
 			\@specialization
 		\end{center}
-		\centerline{\@faculty\@department}
+		\centerline{\@deptfac}
 		\centerline{University of Alberta}
 		\vspace{8.5\baselineskip}
 
@@ -370,7 +327,7 @@
 }
 
 \newcommand*\chaptermark[1]{}
-\setcounter{secnumdepth}{2}
+\setcounter {secnumdepth}{2}
 \newcounter {chapter}
 \newcounter {section}[chapter]
 \newcounter {subsection}[section]
@@ -665,7 +622,6 @@
 \DeclareRobustCommand*\cal{\@fontswitch\relax\mathcal}
 \DeclareRobustCommand*\mit{\@fontswitch\relax\mathnormal}
 
-\setcounter{tocdepth}{2}
 \newcommand\tableofcontents{%
 	\if@openright\cleardoublepage\else\clearpage\fi
 	\thispagestyle{plain}%
@@ -751,29 +707,29 @@
 }
 \let\l@plate\l@figure
 
-\newdimen\bibindent
-\setlength\bibindent{1.5em}
-\newenvironment{thebibliography}[1]
-	{\chapter*{\bibname}%
-		\@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
-		\list{\@biblabel{\@arabic\c@enumiv}}%
-			{\settowidth\labelwidth{\@biblabel{#1}}%
-			\leftmargin\labelwidth
-			\advance\leftmargin\labelsep
-			\@openbib@code
-			\usecounter{enumiv}%
-			\let\p@enumiv\@empty
-			\renewcommand\theenumiv{\@arabic\c@enumiv}}%
-		\sloppy
-		\clubpenalty4000
-		\@clubpenalty \clubpenalty
-		\widowpenalty4000%
-		\sfcode`\.\@m}
-	{\def\@noitemerr
-		{\@latex@warning{Empty `thebibliography' environment}}%
-		\endlist}
-\newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
-\let\@openbib@code\@empty
+% \newdimen\bibindent
+% \setlength\bibindent{1.5em}
+% \newenvironment{thebibliography}[1]
+	% {\chapter*{\bibname}%
+		% \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+		% \list{\@biblabel{\@arabic\c@enumiv}}%
+			% {\settowidth\labelwidth{\@biblabel{#1}}%
+			% \leftmargin\labelwidth
+			% \advance\leftmargin\labelsep
+			% \@openbib@code
+			% \usecounter{enumiv}%
+			% \let\p@enumiv\@empty
+			% \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+		% \sloppy
+		% \clubpenalty4000
+		% \@clubpenalty \clubpenalty
+		% \widowpenalty4000%
+		% \sfcode`\.\@m}
+	% {\def\@noitemerr
+		% {\@latex@warning{Empty `thebibliography' environment}}%
+		% \endlist}
+% \newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
+% \let\@openbib@code\@empty
 
 \newcommand\makeabstract{\chapter*{\abstractname}\pagestyle{plain}\thispagestyle{plain}\truedoublespacing\@abstracttext}
 
@@ -841,7 +797,10 @@
 \setlength\columnseprule{0\p@}
 \pagestyle{plain}
 \pagenumbering{arabic}
+
+% CONTROL THE BOTTOM OF THE PAGE WHEN IN TWOSIDED
 \if@twoside
+	\raggedbottom
 \else
 	\raggedbottom
 \fi
@@ -859,23 +818,23 @@
 \newcommand{\insertchapter}[1]{
 	\input{"\@addchapters#1.tex"}}
 
-% \oddsidemargin 0.5in
-% \evensidemargin 0in
-% \textwidth 6in
-% \topmargin 0in
-% \headheight 0in
-% \headsep 0in
-% \textheight 9in
+\oddsidemargin 0.5in
+\evensidemargin 0in
+\textwidth 6in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
 
-\RequirePackage[heightrounded]{geometry}
-\geometry{
-  left=1.5in,       % Equivalent to setting the left margin
-  right=1in,    % Adjusts the right margin for a 6in text width
-  top=1in,        % Adjusts the top margin
-  bottom=1in,     % This will be adjusted to achieve the desired text height
-  headheight=0in, % No space for the header
-  headsep=0in,    % No separation between header and text
-}
+% \RequirePackage[heightrounded]{geometry}
+% \geometry{
+  % left=1.5in,       % Equivalent to setting the left margin
+  % right=1in,    % Adjusts the right margin for a 6in text width
+  % top=1in,        % Adjusts the top margin
+  % bottom=1in,     % This will be adjusted to achieve the desired text height
+  % headheight=0in, % No space for the header
+  % headsep=0in,    % No separation between header and text
+% }
 
 \newcommand{\insertlatexfile}[1]{%
     \input{"\@addlatexfiles#1.tex"}}
