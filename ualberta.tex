@@ -42,18 +42,27 @@
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
   % Write command to allow the nomenclature to be generated properly.
 
-\documentclass[pdfa, oneside, chapterbib, saychapter]{ualberta}
+\documentclass[
+	pdfa, 
+	twoside, 
+	chapterbib, 
+	saychapapp,
+	fancyheaders]{ualberta}
   % OPTIONS FOR ualberta.cls:
   % chapterbib - Automatically prints references at the end of each chapter.
   % 
-  % pdfa - To convert the pdfa to PDF/A format (Required for GPS Submission)
+  % pdfa - To convert the PDF to PDF/A format (REQUIRED for GPS Submission)
   % 
   % oneside - Standard for submitting to GPS.
   % 
   % twoside - If you want to print your thesis double sided like a novel.
   % 
-  % saychapter - If you want your thesis to say Chapter # in the ToC instead of 
-  %               just having the #.
+  % saychapapp - If you want your thesis to say Chapter # and Appendix @ in the  
+  %               ToC instead of just having the # or @.
+  %               (GPS is inconsistent on if this is truly a Requirement.)
+  % 
+  % fancyheader - If you want your thesis to have chapter headers rather than 
+  %               just a page number at the bottom.
 
 % Option to change the Level of subheading included in the Table of Contents
 %  This should be set at 2, 3, or 4 (As per GPS)
@@ -254,7 +263,7 @@
 % Uncomment the next line if you want to include works read, but not cited 
 %   within the body of your work.
   % \nocite{*}  
-  \printbibliography
+  \printbibliography[heading=bibintoc]
   \bigskip
 
 

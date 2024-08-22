@@ -32,7 +32,22 @@
 \ProvidesClass{ualberta}
               [2024/08/20 V:2.0.0 ualberta Document Class]
 \pdfminorversion=7
-\usepackage{etoolbox}
+\RequirePackage{etoolbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            LINE SPACING COMMANDS                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\singlespacing}{\baselineskip 1em}
+\newcommand{\onehalfspacing}{\baselineskip 1.50em}
+\newcommand{\doublespacing}{\baselineskip 1.75em}
+\newcommand{\truedoublespacing}{\baselineskip 2em}
+\newcommand{\normalspacing}{\baselineskip 1em}
+\newcommand{\triplespacing}{\baselineskip 3em}
+
+\def\today{\ifcase\month\or
+	January\or February\or March\or April\or May\or June\or
+	July\or August\or September\or October\or November\or December\fi
+	\space\number\day, \number\year}
 
 \newcommand\settoclevel[1]{\setcounter{secnumdepth}{#1}\setcounter{tocdepth}{#1}}
 	\setcounter{tocdepth}{2}
@@ -40,25 +55,31 @@
 \newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
 \newcommand\@convocationdate{}
  
-\newcommand\specialization[1]{\renewcommand\@specialization{\def\temp{#1}\ifx\temp\empty
-		~\\[8\baselineskip]
+\newcommand\specialization[1]{%
+	\renewcommand\@specialization{%
+		\def\temp{#1}
+		\ifx\temp\empty
+			\vspace{8\baselineskip}
 		\else
-		~\\[1\baselineskip]
-		in
-		~\\[1\baselineskip]
-		#1
-		~\\[4\baselineskip]
-		\fi
-}}
-\newcommand\@specialization{~\\[8\baselineskip]}
+			\vspace{1\baselineskip}
+			in\\
+			\vspace{1\baselineskip}
+			#1\\
+			\vspace{4\baselineskip}
+		\fi}}
+\newcommand\@specialization{\vspace{8\baselineskip}}
 
-\newcommand\deptfac[1]{\renewcommand\@deptfac{\def\temp{#1}\ifx\temp\empty
-		
+\newcommand\deptfac[1]{%
+	\renewcommand\@deptfac{
+		\def\temp{#1}
+		\ifx\temp\empty
 		\else
-		#1
-		\fi
-}}
+			#1
+		\fi}}
 \newcommand\@deptfac{}
+
+\newcommand\university[1]{\renewcommand\@university{#1}}
+\newcommand\@university{University of Alberta}
 
 \newcommand\degree[1]{\renewcommand\@degree{#1}}
 \newcommand\@degree{}
@@ -80,13 +101,6 @@
 
 \newcommand\acknowledgementtext[1]{\renewcommand\@acknowledgementtext{#1}}
 \newcommand\@acknowledgementtext{}
-
-\newcommand{\singlespacing}{\baselineskip 1em}
-\newcommand{\onehalfspacing}{\baselineskip 1.50em}
-\newcommand{\doublespacing}{\baselineskip 1.75em}
-\newcommand{\truedoublespacing}{\baselineskip 2em}
-\newcommand{\normalspacing}{\baselineskip 1em}
-\newcommand{\triplespacing}{\baselineskip 3em}
 
 \newcounter{baseSection}
 \setcounter{baseSection}{0}
@@ -122,86 +136,50 @@
 \newcommand\@adddata{}
 
 \def\@year{\number\year}
-\newcommand\@ptsize{}
+
 \newif\if@restonecol
+
 \newif\if@titlepage
 \@titlepagetrue
+
 \newif\if@openright
+
 \newif\if@chapterbib
 \@chapterbibfalse
-\newif\if@saychapter
-\@saychapterfalse
+
+\newif\if@fancyheaders
+\@fancyheadersfalse
+
+\newif\if@saychapapp
+\@saychapappfalse
+
 \newif\if@pdfa
 \@pdfafalse
-\if@compatibility
-\else
-  \DeclareOption{a4paper}
-     {\setlength\paperheight {297mm}%
-      \setlength\paperwidth  {210mm}}
-  \DeclareOption{a5paper}
-     {\setlength\paperheight {210mm}%
-      \setlength\paperwidth  {148mm}}
-  \DeclareOption{b5paper}
-     {\setlength\paperheight {250mm}%
-      \setlength\paperwidth  {176mm}}
-  \DeclareOption{letterpaper}
-     {\setlength\paperheight {11in}%
-      \setlength\paperwidth  {8.5in}}
-  \DeclareOption{legalpaper}
-     {\setlength\paperheight {14in}%
-      \setlength\paperwidth  {8.5in}}
-  \DeclareOption{executivepaper}
-     {\setlength\paperheight {10.5in}%
-      \setlength\paperwidth  {7.25in}}
-  \DeclareOption{landscape}
-     {\setlength\@tempdima   {\paperheight}%
-      \setlength\paperheight {\paperwidth}%
-      \setlength\paperwidth  {\@tempdima}}
-\fi
 
-\if@compatibility
-  \renewcommand\@ptsize{0}
-\else
-  \DeclareOption{10pt}{\renewcommand\@ptsize{0}}
-\fi
-
+\newcommand\@ptsize{}
+\DeclareOption{10pt}{\renewcommand\@ptsize{0}}
 \DeclareOption{11pt}{\renewcommand\@ptsize{1}}
 \DeclareOption{12pt}{\renewcommand\@ptsize{2}}
 
-\if@compatibility
-\else
-  \DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}
-\fi
 
+\DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}
 \DeclareOption{twoside}{\@twosidetrue  \@mparswitchtrue \@openrighttrue}
-\DeclareOption{draft}{\setlength\overfullrule{5pt}}
 
-\if@compatibility
-\else
-  \DeclareOption{final}{\setlength\overfullrule{0pt}}
-\fi
+\DeclareOption{draft}{\setlength\overfullrule{5pt}}
+\DeclareOption{final}{\setlength\overfullrule{0pt}}
 
 \DeclareOption{titlepage}{\@titlepagetrue}
+\DeclareOption{notitlepage}{\@titlepagefalse}
 
-\if@compatibility
-\else
-  \DeclareOption{notitlepage}{\@titlepagefalse}
-\fi
+\DeclareOption{openright}{\@openrighttrue}
+\DeclareOption{openany}{\@openrightfalse}
 
-\if@compatibility
-\else
-  \DeclareOption{openright}{\@openrighttrue}
-  \DeclareOption{openany}{\@openrightfalse}
-\fi
-
-\if@compatibility
-\else
-  \DeclareOption{onecolumn}{\@twocolumnfalse}
-\fi
-
+\DeclareOption{onecolumn}{\@twocolumnfalse}
 \DeclareOption{twocolumn}{\@twocolumntrue}
+
 \DeclareOption{leqno}{\input{leqno.clo}}
 \DeclareOption{fleqn}{\input{fleqn.clo}}
+
 \DeclareOption{openbib}{%
   \AtEndOfPackage{%
     \renewcommand\@openbib@code{%
@@ -210,13 +188,23 @@
       \listparindent \itemindent
       \parsep \z@
       }%
-    \renewcommand\newblock{\par}}%
-}
+    \renewcommand\newblock{\par}}}
+
 \DeclareOption{pdfa}{\@pdfatrue}
 \DeclareOption{chapterbib}{\@chapterbibtrue}
-\DeclareOption{saychapter}{\@saychaptertrue}
+\DeclareOption{fancyheaders}{\@fancyheaderstrue}
+\DeclareOption{saychapapp}{\@saychapapptrue}
+
+\DeclareOption{a4paper}{\def\@paperoption{a4paper}}
+\DeclareOption{letterpaper}{\def\@paperoption{letterpaper}}
+\DeclareOption{legalpaper}{\def\@paperoption{legalpaper}}
+\DeclareOption{landscape}{\def\@landscape{landscape}}
+\def\@paperoption{letterpaper} % Default paper size
+\def\@landscape{}          % Default is no landscape mode
+
 \ExecuteOptions{letterpaper,12pt,oneside,onecolumn,final,openany}
 \ProcessOptions
+
 \input{size1\@ptsize.clo}
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
@@ -277,46 +265,50 @@
 	\let\sectionmark\@gobble
 }
 
+\newenvironment{titlepage}{%
+		\if@twocolumn
+			\@restonecoltrue\onecolumn
+		\else
+			\@restonecolfalse\newpage
+		\fi
+		\thispagestyle{empty}
+		\setcounter{page}\@ne%
+	}{%
+		\if@restonecol\twocolumn \else \newpage \fi
+		\if@twoside
+			\null\thispagestyle{empty}
+		\else
+			\setcounter{page}\@ne
+		\fi}
+
 \newcommand\maketitle{%
 	\hypersetup{pageanchor=false}
 	\begin{titlepage}%
-		\let\footnotesize\small
-		\let\footnoterule\relax
-		\let \footnote \thanks
 		\pagenumbering{roman}
 		\thispagestyle{empty}
-		\vfill
 		\vspace*{1.75\baselineskip}
 		\begin{center}
-			{\sc \bf \@title}
-				~\\[0.5\baselineskip]
-			by
-				~\\[0.5\baselineskip]
-			{\@author}
-		\end{center}
-		\vspace{5\baselineskip}
-
-		\begin{center}
-			A thesis submitted in partial fulfillment of the requirements for the degree of
-			~\\[1.25\baselineskip]
-			{\@degree}
+			\textsc{\textbf{\@title}}\\[0.5\baselineskip]
+			by\\[0.5\baselineskip]
+			\@author\\[5\baselineskip]
+			A thesis submitted in partial fulfillment of the requirements for the degree of\\[1.25\baselineskip]
+			\@degree\\
 			\@specialization
-		\end{center}
-		\centerline{\@deptfac}
-		\centerline{University of Alberta}
-		\vspace{8.5\baselineskip}
-
-		\begin{center}
+			\@deptfac\\
+			\@university\\[8.5\baselineskip]
 			\copyright{} \@author, \@convocationdate
 		\end{center}
 		\newpage
 	\end{titlepage}%
 	\hypersetup{pageanchor=true}
-	\pagestyle{plain}\pagenumbering{roman}\setcounter{page}{2}
+	\if@fancyheaders
+		\pagestyle{headings}
+	\else
+		\pagestyle{plain}
+	\fi
+	\pagenumbering{roman}\setcounter{page}{2}
 	\setcounter{footnote}{0}%
-	\global\let\thanks\relax
 	\global\let\maketitle\relax
-	\global\let\@thanks\@empty
 	%\global\let\@author\@empty
 	%\global\let\@convocationdate\@empty
 	%\global\let\@title\@empty
@@ -354,7 +346,7 @@
 		\refstepcounter{chapter}%
 		\typeout{\@chapapp\space\thechapter.}%
 		\addcontentsline{toc}{chapter}%
-		{\if@saychapter Chapter \fi\protect\numberline{\thechapter\if@saychapter:\fi}#1}%
+		{\if@saychapapp \@chapapp\ \fi\protect\numberline{\thechapter\if@saychapapp:\fi}#1}%
 	\else
 		\addcontentsline{toc}{chapter}{#1}%
 	\fi
@@ -382,10 +374,6 @@
 		\vskip 40\p@}}
 
 \def\@schapter#1{%
-	\if#1\relax
-	\else
-		\addcontentsline{toc}{chapter}{#1}%
-	\fi
 	\if@twocolumn
 		\@topnewpage[\@makeschapterhead{#1}]%
 	\else
@@ -498,42 +486,9 @@
 		\item\relax}
 	{\endlist}
 
-\if@compatibility
-	\newenvironment{titlepage}
-		{%
-			\if@twocolumn
-				\@restonecoltrue\onecolumn
-			\else
-				\@restonecolfalse\newpage
-			\fi
-			\thispagestyle{empty}%
-			\setcounter{page}\z@
-		}%
-		{\if@restonecol\twocolumn \else \newpage \fi}
-\else
-	\newenvironment{titlepage}
-		{%
-			\if@twocolumn
-				\@restonecoltrue\onecolumn
-			\else
-				\@restonecolfalse\newpage
-			\fi
-			\thispagestyle{empty}%
-			\setcounter{page}\@ne
-		}%
-		{%
-			\if@restonecol\twocolumn \else \newpage \fi
-			\if@twoside
-				\null\thispagestyle{empty}
-			\else
-				\setcounter{page}\@ne
-			\fi
-		}
-\fi
-
 \newcommand\appendix{\par
 	\setcounter{chapter}{0}%
-	\setcounter{section}{0}%
+	\setcounter{section}{0}% MIGHT NOT BE NECESSARY
 	\gdef\@chapapp{\appendixname}%
 	\gdef\thechapter{\@Alph\c@chapter}}
 
@@ -599,9 +554,11 @@
 	{\end@dblfloat}
 
 \newlength\abovecaptionskip
-\newlength\belowcaptionskip
 \setlength\abovecaptionskip{10\p@}
+
+\newlength\belowcaptionskip
 \setlength\belowcaptionskip{0\p@}
+
 \long\def\@makecaption#1#2{%
 	\vskip\abovecaptionskip
 	\sbox\@tempboxa{#1: #2}%
@@ -612,6 +569,7 @@
 		\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
 	\fi
 	\vskip\belowcaptionskip}
+
 \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
 \DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
 \DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
@@ -671,8 +629,9 @@
 		\@restonecolfalse
 	\fi
 	\chapter*{\listfigurename}%
-		\@mkboth{\MakeUppercase\listfigurename}%
-				{\MakeUppercase\listfigurename}%
+	\addcontentsline{toc}{chapter}{\listfigurename}
+	\@mkboth{\MakeUppercase\listfigurename}%
+			{\MakeUppercase\listfigurename}%
 	\@starttoc{lof}%
 	\if@restonecol\twocolumn\fi
 	}
@@ -685,9 +644,9 @@
 		\@restonecolfalse
 	\fi
 	\chapter*{\listtablename}%
-		\@mkboth{%
-			\MakeUppercase\listtablename}%
-		{\MakeUppercase\listtablename}%
+	\addcontentsline{toc}{chapter}{\listtablename}
+	\@mkboth{\MakeUppercase\listtablename}%
+			{\MakeUppercase\listtablename}%
 	\@starttoc{lot}%
 	\if@restonecol\twocolumn\fi
 	}
@@ -700,50 +659,57 @@
 		\@restonecolfalse
 	\fi
 	\chapter*{\listplatename}%
-		\@mkboth{\MakeUppercase\listplatename}%
-				{\MakeUppercase\listplatename}%
+	\addcontentsline{toc}{chapter}{\listplatename}
+	\@mkboth{\MakeUppercase\listplatename}%
+			{\MakeUppercase\listplatename}%
 	\@starttoc{lop}%
 	\if@restonecol\twocolumn\fi
 }
 \let\l@plate\l@figure
 
-% \newdimen\bibindent
-% \setlength\bibindent{1.5em}
-% \newenvironment{thebibliography}[1]
-	% {\chapter*{\bibname}%
-		% \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
-		% \list{\@biblabel{\@arabic\c@enumiv}}%
-			% {\settowidth\labelwidth{\@biblabel{#1}}%
-			% \leftmargin\labelwidth
-			% \advance\leftmargin\labelsep
-			% \@openbib@code
-			% \usecounter{enumiv}%
-			% \let\p@enumiv\@empty
-			% \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-		% \sloppy
-		% \clubpenalty4000
-		% \@clubpenalty \clubpenalty
-		% \widowpenalty4000%
-		% \sfcode`\.\@m}
-	% {\def\@noitemerr
-		% {\@latex@warning{Empty `thebibliography' environment}}%
-		% \endlist}
-% \newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
-% \let\@openbib@code\@empty
+\newcommand\makeabstract{\chapter*{\abstractname}
+	\addcontentsline{toc}{chapter}{\abstractname}
+	\@mkboth{\MakeUppercase\abstractname}%
+			{\MakeUppercase\abstractname}
+	\truedoublespacing\@abstracttext}
 
-\newcommand\makeabstract{\chapter*{\abstractname}\pagestyle{plain}\thispagestyle{plain}\truedoublespacing\@abstracttext}
+\newcommand\listofsymbols{\printnomenclature}
 
-\newcommand\listofsymbols{\pagestyle{plain}\thispagestyle{plain}\printnomenclature}
+\newcommand\makepreface{\chapter*{\prefacename}
+	\addcontentsline{toc}{chapter}{\prefacename}
+	\@mkboth{\MakeUppercase\prefacename}%
+			{\MakeUppercase\prefacename}
+	\@preface}
 
-\newcommand\makepreface{\chapter*{\prefacename}\pagestyle{plain}\thispagestyle{plain}\@preface}
+\newcommand\acknowledgements{\chapter*{\acknowledgementname}
+	\addcontentsline{toc}{chapter}{\acknowledgementname}
+	\@mkboth{\MakeUppercase\acknowledgementname}%
+			{\MakeUppercase\acknowledgementname}
+	\@acknowledgementtext}
 
-\newcommand\acknowledgements{\chapter*{\acknowledgementname}\pagestyle{plain}\thispagestyle{plain}\@acknowledgementtext}
+\newcommand\makequote{\chapter*{}
+	% \addcontentsline{toc}{chapter}{\quotename}
+	% \@mkboth{\MakeUppercase\quotename}%
+			% {\MakeUppercase\quotename}
+	\@mkboth{}%
+			{}
+	\begin{center}\em \@thesisquote \em\end{center}}
 
-\newcommand\makequote{\chapter*{}\begin{center}\em \@thesisquote \em\end{center}}
+\newcommand\makededication{\chapter*{}
+	% \addcontentsline{toc}{chapter}{\dedicationname}
+	% \@mkboth{\MakeUppercase\dedicationname}%
+			% {\MakeUppercase\dedicationname}
+	\@mkboth{}%
+			{}
+	\begin{center}\em \@dedication \em\end{center}}
 
-\newcommand\makededication{\chapter*{}\begin{center}\em \@dedication \em\end{center}}
-
-\newcommand\makededicationandquote{\chapter*{}\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}
+\newcommand\makededicationandquote{\chapter*{}
+	%\addcontentsline{toc}{chapter}{\quoteanddedicationname}
+	%\@mkboth{\MakeUppercase\quoteanddedicationname}%
+	%		{\MakeUppercase\quoteanddedicationname}
+	\@mkboth{}%
+			{}
+	\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}
 
 
 \def\bodyoftext{%
@@ -751,52 +717,48 @@
 	\newpage
 	\setlength{\parindent}{2.6ex}
 	\setcounter{page}{0}
-	\pagestyle{plain}
 	\pagenumbering{arabic}
+	\if@fancyheaders
+		\pagestyle{headings}
+	\else
+		\pagestyle{plain}
+	\fi
 }
 
 \renewcommand\footnoterule{%
 	\kern-3\p@
 	\hrule\@width.4\columnwidth
 	\kern2.6\p@}
+	
 \@addtoreset{footnote}{chapter}
 \newcommand\@makefntext[1]{%
 	\parindent 1em%
 	\noindent
 	\hb@xt@1.8em{\hss\@makefnmark}#1}
-\newcommand\contentsname{Table of Contents}
-\newcommand\listfigurename{List of Figures}
-\newcommand\listtablename{List of Tables}
-\newcommand\listsymbolname{List of Symbols}
-\newcommand\listplatename{List of Plates}
-\newcommand\bibname{Bibliography}
-\newcommand\indexname{Index}
-\newcommand\figurename{Figure}
-\newcommand\tablename{Table}
-\newcommand\platename{Plate}
-\newcommand\chaptername{Chapter}
-\newcommand\appendixname{Appendix}
-\newcommand\abstractname{Abstract}
-\newcommand\prefacename{Preface}
+	
 \newcommand\abbreviationsname{Abbreviations}
-\newcommand\glossaryname{Glossary of Terms}
+\newcommand\abstractname{Abstract}
 \newcommand\acknowledgementname{Acknowledgements}
+\newcommand\appendixname{Appendix}
+\newcommand\bibname{Bibliography}
+\newcommand\chaptername{Chapter}
+\newcommand\contentsname{Table of Contents}
+\newcommand\dedicationname{Dedication}
+\newcommand\figurename{Figure}
+\newcommand\glossaryname{Glossary of Terms}
+\newcommand\indexname{Index}
+\newcommand\listfigurename{List of Figures}
+\newcommand\listplatename{List of Plates}
+\newcommand\listsymbolname{List of Symbols}
+\newcommand\listtablename{List of Tables}
+\newcommand\platename{Plate}
+\newcommand\prefacename{Preface}
+\newcommand\quotename{Quote}
+\newcommand\quoteanddedicationname{\quotename\ \&\ \dedicationname}
+\newcommand\tablename{Table}
 
-\newcommand\appendix@chapter[1]{%
-	\refstepcounter{chapter}%
-	\orig@chapter*{Appendix \@Alph\c@chapter: #1}%
-}
-\let\orig@chapter\chapter
-\g@addto@macro\appendix{\let\chapter\appendix@chapter}
-
-\def\today{\ifcase\month\or
-	January\or February\or March\or April\or May\or June\or
-	July\or August\or September\or October\or November\or December\fi
-	\space\number\day, \number\year}
 \setlength\columnsep{10\p@}
 \setlength\columnseprule{0\p@}
-\pagestyle{plain}
-\pagenumbering{arabic}
 
 % CONTROL THE BOTTOM OF THE PAGE WHEN IN TWOSIDED
 \if@twoside
@@ -818,24 +780,6 @@
 \newcommand{\insertchapter}[1]{
 	\input{"\@addchapters#1.tex"}}
 
-\oddsidemargin 0.5in
-\evensidemargin 0in
-\textwidth 6in
-\topmargin 0in
-\headheight 0in
-\headsep 0in
-\textheight 9in
-
-% \RequirePackage[heightrounded]{geometry}
-% \geometry{
-  % left=1.5in,       % Equivalent to setting the left margin
-  % right=1in,    % Adjusts the right margin for a 6in text width
-  % top=1in,        % Adjusts the top margin
-  % bottom=1in,     % This will be adjusted to achieve the desired text height
-  % headheight=0in, % No space for the header
-  % headsep=0in,    % No separation between header and text
-% }
-
 \newcommand{\insertlatexfile}[1]{%
     \input{"\@addlatexfiles#1.tex"}}
 
@@ -854,6 +798,30 @@
 \if@pdfa
 	\usepackage[a-3b]{pdfx}
 \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            MARGIN AND PAGE SETUP                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[
+	\@paperoption,
+	left=1in,
+	right=1.5in,
+	headheight=0.25in,
+	headsep=0.25in,
+	textwidth=6.75in,
+	textheight=8.5in,
+	\@landscape
+]{geometry}
+
+\AtBeginDocument{
+	\@ifpackageloaded{pdfpages}{
+		\if@fancyheaders
+			\includepdfset{pages=-,scale=0.85,pagecommand=\thispagestyle{headings}}
+		\else
+			\includepdfset{pages=-,scale=0.85,pagecommand=\thispagestyle{plain}}
+		\fi
+	}{}
+}
 
 \endinput
 

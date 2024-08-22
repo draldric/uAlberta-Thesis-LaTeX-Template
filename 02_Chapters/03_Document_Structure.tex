@@ -1,5 +1,5 @@
 \chapter{Document Structure and Formatting}\label{ch:documentstructure}
-	A thesis for the \UofA\ can consist of many different parts that come together to create the final document.
+	A thesis for the \University\ can consist of many different parts that come together to create the final document.
 	These will include the Title Page, Abstract, and other Prefatory pages; and the chapters, sections, and paragraphs; as well as the content, figures, tables, and other content you would like to include.
 	In the rest of this \nameCref{ch:documentstructure}, we will look more specifically on the inclusion of the prefatory pages and how to structure your document with the various chapter, section, and paragraph commands.
 	
@@ -17,8 +17,8 @@
 \end{document}
 		\end{lstlisting}
 
-		For a thesis at the \UofA, there is more information that is required, as well as a few more pages that are required (Abstract and Preface) and some that are optional (Quote, Dedication, and Acknowledgements), but all of them have specific formatting requirements.
-		GPS even provides a few different documents that attempt to provide the necessary information to create these pages\cite{FGPS2024}.
+		For a thesis at the \University, there is more information that is required, as well as a few more pages that are required (Abstract and Preface) and some that are optional (Quote, Dedication, and Acknowledgements), but all of them have specific formatting requirements.
+		\Fac\ even provides a few different documents that attempt to provide the necessary information to create these pages\cite{FGPS2024}.
 		To aid you in the creation of these pages I have created a few new pairs of macros (one sets the text for the section, the other one generates the page with the text):
 		\note{I chose to separate the two macros to better compartmentalize the thesis (each prefatory page has its own file), as well as allow an easy way to include and exclude each of the prefatory pages via commenting}
 		\begin{itemize}
@@ -51,7 +51,7 @@
 
 		\subsection{Title Page}
 			The thesis Title Page has a few more fields to be filled in than a regular \LaTeX\ document.
-			These include \cmd{degree}, \cmd{specialization}, \cmd{department}, \cmd{faculty}, and \cmd{convocationdate}.
+			These include \cmd{degree}, \cmd{specialization}, \cmd{deptfac}, and \cmd{convocationdate}.
 			An example of how to fill these in can be seen in the original \LaTeX\ code (\path{ualberta.tex}) or in \Cref{lst:TitlePage}.
 
 			Most of the fields are fairly self explanatory, however, to be extra clear as to what needs to be included I will now provide an explanation of each field:
@@ -80,20 +80,25 @@
 %                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TITLE PAGE INFO
-  \title{Thesis Title}              % Title of your Thesis
-  \author{First Middle Last}        % Your Full Name
-  \degree{\MSc}                     % \MSc, \PhD, \MA, \MEd, \MBA, \MAc, \MFM, \MN, \LLM, or \MMus
-  \specialization{}                 % Leave blank if none
-  \department{Example Department}   % Fill in the Department unless you are non-Departmental
-  \faculty{}                        % Leave blank unless non-Departmental
-  \convocationdate{2023}            % Convocation Year
+  \title{Thesis Title}                         % Title of your Thesis
+  \author{First Middle Last}                   % Your Full Name
+  \degree{\insertlatexfile{selectDegree}}      % Uncomment Degree in file
+  \specialization{}                            % Leave blank if none
+  \deptfac{\insertlatexfile{selectDepartment}} % Uncomment Department in file
+  \convocationdate{\the\year}                  % Convocation Year
+
+% DON'T FORGET to edit ualberta.xmpdata with the same metadata for the PDF/A
 			\end{lstlisting}
-	
+			
+			\notice{This class, though it is designed to be used with at \University, it is not exclusive to the \University.
+			To customize this to your specific institution, use the command \cmd{university}\mopt{YOUR INSTITUTION NAME} before the \cmd{maketitle} command.
+			Note: this still might not match your institution's guidelines on formatting a thesis.}
+
 		\subsection{Abstract}\label{abstract}
 			This is probably one of the simplest sections that need to be created for you thesis.
 			Mainly because the content that can be included is so restrictive.
 			Further, the limit on the word count makes this section quite short.
-			
+
 			\warning{Just because of the above does not mean this section won't be difficult to write. It will be. But the best piece of advice I can offer is write this section last. In fact, just to prove a point, I will add an appendix to this document that will go over the actual writing of this section.}
 
 		\subsection{Preface}\label{preface}
@@ -102,11 +107,11 @@
 			Due to the ``Appendix for Thesis Formatting Guidelines'' being generated using ChatGPT3.5 there are some inconsistencies within the document and the examples provided; while these are fine for providing a general idea of what to include, this goes against the ideology of this document.
 			To combat this I have taken the liberty of adapting the examples to better blend into the style of this document and to increase the consistency, replacing some the generated examples with real examples where possible.
 			
-			Full credit still goes to the \UofA's Faculty of Graduate and Postdoctoral Studies for openly providing the document and I would strongly suggest anyone writing their thesis at the \UofA\ to read the updated documentation that they have put out this year (2024).
+			Full credit still goes to the \University's Faculty of Graduate and Postdoctoral Studies for openly providing the document and I would strongly suggest anyone writing their thesis at the \University\ to read the updated documentation that they have put out this year (2024).
 			This new documentation provides much more guidance than the previous iteration: \fullcite{FGSR2016}.
 			
 			
-			Before diving right into the examples in \Cref{preface:REA,preface:CW,preface:PPW,preface:AI,preface:CF,preface:DNA}, we will explore some of the still applicable guidelines for including your preface. First of which is a small change: since the FGSR became the GPS, the requirement of a preface has become \textbf{mandatory} regardless of the contents of the thesis.
+			Before diving right into the examples in \Cref{preface:REA,preface:CW,preface:PPW,preface:AI,preface:CF,preface:DNA}, we will explore some of the still applicable guidelines for including your preface. First of which is a small change: since the FGSR became the \Fac, the requirement of a preface has become \textbf{mandatory} regardless of the contents of the thesis.
 			
 			When a thesis contains journal articles, the preface serves as a place for the student to include a statement indicating his or her contribution to the journal articles. 
 			If any of the work presented in the thesis has led to any publications (accepted or published), these publications must be listed clearly in the preface with their bibliographical details and an indication as to where in the thesis this work is located (\textit{e.g.} state in which Chapter or Chapters). 
@@ -131,7 +136,7 @@
 				\begin{quote}
 					\enquote{%
 						This thesis is an original work by Daniel R.\ Aldrich. 
-						The research project, of which this thesis is a part, received research ethics approval from the \UofA\ Research Ethics Board 3, Project Name "Etymologies and Entomologies: Unraveling the Threads of Language and Ecology", No. 12345, February 23, 1993.}%TODO Change This to a fun project Name.
+						The research project, of which this thesis is a part, received research ethics approval from the \University\ Research Ethics Board 3, Project Name "Etymologies and Entomologies: Unraveling the Threads of Language and Ecology", No. 12345, February 23, 1993.}%TODO Change This to a fun project Name.
 				\end{quote}
 
 			\subsubsection{Collaborative Work}\label{preface:CW}
@@ -139,7 +144,7 @@
 
 				\begin{quote}
 					\enquote{%
-						Some of the research conducted for this thesis forms part of an international research collaboration, led by Professor T. Raivio at the University of Hogwarts, with Professor S. Agrawal being the lead collaborator at the \UofA. 
+						Some of the research conducted for this thesis forms part of an international research collaboration, led by Professor T. Raivio at the University of Hogwarts, with Professor S. Agrawal being the lead collaborator at the \University. 
 						The technical apparatus referred to in \Cref{ch:documentstructure} was designed by myself, with the assistance of Professor A. Shiri and Professor C. Ayranci. 
 						The data analysis in \Cref{ch:figureandtables} and concluding analysis in \Cref{ch:plotsandgraphs} are my own work, as well as the literature review in \Cref{ch:gettingstarted}.}
 				\end{quote}
@@ -172,7 +177,7 @@
 			\subsubsection{Previous Prefaces Did Not Apply}\label{preface:DNA}
 				If your thesis did not fall into any of the categories shown previously, then you should include a preface based on the one here.
 				
-				\note{This was previously an \textbf{Optional} inclusion in your thesis, however, since the FGSR transitioned to the GPS and have released new guidelines for formatting your thesis, this has now become \textbf{mandatory}.}
+				\note{This was previously an \textbf{Optional} inclusion in your thesis, however, since the FGSR transitioned to the \Fac and have released new guidelines for formatting your thesis, this has now become \textbf{mandatory}.}
 
 				\begin{quote}
 					\enquote{%
@@ -195,16 +200,15 @@
 
 		\subsection{Acknowledgements}\label{acknowledgement}
 			The Acknowledgements is a strongly recommended, but not a strictly mandatory section of the thesis.
-			For a thesis at the \UofA, 
-			An Acknowledgement page (no more than 2 pages in length) is a recommended, but not mandatory, component of a thesis.
+			For a thesis at the \University, an Acknowledgement page must be no more than two (2) pages in length, and \textbf{must} be double-spaced.
 	
 			The Acknowledgements page serves as a place within a thesis where students may wish to acknowledge the provision of funding from third parties, such as an external scholarship bodies, research granting agencies, and foreign governments. 
 			It is also appropriate to recognize the assistance provided by the supervisor and members of the supervisory committee.
-			Additional you can recognize any help or support that you have received from family, friends, classmates, lab-mates, or any other individual that was able to help you in any way.
-			A clear example of this, would be the inclusion of the following, assuming that his template, class, and guide helped you in any significant way:
+			Additional, you can recognize any help or support that you have received from family, friends, classmates, lab-mates, or any other individual that was able to help you in any way.
+			A clear example of this would be the inclusion of the following, assuming that his template, class, or guide helped you in any significant way\footnote{Please be aware that it is not necessary to include this statement in any way, shape, or form it is only provided as an example on how to include these type of statement; this template/guide is provided in good faith with the \textbf{only} expectation being that you \textbf{will} share it with your fellow colleagues, supervisor, and or anyone else that may benefit from this.}:
 			
 			\begin{quote}
-				\enquote{I would like to thank Daniel R. Aldrich for his continuing contributions to the \UofA, and for his work within the Graduate Student Community. More specifically, I would like to acknowledge the work that he has put into creating the \LaTeX\ template that this thesis was created in and the ongoing support that he provides to the students at the \UofA\ in formatting their theses.}
+				\enquote{I would like to thank Daniel R. Aldrich for his continuing contributions to the \University, and for his work within the Graduate Student Community. More specifically, I would like to acknowledge the work that he has put into creating the \LaTeX\ template that this thesis was created in and the ongoing support that he provides to the students at the \University\ in formatting their theses.}
 			\end{quote}
 
 		\subsection{Table of Contents}\label{toc}
@@ -215,7 +219,7 @@
 			To do this change the number shown in \Cref{lst:tocLevels} to 2, 3, or 4.
 			\begin{lstlisting}[float=ht,caption=Set Numbered Heading and ToC Level,label=lst:tocLevels,style=LaTeXStyle,basicstyle=\scriptsize\ttfamily,]
 % Option to change the Level of subheading included in the Table of Contents
-%  This should be set at 2, 3, or 4 (As per GPS)
+%  This should be set at 2, 3, or 4 (As per \Fac)
   \settoclevel{3}
 			\end{lstlisting}
 

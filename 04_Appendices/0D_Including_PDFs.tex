@@ -1,29 +1,37 @@
 \chapter{Including PDFs}\label{sec:includingpdfs}
-	\note{The PDFs are inserted at 85\% their full size to ensure that they don't overlap any GPS page formatting required for the headers and footers.}
+	\warning{While it is possible to have horizontal pages have the page numbers centered on the bottom long edge, I \textit{DO NOT} recommended it. This is because, while it looks okay in a digital format, this is not suitable for printing... this would print page numbers on the side of the page rather than consistently on the bottom or in the heading.}
 	
-	\warning{While it is possible to have horizontal pages have the page numbers centered on the bottom long edge, I \textit{DO NOT} recommended it. This is because, while it looks okay in a digital format, this is not suitable for printing... this would print page numbers on the side of the page rather than consistently on the bottom.}
+	The package that is used to include PDF's is \pkg{pdfpages}.
+	This provide the main command \cmd{includepdf} that can be used to include a PDF.
+	Further, this package provides another command, \cmd{includepdfset}, that can be used in the start of the document to pre-set some of the default values.
+	This class file detects the presence of this package and invokes this command as follows:
+	
+	\begin{lstlisting}[float=ht,caption=,label=lst:pdfDefaults,style=LaTeXStyle,basicstyle=\ttfamily,]
+\includepdfset{pages=-,scale=0.85,pagecommand=\thispagestyle{STYLE}}
+	\end{lstlisting}
+	Where \texttt{STYLE} is replaced with the current pagestyle\footnote{To change the pagestyle of this one can add or remove the class option \opt{fancyheaders}.} that is in use. 
 	
 	\section{How to Insert a Portrait PDF}
 		To insert a portrait-oriented PDF into your LaTeX document, you can use the \pkg{pdfpages} package, which provides a convenient way to include external PDF files. 
 		The following code snippet demonstrates how to include a portrait PDF with the specified options:
-		
+
 		\begin{lstlisting}[float=ht,caption=,label=lst:portraitPDF,style=LaTeXStyle,basicstyle=\ttfamily,]
-\includepdf[landscape=false,pages=-,pagecommand={},scale=0.85]{./99_Inclusions/PDFs/examplePDF}
+\includepdf[landscape=false]{./99_Inclusions/PDFs/examplePDF}
 		\end{lstlisting}
-		
+
 		In this example, \opt{landscape=false} ensures that the PDF is inserted in portrait mode, \opt{pages=-} includes all pages of the PDF, \opt{pagecommand=\{\}} avoids adding any additional LaTeX commands to each page, and \opt{scale=0.85} scales the PDF to 85\% of its original size. 
 		Adjust these options as needed for your document.
-		
-		\includepdf[landscape=false,pages=-,pagecommand={},scale=0.85]{./99_Inclusions/PDFs/examplePDF}
+
+		\includepdf[landscape=false]{./99_Inclusions/PDFs/examplePDF}
 	\section{How to Insert a Landscape PDF}
 		Inserting a landscape-oriented PDF is similarly straightforward using the \pkg{pdfpages} package. 
 		The code snippet below demonstrates how to include a landscape PDF:
-		
+
 		\begin{lstlisting}[float=ht,caption=,label=lst:landscapePDF,style=LaTeXStyle,basicstyle=\ttfamily,]
-\includepdf[landscape=true,pages=-,pagecommand={},scale=0.85]{./99_Inclusions/PDFs/landscapePDF}
+\includepdf[landscape=true]{./99_Inclusions/PDFs/landscapePDF}
 		\end{lstlisting}
-		
-		Here, \opt{landscape=true} sets the orientation to landscape, \opt{pages=-} includes all pages from the PDF, \opt{pagecommand=\{\}} prevents any extra LaTeX commands on each page, and \opt{scale=0.85} scales the inserted PDF to 85\% of its original size. 
+
+		Here, \opt{landscape=true} sets the orientation to landscape, \opt{pages=-} includes all pages from the PDF, \opt{pagecommand=\textbackslash pagestyle} prevents any extra LaTeX commands on each page, and \opt{scale=0.85} scales the inserted PDF to 85\% of its original size. 
 		This configuration ensures that your landscape PDF is correctly oriented and properly sized within your document.
-		
-		\includepdf[landscape=true,pages=-,pagecommand={},scale=0.85]{./99_Inclusions/PDFs/landscapePDF}
+
+		\includepdf[landscape=true]{./99_Inclusions/PDFs/landscapePDF}
