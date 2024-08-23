@@ -57,8 +57,8 @@
  
 \newcommand\specialization[1]{%
 	\renewcommand\@specialization{%
-		\def\temp{#1}
-		\ifx\temp\empty
+		\def\specializationtemp{#1}
+		\ifx\specializationtemp\empty
 			\vspace{8\baselineskip}
 		\else
 			\vspace{1\baselineskip}
@@ -71,8 +71,8 @@
 
 \newcommand\deptfac[1]{%
 	\renewcommand\@deptfac{
-		\def\temp{#1}
-		\ifx\temp\empty
+		\def\deptfactemp{#1}
+		\ifx\deptfactemp\empty
 		\else
 			#1
 		\fi}}
@@ -93,8 +93,14 @@
 \newcommand\thesisquote[1]{\renewcommand\@thesisquote{#1}}
 \newcommand\@thesisquote{}
 
-\newcommand\preface[1]{\renewcommand\@preface{#1}}
-\newcommand\@preface{}
+\newcommand\preface[1]{
+	\renewcommand\@preface{
+		\if\relax\detokenize{#1}\relax
+			This thesis is an original work by \@author. No part of this thesis has been previously published.
+		\else
+			#1
+		\fi}}
+\newcommand\@preface{This thesis is an original work by \@author. No part of this thesis has been previously published.}
 
 \newcommand\dedication[1]{\renewcommand\@dedication{#1}}
 \newcommand\@dedication{}
@@ -667,19 +673,23 @@
 }
 \let\l@plate\l@figure
 
-\newcommand\makeabstract{\chapter*{\abstractname}
-	\addcontentsline{toc}{chapter}{\abstractname}
-	\@mkboth{\MakeUppercase\abstractname}%
-			{\MakeUppercase\abstractname}
-	\truedoublespacing\@abstracttext}
+\newcommand\makeabstract{
+	\ifdefvoid{\@abstracttext}{}{
+		\chapter*{\abstractname}
+		\addcontentsline{toc}{chapter}{\abstractname}
+		\@mkboth{\MakeUppercase\abstractname}%
+				{\MakeUppercase\abstractname}
+		\truedoublespacing\@abstracttext}}
 
 \newcommand\listofsymbols{\printnomenclature}
 
-\newcommand\makepreface{\chapter*{\prefacename}
-	\addcontentsline{toc}{chapter}{\prefacename}
-	\@mkboth{\MakeUppercase\prefacename}%
-			{\MakeUppercase\prefacename}
-	\@preface}
+\newcommand\makepreface{
+	\ifdefvoid{\@preface}{}{
+		\chapter*{\prefacename}
+		\addcontentsline{toc}{chapter}{\prefacename}
+		\@mkboth{\MakeUppercase\prefacename}%
+				{\MakeUppercase\prefacename}
+		\@preface}}
 
 \newcommand\acknowledgements{\chapter*{\acknowledgementname}
 	\addcontentsline{toc}{chapter}{\acknowledgementname}
