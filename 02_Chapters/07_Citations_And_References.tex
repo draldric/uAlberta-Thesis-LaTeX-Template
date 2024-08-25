@@ -1,4 +1,4 @@
-\chapter{Citations/References, and Cross-References}\label{ch:citref}
+\chapter{Citations, References, and Cross-References}\label{ch:citref}
 	This section will be showing off some of the different ways to include \enquote{citations} and \enquote{cross-references} within your document.
 	Note that \textbf{cross-references} in \LaTeX\ utilize \cmd{ref} as a command, while one might think that this is short for reference this is not the case citation/references utilize the \cmd{cite} command.
 	\section{Cross-References}
@@ -7,15 +7,16 @@
 		\begin{Center}
 			\lstinline|\chapter{Citations/References, and Cross-References}\label{ch:citref}|
 		\end{Center}
-		By using \cmd{ref}\mopt{ch:citref}|, this allows you to insert a reference that look like this: \ref{ch:citref}.
-		Now this by itself is not the most useful, to make it a bit better we should keep track of what we are referencing, in this case a \textbf{Chapter}, and add this label in front of the reference (\lstinline|Chapter~\ref{sec:citref}|) and this will display like this: Chapter~\ref{ch:citref}.
-		Note to ensure the reference is not split we add a non-breaking space (\lstinline|~|) to prevent \LaTeX\ from accidentally adding a line-break.
+		By using \cmd{ref}\mopt{ch:citref}|, this allows you to insert a cross\hyp{}reference that look like this \ref{ch:citref}.
+		Now this by itself is not the most useful, to make it a bit better we should keep track of what we are cross\hyp{}referencing, in this case a \textbf{Chapter}, and add this label in front of the cross\hyp{}reference (\lstinline|Chapter~\ref{sec:citref}|) and this will display like this: Chapter~\ref{ch:citref}.
+		
+		\note{To ensure the reference is not split we need add a non\hyp{}breaking space (\(\sim \)) to prevent \LaTeX\ from accidentally adding a line\hyp{}break between the label we added and the actual cross\hyp{}reference.}
 
 		While using the \cmd{ref} command, you might ask \enquote{\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}}
 		The answer is to provide more flexibility to the user.
 		However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
 		Some of these are provided by the \pkg{hyperref} and \pkg{cleveref} packages.
-		To include these packages add the following lines to the \textbf{bottom} of your preamble (order matters, \pkg{cleveref} needs to be after \pkg{hyperref} and \pkg{hyperref} should be one of the last packages loaded):
+		To include these packages add the following lines to the \textbf{bottom} of your preamble (order matters, \pkg{cleveref} needs to be after \pkg{hyperref}; and \pkg{hyperref} should be one of the last packages loaded):
 		\begin{lstlisting}[style=LaTeXStyle]
 			\usepackage{hyperref}
 			\usepackage[nameinlink]{cleveref}
@@ -115,6 +116,7 @@
 				\end{tabularx}
 			\end{table}
 			Further, the \pkg{cleveref} also includes features that allows for the auto sorting and combining of references:
+			
 			\begin{lstlisting}[style=LaTeXStyle]
 				\Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}
 			\end{lstlisting}

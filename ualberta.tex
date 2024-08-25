@@ -44,7 +44,7 @@
 
 \documentclass[
 	pdfa, 
-	twoside, 
+	oneside, 
 	chapterbib, 
 	saychapapp,
 	fancyheaders]{ualberta}
@@ -149,13 +149,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % NOMENCLATURE
-  %\input{./01_Prefatory/Nomenclature.tex}
+  \input{./01_Prefatory/Nomenclature.tex}
 
 % ACRONYMS
-  %\input{./01_Prefatory/Acronyms.tex}
+  \input{./01_Prefatory/Acronyms.tex}
 
 % GLOSSARY
-  %\input{./01_Prefatory/Glossary.tex}
+  \input{./01_Prefatory/Glossary.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -196,7 +196,6 @@
   \bodyoftext % Switches the style of the document to that required for the body
 
 % SET DOCUMENT SPACING
-  %\singlespacing        % 1.00x Spacing **Allowed for FOOTNOTES and LONG QUOTES
   %\onehalfspacing       % 1.50x Spacing **Minimum Spacing for the THESIS BODY
   %\doublespacing        % 1.75x Spacing
   \truedoublespacing     % 2.00x Spacing **Required for the ABSTRACT
@@ -247,24 +246,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 BIBLIOGRAPHY                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% These two lines make sure that the bibliography starts on a new page.
-  \bigskip 
-  \clearpage
-
-% SET BIBLIOGRAPHY SPACING
-  \singlespacing                % 1.00x Spacing
-  %\onehalfspacing              % 1.50x Spacing
-  %\doublespacing               % 1.75x Spacing
-  %\truedoublespacing           % 2.00x Spacing
-  %\triplespacing               % 3.00x Spacing
-  %\baselineskip #.##em         % #.##x Spacing
  
-% Uncomment the next line if you want to include works read, but not cited 
+% Uncomment the \nocite{*} if you want to include works read, but not cited 
 %   within the body of your work.
   % \nocite{*}  
   \printbibliography[heading=bibintoc]
-  \bigskip
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -272,7 +258,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
 % SET APPENDIX SPACING
-  %\singlespacing               % 1.00x Spacing
   %\onehalfspacing              % 1.50x Spacing
   %\doublespacing               % 1.75x Spacing
   \truedoublespacing            % 2.00x Spacing
@@ -293,5 +278,7 @@
   \insertappendix{0C_Code_Listings}
 
   \insertappendix{0D_Including_PDFs}
+
+  \insertappendix{0X_Math_Lettering}
 
 \end{document}

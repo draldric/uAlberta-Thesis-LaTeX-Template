@@ -53,7 +53,7 @@
 	\setcounter{tocdepth}{2}
 
 \newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
-\newcommand\@convocationdate{}
+\newcommand\@convocationdate{\the\year}
  
 \newcommand\specialization[1]{%
 	\renewcommand\@specialization{%
@@ -82,7 +82,7 @@
 \newcommand\@university{University of Alberta}
 
 \newcommand\degree[1]{\renewcommand\@degree{#1}}
-\newcommand\@degree{}
+\newcommand\@degree{Select or Enter a Degree}
 
 \newcommand\abstracttext[1]{\renewcommand\@abstracttext{#1}}
 \newcommand\@abstracttext{}
@@ -93,13 +93,12 @@
 \newcommand\thesisquote[1]{\renewcommand\@thesisquote{#1}}
 \newcommand\@thesisquote{}
 
-\newcommand\preface[1]{
-	\renewcommand\@preface{
-		\if\relax\detokenize{#1}\relax
+\newcommand\preface[1]{%
+	\renewcommand\@preface{%
+		\ifblank{#1}{%
 			This thesis is an original work by \@author. No part of this thesis has been previously published.
-		\else
-			#1
-		\fi}}
+		}{%
+			#1}}}
 \newcommand\@preface{This thesis is an original work by \@author. No part of this thesis has been previously published.}
 
 \newcommand\dedication[1]{\renewcommand\@dedication{#1}}
@@ -141,12 +140,13 @@
 \newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia#1}}
 \newcommand\@adddata{}
 
+\newcommand\figures@exist{}
+\newcommand\tables@exist{}
+\newcommand\plates@exist{}
+
 \def\@year{\number\year}
 
 \newif\if@restonecol
-
-\newif\if@titlepage
-\@titlepagetrue
 
 \newif\if@openright
 
@@ -173,9 +173,6 @@
 
 \DeclareOption{draft}{\setlength\overfullrule{5pt}}
 \DeclareOption{final}{\setlength\overfullrule{0pt}}
-
-\DeclareOption{titlepage}{\@titlepagetrue}
-\DeclareOption{notitlepage}{\@titlepagefalse}
 
 \DeclareOption{openright}{\@openrighttrue}
 \DeclareOption{openany}{\@openrightfalse}
@@ -268,8 +265,7 @@
 	\def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
 	\let\@mkboth\@gobbletwo
 	\let\chaptermark\@gobble
-	\let\sectionmark\@gobble
-}
+	\let\sectionmark\@gobble}
 
 \newenvironment{titlepage}{%
 		\if@twocolumn
@@ -332,12 +328,12 @@
 \newcounter {subsubsection}[subsection]
 \newcounter {paragraph}[subsubsection]
 \newcounter {subparagraph}[paragraph]
-\renewcommand \thechapter {\@arabic\c@chapter}
-\renewcommand \thesection {\thechapter.\@arabic\c@section}
-\renewcommand \thesubsection   {\thesection.\@arabic\c@subsection}
-\renewcommand \thesubsubsection{\thesubsection.\@arabic\c@subsubsection}
-\renewcommand \theparagraph    {\thesubsubsection.\@arabic\c@paragraph}
-\renewcommand \thesubparagraph {\theparagraph.\@arabic\c@subparagraph}
+\renewcommand \thechapter       {\@arabic\c@chapter}
+\renewcommand \thesection       {\thechapter.\@arabic\c@section}
+\renewcommand \thesubsection    {\thesection.\@arabic\c@subsection}
+\renewcommand \thesubsubsection {\thesubsection.\@arabic\c@subsubsection}
+\renewcommand \theparagraph     {\thesubsubsection.\@arabic\c@paragraph}
+\renewcommand \thesubparagraph  {\theparagraph.\@arabic\c@subparagraph}
 \newcommand\@chapapp{\chaptername}
 
 \newcommand\chapter{\stepcounter{baseSection}
@@ -521,11 +517,11 @@
 
 \newenvironment{figure}
 	{\@float{figure}}
-	{\end@float}
+	{\gdef\figures@exist{}\end@float}
 
 \newenvironment{figure*}
 	{\@dblfloat{figure}}
-	{\end@dblfloat}
+	{\gdef\figures@exist{}\end@dblfloat}
 
 \newcounter{table}[chapter]
 \renewcommand \thetable
@@ -537,11 +533,11 @@
 
 \newenvironment{table}
 	{\@float{table}}
-	{\end@float}
+	{\renewcommand\tables@exist{23}\end@float}
 
 \newenvironment{table*}
 	{\@dblfloat{table}}
-	{\end@dblfloat}
+	{\renewcommand\tables@exist{23}\end@dblfloat}
 
 \newcounter{plate}[chapter]
 \renewcommand \theplate
@@ -553,11 +549,11 @@
 
 \newenvironment{plate}
 	{\@float{plate}}
-	{\end@float}
+	{\gdef\plates@exist{}\end@float}
 
 \newenvironment{plate*}
 	{\@dblfloat{plate}}
-	{\end@dblfloat}
+	{\gdef\plates@exist{}\end@dblfloat}
 
 \newlength\abovecaptionskip
 \setlength\abovecaptionskip{10\p@}
@@ -634,13 +630,14 @@
 	\else
 		\@restonecolfalse
 	\fi
+	\ifdefined\figures@exist
 	\chapter*{\listfigurename}%
 	\addcontentsline{toc}{chapter}{\listfigurename}
 	\@mkboth{\MakeUppercase\listfigurename}%
 			{\MakeUppercase\listfigurename}%
 	\@starttoc{lof}%
 	\if@restonecol\twocolumn\fi
-	}
+	\fi}
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 
 \newcommand\listoftables{%
@@ -649,13 +646,14 @@
 	\else
 		\@restonecolfalse
 	\fi
+	\ifstrequal{\tables@exist}{23}{
 	\chapter*{\listtablename}%
 	\addcontentsline{toc}{chapter}{\listtablename}
 	\@mkboth{\MakeUppercase\listtablename}%
 			{\MakeUppercase\listtablename}%
 	\@starttoc{lot}%
 	\if@restonecol\twocolumn\fi
-	}
+	}{}}
 \let\l@table\l@figure
 
 \newcommand\listofplates{%
@@ -664,17 +662,18 @@
 	\else
 		\@restonecolfalse
 	\fi
+	\ifdefined\plates@exist
 	\chapter*{\listplatename}%
 	\addcontentsline{toc}{chapter}{\listplatename}
 	\@mkboth{\MakeUppercase\listplatename}%
 			{\MakeUppercase\listplatename}%
 	\@starttoc{lop}%
 	\if@restonecol\twocolumn\fi
-}
+	\fi}
 \let\l@plate\l@figure
 
-\newcommand\makeabstract{
-	\ifdefvoid{\@abstracttext}{}{
+\newcommand\makeabstract{%
+	\ifdefvoid{\@abstracttext}{}{%
 		\chapter*{\abstractname}
 		\addcontentsline{toc}{chapter}{\abstractname}
 		\@mkboth{\MakeUppercase\abstractname}%
@@ -683,43 +682,50 @@
 
 \newcommand\listofsymbols{\printnomenclature}
 
-\newcommand\makepreface{
-	\ifdefvoid{\@preface}{}{
+\newcommand\makepreface{%
+	\ifdefvoid{\@preface}{}{%
 		\chapter*{\prefacename}
 		\addcontentsline{toc}{chapter}{\prefacename}
 		\@mkboth{\MakeUppercase\prefacename}%
 				{\MakeUppercase\prefacename}
 		\@preface}}
 
-\newcommand\acknowledgements{\chapter*{\acknowledgementname}
-	\addcontentsline{toc}{chapter}{\acknowledgementname}
-	\@mkboth{\MakeUppercase\acknowledgementname}%
-			{\MakeUppercase\acknowledgementname}
-	\@acknowledgementtext}
+\newcommand\acknowledgements{%
+	\ifdefvoid{\@acknowledgementtext}{}{
+		\chapter*{\acknowledgementname}
+		\addcontentsline{toc}{chapter}{\acknowledgementname}
+		\@mkboth{\MakeUppercase\acknowledgementname}%
+				{\MakeUppercase\acknowledgementname}
+		\@acknowledgementtext}}
 
-\newcommand\makequote{\chapter*{}
-	% \addcontentsline{toc}{chapter}{\quotename}
-	% \@mkboth{\MakeUppercase\quotename}%
-			% {\MakeUppercase\quotename}
-	\@mkboth{}%
-			{}
-	\begin{center}\em \@thesisquote \em\end{center}}
+\newcommand\makequote{%
+	\ifdefvoid{\@thesisquote}{}{\chapter*{}
+		% \addcontentsline{toc}{chapter}{\quotename}
+		% \@mkboth{\MakeUppercase\quotename}%
+				% {\MakeUppercase\quotename}
+		\@mkboth{}%
+				{}
+		\begin{center}\em \@thesisquote \em\end{center}}}
 
-\newcommand\makededication{\chapter*{}
-	% \addcontentsline{toc}{chapter}{\dedicationname}
-	% \@mkboth{\MakeUppercase\dedicationname}%
-			% {\MakeUppercase\dedicationname}
-	\@mkboth{}%
-			{}
-	\begin{center}\em \@dedication \em\end{center}}
+\newcommand\makededication{%
+	\ifdefvoid{\@dedication}{}{\chapter*{}
+		% \addcontentsline{toc}{chapter}{\dedicationname}
+		% \@mkboth{\MakeUppercase\dedicationname}%
+				% {\MakeUppercase\dedicationname}
+		\@mkboth{}%
+				{}
+		\begin{center}\em \@dedication \em\end{center}}}
 
-\newcommand\makededicationandquote{\chapter*{}
-	%\addcontentsline{toc}{chapter}{\quoteanddedicationname}
-	%\@mkboth{\MakeUppercase\quoteanddedicationname}%
-	%		{\MakeUppercase\quoteanddedicationname}
-	\@mkboth{}%
-			{}
-	\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}
+\newcommand\makededicationandquote{%
+	\ifdefvoid{\@dedication}{\makequote}{%
+		\ifdefvoid{\@thesisquote}{\makededication}{%
+			\chapter*{}
+			%\addcontentsline{toc}{chapter}{\quoteanddedicationname}
+			%\@mkboth{\MakeUppercase\quoteanddedicationname}%
+			%		{\MakeUppercase\quoteanddedicationname}
+			\@mkboth{}%
+					{}
+			\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}}}
 
 
 \def\bodyoftext{%
