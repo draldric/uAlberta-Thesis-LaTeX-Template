@@ -140,10 +140,6 @@
 \newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia#1}}
 \newcommand\@adddata{}
 
-\newcommand\figures@exist{}
-\newcommand\tables@exist{}
-\newcommand\plates@exist{}
-
 \def\@year{\number\year}
 
 \newif\if@restonecol
@@ -517,11 +513,11 @@
 
 \newenvironment{figure}
 	{\@float{figure}}
-	{\gdef\figures@exist{}\end@float}
+	{\end@float}
 
 \newenvironment{figure*}
 	{\@dblfloat{figure}}
-	{\gdef\figures@exist{}\end@dblfloat}
+	{\end@dblfloat}
 
 \newcounter{table}[chapter]
 \renewcommand \thetable
@@ -533,11 +529,11 @@
 
 \newenvironment{table}
 	{\@float{table}}
-	{\renewcommand\tables@exist{23}\end@float}
+	{\end@float}
 
 \newenvironment{table*}
 	{\@dblfloat{table}}
-	{\renewcommand\tables@exist{23}\end@dblfloat}
+	{\end@dblfloat}
 
 \newcounter{plate}[chapter]
 \renewcommand \theplate
@@ -549,11 +545,11 @@
 
 \newenvironment{plate}
 	{\@float{plate}}
-	{\gdef\plates@exist{}\end@float}
+	{\end@float}
 
 \newenvironment{plate*}
 	{\@dblfloat{plate}}
-	{\gdef\plates@exist{}\end@dblfloat}
+	{\end@dblfloat}
 
 \newlength\abovecaptionskip
 \setlength\abovecaptionskip{10\p@}
@@ -630,14 +626,13 @@
 	\else
 		\@restonecolfalse
 	\fi
-	\ifdefined\figures@exist
-	\chapter*{\listfigurename}%
-	\addcontentsline{toc}{chapter}{\listfigurename}
-	\@mkboth{\MakeUppercase\listfigurename}%
-			{\MakeUppercase\listfigurename}%
-	\@starttoc{lof}%
-	\if@restonecol\twocolumn\fi
-	\fi}
+		\chapter*{\listfigurename}%
+		\addcontentsline{toc}{chapter}{\listfigurename}
+		\@mkboth{\MakeUppercase\listfigurename}%
+				{\MakeUppercase\listfigurename}%
+		\@starttoc{lof}%
+		\if@restonecol\twocolumn\fi
+	}
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 
 \newcommand\listoftables{%
@@ -646,14 +641,13 @@
 	\else
 		\@restonecolfalse
 	\fi
-	\ifstrequal{\tables@exist}{23}{
-	\chapter*{\listtablename}%
-	\addcontentsline{toc}{chapter}{\listtablename}
-	\@mkboth{\MakeUppercase\listtablename}%
-			{\MakeUppercase\listtablename}%
-	\@starttoc{lot}%
-	\if@restonecol\twocolumn\fi
-	}{}}
+		\chapter*{\listtablename}%
+		\addcontentsline{toc}{chapter}{\listtablename}
+		\@mkboth{\MakeUppercase\listtablename}%
+				{\MakeUppercase\listtablename}%
+		\@starttoc{lot}%
+		\if@restonecol\twocolumn\fi
+	}
 \let\l@table\l@figure
 
 \newcommand\listofplates{%
@@ -662,14 +656,13 @@
 	\else
 		\@restonecolfalse
 	\fi
-	\ifdefined\plates@exist
-	\chapter*{\listplatename}%
-	\addcontentsline{toc}{chapter}{\listplatename}
-	\@mkboth{\MakeUppercase\listplatename}%
-			{\MakeUppercase\listplatename}%
-	\@starttoc{lop}%
-	\if@restonecol\twocolumn\fi
-	\fi}
+		\chapter*{\listplatename}%
+		\addcontentsline{toc}{chapter}{\listplatename}
+		\@mkboth{\MakeUppercase\listplatename}%
+				{\MakeUppercase\listplatename}%
+		\@starttoc{lop}%
+		\if@restonecol\twocolumn\fi
+	}
 \let\l@plate\l@figure
 
 \newcommand\makeabstract{%
