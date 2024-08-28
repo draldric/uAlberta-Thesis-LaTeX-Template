@@ -33,6 +33,7 @@
               [2024/08/20 V:2.0.0 ualberta Document Class]
 \pdfminorversion=7
 \RequirePackage{etoolbox}
+\RequirePackage{xstring}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            LINE SPACING COMMANDS                             %
@@ -84,8 +85,11 @@
 \newcommand\degree[1]{\renewcommand\@degree{#1}}
 \newcommand\@degree{Select or Enter a Degree}
 
-\newcommand\abstracttext[1]{\renewcommand\@abstracttext{#1}}
+\newcommand\abstracttext[1]{\renewcommand\@abstracttext{#1}\sanitizeabstract}
 \newcommand\@abstracttext{}
+
+\newcommand{\sanitizeabstract}{
+  \StrSubstitute{\@abstracttext}{\par}{ }[\@cleanabstract]}
 
 \newcommand\keywords[1]{\renewcommand\@keywords{#1}}
 \newcommand\@keywords{}
@@ -157,6 +161,12 @@
 
 \newif\if@pdfa
 \@pdfafalse
+
+\newif\iffigures
+
+\newif\iftables
+
+\newif\ifplates
 
 \newcommand\@ptsize{}
 \DeclareOption{10pt}{\renewcommand\@ptsize{0}}
@@ -307,6 +317,13 @@
 	\pagenumbering{roman}\setcounter{page}{2}
 	\setcounter{footnote}{0}%
 	\global\let\maketitle\relax
+	\newwrite\myfile
+	\immediate\openout\myfile=\jobname.xmpdata
+	\immediate\write\myfile{\string\Title{\@title }}
+	\immediate\write\myfile{\string\Author{\@author }}
+	\immediate\write\myfile{\string\Subject{ \@cleanabstract } }
+	\immediate\write\myfile{\string\Copyright{Copyright \string\copyright\ \@convocationdate\space\@author }}
+	\immediate\closeout\myfile
 	%\global\let\@author\@empty
 	%\global\let\@convocationdate\@empty
 	%\global\let\@title\@empty
@@ -511,9 +528,14 @@
 \def\ext@figure{lof}
 \def\fnum@figure{\figurename\nobreakspace\thefigure}
 
+
 \newenvironment{figure}
-	{\@float{figure}}
+	{\figures@in@document\@float{figure}}
 	{\end@float}
+
+\def\figures@in@document {%
+    \immediate\write\@mainaux {\global\string\figurestrue}%
+    \global\let\figures@in@document\empty}
 
 \newenvironment{figure*}
 	{\@dblfloat{figure}}
@@ -528,8 +550,12 @@
 \def\fnum@table{\tablename\nobreakspace\thetable}
 
 \newenvironment{table}
-	{\@float{table}}
+	{\tables@in@document\@float{table}}
 	{\end@float}
+
+\def\tables@in@document {%
+    \immediate\write\@mainaux {\global\string\tablestrue}%
+    \global\let\tables@in@document\empty}
 
 \newenvironment{table*}
 	{\@dblfloat{table}}
@@ -544,8 +570,12 @@
 \def\fnum@plate{\platename\nobreakspace\theplate}
 
 \newenvironment{plate}
-	{\@float{plate}}
+	{\plates@in@document\@float{plate}}
 	{\end@float}
+
+\def\plates@in@document {%
+    \immediate\write\@mainaux {\global\string\platestrue}%
+    \global\let\plates@in@document\empty}
 
 \newenvironment{plate*}
 	{\@dblfloat{plate}}
@@ -621,48 +651,57 @@
 \newcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 
 \newcommand\listoffigures{%
-	\if@twocolumn
-		\@restonecoltrue\onecolumn
-	\else
-		\@restonecolfalse
-	\fi
+	\iffigures
+		\if@twocolumn
+			\@restonecoltrue\onecolumn
+		\else
+			\@restonecolfalse
+		\fi
 		\chapter*{\listfigurename}%
 		\addcontentsline{toc}{chapter}{\listfigurename}
 		\@mkboth{\MakeUppercase\listfigurename}%
 				{\MakeUppercase\listfigurename}%
 		\@starttoc{lof}%
-		\if@restonecol\twocolumn\fi
-	}
+		\if@restonecol
+			\twocolumn
+		\fi
+	\fi}
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 
 \newcommand\listoftables{%
-	\if@twocolumn
-		\@restonecoltrue\onecolumn
-	\else
-		\@restonecolfalse
-	\fi
+	\iftables
+		\if@twocolumn
+			\@restonecoltrue\onecolumn
+		\else
+			\@restonecolfalse
+		\fi
 		\chapter*{\listtablename}%
 		\addcontentsline{toc}{chapter}{\listtablename}
 		\@mkboth{\MakeUppercase\listtablename}%
 				{\MakeUppercase\listtablename}%
 		\@starttoc{lot}%
-		\if@restonecol\twocolumn\fi
-	}
+		\if@restonecol
+			\twocolumn
+		\fi
+	\fi}
 \let\l@table\l@figure
 
 \newcommand\listofplates{%
-	\if@twocolumn
-		\@restonecoltrue\onecolumn
-	\else
-		\@restonecolfalse
-	\fi
+	\ifplates
+		\if@twocolumn
+			\@restonecoltrue\onecolumn
+		\else
+			\@restonecolfalse
+		\fi
 		\chapter*{\listplatename}%
 		\addcontentsline{toc}{chapter}{\listplatename}
 		\@mkboth{\MakeUppercase\listplatename}%
 				{\MakeUppercase\listplatename}%
 		\@starttoc{lop}%
-		\if@restonecol\twocolumn\fi
-	}
+		\if@restonecol
+			\twocolumn
+		\fi
+	\fi}
 \let\l@plate\l@figure
 
 \newcommand\makeabstract{%

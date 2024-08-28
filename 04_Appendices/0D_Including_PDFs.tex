@@ -9,7 +9,7 @@
 	\begin{lstlisting}[float=ht,caption=,label=lst:pdfDefaults,style=LaTeXStyle,basicstyle=\ttfamily,]
 \includepdfset{pages=-,scale=0.85,pagecommand=\thispagestyle{STYLE}}
 	\end{lstlisting}
-	Where \texttt{STYLE} is replaced with the current pagestyle\footnote{To change the pagestyle of this one can add or remove the class option \opt{fancyheaders}.} that is in use. 
+	Where \opt{pages=-} defaults to including all pages from the PDF and \opt{scale=0.85} scales the inserted PDF to 85\% of its original size, so that the documents fit within the page's margins, headers, and footers. The option \opt{pagecommand=\cmd{thispagestyle}\mopt{STYLE}} sets the pagestyle for the PDF pages, where, \texttt{STYLE} is replaced with the current pagestyle\footnote{To change the pagestyle of this one can add or remove the class option \opt{fancyheaders}.} that is in use. 
 	
 	\section{How to Insert a Portrait PDF}
 		To insert a portrait-oriented PDF into your LaTeX document, you can use the \pkg{pdfpages} package, which provides a convenient way to include external PDF files. 
@@ -19,7 +19,7 @@
 \includepdf[landscape=false]{./99_Inclusions/PDFs/examplePDF}
 		\end{lstlisting}
 
-		In this example, \opt{landscape=false} ensures that the PDF is inserted in portrait mode, \opt{pages=-} includes all pages of the PDF, \opt{pagecommand=\{\}} avoids adding any additional LaTeX commands to each page, and \opt{scale=0.85} scales the PDF to 85\% of its original size. 
+		In this example, \opt{landscape=false} ensures that the PDF is inserted in portrait mode.
 		Adjust these options as needed for your document.
 
 		\includepdf[landscape=false]{./99_Inclusions/PDFs/examplePDF}
@@ -31,7 +31,7 @@
 \includepdf[landscape=true]{./99_Inclusions/PDFs/landscapePDF}
 		\end{lstlisting}
 
-		Here, \opt{landscape=true} sets the orientation to landscape, \opt{pages=-} includes all pages from the PDF, \opt{pagecommand=\textbackslash pagestyle} prevents any extra LaTeX commands on each page, and \opt{scale=0.85} scales the inserted PDF to 85\% of its original size. 
+		Here, \opt{landscape=true} sets the orientation to landscape. 
 		This configuration ensures that your landscape PDF is correctly oriented and properly sized within your document.
 
 		\includepdf[landscape=true]{./99_Inclusions/PDFs/landscapePDF}
