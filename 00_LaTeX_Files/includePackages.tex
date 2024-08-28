@@ -5,7 +5,7 @@
 		\ifstrequal{#1}{A}{Constants}{%
 		\ifstrequal{#1}{B}{Latin}{%
 		\ifstrequal{#1}{C}{Greek}{%
-		\ifstrequal{#1}{D}{Subscript}{}}}}]%
+		\ifstrequal{#1}{D}{Subscripts}{}}}}]%
 	}
 	\renewcommand{\nomname}{List of Symbols}
 	\newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
@@ -46,7 +46,7 @@
 
 % Used to extend or replace the table/tabular environment
 	\usepackage{tabularx}  % Auto-Sizing Tables
-	\usepackage{longtable} % Multi-page Tables
+	\usepackage{xltabular} % Multi-page Tables
 	\usepackage{pdflscape} % Allows creation of landscape pages
 	\usepackage{booktabs}  % Nicer Lines
 	\usepackage{multicol}  % Column Merging
