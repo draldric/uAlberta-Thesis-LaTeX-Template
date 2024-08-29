@@ -225,8 +225,16 @@
 			\tip{For the \cmd{settoclevel}\mopt{n} command, setting \opt{n} to \opt{2} will included everything down to \texttt{subsection}, \opt{3} will include everything down to \texttt{subsubsection}, and \opt{4} will include everything down to \texttt{paragraph} in the Table of Contents.}
 
 		\subsection{Lists of Figures, Tables, ...}\label{listsof}
-			Include a separate list, beginning on a new page, for each kind of non-textual item appearing in the body of the thesis (one list for tables, another for illustrations, etc.). 
-			Lists can be in any order.  
+			Include a separate list, beginning on a new page, for each kind of non-textual item appearing in the body of the thesis (one list for tables, another for illustrations, etc.).
+			Lists can be in any order.
+			These are included with the following set of commands:
+			\begin{itemize}
+				\item \cmd{listoffigures}
+				\item \cmd{listoftables}
+				\item \cmd{listofplates}
+			\end{itemize}
+			
+			\note{None of these commands need to be commented out, they can stay uncommented, and as long as \LaTeX\ is run at minimum twice (as is required for BiBTeX, and any reference updates) they will update themselves to be included or excluded automatically.}
 
 	\section{Nomenclature, Glossary, \& Acronyms}\label{nomenclature}\label{glossary}\label{acronyms}
 		\subsection{Lists of Symbols/Abbreviations}

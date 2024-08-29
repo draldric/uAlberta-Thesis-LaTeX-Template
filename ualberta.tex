@@ -31,118 +31,119 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %LIST OF AVAILABLE THEOREM ENVIRONMENTS
-  % For the full list of available theorems OR to add your own theorems please 
-  %  see the `includeTheroems.tex' file located in the 00_LaTeX_Files Folder.
-  %
-  % To use:
-  % \begin{<theorem name>}
-  %     <YOUR TEXT HERE>
-  % \end{<theorem name>}
+	% For the full list of available theorems OR to add your own theorems please 
+	%  see the `includeTheroems.tex' file located in the 00_LaTeX_Files Folder.
+	%
+	% To use:
+	% \begin{<theorem name>}
+	%     <YOUR TEXT HERE>
+	% \end{<theorem name>}
 
+% Write command to allow the nomenclature to be generated properly.
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
-  % Write command to allow the nomenclature to be generated properly.
 
 
 \documentclass[
-	pdfa, 
-	oneside, 
-	chapterbib, 
+	pdfa,
+	oneside,
+	chapterbib,
 	saychapapp,
 	fancyheaders]{ualberta}
-  % OPTIONS FOR ualberta.cls:
-  % chapterbib - Automatically prints references at the end of each chapter.
-  % 
-  % pdfa - To convert the PDF to PDF/A format (REQUIRED for GPS Submission)
-  % 
-  % oneside - Standard for submitting to GPS.
-  % 
-  % twoside - If you want to print your thesis double sided like a novel. Note:
-  %            GPS requires the submission to be one sided. Please use the 
-  %            option `oneside' for submission to GPS.
-  % 
-  % saychapapp - If you want your thesis to say Chapter # and Appendix @ in the  
-  %               ToC instead of just having the # or @.
-  %               (GPS is inconsistent on if this is truly a Requirement.)
-  % 
-  % fancyheader - If you want your thesis to have chapter headers rather than 
-  %               just a page number at the bottom.
+	% OPTIONS FOR ualberta.cls:
+	% chapterbib - Automatically prints references at the end of each chapter.
+	% 
+	% pdfa - To convert the PDF to PDF/A format (REQUIRED for GPS Submission)
+	% 
+	% oneside - Standard for submitting to GPS.
+	% 
+	% twoside - If you want to print your thesis double sided like a novel. Note:
+	%            GPS requires the submission to be one sided. Please use the 
+	%            option `oneside' for submission to GPS.
+	% 
+	% saychapapp - If you want your thesis to say Chapter # and Appendix @ in the  
+	%               ToC instead of just having the # or @.
+	%               (GPS is inconsistent on if this is truly a Requirement.)
+	% 
+	% fancyheader - If you want your thesis to have chapter headers rather than 
+	%               just a page number at the bottom.
 
 % Option to change the Level of subheading included in the Table of Contents
 %  This should be set at 2, 3, or 4 (As per GPS)
-  \settoclevel{3}
+	\settoclevel{3}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                FILE LOCATIONS                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The following Commands Can be set to change the lookup locations for files.
 % LaTeX FILES LOCATION
-  % .  - This folder
-  % .. - Up one Folder
-  \addlatexfiles{./00_LaTeX_Files/}
-  \insertlatexfile{includePackages} % LOAD ALL PACKAGES TO BE INCLUDED
+	% .  - This folder
+	% .. - Up one Folder
+	\addlatexfiles{./00_LaTeX_Files/}
+	\insertlatexfile{includePackages} % LOAD ALL PACKAGES TO BE INCLUDED
 
 % PREFATORY LOCATION
-  % .  - This folder
-  % .. - Up one Folder
-  \addprefatory{./01_Prefatory/}
+	% .  - This folder
+	% .. - Up one Folder
+	\addprefatory{./01_Prefatory/}
 
 % CHAPTER LOCATION
-  % .  - This folder
-  % .. - Up one Folder
-  \addchapters{./02_Chapters/}
+	% .  - This folder
+	% .. - Up one Folder
+	\addchapters{./02_Chapters/}
 
 % BIBLIOGRAPHY LOCATION
-  % NOTE: if you add bibliography entries after a compilation, you might notice 
-  %  references marked `[0]' to fix this just delete the auxiliary files. 
-  %  (*.aux, *.bbl, ... etc)
-  %
-  % .  - This folder
-  % .. - Up one Folder
-  \addbibresource{./03_References/References.bib}
+	% NOTE: if you add bibliography entries after a compilation, you might notice 
+	%  references marked `[0]' to fix this just delete the auxiliary files. 
+	%  (*.aux, *.bbl, ... etc)
+	%
+	% .  - This folder
+	% .. - Up one Folder
+	\addbibresource{./03_References/References.bib}
 
 % APPENDICES LOCATION
-  % .  - This folder
-  % .. - Up one Folder
-  \addappendices{./04_Appendices/}
+	% .  - This folder
+	% .. - Up one Folder
+	\addappendices{./04_Appendices/}
 
-% MEDIA LOCATION
-  % .  - This folder
-  % .. - Up one Folder
-  \addmedia{./99_Inclusions/}
-  \addimages{Images/}
-  \addtables{Tables/}
-  \addcode{Code/}
-  \adddata{Data/}
-  \addpdf{PDFs/}
+% MEDIA LOCATIONS
+	% .  - This folder
+	% .. - Up one Folder
+	\addmedia{./99_Inclusions/}
+	\addimages{Images/}
+	\addtables{Tables/}
+	\addcode{Code/}
+	\adddata{Data/}
+	\addpdf{PDFs/}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                         ADD ADDITIONAL RESOURCES                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \insertlatexfile{includeTheorems}
-  \insertlatexfile{includeMacros}
-  \insertlatexfile{listingCodeFormatting}
+	\insertlatexfile{includeTheorems}
+	\insertlatexfile{includeMacros}
+	\insertlatexfile{listingCodeFormatting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TITLE PAGE INFO
-  \title{Thesis Title}                         % Title of your Thesis
-  \author{First Middle Last}                   % Your Full Name
-  \degree{\insertlatexfile{selectDegree}}      % Uncomment Degree in file
-  \specialization{}                            % Leave blank if none
-  \deptfac{\insertlatexfile{selectDepartment}} % Uncomment Department in file
-  \convocationdate{\the\year}                  % Convocation Year
+	\title{Thesis Title}                         % Title of your Thesis
+	\author{First Middle Last}                   % Your Full Name
+	\degree{\insertlatexfile{selectDegree}}      % Uncomment Degree in file
+	\specialization{}                            % Leave blank if none
+	\deptfac{\insertlatexfile{selectDepartment}} % Uncomment Department in file
+	\convocationdate{\the\year}                  % Convocation Year
 
 % ABSTRACT
-  \input{./01_Prefatory/Abstract.tex}
+	\insertprefatory{Abstract}
 
 % PREFACE
-  \input{./01_Prefatory/Preface.tex}
+	\insertprefatory{Preface}
 
 % DEDICATION OR QUOTE
-  \input{./01_Prefatory/Quotes_Dedications.tex}
+	\insertprefatory{Quotes_Dedications}
 
 % ACKNOWLEDGEMENTS
-  \input{./01_Prefatory/Acknowledgements.tex}
+	\insertprefatory{Acknowledgements}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,13 +151,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % NOMENCLATURE
-  \input{./01_Prefatory/Nomenclature.tex}
+	\insertprefatory{Nomenclature}
 
 % ACRONYMS
-  \input{./01_Prefatory/Acronyms.tex}
+	\insertprefatory{Acronyms}
 
 % GLOSSARY
-  \input{./01_Prefatory/Glossary.tex}
+	\insertprefatory{Glossary}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -164,47 +165,48 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-  \maketitle                   % Creates the Title Page
-  \makeabstract                % Creates the Abstract Page
-  \makepreface                 % Creates the Preface Page
-  %\makequote                  % Creates the Quote Page
-  %\makededication             % Creates the Dedication Page
-  \makededicationandquote      % Creates the Quote/Dedication Page
-  \acknowledgements            % Creates the Acknowledgements Page
+	\maketitle                   % Creates the Title Page
+	\makeabstract                % Creates the Abstract Page
+	\makepreface                 % Creates the Preface Page
+	% Quote and Dedication (Only Uncomment one)
+		%\makequote                  % Creates the Quote Page
+		%\makededication             % Creates the Dedication Page
+		\makededicationandquote      % Creates the Quote/Dedication Page
+	\acknowledgements            % Creates the Acknowledgements Page
 
 % SET ToC...etc SPACING
-  %\singlespacing              % 1.00x Spacing
-  \onehalfspacing              % 1.50x Spacing
-  %\doublespacing              % 1.75x Spacing
-  %\truedoublespacing          % 2.00x Spacing
-  %\triplespacing              % 3.00x Spacing
-  %\baselineskip #.##em        % #.##x Spacing
+	%\singlespacing              % 1.00x Spacing
+	\onehalfspacing              % 1.50x Spacing
+	%\doublespacing              % 1.75x Spacing
+	%\truedoublespacing          % 2.00x Spacing
+	%\triplespacing              % 3.00x Spacing
+	%\baselineskip #.##em        % #.##x Spacing
 
 % ALL LISTS/TABLES OF ________
 % Everything below should Automatically be included if it has content and 
 %  excluded if it does not. There is no need to comment any line here. If you 
 %  would like a different order however feel free to move items to new lines.
-  \tableofcontents             % Creates the Table of Contents
-  \listoftables                % Creates the List of Tables
-  \listoffigures               % Creates the List of Figures
-  \listofplates                % Creates the List of Plates (photographs)
-  \listofsymbols               % Creates the List of Symbols (Nomenclature)
-  \abbreviations               % Creates the List of Acronyms (Abbreviations)
-  \glsaddall                   % Required for List of Acronyms and Glossary 
-  \generateglossary            % Creates the Glossary of Terms
+	\tableofcontents             % Creates the Table of Contents
+	\listoftables                % Creates the List of Tables
+	\listoffigures               % Creates the List of Figures
+	\listofplates                % Creates the List of Plates (photographs)
+	\listofsymbols               % Creates the List of Symbols (Nomenclature)
+	\abbreviations               % Creates the List of Acronyms (Abbreviations)
+	\glsaddall                   % Required for List of Acronyms and Glossary 
+	\generateglossary            % Creates the Glossary of Terms
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                           ADD YOUR CONTENT HERE                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \bodyoftext % Switches the style of the document to that required for the body
+	\bodyoftext % Switches the style of the document to that required for the body
 
 % SET DOCUMENT SPACING
-  %\onehalfspacing       % 1.50x Spacing **Minimum Spacing for the THESIS BODY
-  %\doublespacing        % 1.75x Spacing
-  \truedoublespacing     % 2.00x Spacing **Required for the ABSTRACT
-  %\triplespacing        % 3.00x Spacing
-  %\baselineskip #.##em  % #.##x Spacing
+	%\onehalfspacing       % 1.50x Spacing **Minimum Spacing for the THESIS BODY
+	%\doublespacing        % 1.75x Spacing
+	\truedoublespacing     % 2.00x Spacing **Required for the ABSTRACT
+	%\triplespacing        % 3.00x Spacing
+	%\baselineskip #.##em  % #.##x Spacing
 
 % To insert chapters from a separate tex file use the following commands
 % \insertchapter automatically looks in the Chapters folder and also
@@ -213,48 +215,48 @@
 % \input is the standard way of including a separate tex file
 % \input{"./Chapters/ExampleChapter.tex"}
 
-\lstset{style=LaTeXStyle} %NOTE Line can be removed it is only for this demo.
+	\lstset{style=LaTeXStyle} %NOTE Line can be removed it is only for this demo.
 
-\insertchapter{01_Introduction}
-\insertchapter{02_Getting_Started}
-\insertchapter{03_Document_Structure}
-\insertchapter{04_Figures_Tables}
-\insertchapter{05_Plots_And_Graphs}
-\insertchapter{06_Mathematical_Equations}
-\insertchapter{07_Citations_And_References}
+	\insertchapter{01_Introduction}
+	\insertchapter{02_Getting_Started}
+	\insertchapter{03_Document_Structure}
+	\insertchapter{04_Figures_Tables}
+	\insertchapter{05_Plots_And_Graphs}
+	\insertchapter{06_Mathematical_Equations}
+	\insertchapter{07_Citations_And_References}
 
 % How to use the Recommended Softwares
-\insertchapter{08_JabRef}
+	\insertchapter{08_JabRef}
 
-\insertchapter{XX_Submitting_Your_Thesis}
+	\insertchapter{XX_Submitting_Your_Thesis}
 
-%\insertchapter{09_TeXstudio}
+	%\insertchapter{09_TeXstudio}
 
-%\insertchapter{10_dia}
+	%\insertchapter{10_dia}
 
-%\insertchapter{11_}
+	%\insertchapter{11_}
 
-%\insertchapter{12_}
+	%\insertchapter{12_}
 
-%\insertchapter{13_}
+	%\insertchapter{13_}
 
-%\insertchapter{14_}
+	%\insertchapter{14_}
 
-%\insertchapter{02_Example_Chapter}
-%\insertchapter{0X_Background}
-%\insertchapter{0X_Paper_1}
-%\insertchapter{0X_Paper_2}
-%\insertchapter{0X_Conclusions_Recommendations_and_Future_Work}
+	%\insertchapter{02_Example_Chapter}
+	%\insertchapter{0X_Background}
+	%\insertchapter{0X_Paper_1}
+	%\insertchapter{0X_Paper_2}
+	%\insertchapter{0X_Conclusions_Recommendations_and_Future_Work}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 BIBLIOGRAPHY                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
+
 % Uncomment the \nocite{*} if you want to include works read, but not cited 
 %   within the body of your work.
-  % \nocite{*}  
-  \printbibliography[heading=bibintoc]
+	% \nocite{*}  
+	\printbibliography[heading=bibintoc]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -262,11 +264,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
 % SET APPENDIX SPACING
-  %\onehalfspacing              % 1.50x Spacing
-  %\doublespacing               % 1.75x Spacing
-  \truedoublespacing            % 2.00x Spacing
-  %\triplespacing               % 3.00x Spacing
-  %\baselineskip #.##em         % #.##x Spacing
+	%\onehalfspacing              % 1.50x Spacing
+	%\doublespacing               % 1.75x Spacing
+	\truedoublespacing            % 2.00x Spacing
+	%\triplespacing               % 3.00x Spacing
+	%\baselineskip #.##em         % #.##x Spacing
 
 % To insert appendices from a separate tex file use the following commands
 % \insertappendix automatically looks in the Appendices folder and also
@@ -275,14 +277,14 @@
 % \input is the standard way of including a separate tex file
 % \input{"./Appendices/PDF_Appendix.tex"}
 
-  \insertappendix{0A_Additional_Figures}
+	\insertappendix{0A_Additional_Figures}
 
-  \insertappendix{0B_Additional_Tables}
+	\insertappendix{0B_Additional_Tables}
 
-  \insertappendix{0C_Code_Listings}
+	\insertappendix{0C_Code_Listings}
 
-  \insertappendix{0D_Including_PDFs}
+	\insertappendix{0D_Including_PDFs}
 
-  \insertappendix{0X_Math_Lettering}
+	\insertappendix{0X_Math_Lettering}
 
 \end{document}

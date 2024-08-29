@@ -16,13 +16,10 @@
 		The following code snippet demonstrates how to include a portrait PDF with the specified options:
 
 		\begin{lstlisting}[float=ht,caption=,label=lst:portraitPDF,style=LaTeXStyle,basicstyle=\ttfamily,]
-\includepdf[landscape=false]{./99_Inclusions/PDFs/examplePDF}
+\includepdf{./99_Inclusions/PDFs/examplePDF}
 		\end{lstlisting}
 
-		In this example, \opt{landscape=false} ensures that the PDF is inserted in portrait mode.
-		Adjust these options as needed for your document.
-
-		\includepdf[landscape=false]{./99_Inclusions/PDFs/examplePDF}
+		\includepdf{./99_Inclusions/PDFs/examplePDF}
 	\section{How to Insert a Landscape PDF}
 		Inserting a landscape-oriented PDF is similarly straightforward using the \pkg{pdfpages} package. 
 		The code snippet below demonstrates how to include a landscape PDF:
@@ -31,7 +28,7 @@
 \includepdf[landscape=true]{./99_Inclusions/PDFs/landscapePDF}
 		\end{lstlisting}
 
-		Here, \opt{landscape=true} sets the orientation to landscape. 
+		Here, \opt{landscape} sets the orientation to landscape. 
 		This configuration ensures that your landscape PDF is correctly oriented and properly sized within your document.
 
-		\includepdf[landscape=true]{./99_Inclusions/PDFs/landscapePDF}
+		\includepdf[landscape]{./99_Inclusions/PDFs/landscapePDF}

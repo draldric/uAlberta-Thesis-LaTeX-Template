@@ -35,6 +35,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage{xstring}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            LINE SPACING COMMANDS                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,107 +46,19 @@
 \newcommand{\normalspacing}{\baselineskip 1em}
 \newcommand{\triplespacing}{\baselineskip 3em}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                DATE COMMANDS                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\today{\ifcase\month\or
 	January\or February\or March\or April\or May\or June\or
 	July\or August\or September\or October\or November\or December\fi
 	\space\number\day, \number\year}
 
-\newcommand\settoclevel[1]{\setcounter{secnumdepth}{#1}\setcounter{tocdepth}{#1}}
-	\setcounter{tocdepth}{2}
-
-\newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
-\newcommand\@convocationdate{\the\year}
- 
-\newcommand\specialization[1]{%
-	\renewcommand\@specialization{%
-		\def\specializationtemp{#1}
-		\ifx\specializationtemp\empty
-			\vspace{8\baselineskip}
-		\else
-			\vspace{1\baselineskip}
-			in\\
-			\vspace{1\baselineskip}
-			#1\\
-			\vspace{4\baselineskip}
-		\fi}}
-\newcommand\@specialization{\vspace{8\baselineskip}}
-
-\newcommand\deptfac[1]{%
-	\renewcommand\@deptfac{
-		\def\deptfactemp{#1}
-		\ifx\deptfactemp\empty
-		\else
-			#1
-		\fi}}
-\newcommand\@deptfac{}
-
-\newcommand\university[1]{\renewcommand\@university{#1}}
-\newcommand\@university{University of Alberta}
-
-\newcommand\degree[1]{\renewcommand\@degree{#1}}
-\newcommand\@degree{Select or Enter a Degree}
-
-\newcommand\abstracttext[1]{\renewcommand\@abstracttext{#1}\sanitizeabstract}
-\newcommand\@abstracttext{}
-
-\newcommand{\sanitizeabstract}{
-  \StrSubstitute{\@abstracttext}{\par}{ }[\@cleanabstract]}
-
-\newcommand\keywords[1]{\renewcommand\@keywords{#1}}
-\newcommand\@keywords{}
-
-\newcommand\thesisquote[1]{\renewcommand\@thesisquote{#1}}
-\newcommand\@thesisquote{}
-
-\newcommand\preface[1]{%
-	\renewcommand\@preface{%
-		\ifblank{#1}{%
-			This thesis is an original work by \@author. No part of this thesis has been previously published.
-		}{%
-			#1}}}
-\newcommand\@preface{This thesis is an original work by \@author. No part of this thesis has been previously published.}
-
-\newcommand\dedication[1]{\renewcommand\@dedication{#1}}
-\newcommand\@dedication{}
-
-\newcommand\acknowledgementtext[1]{\renewcommand\@acknowledgementtext{#1}}
-\newcommand\@acknowledgementtext{}
-
-\newcounter{baseSection}
-\setcounter{baseSection}{0}
-
-\newcommand\addlatexfiles[1]{\renewcommand\@addlatexfiles{#1}}
-\newcommand\@addlatexfiles{}
-
-\newcommand\addprefatory[1]{\renewcommand\@addprefatory{#1}}
-\newcommand\@addprefatory{}
-
-\newcommand\addchapters[1]{\renewcommand\@addchapters{#1}}
-\newcommand\@addchapters{}
-
-\newcommand\addappendices[1]{\renewcommand\@addappendices{#1}}
-\newcommand\@addappendices{}
-
-\newcommand\addmedia[1]{\renewcommand\@addmedia{#1}}
-\newcommand\@addmedia{}
-
-\newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia#1}}
-\newcommand\@addimages{}
-
-\newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia#1}}
-\newcommand\@addtables{}
-
-\newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia#1}}
-\newcommand\@addcode{}
-
-\newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia#1}}
-\newcommand\@addpdf{}
-
-\newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia#1}}
-\newcommand\@adddata{}
-
 \def\@year{\number\year}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                   NEW IFS                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\if@restonecol
 
 \newif\if@openright
@@ -168,11 +81,143 @@
 
 \newif\ifplates
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               THESIS COMMANDS                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONVOCATION DATE
+	\newcommand\convocationdate[1]{\renewcommand\@convocationdate{#1}}
+	\newcommand\@convocationdate{\the\year}
+
+% SPECIALIZATION
+	\newcommand\specialization[1]{%
+		\renewcommand\@specialization{%
+			\def\specializationtemp{#1}
+			\ifx\specializationtemp\empty
+				\vspace{8\baselineskip}
+			\else
+				\vspace{1\baselineskip}
+				in\\
+				\vspace{1\baselineskip}
+				#1\\
+				\vspace{4\baselineskip}
+			\fi}}
+	\newcommand\@specialization{\vspace{8\baselineskip}}
+
+% DEPARTMENT OR FACULTY
+	\newcommand\deptfac[1]{%
+		\renewcommand\@deptfac{
+			\def\deptfactemp{#1}
+			\ifx\deptfactemp\empty
+			\else
+				#1
+			\fi}}
+	\newcommand\@deptfac{}
+
+% UNIVERSITY
+	\newcommand\university[1]{\renewcommand\@university{#1}}
+	\newcommand\@university{University of Alberta}
+
+% DEGREE
+	\newcommand\degree[1]{\renewcommand\@degree{#1}}
+	\newcommand\@degree{Select or Enter a Degree}
+
+% ABSTRACT
+	\newcommand\abstracttext[1]{%
+		\renewcommand\@abstracttext{#1}
+		\StrSubstitute{\@abstracttext}{\par}{ }[\@cleanabstract]}
+	\newcommand\@abstracttext{}
+
+% KEYWORDS
+	\newcommand\keywords[1]{\renewcommand\@keywords{#1}}
+	\newcommand\@keywords{}
+
+% QUOTE
+	\newcommand\thesisquote[1]{\renewcommand\@thesisquote{#1}}
+	\newcommand\@thesisquote{}
+
+% PREFACE
+	\newcommand\preface[1]{%
+		\renewcommand\@preface{%
+			\ifblank{#1}{%
+				This thesis is an original work by \@author. No part of this thesis has been previously published.
+			}{%
+				#1}}}
+	\newcommand\@preface{This thesis is an original work by \@author. No part of this thesis has been previously published.}
+
+% DEDICATION
+	\newcommand\dedication[1]{\renewcommand\@dedication{#1}}
+	\newcommand\@dedication{}
+
+% ACKNOWLEDGEMENT
+	\newcommand\acknowledgementtext[1]{\renewcommand\@acknowledgementtext{#1}}
+	\newcommand\@acknowledgementtext{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             FORMATTING COMMANDS                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\settoclevel[1]{\setcounter{secnumdepth}{#1}\setcounter{tocdepth}{#1}}
+\settoclevel{3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            FILE LOCATION COMMANDS                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\addlatexfiles[1]{\renewcommand\@addlatexfiles{#1}}
+\newcommand\@addlatexfiles{./00_LaTeX_Files/}
+\newcommand{\insertlatexfile}[1]{%
+    \input{"\@addlatexfiles#1.tex"}}
+
+\newcommand\addprefatory[1]{\renewcommand\@addprefatory{#1}}
+\newcommand\@addprefatory{./01_Prefatory/}
+\newcommand{\insertprefatory}[1]{
+	\input{"\@addprefatory#1.tex"}}
+
+\newcommand\addchapters[1]{\renewcommand\@addchapters{#1}}
+\newcommand\@addchapters{./02_Chapters/}
+\newcommand{\insertchapter}[1]{
+	\input{"\@addchapters#1.tex"}}
+
+\newcommand\addappendices[1]{\renewcommand\@addappendices{#1}}
+\newcommand\@addappendices{./03_Chapters/}
+\newcommand{\insertappendix}[1]{
+	\input{"\@addappendices#1.tex"}}
+
+\newcommand\addmedia[1]{\renewcommand\@addmedia{#1}}
+\newcommand\@addmedia{./99_Inclusions/}
+
+\newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia#1}}
+\newcommand\@addimages{Images/}
+\newcommand{\insertimage}[1]{%
+	"\@addimages#1"}
+
+\newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia#1}}
+\newcommand\@addtables{Tables/}
+\newcommand{\inserttable}[1]{%
+	\input{"\@addtables#1.tex"}}
+
+\newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia#1}}
+\newcommand\@addcode{Code/}
+\newcommand{\insertcode}[1]{%
+	\@addcode#1}
+
+\newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia#1}}
+\newcommand\@addpdf{Pdfs/}
+\newcommand{\insertpdf}[1]{%
+	\@addpdf#1}
+
+\newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia#1}}
+\newcommand\@adddata{Data/}
+\newcommand{\insertdata}[1]{%
+	\@adddata#1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                CLASS OPTIONS                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\@ptsize{}
 \DeclareOption{10pt}{\renewcommand\@ptsize{0}}
 \DeclareOption{11pt}{\renewcommand\@ptsize{1}}
 \DeclareOption{12pt}{\renewcommand\@ptsize{2}}
-
 
 \DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}
 \DeclareOption{twoside}{\@twosidetrue  \@mparswitchtrue \@openrighttrue}
@@ -215,6 +260,11 @@
 \ProcessOptions
 
 \input{size1\@ptsize.clo}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             SET REQUIRED LENGTHS                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
 \renewcommand\baselinestretch{}
@@ -222,21 +272,29 @@
 \@lowpenalty   51
 \@medpenalty  151
 \@highpenalty 301
+\setlength\arraycolsep{5\p@}
+\setlength\tabcolsep{6\p@}
+\setlength\arrayrulewidth{.4\p@}
+\setlength\doublerulesep{2\p@}
+\setlength\tabbingsep{\labelsep}
+\skip\@mpfootins = \skip\footins
+\setlength\fboxsep{3\p@}
+\setlength\fboxrule{.4\p@}
+\setlength\columnsep{10\p@}
+\setlength\columnseprule{0\p@}
+\newlength\abovecaptionskip
+\setlength\abovecaptionskip{10\p@}
+\newlength\belowcaptionskip
+\setlength\belowcaptionskip{0\p@}
 
-\setcounter{topnumber}{2}
-\renewcommand\topfraction{.7}
-\setcounter{bottomnumber}{1}
-\renewcommand\bottomfraction{.3}
-\setcounter{totalnumber}{3}
-\renewcommand\textfraction{.2}
-\renewcommand\floatpagefraction{.5}
-\setcounter{dbltopnumber}{2}
-\renewcommand\dbltopfraction{.7}
-\renewcommand\dblfloatpagefraction{.5}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             HEADINGS DEFINITION                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \if@twoside
 	\def\ps@headings{%
-		\let\@oddfoot\@empty\let\@evenfoot\@empty
+		\let\@oddfoot\@empty
+		\let\@evenfoot\@empty
 		\def\@evenhead{\thepage\hfil\slshape\leftmark}%
 		\def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
 		\let\@mkboth\markboth
@@ -266,13 +324,18 @@
 \fi
 
 \def\ps@myheadings{%
-	\let\@oddfoot\@empty\let\@evenfoot\@empty
+	\let\@oddfoot\@empty
+	\let\@evenfoot\@empty
 	\def\@evenhead{\thepage\hfil\slshape\leftmark}%
 	\def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
 	\let\@mkboth\@gobbletwo
 	\let\chaptermark\@gobble
 	\let\sectionmark\@gobble}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            TITLE PAGE GENERATION                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{titlepage}{%
 		\if@twocolumn
 			\@restonecoltrue\onecolumn
@@ -309,30 +372,41 @@
 		\newpage
 	\end{titlepage}%
 	\hypersetup{pageanchor=true}
-	\if@fancyheaders
-		\pagestyle{headings}
-	\else
-		\pagestyle{plain}
-	\fi
-	\pagenumbering{roman}\setcounter{page}{2}
-	\setcounter{footnote}{0}%
-	\global\let\maketitle\relax
-	\newwrite\myfile
-	\immediate\openout\myfile=\jobname.xmpdata
-	\immediate\write\myfile{\string\Title{\@title }}
-	\immediate\write\myfile{\string\Author{\@author }}
-	\immediate\write\myfile{\string\Subject{ \@cleanabstract } }
-	\immediate\write\myfile{\string\Copyright{Copyright \string\copyright\ \@convocationdate\space\@author }}
-	\immediate\closeout\myfile
-	%\global\let\@author\@empty
-	%\global\let\@convocationdate\@empty
-	%\global\let\@title\@empty
-	\global\let\title\relax
-	\global\let\author\relax
-	\global\let\convocationdate\relax
-	\global\let\and\relax
+
+	% SETUP PAGES FOR REST OF PREFATORY PAGES
+		\if@fancyheaders
+			\pagestyle{headings}
+		\else
+			\pagestyle{plain}
+		\fi
+		\pagenumbering{roman}\setcounter{page}{2}
+		\setcounter{footnote}{0}%
+
+	% GENERATE XMPDATA FILE
+		\newwrite\myfile
+		\immediate\openout\myfile=\jobname.xmpdata
+		\immediate\write\myfile{\string\Title{\@title }}
+		\immediate\write\myfile{\string\Author{\@author }}
+		\immediate\write\myfile{\string\Subject{ \@cleanabstract } }
+		\immediate\write\myfile{\string\Copyright{Copyright \string\copyright\ \@convocationdate\space\@author }}
+		\immediate\closeout\myfile
+
+	% CLEAR OUT OLD VARIABLES AND MACROS
+		\global\let\maketitle\relax
+		%\global\let\@author\@empty
+		%\global\let\@convocationdate\@empty
+		%\global\let\@title\@empty
+		\global\let\title\relax
+		\global\let\author\relax
+		\global\let\convocationdate\relax
+		\global\let\and\relax
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        DOCUMENT STRUCTURE DEFINITIONS                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{baseSection}
+\setcounter{baseSection}{0}
 \newcommand*\chaptermark[1]{}
 \setcounter {secnumdepth}{2}
 \newcounter {chapter}
@@ -347,6 +421,11 @@
 \renewcommand \thesubsubsection {\thesubsection.\@arabic\c@subsubsection}
 \renewcommand \theparagraph     {\thesubsubsection.\@arabic\c@paragraph}
 \renewcommand \thesubparagraph  {\theparagraph.\@arabic\c@subparagraph}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              CHAPTER DEFINITION                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\@chapapp{\chaptername}
 
 \newcommand\chapter{\stepcounter{baseSection}
@@ -403,7 +482,11 @@
 		\interlinepenalty\@M
 		\Huge \bfseries  #1\par\nobreak
 		\vskip 40\p@}}
-  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             SECTION DEFINITIONS                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\section{\@startsection {section}{1}{\z@}%
 	{-3.5ex \@plus -1ex \@minus -.2ex}%
 	{2.3ex \@plus.2ex}%
@@ -429,6 +512,10 @@
 	{-1em}%
 	{\normalfont\normalsize\bfseries}}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           LIST & LIST MARGIN SETUP                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \if@twocolumn
 	\setlength\leftmargini  {2em}
 \else
@@ -478,6 +565,10 @@
 \newcommand*\descriptionlabel[1]{\hspace\labelsep
 	\normalfont\bfseries #1}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           ADDITIONAL ENVIRONMENTS                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{verse}
 	{\let\\\@centercr
 		\list{}{\itemsep      \z@
@@ -507,86 +598,96 @@
 	\gdef\@chapapp{\appendixname}%
 	\gdef\thechapter{\@Alph\c@chapter}}
 
-\setlength\arraycolsep{5\p@}
-\setlength\tabcolsep{6\p@}
-\setlength\arrayrulewidth{.4\p@}
-\setlength\doublerulesep{2\p@}
-\setlength\tabbingsep{\labelsep}
-\skip\@mpfootins = \skip\footins
-\setlength\fboxsep{3\p@}
-\setlength\fboxrule{.4\p@}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             SET REQUIRED LENGTHS                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \@addtoreset {equation}{chapter}
 \renewcommand\theequation
 	{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@equation}
 
-\newcounter{figure}[chapter]
-\renewcommand \thefigure
-	{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@figure}
-\def\fps@figure{tbp}
-\def\ftype@figure{1}
-\def\ext@figure{lof}
-\def\fnum@figure{\figurename\nobreakspace\thefigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 FLOAT SETUP                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{topnumber}{2}
+\renewcommand\topfraction{.7}
+\setcounter{bottomnumber}{1}
+\renewcommand\bottomfraction{.3}
+\setcounter{totalnumber}{3}
+\renewcommand\textfraction{.2}
+\renewcommand\floatpagefraction{.5}
+\setcounter{dbltopnumber}{2}
+\renewcommand\dbltopfraction{.7}
+\renewcommand\dblfloatpagefraction{.5}
+
+% FIGURES
+	\newcounter{figure}[chapter]
+	\renewcommand \thefigure
+		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@figure}
+	\def\fps@figure{tbp}
+	\def\ftype@figure{1}
+	\def\ext@figure{lof}
+	\def\fnum@figure{\figurename\nobreakspace\thefigure}
+
+	\newenvironment{figure}
+		{\figures@in@document\@float{figure}}
+		{\end@float}
+
+	\def\figures@in@document {%
+		\immediate\write\@mainaux {\global\string\figurestrue}%
+		\global\let\figures@in@document\empty}
+
+	\newenvironment{figure*}
+		{\@dblfloat{figure}}
+		{\end@dblfloat}
+
+% TALBES
+	\newcounter{table}[chapter]
+	\renewcommand \thetable
+		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@table}
+	\def\fps@table{tbp}
+	\def\ftype@table{2}
+	\def\ext@table{lot}
+	\def\fnum@table{\tablename\nobreakspace\thetable}
+
+	\newenvironment{table}
+		{\tables@in@document\@float{table}}
+		{\end@float}
+
+	\def\tables@in@document {%
+		\immediate\write\@mainaux {\global\string\tablestrue}%
+		\global\let\tables@in@document\empty}
+
+	\newenvironment{table*}
+		{\@dblfloat{table}}
+		{\end@dblfloat}
+
+% PLATES
+	\newcounter{plate}[chapter]
+	\renewcommand \theplate
+		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@plate}
+	\def\fps@plate{tbp}
+	\def\ftype@plate{3}
+	\def\ext@plate{lop}
+	\def\fnum@plate{\platename\nobreakspace\theplate}
+
+	\newenvironment{plate}
+		{\plates@in@document\@float{plate}}
+		{\end@float}
+
+	\def\plates@in@document {%
+		\immediate\write\@mainaux {\global\string\platestrue}%
+		\global\let\plates@in@document\empty}
+
+	\newenvironment{plate*}
+		{\@dblfloat{plate}}
+		{\end@dblfloat}
 
 
-\newenvironment{figure}
-	{\figures@in@document\@float{figure}}
-	{\end@float}
-
-\def\figures@in@document {%
-    \immediate\write\@mainaux {\global\string\figurestrue}%
-    \global\let\figures@in@document\empty}
-
-\newenvironment{figure*}
-	{\@dblfloat{figure}}
-	{\end@dblfloat}
-
-\newcounter{table}[chapter]
-\renewcommand \thetable
-	{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@table}
-\def\fps@table{tbp}
-\def\ftype@table{2}
-\def\ext@table{lot}
-\def\fnum@table{\tablename\nobreakspace\thetable}
-
-\newenvironment{table}
-	{\tables@in@document\@float{table}}
-	{\end@float}
-
-\def\tables@in@document {%
-    \immediate\write\@mainaux {\global\string\tablestrue}%
-    \global\let\tables@in@document\empty}
-
-\newenvironment{table*}
-	{\@dblfloat{table}}
-	{\end@dblfloat}
-
-\newcounter{plate}[chapter]
-\renewcommand \theplate
-	{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@plate}
-\def\fps@plate{tbp}
-\def\ftype@plate{3}
-\def\ext@plate{lop}
-\def\fnum@plate{\platename\nobreakspace\theplate}
-
-\newenvironment{plate}
-	{\plates@in@document\@float{plate}}
-	{\end@float}
-
-\def\plates@in@document {%
-    \immediate\write\@mainaux {\global\string\platestrue}%
-    \global\let\plates@in@document\empty}
-
-\newenvironment{plate*}
-	{\@dblfloat{plate}}
-	{\end@dblfloat}
-
-\newlength\abovecaptionskip
-\setlength\abovecaptionskip{10\p@}
-
-\newlength\belowcaptionskip
-\setlength\belowcaptionskip{0\p@}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                CAPTION SETUP                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \long\def\@makecaption#1#2{%
 	\vskip\abovecaptionskip
 	\sbox\@tempboxa{#1: #2}%
@@ -598,6 +699,10 @@
 	\fi
 	\vskip\belowcaptionskip}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        OLD FONT COMMAND COMPATIBILITY                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
 \DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
 \DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
@@ -608,156 +713,182 @@
 \DeclareRobustCommand*\cal{\@fontswitch\relax\mathcal}
 \DeclareRobustCommand*\mit{\@fontswitch\relax\mathnormal}
 
-\newcommand\tableofcontents{%
-	\if@openright\cleardoublepage\else\clearpage\fi
-	\thispagestyle{plain}%
-	\if@twocolumn
-		\@restonecoltrue\onecolumn
-	\else
-		\@restonecolfalse
-	\fi
-	\if@twocolumn
-		\@topnewpage[\@makeschapterhead{\contentsname
-		\@mkboth{%
-			\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}]%
-	\else
-		\@makeschapterhead{\contentsname
-		\@mkboth{%
-			\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
-		\@afterheading
-	\fi%
-	\@starttoc{toc}%
-	\if@restonecol\twocolumn\fi
-	}
-\newcommand*\l@chapter[2]{%
-	\ifnum \c@tocdepth >\m@ne
-		\addpenalty{-\@highpenalty}%
-		\vskip 1.0em \@plus\p@
-		\setlength\@tempdima{1.5em}%
-		\begingroup
-			\parindent \z@ \rightskip \@pnumwidth
-			\parfillskip -\@pnumwidth
-			\leavevmode \bfseries
-			\advance\leftskip\@tempdima
-			\hskip -\leftskip
-			#1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
-			\penalty\@highpenalty
-		\endgroup
-	\fi}
-\newcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
-\newcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
-\newcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
-\newcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
-\newcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 
-\newcommand\listoffigures{%
-	\iffigures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          TABLE OF CONTENTS COMMANDS                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLE OF CONTENTS
+	\newcommand\tableofcontents{%
+		\if@openright\cleardoublepage\else\clearpage\fi
+		\thispagestyle{plain}%
 		\if@twocolumn
 			\@restonecoltrue\onecolumn
 		\else
 			\@restonecolfalse
 		\fi
-		\chapter*{\listfigurename}%
-		\addcontentsline{toc}{chapter}{\listfigurename}
-		\@mkboth{\MakeUppercase\listfigurename}%
-				{\MakeUppercase\listfigurename}%
-		\@starttoc{lof}%
-		\if@restonecol
-			\twocolumn
-		\fi
-	\fi}
-\newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
-
-\newcommand\listoftables{%
-	\iftables
 		\if@twocolumn
-			\@restonecoltrue\onecolumn
+			\@topnewpage[%
+				\@makeschapterhead{%
+					\contentsname
+					\@mkboth{\MakeUppercase\contentsname}
+							{\MakeUppercase\contentsname}}]%
 		\else
-			\@restonecolfalse
-		\fi
-		\chapter*{\listtablename}%
-		\addcontentsline{toc}{chapter}{\listtablename}
-		\@mkboth{\MakeUppercase\listtablename}%
-				{\MakeUppercase\listtablename}%
-		\@starttoc{lot}%
+			\@makeschapterhead{\contentsname
+			\@mkboth{\MakeUppercase\contentsname}
+					{\MakeUppercase\contentsname}}%
+			\@afterheading
+		\fi%
+		\@starttoc{toc}%
 		\if@restonecol
 			\twocolumn
-		\fi
-	\fi}
-\let\l@table\l@figure
+		\fi}
 
-\newcommand\listofplates{%
-	\ifplates
-		\if@twocolumn
-			\@restonecoltrue\onecolumn
-		\else
-			\@restonecolfalse
-		\fi
-		\chapter*{\listplatename}%
-		\addcontentsline{toc}{chapter}{\listplatename}
-		\@mkboth{\MakeUppercase\listplatename}%
-				{\MakeUppercase\listplatename}%
-		\@starttoc{lop}%
-		\if@restonecol
-			\twocolumn
-		\fi
-	\fi}
-\let\l@plate\l@figure
+% LIST OF FIGURES
+	\newcommand\listoffigures{%
+		\iffigures
+			\if@twocolumn
+				\@restonecoltrue\onecolumn
+			\else
+				\@restonecolfalse
+			\fi
+			\chapter*{\listfigurename}%
+			\addcontentsline{toc}{chapter}{\listfigurename}
+			\@mkboth{\MakeUppercase\listfigurename}%
+					{\MakeUppercase\listfigurename}%
+			\@starttoc{lof}%
+			\if@restonecol
+				\twocolumn
+			\fi
+		\fi}
 
-\newcommand\makeabstract{%
-	\ifdefvoid{\@abstracttext}{}{%
-		\chapter*{\abstractname}
-		\addcontentsline{toc}{chapter}{\abstractname}
-		\@mkboth{\MakeUppercase\abstractname}%
-				{\MakeUppercase\abstractname}
-		\truedoublespacing\@abstracttext}}
+% LIST OF TABLES
+	\newcommand\listoftables{%
+		\iftables
+			\if@twocolumn
+				\@restonecoltrue\onecolumn
+			\else
+				\@restonecolfalse
+			\fi
+			\chapter*{\listtablename}%
+			\addcontentsline{toc}{chapter}{\listtablename}
+			\@mkboth{\MakeUppercase\listtablename}%
+					{\MakeUppercase\listtablename}%
+			\@starttoc{lot}%
+			\if@restonecol
+				\twocolumn
+			\fi
+		\fi}
 
-\newcommand\listofsymbols{\printnomenclature}
+% LIST OF PLATES
+	\newcommand\listofplates{%
+		\ifplates
+			\if@twocolumn
+				\@restonecoltrue\onecolumn
+			\else
+				\@restonecolfalse
+			\fi
+			\chapter*{\listplatename}%
+			\addcontentsline{toc}{chapter}{\listplatename}
+			\@mkboth{\MakeUppercase\listplatename}%
+					{\MakeUppercase\listplatename}%
+			\@starttoc{lop}%
+			\if@restonecol
+				\twocolumn
+			\fi
+		\fi}
 
-\newcommand\makepreface{%
-	\ifdefvoid{\@preface}{}{%
-		\chapter*{\prefacename}
-		\addcontentsline{toc}{chapter}{\prefacename}
-		\@mkboth{\MakeUppercase\prefacename}%
-				{\MakeUppercase\prefacename}
-		\@preface}}
+% DEFINITIONS FOR EACH LEVEL IN TOC
+	\newcommand*\l@chapter[2]{%
+		\ifnum \c@tocdepth >\m@ne
+			\addpenalty{-\@highpenalty}%
+			\vskip 1.0em \@plus\p@
+			\setlength\@tempdima{1.5em}%
+			\begingroup
+				\parindent \z@ \rightskip \@pnumwidth
+				\parfillskip -\@pnumwidth
+				\leavevmode \bfseries
+				\advance\leftskip\@tempdima
+				\hskip -\leftskip
+				#1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+				\penalty\@highpenalty
+			\endgroup
+		\fi}
+	\newcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+	\newcommand*\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
+	\newcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+	\newcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
+	\newcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
+	\newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
+	\let\l@table\l@figure
+	\let\l@plate\l@figure
 
-\newcommand\acknowledgements{%
-	\ifdefvoid{\@acknowledgementtext}{}{
-		\chapter*{\acknowledgementname}
-		\addcontentsline{toc}{chapter}{\acknowledgementname}
-		\@mkboth{\MakeUppercase\acknowledgementname}%
-				{\MakeUppercase\acknowledgementname}
-		\@acknowledgementtext}}
 
-\newcommand\makequote{%
-	\ifdefvoid{\@thesisquote}{}{\chapter*{}
-		% \addcontentsline{toc}{chapter}{\quotename}
-		% \@mkboth{\MakeUppercase\quotename}%
-				% {\MakeUppercase\quotename}
-		\@mkboth{}%
-				{}
-		\begin{center}\em \@thesisquote \em\end{center}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         PREFATORY PAGES DEFINITIONS                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT
+	\newcommand\makeabstract{%
+		\ifdefvoid{\@abstracttext}{}{%
+			\chapter*{\abstractname}
+			\addcontentsline{toc}{chapter}{\abstractname}
+			\@mkboth{\MakeUppercase\abstractname}%
+					{\MakeUppercase\abstractname}
+			\truedoublespacing\@abstracttext}}
 
-\newcommand\makededication{%
-	\ifdefvoid{\@dedication}{}{\chapter*{}
-		% \addcontentsline{toc}{chapter}{\dedicationname}
-		% \@mkboth{\MakeUppercase\dedicationname}%
-				% {\MakeUppercase\dedicationname}
-		\@mkboth{}%
-				{}
-		\begin{center}\em \@dedication \em\end{center}}}
+% LIST OF SYMBOLS
+	\newcommand\listofsymbols{\printnomenclature}
 
-\newcommand\makededicationandquote{%
-	\ifdefvoid{\@dedication}{\makequote}{%
-		\ifdefvoid{\@thesisquote}{\makededication}{%
-			\chapter*{}
-			%\addcontentsline{toc}{chapter}{\quoteanddedicationname}
-			%\@mkboth{\MakeUppercase\quoteanddedicationname}%
-			%		{\MakeUppercase\quoteanddedicationname}
+% PREFACE
+	\newcommand\makepreface{%
+		\ifdefvoid{\@preface}{}{%
+			\chapter*{\prefacename}
+			\addcontentsline{toc}{chapter}{\prefacename}
+			\@mkboth{\MakeUppercase\prefacename}%
+					{\MakeUppercase\prefacename}
+			\@preface}}
+
+% ACKNOWLEDGEMENTS
+	\newcommand\acknowledgements{%
+		\ifdefvoid{\@acknowledgementtext}{}{
+			\chapter*{\acknowledgementname}
+			\addcontentsline{toc}{chapter}{\acknowledgementname}
+			\@mkboth{\MakeUppercase\acknowledgementname}%
+					{\MakeUppercase\acknowledgementname}
+			\@acknowledgementtext}}
+
+% QUOTE
+	\newcommand\makequote{%
+		\ifdefvoid{\@thesisquote}{}{\chapter*{}
+			% \addcontentsline{toc}{chapter}{\quotename}
+			% \@mkboth{\MakeUppercase\quotename}%
+					% {\MakeUppercase\quotename}
 			\@mkboth{}%
 					{}
-			\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}}}
+			\begin{center}\em \@thesisquote \em\end{center}}}
+
+% DEDICATION
+	\newcommand\makededication{%
+		\ifdefvoid{\@dedication}{}{\chapter*{}
+			% \addcontentsline{toc}{chapter}{\dedicationname}
+			% \@mkboth{\MakeUppercase\dedicationname}%
+					% {\MakeUppercase\dedicationname}
+			\@mkboth{}%
+					{}
+			\begin{center}\em \@dedication \em\end{center}}}
+
+% COMBO QUOTE & DEDICATION
+	\newcommand\makededicationandquote{%
+		\ifdefvoid{\@dedication}{\makequote}{%
+			\ifdefvoid{\@thesisquote}{\makededication}{%
+				\chapter*{}
+				%\addcontentsline{toc}{chapter}{\quoteanddedicationname}
+				%\@mkboth{\MakeUppercase\quoteanddedicationname}%
+				%		{\MakeUppercase\quoteanddedicationname}
+				\@mkboth{}%
+						{}
+				\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}}}
+
+
 
 
 \def\bodyoftext{%
@@ -770,86 +901,72 @@
 		\pagestyle{headings}
 	\else
 		\pagestyle{plain}
-	\fi
-}
+	\fi}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                FOOTNOTE SETUP                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand\footnoterule{%
 	\kern-3\p@
 	\hrule\@width.4\columnwidth
 	\kern2.6\p@}
-	
+
 \@addtoreset{footnote}{chapter}
 \newcommand\@makefntext[1]{%
 	\parindent 1em%
 	\noindent
 	\hb@xt@1.8em{\hss\@makefnmark}#1}
-	
-\newcommand\abbreviationsname{Abbreviations}
-\newcommand\abstractname{Abstract}
-\newcommand\acknowledgementname{Acknowledgements}
-\newcommand\appendixname{Appendix}
-\newcommand\bibname{Bibliography}
-\newcommand\chaptername{Chapter}
-\newcommand\contentsname{Table of Contents}
-\newcommand\dedicationname{Dedication}
-\newcommand\figurename{Figure}
-\newcommand\glossaryname{Glossary of Terms}
-\newcommand\indexname{Index}
-\newcommand\listfigurename{List of Figures}
-\newcommand\listplatename{List of Plates}
-\newcommand\listsymbolname{List of Symbols}
-\newcommand\listtablename{List of Tables}
-\newcommand\platename{Plate}
-\newcommand\prefacename{Preface}
-\newcommand\quotename{Quote}
-\newcommand\quoteanddedicationname{\quotename\ \&\ \dedicationname}
-\newcommand\tablename{Table}
 
-\setlength\columnsep{10\p@}
-\setlength\columnseprule{0\p@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               DEFINE ALL NAMES                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\abbreviationsname           {Abbreviations}
+\newcommand\abstractname                {Abstract}
+\newcommand\acknowledgementname         {Acknowledgements}
+\newcommand\appendixname                {Appendix}
+\newcommand\bibname                     {Bibliography}
+\newcommand\chaptername                 {Chapter}
+\newcommand\contentsname                {Table of Contents}
+\newcommand\dedicationname              {Dedication}
+\newcommand\figurename                  {Figure}
+\newcommand\glossaryname                {Glossary of Terms}
+\newcommand\indexname                   {Index}
+\newcommand\listfigurename              {List of Figures}
+\newcommand\listplatename               {List of Plates}
+\newcommand\listsymbolname              {List of Symbols}
+\newcommand\listtablename               {List of Tables}
+\newcommand\platename                   {Plate}
+\newcommand\prefacename                 {Preface}
+\newcommand\quotename                   {Quote}
+\newcommand\quoteanddedicationname      {\quotename\ \&\ \dedicationname}
+\newcommand\tablename                   {Table}
 
 % CONTROL THE BOTTOM OF THE PAGE WHEN IN TWOSIDED
-\if@twoside
-	\raggedbottom
-\else
-	\raggedbottom
-\fi
-\if@twocolumn
-	\twocolumn
-	\sloppy
-	\flushbottom
-\else
-	\onecolumn
-\fi
+	\if@twoside
+		\raggedbottom
+	\else
+		\raggedbottom
+	\fi
 
-\newcommand{\insertappendix}[1]{
-	\input{"\@addappendices#1.tex"}}
+% TWO COLUMN SETUP (REMOVE? KEEP FOR COMBATIBILITY REASONS? ARE THERE THESES 
+%  WRITTEN IN TWO COLUMN?)
+	\if@twocolumn
+		\twocolumn
+		\sloppy
+		\flushbottom
+	\else
+		\onecolumn
+	\fi
 
-\newcommand{\insertchapter}[1]{
-	\input{"\@addchapters#1.tex"}}
-
-\newcommand{\insertlatexfile}[1]{%
-    \input{"\@addlatexfiles#1.tex"}}
-
-\newcommand{\insertimage}[1]{%
-    "\@addimages#1"}
-
-\newcommand{\inserttable}[1]{%
-    \input{"\@addtables#1.tex"}}
-
-\newcommand{\insertpdf}[1]{%
-    \input{"\@addpdf#1"}}
-
-\newcommand{\insertdata}[1]{%
-	\input{"\@adddata#1"}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             ADDITIONAL PACKAGES                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \if@pdfa
 	\usepackage[a-3b]{pdfx}
 \fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                            MARGIN AND PAGE SETUP                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[
 	\@paperoption,
 	left=1in,
@@ -861,16 +978,20 @@
 	\@landscape
 ]{geometry}
 
+% PDFPAGES CHECK AND DEFAULTS SET
 \AtBeginDocument{
 	\@ifpackageloaded{pdfpages}{
 		\if@fancyheaders
-			\includepdfset{pages=-,scale=0.85,pagecommand=\thispagestyle{headings}}
+			\includepdfset{%
+				pages=-,
+				scale=0.85,
+				pagecommand=\thispagestyle{headings}}
 		\else
-			\includepdfset{pages=-,scale=0.85,pagecommand=\thispagestyle{plain}}
+			\includepdfset{%
+				pages=-,
+				scale=0.85,
+				pagecommand=\thispagestyle{plain}}
 		\fi
-	}{}
-}
+	}{}}
 
 \endinput
-
-
