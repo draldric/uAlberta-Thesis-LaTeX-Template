@@ -64,7 +64,7 @@
 			\caption[A simple line plot.]{A simple line plot (\subref{plt:line-plot}) and the code to generate the plot (\subref{lst:line-plot})}\label{fig:line-plot}
 		\end{figure}
 		Expanding on this example, we can add a second plot by adding the following code below the closing bracket and semi-colon (\texttt{\};}) of the \cmd{addplot} command:
-		\begin{lstlisting}[float=ht,caption=,label=lst:line-plot-2,style=LaTeXStyle,basicstyle=\small\ttfamily,]
+		\begin{lstlisting}[float=ht,caption=,label=lst:line-plot-2-add,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \addplot coordinates {
 	(0,16)
 	(1,9)
@@ -141,7 +141,7 @@
 		This section provides some ways to increase the readability and customization of the plots we generate.
 		\subsection{Adding a Legend}
 			Legends can be added to plots for better readability.
-			To add a legend to your plot you can use the code in \Cref{lst:legend-plot} to generate the plot shown in \Cref{fig:legend-plot}.
+			To add a legend to your plot you can use the code in \Cref{lst:legend-plot-header,lst:legend-plot-plots} to generate the plot shown in \Cref{fig:legend-plot}.
 			Each plot is individually added to the legend by adding a \cmd{addlegendentry}\mopt{YOUR LEGEND ENTRY HERE} command following the \cmd{addplot} command.
 			
 			\note{The position of the legend can be specified by using the optional parameter \opt{legend pos=}} followed by a set of compass coordinates.

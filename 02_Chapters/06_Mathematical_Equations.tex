@@ -19,24 +19,31 @@
 		E = m\ c^2
 	\end{equation*}
 	The second will produce an equation with a reference. 
-	For this, there are two main ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference, the other one, see \Cref{eq:customTag}, creates a reference with a `tag'. 
-	The difference between the two is just the inclusion of a \cmd{tag}\mopt{<text>} command that will replace the regular number with \opt{<text>}.
+	For this, there are two main ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference; the other one, see \Cref{eq:pi}, creates a reference with a `tag'. 
+	The difference between the two is the inclusion of a \cmd{tag}\mopt{<text>} command that will replace the regular number with \opt{<text>} and the changing from the \env{equation} environment to the \env{equation*} environment.
+	If you do not want the brackets around the tag, as shown in \Cref{eq:otherpi}, use the starred version of the command: \cmd{tag*}\mopt{<text>}. This will not remove the braces in the reference for the equation, but will remove them from appearing next to the equation definition.
+
+	\notice{Using the \cmd{tag} command in conjunction with the \cmd{label} command can create a \LaTeX\ warning when used in the non-star \env{equation} environment. This warning can be safely ignored, however, the better way to deal with this is to make sure one is using the star version, \env{equation*}.}
+
 	\begin{equation}
 		\label{eq:Eq}
-		\pi = 3.1415...
+		\pi = 3.14...
 	\end{equation}
-	\begin{equation}
-		\tag{Constant pi}
-		\label{eq:customTag}
+	\begin{equation*}
+		\tag{Constant pi}\label{eq:pi}
 		\pi = 3.1415...
-	\end{equation}
+	\end{equation*}
+	\begin{equation*}
+		\tag*{Constant pi}\label{eq:otherpi}
+		\pi = 3.1415...
+	\end{equation*}
 	If you have multiple equations that you want arranged very neatly, use the \env{align} environment and you can assign individual equations numbers as shown in \Cref{eq:multiref:a,eq:multiref:b,eq:multiref:c}.
 	Note that it is the \& symbol that determines what will be aligned.
 	Further note that spaces in \enquote{math mode} are ignored and need to be specified using the space commands in %\Cref{}%TODO ADD SPACE COMMANDS
 	\begin{align}%Note: Alignment happens at the "&" character
-		\label{eq:multiref:a} Equation1 & = 1\\
-		\label{eq:multiref:b} Equation2 & = 2 + 2\\
-		\label{eq:multiref:c} Equation3 & = 3 + 3 + 3
+		\label{eq:multiref:a} Equation1 &= 1\\
+		\label{eq:multiref:b} Equation2 &= 2 + 2\\
+		\label{eq:multiref:c} Equation3 &= 3 + 3 + 3
 	\end{align}
 	
 	%TODO: ADD MORE TYPES OF EQUATIONS

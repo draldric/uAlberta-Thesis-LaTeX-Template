@@ -973,7 +973,7 @@
 	right=1.5in,
 	headheight=0.25in,
 	headsep=0.25in,
-	textwidth=6.75in,
+	%textwidth=6.75in,
 	textheight=8.5in,
 	\@landscape
 ]{geometry}
