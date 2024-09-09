@@ -29,68 +29,68 @@
 	\newcommand{\commenting}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{grey}{\textbf{\faCommenting}} & \textcolor{grey}{\textit{#1}}
+			\textcolor{grey}{\faCommenting} & \textcolor{grey}{\textit{#1}}
 		\end{tabularx}}
 
 	\newcommand{\danger}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textsc{\color{black}\colorbox{red}{\textbf{\faWarning\ DANGER}}} & {\textbf{\MakeUppercase{#1}}}
+			\color{black}\colorbox{red}{\faWarning\ \textsc{\textbf{DANGER}}} & {\textbf{\MakeUppercase{#1}}}
 		\end{tabularx}}
 
 	\newcommand{\warning}[1]{%
 		\noindent
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textsc{\color{black}\colorbox{orange}{\textbf{\faWarning\ WARNING}}} & {\textbf{#1}}
+			\color{black}\colorbox{orange}{\faWarning\ \textsc{\textbf{WARNING}}} & {\textbf{#1}}
 		\end{tabularx}}
 
 	\newcommand{\caution}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textsc{\color{black}\colorbox{yellow}{\textbf{\faWarning\ CAUTION}}} & {#1}
+			\color{black}\colorbox{yellow}{\faWarning\ \textsc{\textbf{CAUTION}}} & {#1}
 		\end{tabularx}}
 
 	\newcommand{\notice}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textsc{\color{white}\colorbox{black}{\textbf{\textsl{NOTICE}}}} & {#1}
+			\color{white}\colorbox{black}{\textsc{\textbf{\textsl{NOTICE}}}} & {#1}
 		\end{tabularx}}
 
 	\newcommand{\alert}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textbf{\faWarning} & {#1}
+			\faWarning & {#1}
 		\end{tabularx}}
 
 	\newcommand{\note}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textbf{\textit{Note: }} & {\textit{#1}}
+			\textbf{\textsl{Note: }} & {\textit{#1}}
 		\end{tabularx}}
 
 	\newcommand{\info}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{blue}{\textbf{\faInfoCircle}} & \textcolor{blue}{#1}
+			\textcolor{blue}{\faInfoCircle} & \textcolor{blue}{#1}
 		\end{tabularx}}
 
 	\newcommand{\question}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{orange}{\textbf{\faQuestionCircle}} & \textbf{#1}
+			\textcolor{orange}{\faQuestionCircle} & \textbf{#1}
 		\end{tabularx}}
 
 	\newcommand{\answer}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\-\hspace{4ex}{\textsc{\color{orange}{\textbf{\faCheckCircle}}}} & \textit{#1}
+			\-\hspace{4ex}{\color{orange}{\faCheckCircle}} & \textit{#1}
 		\end{tabularx}}
 
 	\newcommand{\qna}[2]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{orange}{\textbf{\faQuestionCircle}} & \textbf{#1}
+			\textcolor{orange}{\faQuestionCircle} & \textbf{#1}
 		\end{tabularx}
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
@@ -100,43 +100,43 @@
 	\newcommand{\tip}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{gold}{{\textbf{{\faLightbulbO{}}}}} & \textcolor{gold}{#1}
+			\textcolor{gold}{\faLightbulbO{}} & \textcolor{gold}{#1}
 		\end{tabularx}}
 		
 	\newcommand{\key}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{black}{{\textbf{{\faKey}}}} & {#1}
+			\textcolor{black}{\faKey} & {#1}
 		\end{tabularx}}
 
 	\newcommand{\clouddownload}[2]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textbf{\faCloudDownload} & \href{#1}{#2}
+			\faCloudDownload & \href{#1}{#2}
 		\end{tabularx}}
 
 	\newcommand{\important}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{red}{\textbf{\faExclamationCircle}} & \textcolor{red}{#1}
+			\textcolor{red}{\faExclamationCircle} & \textcolor{red}{#1}
 		\end{tabularx}}
 
 	\newcommand{\tool}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{black}{\textbf{\faWrench}} & #1
+			\textcolor{black}{\faWrench} & #1
 		\end{tabularx}}
 
 	\newcommand{\setting}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{black}{\textbf{\faCogs}} & #1
+			\textcolor{black}{\faCogs} & #1
 		\end{tabularx}}
 
 	\newcommand{\software}[1]{%
 		\noindent
 		\begin{tabularx}{\linewidth}{@{}lX@{}}
-			\textcolor{black}{\textbf{\faFileCodeO}} & #1
+			\textcolor{black}{\faFileCodeO} & #1
 		\end{tabularx}}
 
 	\newcommand{\option}[1]{%

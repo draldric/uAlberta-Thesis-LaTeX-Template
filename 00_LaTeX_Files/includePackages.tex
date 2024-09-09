@@ -20,8 +20,8 @@
 	\newcommand\abbreviations{
 		\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
 
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 % Provides the comment environment (Block Comments)
 %   \begin{comment}
@@ -101,7 +101,8 @@
 		}
 		\urlstyle{same}
 		\Urlmuskip=0mu plus 1mu\relax
-	\usepackage[nameinlink]{cleveref}
+	\usepackage[nameinlink]{cleveref} % Provides better/smarter cross-references
+	\usepackage{xurl}                 % Fixes url lilnebreaking
 
 % DELETE THE LINE AFTER THIS COMMENT, IT IS ONLY USED FOR GUIDE AND NOT 
 %  NECESSARY FOR YOUR THESE
