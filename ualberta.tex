@@ -31,8 +31,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %LIST OF AVAILABLE THEOREM ENVIRONMENTS
-	% For the full list of available theorems OR to add your own theorems please 
-	%  see the `includeTheroems.tex' file located in the 00_LaTeX_Files Folder.
+	% For the full list of available theorems OR to add your own theorems see
+	%   the `includeTheroems.tex' file located in the 00_LaTeX_Files Folder.
 	%
 	% To use:
 	% \begin{<theorem name>}
@@ -51,20 +51,20 @@
 	fancyheaders]{ualberta}
 	% OPTIONS FOR ualberta.cls:
 	% chapterbib - Automatically prints references at the end of each chapter.
-	% 
+	%
 	% pdfa - To convert the PDF to PDF/A format (REQUIRED for GPS Submission)
-	% 
+	%
 	% oneside - Standard for submitting to GPS.
-	% 
-	% twoside - If you want to print your thesis double sided like a novel. Note:
-	%            GPS requires the submission to be one sided. Please use the 
-	%            option `oneside' for submission to GPS.
-	% 
-	% saychapapp - If you want your thesis to say Chapter # and Appendix @ in the  
-	%               ToC instead of just having the # or @.
+	%
+	% twoside - If you want to print your thesis double sided like a novel.
+	%            Note: GPS requires the submission to be one sided. Please use
+	%            the option `oneside' for submission to GPS.
+	%
+	% saychapapp - If you want your thesis to say Chapter # and Appendix @ in
+	%               the ToC instead of just having the # or @.
 	%               (GPS is inconsistent on if this is truly a Requirement.)
-	% 
-	% fancyheader - If you want your thesis to have chapter headers rather than 
+	%
+	% fancyheader - If you want your thesis to have chapter headers rather than
 	%               just a page number at the bottom.
 
 % Option to change the Level of subheading included in the Table of Contents
@@ -92,8 +92,8 @@
 	\addchapters{./02_Chapters/}
 
 % BIBLIOGRAPHY LOCATION
-	% NOTE: if you add bibliography entries after a compilation, you might notice 
-	%  references marked `[0]' to fix this just delete the auxiliary files. 
+	% NOTE: if you add bibliography entries after a compilation, you might notice
+	%  references marked `[0]' to fix this just delete the auxiliary files.
 	%  (*.aux, *.bbl, ... etc)
 	%
 	% .  - This folder
@@ -183,8 +183,8 @@
 	%\baselineskip #.##em        % #.##x Spacing
 
 % ALL LISTS/TABLES OF ________
-% Everything below should Automatically be included if it has content and 
-%  excluded if it does not. There is no need to comment any line here. If you 
+% Everything below should Automatically be included if it has content and
+%  excluded if it does not. There is no need to comment any line here. If you
 %  would like a different order however feel free to move items to new lines.
 	\tableofcontents             % Creates the Table of Contents
 	\listoftables                % Creates the List of Tables
@@ -192,14 +192,14 @@
 	\listofplates                % Creates the List of Plates (photographs)
 	\listofsymbols               % Creates the List of Symbols (Nomenclature)
 	\abbreviations               % Creates the List of Acronyms (Abbreviations)
-	\glsaddall                   % Required for List of Acronyms and Glossary 
+	\glsaddall                   % Required for List of Acronyms and Glossary
 	\generateglossary            % Creates the Glossary of Terms
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                           ADD YOUR CONTENT HERE                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\bodyoftext % Switches the style of the document to that required for the body
+	\bodyoftext % Switches the style of the document to that of the body
 
 % SET DOCUMENT SPACING
 	%\onehalfspacing       % 1.50x Spacing **Minimum Spacing for the THESIS BODY
@@ -211,9 +211,9 @@
 % To insert chapters from a separate tex file use the following commands
 % \insertchapter automatically looks in the Chapters folder and also
 %   appends the file extension (i.e. do NOT include the '.tex')
-% 
+%
 % \input is the standard way of including a separate tex file
-% \input{"./Chapters/ExampleChapter.tex"}
+% \input{./02_Chapters/ExampleChapter}
 
 	\insertchapter{01_Introduction}
 	\insertchapter{02_Getting_Started}
@@ -251,9 +251,9 @@
 %                                 BIBLIOGRAPHY                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Uncomment the \nocite{*} if you want to include works read, but not cited 
+% Uncomment the \nocite{*} if you want to include works read, but not cited
 %   within the body of your work.
-	% \nocite{*}  
+	% \nocite{*}
 	\printbibliography[heading=bibintoc]
 
 

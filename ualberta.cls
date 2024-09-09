@@ -165,22 +165,22 @@
 \newcommand\addlatexfiles[1]{\renewcommand\@addlatexfiles{#1}}
 \newcommand\@addlatexfiles{./00_LaTeX_Files/}
 \newcommand{\insertlatexfile}[1]{%
-    \input{"\@addlatexfiles#1.tex"}}
+    \input{\@addlatexfiles#1}}
 
 \newcommand\addprefatory[1]{\renewcommand\@addprefatory{#1}}
 \newcommand\@addprefatory{./01_Prefatory/}
 \newcommand{\insertprefatory}[1]{
-	\input{"\@addprefatory#1.tex"}}
+	\input{\@addprefatory#1}}
 
 \newcommand\addchapters[1]{\renewcommand\@addchapters{#1}}
 \newcommand\@addchapters{./02_Chapters/}
 \newcommand{\insertchapter}[1]{
-	\input{"\@addchapters#1.tex"}}
+	\input{\@addchapters#1}}
 
 \newcommand\addappendices[1]{\renewcommand\@addappendices{#1}}
 \newcommand\@addappendices{./03_Chapters/}
 \newcommand{\insertappendix}[1]{
-	\input{"\@addappendices#1.tex"}}
+	\input{\@addappendices#1}}
 
 \newcommand\addmedia[1]{\renewcommand\@addmedia{#1}}
 \newcommand\@addmedia{./99_Inclusions/}
@@ -193,7 +193,7 @@
 \newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia#1}}
 \newcommand\@addtables{Tables/}
 \newcommand{\inserttable}[1]{%
-	\input{"\@addtables#1.tex"}}
+	\input{\@addtables#1}}
 
 \newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia#1}}
 \newcommand\@addcode{Code/}
