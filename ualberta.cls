@@ -162,54 +162,52 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            FILE LOCATION COMMANDS                            %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand\addlatexfiles[1]{\renewcommand\@addlatexfiles{#1}}
-\newcommand\@addlatexfiles{./00_LaTeX_Files/}
+\newcommand\addlatexfiles[1]{\renewcommand\@addlatexfiles{\detokenize{#1}}}
+\newcommand\@addlatexfiles{\detokenize{./00_LaTeX_Files/}}
 \newcommand{\insertlatexfile}[1]{%
     \input{\@addlatexfiles#1}}
 
-\newcommand\addprefatory[1]{\renewcommand\@addprefatory{#1}}
-\newcommand\@addprefatory{./01_Prefatory/}
+\newcommand\addprefatory[1]{\renewcommand\@addprefatory{\detokenize{#1}}}
+\newcommand\@addprefatory{\detokenize{./01_Prefatory/}}
 \newcommand{\insertprefatory}[1]{
 	\input{\@addprefatory#1}}
 
-\newcommand\addchapters[1]{\renewcommand\@addchapters{#1}}
-\newcommand\@addchapters{./02_Chapters/}
+\newcommand\addchapters[1]{\renewcommand\@addchapters{\detokenize{#1}}}
+\newcommand\@addchapters{\detokenize{./02_Chapters/}}
 \newcommand{\insertchapter}[1]{
 	\input{\@addchapters#1}}
 
-\newcommand\addappendices[1]{\renewcommand\@addappendices{#1}}
-\newcommand\@addappendices{./03_Chapters/}
+\newcommand\addappendices[1]{\renewcommand\@addappendices{\detokenize{#1}}}
+\newcommand\@addappendices{\detokenize{./03_Chapters/}}
 \newcommand{\insertappendix}[1]{
 	\input{\@addappendices#1}}
 
-\newcommand\addmedia[1]{\renewcommand\@addmedia{#1}}
-\newcommand\@addmedia{./99_Inclusions/}
+\newcommand\addmedia[1]{\renewcommand\@addmedia{\detokenize{#1}}}
+\newcommand\@addmedia{\detokenize{./99_Inclusions/}}
 
-\newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia#1}}
-\newcommand\@addimages{Images/}
+\newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia\detokenize{#1}}}
+\newcommand\@addimages{\detokenize{Images/}}
 \newcommand{\insertimage}[1]{%
 	"\@addimages#1"}
 
-\newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia#1}}
-\newcommand\@addtables{Tables/}
+\newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia\detokenize{#1}}}
+\newcommand\@addtables{\detokenize{Tables/}}
 \newcommand{\inserttable}[1]{%
 	\input{\@addtables#1}}
 
-\newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia#1}}
-\newcommand\@addcode{Code/}
+\newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia\detokenize{#1}}}
+\newcommand\@addcode{\detokenize{Code/}}
 \newcommand{\insertcode}[1]{%
 	\@addcode#1}
 
-\newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia#1}}
-\newcommand\@addpdf{Pdfs/}
+\newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia\detokenize{#1}}}
+\newcommand\@addpdf{\detokenize{Pdfs/}}
 \newcommand{\insertpdf}[1]{%
 	\@addpdf#1}
 
-\newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia#1}}
-\newcommand\@adddata{Data/}
-\newcommand{\insertdata}[1]{%
-	\@adddata#1}
-
+\newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia\detokenize{#1}}}
+\newcommand\@adddata{\detokenize{Data/}}
+\newcommand\insertdata[1]{\@adddata\detokenize{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                CLASS OPTIONS                                 %
@@ -963,9 +961,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                             ADDITIONAL PACKAGES                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\if@pdfa
-	\usepackage[a-3b]{pdfx}
-\fi
+\AtEndPreamble{
+	\if@pdfa
+		\usepackage[noerr,a-3b]{pdfx}
+	\fi
+}
 
 \RequirePackage[
 	\@paperoption,
