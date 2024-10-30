@@ -3,6 +3,7 @@
 		Mainly this will be accomplished with the \pkg{pgfplots} package.
 		In the following sections, there will be a few examples of how to generate different plots.
 		For more information on how to create plots, \href{https://mirror.its.dal.ca/ctan/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf}{\textcolor{blue}{\underline{here}}} is the manual for \pkg{pgfplots}(the package used to generate the information for TikZ to create the plots).
+		For an extensive list of examples please refer to \href{https://pgfplots.sourceforge.net/gallery.html}{\textcolor{blue}{\underline{this}}}
 
 	\section{Line Plots}
 		A simple line plot can be effectively created using the \env{axis} environment from the \pkg{pgfplots} package in \LaTeX. 
@@ -520,7 +521,8 @@
 								upper whisker=7,
 								lower whisker=3
 							},
-							color=red
+							fill=red,
+							draw=black
 						] coordinates {};
 						\addplot+[
 							boxplot prepared={
@@ -530,7 +532,8 @@
 								upper whisker=8,
 								lower whisker=1
 							},
-							color=orange
+							fill=orange,
+							draw=black
 						] coordinates {};
 						\addplot+[
 							boxplot prepared={
@@ -540,7 +543,8 @@
 								upper whisker=7,
 								lower whisker=1.5
 							},
-							color=yellow
+							fill=yellow,
+							draw=black
 						] coordinates {};
 						\addplot+[
 							boxplot prepared={
@@ -550,7 +554,8 @@
 								upper whisker=9,
 								lower whisker=2
 							},
-							color=green
+							fill=green,
+							draw=black
 						] coordinates {};
 					\end{axis}
 				\end{tikzpicture}
