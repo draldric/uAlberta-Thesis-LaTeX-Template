@@ -164,14 +164,14 @@
 		\texttt{\textcolor{pkg}{#1}}}
 
 	\newcommand{\cmd}[1]{%
-		\texttt{\textcolor{cmd}{\textbackslash#1}}}
+		\texttt{\textcolor{cmd}{\textbackslash\detokenize{#1}}}}
 
 	\newcommand{\opt}[1]{%
-		\texttt{\textcolor{opt}{#1}}}
+		\texttt{\textcolor{opt}{\detokenize{#1}}}}
 	\newcommand{\oopt}[1]{%
-		\texttt{[\textcolor{opt}{#1}]}}
+		\texttt{[\textcolor{opt}{\detokenize{#1}}]}}
 	\newcommand{\mopt}[1]{%
-		\texttt{\{\textcolor{opt}{#1}\}}}
+		\texttt{\{\textcolor{opt}{\detokenize{#1}}\}}}
 
 	\newcommand{\env}[1]{%
 		\texttt{\textcolor{env}{#1}}}

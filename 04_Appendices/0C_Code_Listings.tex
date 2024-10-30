@@ -43,9 +43,9 @@
 
 			This configuration adds a single-line frame around the code, sets a light gray background, and defines styles for keywords, comments, and strings.
 			
-			\lstinputlisting[caption=This is a caption for the inserted code,style=MatlabStyle]{"./99_Inclusions/Code/matlabCode.m"}
+			\lstinputlisting[caption=This is a caption for the inserted code,style=MatlabStyle]{\insertcode{matlabCode.m}}
 			
-			\lstinputlisting[caption=This is a caption for the inserted code,style=CStyle]{"./99_Inclusions/Code/cCode.cpp"}
+			\lstinputlisting[caption=This is a caption for the inserted code,style=CStyle]{\insertcode{cCode.cpp}}
 			
 
 
@@ -62,7 +62,8 @@
 \lstinputlisting[language=Python]{path/to/your/code.py}
 			\end{lstlisting}
 
-			Replace \opt{path/to/your/code.py} with the actual path to your file. 
+			Replace \opt{path/to/your/code.py} with the actual path to your file.
+			Or you can use the \cmd{addmedia}\mopt{./99_Inclusions/} and \cmd{addcode}\mopt{Code/} commands to define the location for code files, then you can just use \cmd{insertcode}\mopt{filename.ext} command instead of the full path.
 			You can customize the display in the same way as inline listings.
 
 			% INSERT EXAMPLE: Demonstrate including an external file and discuss any specific considerations, such as relative vs. absolute paths.

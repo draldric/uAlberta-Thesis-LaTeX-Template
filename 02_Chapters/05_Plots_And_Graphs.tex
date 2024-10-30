@@ -366,18 +366,18 @@
 					\begin{axis}[
 							width=0.65\linewidth,
 							x tick label style={/pgf/number format/1000 sep=},
-							ylabel=Year,
-							enlargelimits=0.05,
-							legend style={at={(0.5,-0.1)},
+							xlabel=Year,
+							ylabel= Population,
+							enlargelimits=0.15,
+							legend style={at={(0.5,-0.21)},
 							anchor=north,legend columns=-1},
-							ybar interval=0.7,
+							ybar,
+							bar width=15pt,
 						]
 						\addplot 
-							coordinates {(2012,408184) (2011,408348)
-							(2010,414870) (2009,412156)};
+							coordinates {(2012,388950) (2011,393007) (2010,398449) (2009,395972) (2008,384621)};
 						\addplot 
-							coordinates {(2012,388950) (2011,393007) 
-							(2010,398449) (2009,395972)};
+							coordinates {(2012,408184) (2011,408348) (2010,414870) (2009,412156) (2008,415426)};
 						\legend{Men,Women}
 					\end{axis}
 				\end{tikzpicture}
@@ -386,7 +386,9 @@
 			\end{figure}
 		
 		\subsection{Pie Chart}
-			Pie charts are less common in \LaTeX, but can still be created using the package \pkg{pgf-pie}:
+			Pie charts are less common in \LaTeX, as well as, a lot of other media due to the pour representation of the data. 
+			%TODO: add citation for - https://scc.ms.unimelb.edu.au/resources/data-visualisation-and-exploration/no_pie-charts
+			However, if you are still inclined to use them the remainder of this section will show how the package \pkg{pgf-pie} can be used to create consistent graphs that look good.
 			\begin{figure}[H]
 				\centering
 				\begin{tikzpicture}
@@ -503,14 +505,12 @@
 						axis x line* = bottom,
 						axis y line = left,
 						ymajorgrids,
-						ytick = {0, 5, 10},
-						ylabel={Values},
 						ymin=0,
 						ymax=10,
 						enlarge y limits,
-						xtick = {1, 2},
 						xticklabel style = {align=center, font=\small, rotate=60},
-						xticklabels = {Apples, Oranges},
+						xtick = {1,2,3,4},
+						xticklabels = {Apples, Oranges, Bananas, Grapes},
 					]
 						\addplot+[
 							boxplot prepared={
@@ -520,7 +520,7 @@
 								upper whisker=7,
 								lower whisker=3
 							},
-							color=blue
+							color=red
 						] coordinates {};
 						\addplot+[
 							boxplot prepared={
@@ -530,7 +530,27 @@
 								upper whisker=8,
 								lower whisker=1
 							},
-							color=red
+							color=orange
+						] coordinates {};
+						\addplot+[
+							boxplot prepared={
+								median=6,
+								upper quartile=6.5,
+								lower quartile=2,
+								upper whisker=7,
+								lower whisker=1.5
+							},
+							color=yellow
+						] coordinates {};
+						\addplot+[
+							boxplot prepared={
+								median=3,
+								upper quartile=4,
+								lower quartile=2.5,
+								upper whisker=9,
+								lower whisker=2
+							},
+							color=green
 						] coordinates {};
 					\end{axis}
 				\end{tikzpicture}
