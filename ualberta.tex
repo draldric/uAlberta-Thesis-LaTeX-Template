@@ -30,18 +30,8 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%LIST OF AVAILABLE THEOREM ENVIRONMENTS
-	% For the full list of available theorems OR to add your own theorems see
-	%   the `includeTheroems.tex' file located in the 00_LaTeX_Files Folder.
-	%
-	% To use:
-	% \begin{<theorem name>}
-	%     <YOUR TEXT HERE>
-	% \end{<theorem name>}
-
 % Write command to allow the nomenclature to be generated properly.
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
-
 
 \documentclass[
 	pdfa,
