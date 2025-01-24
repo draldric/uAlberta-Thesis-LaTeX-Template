@@ -1,11 +1,4 @@
-\Title        {Thesis Title}
-
-\Author       {Your Name Here}
-
-\Copyright    {Copyright \copyright\ 2022 Your Name Here}
-
-\Keywords     {Keyword1\sep
-               Keyword2\sep
-               Keyword3}
-
-\Subject      {Abstract}
+\Title{Thesis Title}
+\Author{First Middle Last}
+\Subject{ This guide is a comprehensive resource crafted for University of Alberta\ students tackling their theses with LaTeX. It is designed to simplify the thesis-writing process by offering a detailed walkthrough of a custom LaTeX template tailored to meet the university's formatting requirements. The guide goes beyond mere template usage, providing step-by-step instructions, tips, and best practices for creating a well-structured thesis that adheres to academic standards.  It also delves into advanced customization techniques, allowing users to achieve specific stylistic elements and formatting nuances that suit their individual needs. Alongside these, the guide introduces JabRef, a robust reference management tool, and explains how to seamlessly integrate it with LaTeX to streamline citation management. Whether you are a novice or an experienced LaTeX user, this guide equips you with the knowledge and tools necessary to produce a polished, professional thesis. By following its clear and concise instructions, students can confidently navigate the complexities of thesis writing, ensuring their work is both technically sound and perfectly laid out. Test.} 
+\Copyright{Copyright \copyright\ 2024 First Middle Last}

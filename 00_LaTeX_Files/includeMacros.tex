@@ -1,0 +1,11 @@
+%Tablularx Additional Column types (c,l,r work as normal)
+	%Justified Auto-Width
+		%Use a capitial 'X'
+	%Centered Auto-Width
+		\newcolumntype{C}{>{\centering\arraybackslash}X}
+	%Left Justified Auto-Width
+		\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+	%Right Justified Auto-Width
+		\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+
+\renewcommand{\arraystretch}{1.5}

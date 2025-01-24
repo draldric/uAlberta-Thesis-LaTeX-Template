@@ -1,0 +1,149 @@
+\chapter{Mathematical Equations}\label{ch:mathematicalequations}
+	There are many ways to include formulas in your thesis. 
+	This section will provide some different ways of adding them (inline and standalone), as well as provide some ways of referencing the equations.
+
+	To start the simplest way to add an equation is using the built-in \LaTeX\ math mode. 
+	To enter and exit math mode one just needs to use the \cmd{(} and \cmd{)} symbols around an equation. While there also exists \lstinline|$<Equation>$| to add math, it is not recommended due to potential compatibility issues. Additionally, this, \lstinline|\(<Equation>\)|, method is capable of being redefined to add further customization. 
+	An example of using math mode to get an inline equation is by using the following command:
+	\begin{center}
+		\lstinline|\(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\)|
+	\end{center}
+	The above command has the effect of creating the following output: \(\vec{F_{d}}=\frac{1}{2}\ A\ C_{d}\ \vec{V}^{2}\).
+	Sometimes it can be quite beneficial to separate what would be an inline equation to be on its own line. 
+	For this, we have two different ways of doing it. 
+	The first was will produce an equation that has no reference:
+	\[
+		E = m\ c^2
+	\] % shorthand for the following way of writing equations.
+	\begin{equation*}
+		E = m\ c^2
+	\end{equation*}
+	The second will produce an equation with a reference. 
+	For this, there are two main ways of creating the reference, the first one, see \Cref{eq:Eq}, creates a numbered reference; the other one, see \Cref{eq:pi}, creates a reference with a `tag'. 
+	The difference between the two is the inclusion of a \cmd{tag}\mopt{<text>} command that will replace the regular number with \opt{<text>} and the changing from the \env{equation} environment to the \env{equation*} environment.
+	If you do not want the brackets around the tag, as shown in \Cref{eq:otherpi}, use the starred version of the command: \cmd{tag*}\mopt{<text>}. This will not remove the braces in the reference for the equation, but will remove them from appearing next to the equation definition.
+
+	\notice{Using the \cmd{tag} command in conjunction with the \cmd{label} command can create a \LaTeX\ warning when used in the non-star \env{equation} environment. This warning can be safely ignored, however, the better way to deal with this is to make sure one is using the star version, \env{equation*}.}
+
+	\begin{equation}
+		\label{eq:Eq}
+		\pi = 3.14...
+	\end{equation}
+	\begin{equation*}
+		\tag{Constant pi}\label{eq:pi}
+		\pi = 3.1415...
+	\end{equation*}
+	\begin{equation*}
+		\tag*{Constant pi}\label{eq:otherpi}
+		\pi = 3.1415...
+	\end{equation*}
+	If you have multiple equations that you want arranged very neatly, use the \env{align} environment and you can assign individual equations numbers as shown in \Cref{eq:multiref:a,eq:multiref:b,eq:multiref:c}.
+	Note that it is the \& symbol that determines what will be aligned.
+	Further note that spaces in \enquote{math mode} are ignored and need to be specified using the space commands in %\Cref{}%TODO ADD SPACE COMMANDS
+	\begin{align}%Note: Alignment happens at the "&" character
+		\label{eq:multiref:a} Equation1 &= 1\\
+		\label{eq:multiref:b} Equation2 &= 2 + 2\\
+		\label{eq:multiref:c} Equation3 &= 3 + 3 + 3
+	\end{align}
+	
+	%TODO: ADD MORE TYPES OF EQUATIONS
+	
+	%TODO: ADD MORE MATH BASED MACROS AND MENTION THE USE OF THE AMSMATH PACKAGES
+	
+	%TODO: MOVE THE TABLES TO AN APPENDIX THEY ARE VERY BLOATED HERE AND NOTHING REFERENCES THEM.
+	
+	
+	It may be very important in a math heavy thesis to be able to show your equations, or even data in a readable way. 
+	For this, we will explore some of the ways to create specific data.
+
+	\section{Vector, Sets, Piecewise Functions, Matrix Math, and More}
+		\begin{equation}
+			\text{f}(x) = 
+				\begin{cases}
+					x^{2*\ln{x}},&\text{if }x<3\\
+					-\frac{x}{2},&\text{if }3\leq{}x\leq{}4\\
+					x,&\text{if }4<x
+				\end{cases}
+		\end{equation}
+	
+		Vectors and Matrices are used in many fields of math and science and provide a convenient way to represent 2-Dimensional arrays of numbers.
+		\begin{align}
+			x&\in{}\left\{1,2,3,4,5,6,7\right\}\\
+			V_{1} &= {\left(
+			\begin{array}{cccc}
+				a, & b, & c, & d\\
+			\end{array}
+			\right)}\\
+			V_{2} &= \left(
+			\begin{array}{c}
+				a \\
+				b \\
+				c \\
+				d \\
+			\end{array}
+			\right)\\
+			M &= {\left[
+			\begin{array}{cccc}
+				a & b & c & d\\
+				e & f & g & h\\
+				i & j & k & l\\
+				m & n & o & p\\
+			\end{array}
+			\right]}
+		\end{align}
+		
+		\begin{multline*}
+			p(x) = 3x^6 + 14x^5y + 590x^4y^2 + 19x^3y^3\\ 
+			- 12x^2y^4 - 12xy^5 + 2y^6 - a^3b^3
+		\end{multline*}
+		
+		\begin{align}
+			ralign &= lalign \\
+			ralign &= lalign
+		\end{align}
+		
+		\begin{align*}
+			 x      &=  y   &  w   &= z              &  a  &= b+c \\
+			 2x     &= -y   &  3w  &= \frac{1}{2}z   &  a  &= b   \\
+			-4 + 5x &= 2+y  &  w+2 &= -1+w           &  ab &= cb
+		\end{align*}
+		
+		\begin{alignat*}{3}
+			& m   \quad && \text{Modulo}        \quad && m>0\\
+			& a   \quad && \text{Multiplier}    \quad && 0<a<m\\
+			& c   \quad && \text{Constant}      \quad && 0\leq c<m\\
+			& x_0 \quad && \text{Initial Value} \quad && 0\leq x_0 <m
+		\end{alignat*}
+		
+		\begin{equation*}
+			\begin{array}{lll}
+				m   & \text{Modulo}        & m>0\\
+				a   & \text{Multiplier}    & 0<a<m\\
+				c   & \text{Constant}      & 0\leq c<m\\
+				x_0 & \text{Initial Value} & 0\leq x_0 <m
+			\end{array}
+		\end{equation*}
+		
+		\begin{gather}
+			eqn1 = fdsjalk \\
+			eqn2 = fdsa * 243
+		\end{gather}
+		
+		\begin{multline}
+			eqn \\
+			= eqn
+		\end{multline}
+	\section{Functions}
+		
+		\begin{equation*}
+			\begin{array}{llllll}
+				\text{\cmd{sin}} & \sin & \text{\cmd{cos}} & \cos & \text{\cmd{tan}} & \tan \\
+				\text{\cmd{arcsin}} & \arcsin & \text{\cmd{arccos}} & \arccos & \text{\cmd{arctan}} & \arctan \\
+				\text{\cmd{sec}} & \cos & \text{\cmd{csc}} & \csc & \text{\cmd{cot}} & \cot \\
+				\text{\cmd{sinh}} & \sinh & \text{\cmd{cosh}} & \cosh & \text{\cmd{tanh}} & \tanh \\
+				\text{\cmd{ln}} & \ln & \text{\cmd{log}} & \log & \text{\cmd{exp}} & \exp \\
+			\end{array}
+		\end{equation*}
+	\section{}
+	
+	\section{Vector, Sets, Piecewise Functions, Matrix Math, and More}

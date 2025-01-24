@@ -33,7 +33,7 @@ For more information on the template, please visit the dedicated website at: htt
 
 ## About
 ### The Long Story Why I Made This
-As a graduate student from the University of Alberta, I understand the daunting task that is associated with writing a Thesis that conforms the the guidelines outlined in the FGSR Minimum Thesis Formatting Requirements. It can also be very frustrating to write long, equation and figure heavy, document in a word processor that is prone to crashes, file corruption, seemingly random changes to the formatting, and that do not output a document in the required PDF/A format for submission to FGSR.
+As a graduate student from the University of Alberta, I understand the daunting task that is associated with writing a Thesis that conforms to the guidelines outlined in the FGSR Minimum Thesis Formatting Requirements. It can also be very frustrating to write long, equation and figure heavy, document in a word processor that is prone to crashes, file corruption, seemingly random changes to the formatting, and that do not output a document in the required PDF/A format for submission to FGSR.
 
 Due to these problems, lots of students attempt to use an alternative to traditional word processors: LaTeX. 
 
@@ -43,7 +43,9 @@ LaTeX has the added benefit of providing a consistent and professional look and 
 
 During my Master's program, I had worked with writing my thesis in LaTeX and though I was able to generate all the formatting I needed to submit my thesis, I knew it would be better if a proper thesis template existed. So after I finished submitting my thesis to FGSR, I started work on a template that would meet the requirements above and make the process of formatting your thesis more trivial. 
 
-Included in my template are examples of how to layout specific element of a thesis, as well as a LaTeX class file that automatically generates the title and prefatory pages, allows for the inclusion of List of [Tables, Figures, Plates, and Symbols], Glossaries, Indices, provides a tool for generating tables in excel and exporting them to LaTeX, and generates a PDF/A output without the need of a paid program.
+Included in my template are examples of how to layout specific element of a thesis, as well as a LaTeX class file that automatically generates the title and prefatory pages, allows for the inclusion of List of [Tables, Figures, Plates, and Symbols], Glossaries[^1], Indices[^1], provides a tool for generating tables in excel and exporting them to LaTeX, and generates a PDF/A output without the need of a paid program.
+
+[^1]: When using the appropriate Packages.
 
 ### TL;DR
 Word crashed on me one too many times.
@@ -65,12 +67,10 @@ Additionally, because lets be honest you are here because you want to spend less
   - [TeXnicCenter](https://www.texniccenter.org/), 
   - [TeXStudio](https://www.texstudio.org/), or 
   - [TeXMaker](https://www.xm1math.net/texmaker/).
-- Have a pesky paper previously written in word? or have a stickler proffessor who will not read a PDF file:
-  - [pandoc](https://www.pandoc.org/) the increadible document conversion tool.
-    - LaTeX to Word: pandoc input.tex --filter pandoc-crossref --bibliography=references.bib --csl=ieee.csl -o output.docx
-    - Word to LaTeX: pandoc input.docx --filter pandoc-crossref -o output.tex
+- Have a pesky paper previously written in word? or have a stickler professor who will not read a PDF file:
+  - [pandoc](https://www.pandoc.org/) the incredible document conversion tool.
     - NOTE: to have proper citations in word you need to download a *.csl file - [CSL Repository](https://github.com/citation-style-language/styles)
-    - ALSO NOTE: The conversions can be lossly and is meant to only assist with the conversions (Please double check the conversion results are satifactory do not assume they are)
+    - ALSO NOTE: The conversions can be lossly and is meant to only assist with the conversions (Please double check the conversion results are satisfactory do not assume they are)
   
 ### Prerequisites
 1. A LaTeX Distribution

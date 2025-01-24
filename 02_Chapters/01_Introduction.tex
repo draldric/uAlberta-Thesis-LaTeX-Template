@@ -1,0 +1,92 @@
+\chapter{Introduction}\label{ch:Introduction}
+	\section{Background}
+		As a graduate student from the \University, I am familiar with the challenging task of writing a thesis that adheres to the \Fac\ Minimum Thesis Formatting Requirements. 
+		Using a traditional word processor to create a long document filled with equations and figures can be frustrating due to frequent crashes, file corruption, unpredictable formatting changes, and the inability to output a document in the required PDF/A format for submission to \Fac.
+		
+		To overcome these issues, many students turn to \LaTeX\ as an alternative to conventional word processors. 
+		
+		\LaTeX\ allows students and researchers to focus separately on the content and the formatting of their documents. 
+		Because the writing is independent of the formatting, documents can be written in lightweight text editors or \LaTeX\ editors, which also facilitate the compilation of the documents. 
+		These editors can often save work after every keystroke, and due to the plaintext format, they are less prone to file corruption.
+		Moreover, \LaTeX\ ensures a consistent and professional appearance throughout the document. 
+
+	\section{Objectives}
+		The main objectives of this thesis are:
+		\begin{enumerate}
+			\item To provide a comprehensive guide on writing a thesis using \LaTeX.
+			\item To assist students and researchers in mastering the nuances of \LaTeX\ document preparation.
+			\item To showcase best practices for structuring and formatting a thesis in \LaTeX.
+		\end{enumerate}
+
+	\section{Scope and Limitations}
+		Although there are existing templates for writing a thesis in \LaTeX\ for the \University\ (see \Cref{tab:OtherTemplates} for a list of available templates), none seem to provide all the necessary information for creating an outstanding thesis.
+		Most templates apply ``band-aid'' solutions to existing classes, such as \opt{report} or \opt{book}, offering a customized title page and methods for including prefatory pages.
+		However, these templates often fall short by not providing tips and best practices on how to include the various sections and parts that make up a thesis.
+		They also fail to offer a solid foundation for those who are new to \LaTeX.
+		Many of these templates involve extensive patching and fixing, resulting in a large \textit{preamble} section at the beginning of the template that can be confusing to new \LaTeX\ users and add to the already steep learning curve.
+		
+		\begin{landscape}
+			\begin{table}[p]
+				\centering
+				\small
+				\begin{tabularx}{\linewidth}{ccL}
+					\toprule
+						Developer & Last Updated & Link to Template Source\\
+					\midrule
+						Shivam Garg & May 29, 2023 & \url{https://github.com/svmgrg/ualberta_thesis_template}\\
+						Henry Brausen & Feb 11, 2022 & \url{https://github.com/henrybrausen/thesis_template}\\
+						Bernard Llanos & Oct 05, 2019 & \url{https://drive.google.com/file/d/1wKS8fu5e6qiVDRt0VUzEtlW8p7uMyz1T/view?usp=sharing}\\
+						John Bowman & Sep 30, 2019 & \url{https://github.com/vectorgraphics/uofathesis}\\
+						\makecell{Hongtao Yang\\\&\\Benjamin Bernard} & Sep 28, 2017 & \url{https://github.com/adrs0049/ThesisTemplate}\\
+						\makecell{GAME\\\&\\Hongtao Yang} & Feb 03, 2016 & \url{https://www.ualberta.ca/computing-science/media-library/grad/candidacy-template-tex.tex}\\
+						Steven Taschuk & Mar 21, 2012 & \url{https://github.com/stebulus/ualberta-math-stat-templates/tree/master/thesis}\\
+						CMENG & Jul 19, 1999 & \url{https://sites.ualberta.ca/CMENG/research/new-control/stythes.html}\\
+					\bottomrule
+				\end{tabularx}
+				\caption{List of Other Available Templates.}
+				\label{tab:OtherTemplates}
+			\end{table}
+		\end{landscape}
+		
+		This template, document class, and guide aim to address these shortcomings by providing all the necessary information to create a well-structured thesis, along with examples to assist in formatting your thesis written in \LaTeX.
+		To ensure the robustness and ease of maintenance, I developed the class file from the ground up keeping the additional required packages to a minimum.
+		This makes this \LaTeX\ solution easier to maintain, update, and customize to suit different needs from different areas of the \University.
+		A key goal with this was to reduce the traditionally steep learning curve associated with \LaTeX\ to ensure that anyone could create an outstanding thesis.
+		
+		While the class file (\path{ualberta.cls}) deserves its own comprehensive documentation, this document will focus on more specifically on the template file (\path{ualberta.tex}), as well as the following points:
+		\begin{itemize}
+			\item Installation and basic usage of \LaTeX.
+			\item Document structure and formatting.
+			\item Inclusion of figures and tables.
+			\item Inclusion of plots and graphs.
+			\item Handling mathematical equations.
+			\item Citations and references using BibTeX.
+			\item Use of JabRef---Reference Manager.
+			\item Inclusion of Code and PDF's.
+			\item And more.
+		\end{itemize}
+
+		This guide does not cover advanced \LaTeX\ programming or extensive customization of document classes.
+		Instead, the class file \path{ualberta.cls} provides all the major document and formatting requirements as provided by \Fac, while this document offers references on how to include the various elements that might be required in a thesis.
+		This includes all of the explanations of the packages and macros needed to perform the examples.
+
+	\section{Organization of the Thesis}
+		The thesis is organized into several chapters, each addressing a specific aspect of writing a thesis in \LaTeX. 
+		The breakdown is as follows:
+		\begin{itemize}
+			\item \textbf{\Cref{ch:gettingstarted}:}  \nameref{ch:gettingstarted}
+			\item \textbf{\Cref{ch:documentstructure}:}  \nameref{ch:documentstructure}
+			\item \textbf{\Cref{ch:figureandtables}:}  \nameref{ch:figureandtables}
+			\item \textbf{\Cref{ch:plotsandgraphs}:}  \nameref{ch:plotsandgraphs}
+			\item \textbf{\Cref{ch:mathematicalequations}:}  \nameref{ch:mathematicalequations}
+			\item \textbf{\Cref{ch:citref}:}  \nameref{ch:citref}
+			\item \textbf{\Cref{ch:JabRef}:}  \nameref{ch:JabRef}
+			%\item \textbf{\Cref{ch:}:}  \nameref{ch:}
+		\end{itemize}
+
+		Each chapter provides detailed information, examples, and recommendations to help you navigate the thesis writing process within the \LaTeX\ ecosystem.
+
+	\section{Summary}
+		This chapter introduced the background, objectives, scope, and organization of the thesis. 
+		The subsequent chapters delve into specific topics, offering practical guidance and examples for mastering the art of writing a thesis in \LaTeX.
+		Through this process, you will develop an understanding of how to create a thesis and manipulate content within the \LaTeX\ ecosystem to produce an exceptional document.

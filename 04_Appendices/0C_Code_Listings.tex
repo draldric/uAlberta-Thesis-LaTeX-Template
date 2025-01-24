@@ -1,0 +1,95 @@
+\chapter{Including Code Listings}\label{app:codelistings}
+	This appendix provides guidelines for including code listings in your thesis. 
+	Code listings are often used to demonstrate algorithms, data processing scripts, or other relevant programming content. 
+	Proper formatting ensures that code is both readable and aesthetically pleasing.
+
+	\section{Using the \pkg{listings} Package}
+		The \pkg{listings} package is a powerful tool for displaying code in LaTeX. 
+		It supports syntax highlighting for a wide variety of programming languages and offers many customization options.
+
+		\subsection{Basic Usage}
+
+			To include a simple code listing, you can use the following command:
+
+\noindent\lstinline|\begin{lstlisting}[language=Python]|\\[-0.7em]
+\lstinline|	# Your code here|\\[-0.7em]
+\lstinline|	print("Hello, world!")|\\[-0.7em]
+\lstinline|\end{lstlisting}|
+
+			The \opt{language} option specifies the programming language, which enables syntax highlighting. 
+			Replace \opt{Python} with the appropriate language for your code.
+
+			% INSERT EXAMPLE: Consider adding a few more examples showing code listings in different languages (e.g., C++, Java, MATLAB).
+
+		\subsection{Customizing Listings}
+
+			The \pkg{listings} package allows for extensive customization. 
+			You can adjust the appearance of your code by setting options such as \opt{frame}, \opt{backgroundcolor}, \opt{keywordstyle}, and more.
+
+			Here is an example of how to customize your code listing:
+
+			\begin{lstlisting}[style=LaTeXStyle]
+\lstset{
+	language=Python,
+	frame=single,
+	backgroundcolor=\color{gray!10},
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	basicstyle=\ttfamily,
+	breaklines=true
+}
+			\end{lstlisting}
+
+			This configuration adds a single-line frame around the code, sets a light gray background, and defines styles for keywords, comments, and strings.
+			
+			\lstinputlisting[caption=This is a caption for the inserted code,style=MatlabStyle]{\insertcode{matlabCode.m}}
+			
+			\lstinputlisting[caption=This is a caption for the inserted code,style=CStyle]{\insertcode{cCode.cpp}}
+			
+
+
+			% INSERT EXAMPLE: Include an example of a code listing using this or a similar custom configuration.
+
+	\section{Advanced Features}
+
+		\subsection{Including External Files}
+
+			The \texttt{listings} package allows you to include code from external files. 
+			This is particularly useful if you have long code files that you want to reference directly.
+
+			\begin{lstlisting}[style=LaTeXStyle]
+\lstinputlisting[language=Python]{path/to/your/code.py}
+			\end{lstlisting}
+
+			Replace \opt{path/to/your/code.py} with the actual path to your file.
+			Or you can use the \cmd{addmedia}\mopt{./99_Inclusions/} and \cmd{addcode}\mopt{Code/} commands to define the location for code files, then you can just use \cmd{insertcode}\mopt{filename.ext} command instead of the full path.
+			You can customize the display in the same way as inline listings.
+
+			% INSERT EXAMPLE: Demonstrate including an external file and discuss any specific considerations, such as relative vs. absolute paths.
+
+		\subsection{Handling Special Characters}
+			If your code contains special characters (\textit{e.g.}, \texttt{\#}, \texttt{\%}, \texttt{\$}), you may need to escape them or use the \texttt{literate} option to ensure proper display.
+
+			\begin{lstlisting}[style=LaTeXStyle]
+\lstset{
+	literate={~} {$\sim$}{1}
+}
+			\end{lstlisting}
+
+			This command, for example, replaces the tilde symbol with the appropriate LaTeX command.
+
+			% INSERT EXAMPLE: Include an example where special characters are handled correctly.
+
+	\section{Line Breaks in Long Code Lines}
+
+		To automatically break long lines of code, use the \opt{breaklines=true} option as shown in the earlier examples. 
+		This prevents code from running off the page and maintains readability.
+
+			% INSERT EXAMPLE: Provide a code snippet with long lines that demonstrate automatic line breaks.
+	\section{Conclusion}
+
+		Including well-formatted code listings in your thesis can enhance the clarity of your work and demonstrate your technical skills. 
+		By following the guidelines in this appendix, you can ensure that your code is presented professionally.
+
+		% INSERT FINAL NOTES: Consider adding any university-specific guidelines or final remarks relevant to code listings.

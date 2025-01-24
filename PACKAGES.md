@@ -3,7 +3,7 @@
     https://ctan.org/pkg/array
 
 ## amsfonts   
-    An extended set of fonts for use in mathematics, including: extra mathematical symbols; blackboard bold letters (uppercase only); fraktur letters; subscript sizes of bold math italic and bold Greek letters; subscript sizes of large symbols such as sum and product; added sizes of the Computer Modern small caps font; cyrillic fonts (from the University of Washington); Euler mathematical fonts. All fonts are provided as Adobe Type 1 files, and all except the Euler fonts are provided as METAFONT source.
+    An extended set of fonts for use in mathematics, including: extra mathematical symbols; blackboard bold letters (uppercase only); fraktur letters; subscript sizes of bold math italic and bold Greek letters; subscript sizes of large symbols such as sum and product; added sizes of the Computer Modern small caps font; Cyrillic fonts (from the University of Washington); Euler mathematical fonts. All fonts are provided as Adobe Type 1 files, and all except the Euler fonts are provided as METAFONT source.
     https://ctan.org/pkg/amsfonts
 
 ## amsmath   
@@ -15,11 +15,11 @@
     https://ctan.org/pkg/amsfonts
 
 ## booktabs   
-    The package enhances the quality of tables in LATEX, providing extra commands as well as behind-the-scenes optimisation. Guidelines are given as to what constitutes a good table in this context. From version 1.61, the package offers longtable compatibility.
+    The package enhances the quality of tables in LATEX, providing extra commands as well as behind-the-scenes optimization. Guidelines are given as to what constitutes a good table in this context. From version 1.61, the package offers longtable compatibility.
     https://ctan.org/pkg/booktabs
 
 ## cleveref   
-    The package enhances LATEX’s cross-referencing features, allowing the format of references to be determined automatically according to the type of reference. The formats used may be customised in the preamble of a document; babel support is available (though the choice of languages remains limited: currently Danish, Dutch, English, French, German, Italian, Norwegian, Russian, Spanish and Ukranian).
+    The package enhances LATEX’s cross-referencing features, allowing the format of references to be determined automatically according to the type of reference. The formats used may be customized in the preamble of a document; babel support is available (though the choice of languages remains limited: currently Danish, Dutch, English, French, German, Italian, Norwegian, Russian, Spanish and Ukrainian).
     https://ctan.org/pkg/cleveref
 
 ## etoolbox   
@@ -35,7 +35,7 @@
     https://ctan.org/pkg/hyperref
 
 ## hyphenat   
-    This package can disable all hyphenation or enable hyphenation of non-alphabetics or monospaced fonts. The package can also enable hyphenation within ‘words’ that contain non-alphabetic characters (e.g., that include underscores), and hyphenation of text typeset in monospaced (e.g., cmtt) fonts.
+    This package can disable all hyphenation or enable hyphenation of non-alphabetic or mono-spaced fonts. The package can also enable hyphenation within ‘words’ that contain non-alphabetic characters (e.g., that include underscores), and hyphenation of text typeset in mono-spaced (e.g., cmtt) fonts.
     https://ctan.org/pkg/hyphenat
 
 ## ifthen   
@@ -87,7 +87,7 @@
     https://ctan.org/pkg/pgfplots
 
 ## subcaption   
-    The package provides a means of using facilities analagous to those of the caption package, when writing captions for subfigures and the like.
+    The package provides a means of using facilities analogous to those of the caption package, when writing captions for subfigures and the like.
     https://ctan.org/pkg/subcaption
     
 ## tabularx   
@@ -103,7 +103,7 @@
     https://ctan.org/pkg/rotating
 
 ## xcolor   
-    The package starts from the basic facilities of the color package, and provides easy driver-independent access to several kinds of color tints, shades, tones, and mixes of arbitrary colors. It allows a user to select a document-wide target color model and offers complete tools for conversion between eight color models.
+    The package starts from the basic facilities of the color package, and provides easy driver-independent access to several kinds of colour tints, shades, tones, and mixes of arbitrary colours. It allows a user to select a document-wide target colour model and offers complete tools for conversion between eight colour models.
     https://ctan.org/pkg/xcolor
 
 ## xmpincl   

@@ -1,0 +1,109 @@
+\usepackage[intoc]{nomencl}
+	\makenomenclature
+	\renewcommand\nomgroup[1]{%
+		\item[\bfseries
+		\ifstrequal{#1}{A}{Constants}{%
+		\ifstrequal{#1}{B}{Latin}{%
+		\ifstrequal{#1}{C}{Greek}{%
+		\ifstrequal{#1}{D}{Subscripts}{}}}}]%
+	}
+	\renewcommand{\nomname}{List of Symbols}
+	\newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+
+\usepackage[acronym,nonumberlist]{glossaries}
+	\glstoctrue
+	\makenoidxglossaries
+	\newcommand{\addacronym}[2]{\newacronym{#1}{#1}{#2}}
+	\newcommand{\addterm}[2]{\newglossaryentry{#1}{name={#1},description={#2}}}
+	\newcommand\generateglossary{
+		\printnoidxglossary[title={\glossaryname}]}
+	\newcommand\abbreviations{
+		\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Provides the comment environment (Block Comments)
+%   \begin{comment}
+%       <Anything goes here>
+%   \end{comment}
+	\usepackage{comment} 
+
+% The basics for using math in LaTeX
+	\usepackage{array}
+	\usepackage{amsmath}
+	\usepackage{amsfonts}
+	\usepackage{amssymb}
+
+% Used to provide underlining that can be broken across multiple lines
+	\usepackage[normalem]{ulem} 
+
+% Used for creating subfigures
+	\usepackage{subcaption}
+
+% The defacto package for including graphics
+	\usepackage{graphicx}
+
+% Used to extend or replace the table/tabular environment
+	\usepackage{tabularx}  % Auto-Sizing Tables
+	\usepackage{xltabular} % Multi-page Tables
+	\usepackage{pdflscape} % Allows creation of landscape pages
+	\usepackage{booktabs}  % Nicer Lines
+	\usepackage{multicol}  % Column Merging
+	\usepackage{multirow}  % Row Merging
+	\usepackage{makecell}  % Allows more control over cell contents
+
+% Used for creating consistent plots and graphs
+	\usepackage{pgfplots}
+		\pgfplotsset{compat=newest}
+		\usepgfplotslibrary{statistics, polar}
+	\usepackage{pgf-pie}  % Adds Pie charts to PGF
+
+% Allows the inclusion PDF files
+	\usepackage{pdfpages}
+
+% Used for inserting syntax highlighted code
+	\usepackage{listings}
+
+% Used for extending the rules/control for hyphenation
+% \hyp{} allows the hyphenation of manually hyphenated Words: 
+%   e.g. electromagnetic\hyp{}endioscopy
+	\usepackage{hyphenat}
+
+% Used for better quoting and formatting commands
+	\usepackage{csquotes}
+	\usepackage{ragged2e}
+
+% Used for creating the Bibliography
+%   Currently set up for 
+%     - IEEE style citations
+%     - Compact number in-text [1 - 3] vs [1, 2, 3]
+%   To change the style to APA, MLA, or other change
+%     - style=ieee, and remove the citestyle=numeric-comp
+	\usepackage[
+		style=ieee,
+		citestyle=numeric-comp,
+		dashed=false,
+		backend=bibtex,
+		refsegment=chapter,
+		sorting=none,
+		defernumbers=true]{biblatex}
+
+% Used for including hyperlinks, document links, and better cross-references
+	\usepackage{hyperref}
+		\hypersetup{
+			colorlinks,
+			linkcolor={red!50!black},
+			citecolor={blue!50!black},
+			urlcolor={blue!80!black},
+			pdfencoding=unicode,
+			breaklinks=true
+		}
+		\urlstyle{same}
+		\Urlmuskip=0mu plus 1mu\relax
+	\usepackage[nameinlink]{cleveref} % Provides better/smarter cross-references
+	\usepackage{xurl}                 % Fixes url line-breaking
+
+% DELETE THE LINE AFTER THIS COMMENT, IT IS ONLY USED FOR THE GUIDE AND NOT 
+%  NECESSARY FOR YOUR THESIS
+	\input{./00_LaTeX_Files/guidePackages}

@@ -1,0 +1,59 @@
+\chapter{Getting Started with \LaTeX}\label{ch:gettingstarted}
+	\section{Installation}
+		To begin using \LaTeX, you need to install a \LaTeX\ distribution on your computer.
+		Here there are two main distributors: \href{https://tug.org/texlive}{TeX Live}, a free software distribution for the TeX typesetting system which is provided by the TeX User Group (TUG); or \href{https://miktex.org/}{MiKTeX}, a free and open-source distribution of the TeX/LaTeX typesetting system developed by Christian Schenk.
+		Here are the links for installing \LaTeX\ on different platforms:
+
+		\subsection{Windows}
+			For Windows users, you can install \href{https://tug.org/texlive/windows.html}{TeX Live} or \href{https://miktex.org/download}{MiKTeX}. 
+			Download the installer from the respective websites and follow the installation instructions.
+
+		\subsection{Mac}
+			On Mac, you can use \href{https://tug.org/mactex/}{MacTeX} (Mac version of TeX Live) or \href{https://miktex.org/download}{MiKTeX}. 
+			Download the package from the respective websites and follow the installation instructions.
+
+		\subsection{Linux}
+			For Linux users, \href{https://tug.org/texlive/quickinstall.html}{TeX Live} is a common choice or one can use \href{https://miktex.org/download}{MiKTeX}. 
+			Use your package manager to install it, or download the installer from the respective websites.
+
+	\section{Basic Document Structure}
+		Once \LaTeX\ is installed, you can create a basic \LaTeX\ document.
+		For a test of the system, open the included program TeXWorks.
+		Once it is open, copy the code below and press the typeset button (green play button).
+		When the document has compiled you will get a preview of the document in a new window.
+		Congratulations, you have compiled a new \LaTeX\ document.
+
+		\begin{lstlisting}[style=LaTeXStyle]
+\documentclass{article}
+\begin{document}
+    \title{My First \LaTeX{} Document}
+    \author{Your Name}
+    \date{\today}
+    
+    \maketitle
+    
+    Hello, \LaTeX{}!
+\end{document}
+		\end{lstlisting}
+		This example demonstrates a simple \LaTeX\ document with a title, author, and date. 
+		The \cmd{maketitle} is a predefined command that generates the title information.
+		The \lstinline|Hello, \LaTeX{}!| generate the text: Hello \LaTeX!
+		And the \benv{document} \&\ \eenv{document} mark the beginning and end of the document's content.
+
+	\section{Other Software Considerations}
+		While by itself \LaTeX\ can be used with just a text editor and compiler, there are some additional software resources that will be very useful.
+		
+		First of these softwares is a Reference Manager.
+		
+		\note{While a reference manager is suited for creating a thesis in \LaTeX, it is not exclusive for use with \LaTeX. In fact, even if you are writing your thesis in word I would recommend the use of the suggested reference managers to help keep track of all your references, and to keep track of the information you found within your references. Further, most of these reference managers provide an option to integrate as a word Add-In or allow the export of the bibliography in a word compatible file.}
+		
+		Second of these is a different \LaTeX\ editor.
+		While all of the distributions above come with \href{https://www.tug.org/texworks/}{TeXWorks} (a simple editor that allows for compilation) you might find it more beneficial to have some additional features.
+		For this I recommend one of the following:
+		\begin{itemize}
+			\item \href{https://www.texstudio.org/}{TeXstudio}
+			\item \href{http://www.xm1math.net/texmaker/}{Texmaker}
+			\item \href{http://www.texniccenter.org/}{TeXnicCenter}
+			\item \href{https://www.overleaf.com/}{\sout{Overleaf}}\footnote{Due to changes with Overleaf, I recommend it less and less. While it is convenient as it is web based, they have restricted it more and more which forces the users to now pay more for the software... including to get longer compile times. While this is not an issue for short articles, in longer documents, such as a thesis, this can be a large hindrance and cost (\$100~CAD/year with student discount).}
+		\end{itemize}
+		I am sure there are others, but any of these will do you fine for writing your thesis.

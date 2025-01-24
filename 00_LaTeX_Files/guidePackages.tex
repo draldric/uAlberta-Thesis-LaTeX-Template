@@ -1,0 +1,182 @@
+% EVERYTHING AFTER THIS POINT IS USED ONLY FOR FORMATTING THE EXAMPLES IN THIS
+%  DOCUMENT (DO NOT USE THESE IN YOUR THESIS)
+%  PLEASE DELETE THESE.
+	\usepackage{float}
+
+	\usepackage{fontawesome}
+	\usepackage{lipsum}
+	\usepackage{xcolor}
+%% COLOUR DEFINITIONS
+	\definecolor{yellow}{rgb}{0.8,0.8,0}
+	\definecolor{grey}{rgb}{0.3,0.3,0.3}
+	\definecolor{gold}{rgb}{0.4,0.4,0.0}
+	\definecolor{str}{rgb}{1,0,1}
+	\definecolor{cmd}{rgb}{0,0,1}
+	\definecolor{env}{rgb}{0.5,0,1}
+	\definecolor{pkg}{rgb}{0,0.6,0}
+	\definecolor{opt}{rgb}{1,0.5,0}
+
+
+%% NEW COMMANDS
+	\newcommand{\exampleText}{\lipsum[1][1-4]}
+	\AtBeginDocument{\lstset{style=LaTeXStyle}}
+
+	\newcommand{\University}{University of Alberta}
+	\newcommand{\Uni}{UofA}
+	\newcommand{\Faculty}{Faculty of Graduate and Post-Doctorate Studies}
+	\newcommand{\Fac}{GPS}
+
+	\newcommand{\commenting}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{grey}{\faCommenting} & \textcolor{grey}{\textit{#1}}
+		\end{tabularx}}
+
+	\newcommand{\danger}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\color{black}\colorbox{red}{\faWarning\ \textsc{\textbf{DANGER}}} & {\textbf{\MakeUppercase{#1}}}
+		\end{tabularx}}
+
+	\newcommand{\warning}[1]{%
+		\noindent
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\color{black}\colorbox{orange}{\faWarning\ \textsc{\textbf{WARNING}}} & {\textbf{#1}}
+		\end{tabularx}}
+
+	\newcommand{\caution}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\color{black}\colorbox{yellow}{\faWarning\ \textsc{\textbf{CAUTION}}} & {#1}
+		\end{tabularx}}
+
+	\newcommand{\notice}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\color{white}\colorbox{black}{\textsc{\textbf{\textsl{NOTICE}}}} & {#1}
+		\end{tabularx}}
+
+	\newcommand{\alert}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\faWarning & {#1}
+		\end{tabularx}}
+
+	\newcommand{\note}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textbf{\textsl{Note: }} & {\textit{#1}}
+		\end{tabularx}}
+
+	\newcommand{\info}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{blue}{\faInfoCircle} & \textcolor{blue}{#1}
+		\end{tabularx}}
+
+	\newcommand{\question}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{orange}{\faQuestionCircle} & \textbf{#1}
+		\end{tabularx}}
+
+	\newcommand{\answer}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\-\hspace{4ex}{\color{orange}{\faCheckCircle}} & \textit{#1}
+		\end{tabularx}}
+
+	\newcommand{\qna}[2]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{orange}{\faQuestionCircle} & \textbf{#1}
+		\end{tabularx}
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\-\hspace{4ex} & \textit{#2}
+		\end{tabularx}}
+
+	\newcommand{\tip}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{gold}{\faLightbulbO{}} & \textcolor{gold}{#1}
+		\end{tabularx}}
+
+	\newcommand{\key}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{black}{\faKey} & {#1}
+		\end{tabularx}}
+
+	\newcommand{\clouddownload}[2]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\faCloudDownload & \href{#1}{#2}
+		\end{tabularx}}
+
+	\newcommand{\important}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{red}{\faExclamationCircle} & \textcolor{red}{#1}
+		\end{tabularx}}
+
+	\newcommand{\tool}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{black}{\faWrench} & #1
+		\end{tabularx}}
+
+	\newcommand{\setting}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{black}{\faCogs} & #1
+		\end{tabularx}}
+
+	\newcommand{\software}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}lX@{}}
+			\textcolor{black}{\faFileCodeO} & #1
+		\end{tabularx}}
+
+	\newcommand{\option}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}X@{}}
+			`\textbf{#1}'
+		\end{tabularx}}
+
+	\newcommand{\file}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}X@{}}
+			\faFileO{} \texttt{#1}
+		\end{tabularx}}
+
+	\newcommand{\folder}[1]{%
+		\noindent
+		\begin{tabularx}{\linewidth}{@{}X@{}}
+			\faFolderO{} \texttt{#1}
+		\end{tabularx}}
+
+	\newcommand{\str}[1]{%
+		\texttt{\textcolor{pkg}{#1}}}
+
+	\newcommand{\pkg}[1]{%
+		\texttt{\textcolor{pkg}{#1}}}
+
+	\newcommand{\cmd}[1]{%
+		\texttt{\textcolor{cmd}{\textbackslash\detokenize{#1}}}}
+
+	\newcommand{\opt}[1]{%
+		\texttt{\textcolor{opt}{\detokenize{#1}}}}
+	\newcommand{\oopt}[1]{%
+		\texttt{[\textcolor{opt}{\detokenize{#1}}]}}
+	\newcommand{\mopt}[1]{%
+		\texttt{\{\textcolor{opt}{\detokenize{#1}}\}}}
+
+	\newcommand{\env}[1]{%
+		\texttt{\textcolor{env}{#1}}}
+
+	\newcommand{\benv}[1]{%
+		\texttt{\cmd{begin}\{\textcolor{env}{#1}\}}}
+	\newcommand{\eenv}[1]{%
+		\texttt{\cmd{end}\{\textcolor{env}{#1}\}}}

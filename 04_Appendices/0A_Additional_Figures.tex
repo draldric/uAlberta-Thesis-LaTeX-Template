@@ -1,0 +1,222 @@
+\chapter{Additional Example Figures}\label{app:examplefigures}
+	Each of the following pages will provide an example of a different figure configuration. 
+	In addition to the examples the code that generates the figure will be provided and explanations of what the different parts of the code do will be included.
+	From all of the included information in this \nameCref{app:examplefigures} it should be possible to even develop your own figures that potentially suit your needs best.
+		
+		\clearpage
+
+
+
+		\vspace*{\fill}
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:doubleImage2:a}
+			\end{subfigure}
+			~
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:doubleImage2:b}
+			\end{subfigure}
+			\caption{This is an example of a double image figure.}
+			\label{fig:doubleImage2}
+		\end{figure}
+		\begin{lstlisting}[float=ht,caption=,label=lst:doubleImage,style=LaTeXStyle,basicstyle=\tiny\ttfamily,]
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:doubleImage2:a}
+	\end{subfigure}
+	~
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:doubleImage2:b}
+	\end{subfigure}
+	\caption{This is an example of a double image figure.}
+	\label{fig:doubleImage2}
+\end{figure}
+		\end{lstlisting}
+		\vspace*{\fill}
+		\pagebreak
+
+
+
+		\vspace*{\fill}
+		\begin{figure}[H]
+			\centering
+			\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:tripleImage1:a}
+			\end{subfigure}
+			\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
+			\par\vspace{1em}% Adds space between upper and lower images
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:tripleImage1:b}
+			\end{subfigure}
+			~ % Adds space between the two lower figures
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:tripleImage1:c}
+			\end{subfigure}
+			\caption{This is an example of a triple image figure.}
+			\label{fig:tripleImage1}
+		\end{figure}
+		\begin{lstlisting}[float=ht,caption=,label=lst:tripleImage1,style=LaTeXStyle,basicstyle=\tiny\ttfamily,]
+\begin{figure}[H]
+	\centering
+	\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:tripleImage1:a}
+	\end{subfigure}
+	\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
+	\par\vspace{1em}% Adds space between upper and lower images
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:tripleImage1:b}
+	\end{subfigure}
+	~ % Adds space between the two lower figures
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:tripleImage1:c}
+	\end{subfigure}
+	\caption{This is an example of a triple image figure.}
+	\label{fig:tripleImage1}
+\end{figure}
+		\end{lstlisting}
+		\vspace*{\fill}
+		\pagebreak
+
+
+
+		\vspace*{\fill}
+		\begin{figure}[H]
+			\centering
+			\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
+			\begin{subfigure}{0.60\linewidth+1em} % 0.9 = 0.45 + 0.45, and 1em is the width of ~
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:tripleImage2:a}
+			\end{subfigure}
+			\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
+			\par\vspace{1em}% Adds space between upper and lower images
+			\begin{subfigure}{0.30\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:tripleImage2:b}
+			\end{subfigure}
+			~ % Adds space between the two lower figures
+			\begin{subfigure}{0.30\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:tripleImage2:c}
+			\end{subfigure}
+			\caption{This is a second example of a triple image figure.}
+			\label{fig:tripleImage2}
+		\end{figure}
+		\begin{lstlisting}[float=ht,caption=,label=lst:tripleImage2,style=LaTeXStyle,basicstyle=\tiny\ttfamily,]
+\begin{figure}[H]
+	\centering
+	\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
+	\begin{subfigure}{0.90\linewidth+1em} % 0.9 = 0.45 + 0.45, and 1em is the width of ~
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:tripleImage2:a}
+	\end{subfigure}
+	\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
+	\par\vspace{1em}% Adds space between upper and lower images
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:tripleImage2:b}
+	\end{subfigure}
+	~ % Adds space between the two lower figures
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:tripleImage2:c}
+	\end{subfigure}
+	\caption{This is a second example of a triple image figure.}
+	\label{fig:tripleImage2}
+\end{figure}
+		\end{lstlisting}
+		\vspace*{\fill}
+		\pagebreak
+
+
+
+		\vspace*{\fill}
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:quadImage:a}
+			\end{subfigure}
+			~ % Adds space between the two top figures
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:quadImage:b}
+			\end{subfigure}
+			\par\vspace{1em} % Adds space between upper and lower images
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:quadImage:c}
+			\end{subfigure}
+			~ % Adds space between the two lower figures
+			\begin{subfigure}{0.45\linewidth}
+				\includegraphics[width=\linewidth]{example-image}
+				\caption{} % Leave blank for just letter
+				\label{fig:quadImage:d}
+			\end{subfigure}
+			\caption{This is an example of a quad image figure.}
+			\label{fig:quadImage}
+		\end{figure}
+		\begin{lstlisting}[float=ht,caption=,label=lst:quadImage,style=LaTeXStyle,basicstyle=\tiny\ttfamily,]
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:quadImage:a}
+	\end{subfigure}
+	~ % Adds space between the two top figures
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:quadImage:b}
+	\end{subfigure}
+	\par\vspace{1em} % Adds space between upper and lower images
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:quadImage:c}
+	\end{subfigure}
+	~ % Adds space between the two lower figures
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{example-image}
+		\caption{} % Leave blank for just letter
+		\label{fig:quadImage:d}
+	\end{subfigure}
+	\caption{This is an example of a quad image figure.}
+	\label{fig:quadImage}
+\end{figure}
+		\end{lstlisting}
+		\vspace*{\fill}
+		\pagebreak
