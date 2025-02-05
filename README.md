@@ -16,9 +16,9 @@
 <p align="center">
 A LaTeX template for the University of Alberta. 
 </br>
-Compliant with the FGSR Standards for submitting a thesis, including conversion to PDF/A.
+Compliant with the GPS Standards for submitting a thesis, including conversion to PDF/A.
 </br>
-For more information on the template, please visit the dedicated website at: https://ualberta-thesis.daniel-aldrich.ca 
+For more information on the template, please visit the <a href=https://ualberta-thesis.daniel-aldrich.ca>project website</a> or join the <a href=https://discord.gg/dMgFcDYHEV>discord group</a>.
 </p>
 
 <p align="center">
@@ -30,6 +30,11 @@ For more information on the template, please visit the dedicated website at: htt
 <p align="center">
     <img src="screenshot.png" width="60%">  
 </p>
+
+This project now includes: 
+ - [Full Feature Guide](ualberta.pdf)
+ - [Project Website](https://ualberta-thesis.daniel-aldrich.ca)
+ - [Discord Group](https://discord.gg/dMgFcDYHEV)
 
 ## About
 ### The Long Story Why I Made This
@@ -51,8 +56,6 @@ Included in my template are examples of how to layout specific element of a thes
 Word crashed on me one too many times.
 
 ## Getting Started
-The project now includes a [Guide](ualberta.pdf).
-  
 ### Prerequisites
 1. A LaTeX Distribution
 2. A text/LaTeX Editor
