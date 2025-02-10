@@ -2,8 +2,8 @@
   Welcome to the (Un)Official uAlberta Thesis LaTeX Template
 </h1>
 <p align="center">
-  <a href="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/tag/V1.5.0">
-    <img src="https://img.shields.io/badge/Current-V1.5.0-green">  
+  <a href="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/latest">
+    <img src="https://img.shields.io/github/v/release/draldric/uAlberta-Thesis-LaTeX-Template?color=green">  
   </a>
   <a href="/LICENSE.md">
     <img src="https://img.shields.io/badge/License-MIT-orange">
@@ -16,9 +16,9 @@
 <p align="center">
 A LaTeX template for the University of Alberta. 
 </br>
-Compliant with the FGSR Standards for submitting a thesis, including conversion to PDF/A.
+Compliant with the GPS Standards for submitting a thesis, including conversion to PDF/A.
 </br>
-For more information on the template, please visit the dedicated website at: https://ualberta-thesis.daniel-aldrich.ca 
+For more information on the template, please visit the <a href=https://ualberta-thesis.daniel-aldrich.ca>project website</a> or join the <a href=https://discord.gg/dMgFcDYHEV>discord group</a>.
 </p>
 
 <p align="center">
@@ -30,6 +30,11 @@ For more information on the template, please visit the dedicated website at: htt
 <p align="center">
     <img src="screenshot.png" width="60%">  
 </p>
+
+This project now includes: 
+ - [Full Feature Guide](ualberta.pdf)
+ - [Project Website](https://ualberta-thesis.daniel-aldrich.ca)
+ - [Discord Group](https://discord.gg/dMgFcDYHEV)
 
 ## About
 ### The Long Story Why I Made This
@@ -51,46 +56,21 @@ Included in my template are examples of how to layout specific element of a thes
 Word crashed on me one too many times.
 
 ## Getting Started
-
-In general, you will need:
-- A LaTeX Distribution (For Windows I recommend [MikTex](https://miktex.org/))
-  - Comes with a simple LaTeX Editor (TexWorks)
-
-Additionally, because lets be honest you are here because you want to spend less time on organizing, laying out, and formatting your thesis, I recommend the following:
-- A Reference Manager - [JabRef](https://www.jabref.org/)
-  - Allow DOI look up - no more copy pasting data to make a reference
-  - PDF Markup and Sync - Allows you to attach the PDF to the reference and allows you to see all the comments and highlighted text from JabRef
-  - Rating and Marking - Allows you rate, group, and mark references based on if they need to be read or how important they are
-  - Microsoft Referencing - Supports Export to Word Reference Format
-  - Dark Mode - Do you need any more reasons?
-- A Better Editor - Now normally I would be recommended the not free editor [Bakoma-Tex](http://www.bakoma-tex.com/menu/about.php), however, the developer has passed away and is no longer available for purchase.... So I would recommend:
-  - [TeXnicCenter](https://www.texniccenter.org/), 
-  - [TeXStudio](https://www.texstudio.org/), or 
-  - [TeXMaker](https://www.xm1math.net/texmaker/).
-- Have a pesky paper previously written in word? or have a stickler professor who will not read a PDF file:
-  - [pandoc](https://www.pandoc.org/) the incredible document conversion tool.
-    - NOTE: to have proper citations in word you need to download a *.csl file - [CSL Repository](https://github.com/citation-style-language/styles)
-    - ALSO NOTE: The conversions can be lossly and is meant to only assist with the conversions (Please double check the conversion results are satisfactory do not assume they are)
-  
 ### Prerequisites
 1. A LaTeX Distribution
 2. A text/LaTeX Editor
 3. The Files in this Repo
 
 ## Download
-
 You can [download](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/) the latest version of the template.
 
 ## Support this Project
-
 If you find this template useful and would like to support its development, please consider sending a donation via e-transfer to [donate@daniel-aldrich.ca](donate@daniel-aldrich.ca). Please include "LaTeX Template Donation" in the message section of your e-transfer. Your contribution will help ensure that this template remains free and open-source for all to use.
 
 ## Authors
-
 * **Daniel Aldrich** - [@draldric](https://github.com/draldric) - [Website](https://daniel-aldrich.ca/)
 
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
 
 ---
