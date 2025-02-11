@@ -12,8 +12,10 @@
 *.out
 *.dvi
 *.pdf
+*.synctex
 *.synctex.gz
 *.toc
 *.xml
+*.xmpdata
 *.xmpi
 *-blx.bib
