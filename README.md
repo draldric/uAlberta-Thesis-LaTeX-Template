@@ -1,79 +1,109 @@
-<h1 align="center">
-  Welcome to the (Un)Official uAlberta Thesis LaTeX Template
-</h1>
-<p align="center">
-  <a href="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/latest">
-    <img src="https://img.shields.io/github/v/release/draldric/uAlberta-Thesis-LaTeX-Template?color=green">  
-  </a>
-  <a href="/LICENSE.md">
-    <img src="https://img.shields.io/badge/License-MIT-orange">
-  </a>
-  <a href="https://www.latex-project.org/">
-    <img src="https://img.shields.io/badge/Language-LaTeX-blue">
-  </a>
-</p>
+# Welcome to the (Un)Official uAlberta Thesis LaTeX Template
 
 <p align="center">
-A LaTeX template for the University of Alberta. 
-</br>
-Compliant with the GPS Standards for submitting a thesis, including conversion to PDF/A.
-</br>
-For more information on the template, please visit the <a href=https://ualberta-thesis.daniel-aldrich.ca>project website</a> or join the <a href=https://discord.gg/dMgFcDYHEV>discord group</a>.
+  <img src="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/raw/main/logo.png" alt="uAlberta Thesis LaTeX Template Logo" width="150">
 </p>
+<div align="center">
+  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&link=https%3A%2F%2Fgithub.com%2Fdraldric%2Fualberta-thesis-latex-template%2Freleases%2Flatest&color=197b2e">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&color=f2cb4d">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/draldric/ualberta-thesis-latex-template?style=for-the-badge&color=008080&logo=latex&logoColor=008080">
+</div>
+<div align="center">
+  <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fualberta-thesis.daniel-aldrich.ca%2F&style=for-the-badge&link=https%3A%2F%2Fualberta-thesis.daniel-aldrich.ca%2F&color=185e35&">
+  <img alt="Discord" src="https://img.shields.io/discord/1336756415255281716?style=for-the-badge&link=https%3A%2F%2Fdiscord.com%2Finvite%2FWsz7chjw&color=5865F2&label=Discord&logo=discord&logoColor=5865F2">
+</div>
 
-<p align="center">
-  <a href="#about">About</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#download">Download</a> •
-  <a href="#license">License</a>
-</p>
-<p align="center">
-    <img src="screenshot.png" width="60%">  
-</p>
+A **LaTeX template** for creating a University of Alberta thesis, compliant with **GPS formatting requirements** and supporting **PDF/A output** for submission.
 
-This project now includes: 
- - [Full Feature Guide](ualberta.pdf)
- - [Project Website](https://ualberta-thesis.daniel-aldrich.ca)
- - [Discord Group](https://discord.gg/dMgFcDYHEV)
+## Table of Contents
+**[Why This Template?](#why-this-template?) | [Features](#features) | [Quick Start Guide](#quick-start-guide) | [Download](#download) | [Contribution](#contribution) | [Support](#support-this-project) | [License](#license)**
 
-## About
-### The Long Story Why I Made This
-As a graduate student from the University of Alberta, I understand the daunting task that is associated with writing a Thesis that conforms to the guidelines outlined in the FGSR Minimum Thesis Formatting Requirements. It can also be very frustrating to write long, equation and figure heavy, document in a word processor that is prone to crashes, file corruption, seemingly random changes to the formatting, and that do not output a document in the required PDF/A format for submission to FGSR.
+## Why This Template?
+Writing a thesis that meets **GPS's Thesis Formatting Requirements** can be frustrating, especially in word processors that are prone to crashes, c0R|u|p+10n, and *form***at**_ting_ i***ss***ues. Many students turn to [**LaTeX**](https://www.latex-project.org/), but the existing templates lack full compliance, were produced when you had to submit to the *FGSR* not the *GPS*, and fundamentally are not designed to help first time LaTeX or Thesis Writers.
 
-Due to these problems, lots of students attempt to use an alternative to traditional word processors: LaTeX. 
+🎓 **This template was created to:**
+- Ensure **automatic formatting** according to [GPS guidelines](https://www.ualberta.ca/en/graduate-studies/resources/graduate-students/thesis-preparation-requirements-deadlines/index.html).
+- Provide easy-to-use **examples and templates**.
+- Allow seamless **PDF/A** output for official submissions.
+- Help students **focus on content**, not formatting.
 
-LaTeX allows students/researchers to focus on either the writing of the document or the formatting. Because the writing is separated from the formatting, the writing of the documents can be performed in much more lightweight text editors, or TeX editors (that also allow for the compilation of the documents) that are able to constantly save the work and due to the plaintext nature, are not generally susceptible to file corruption.
+## Features
+- [x] Fully compliant with **GPS Thesis Formatting Requirements**
+- [x] **Automatically Generates**:
+   - Title Page, Table of Contents, and Prefatory Pages
+   - Acknowledgements, Dedication, Quote, and Preface
+   - List of Tables, Figures, Plates, Symbols
+   - Glossaries, Acronyms, & Indices (if needed)
+- [x] **PDF/A output** without third-party software
+- [x] **Works with Overleaf, TeX Live, and MikTeX**
+- [x] **Lightweight and Modular** for easy customization and organization
+- [x] **Ever Expanding Examples** for easy learning and consistent formatting
+   - Formatting, Organization, and Tools
+   - Figures, Tables, and Equations
+   - References, Citations, Cross-Referencing
+- [x] **Tips, Tricks, and Faux Pas** to make your thesis stand out as professional
 
-LaTeX has the added benefit of providing a consistent and professional look and feel throughout the document. However, there does not appear to be a template for LaTeX that provides all the necessary formatting and packages to ease the formatting of documents written in LaTeX, while also adhering to the FGRS Thesis Formatting Requirements.
-
-During my Master's program, I had worked with writing my thesis in LaTeX and though I was able to generate all the formatting I needed to submit my thesis, I knew it would be better if a proper thesis template existed. So after I finished submitting my thesis to FGSR, I started work on a template that would meet the requirements above and make the process of formatting your thesis more trivial. 
-
-Included in my template are examples of how to layout specific element of a thesis, as well as a LaTeX class file that automatically generates the title and prefatory pages, allows for the inclusion of List of [Tables, Figures, Plates, and Symbols], Glossaries[^1], Indices[^1], provides a tool for generating tables in excel and exporting them to LaTeX, and generates a PDF/A output without the need of a paid program.
-
-[^1]: When using the appropriate Packages.
-
-### TL;DR
-Word crashed on me one too many times.
-
-## Getting Started
+## Quick Start Guide
 ### Prerequisites
-1. A LaTeX Distribution
-2. A text/LaTeX Editor
-3. The Files in this Repo
+Ensure you have:
+1. A **LaTeX distribution** (*e.g.*, TeX Live, MiKTeX, Overleaf)
+2. A **LaTeX editor** (*e.g.*, Overleaf, TeXworks, VS Code with LaTeX Workshop)
+
+### Installation
+1. **Grab the latest files from this repository**:
+   a. **Clone the repository**:
+      ```sh
+      git clone https://github.com/draldric/uAlberta-Thesis-LaTeX-Template.git
+      ```
+   b. **[Download the *.zip](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/archive/refs/heads/main.zip)**
+2. **Open the project** in your LaTeX editor.
+3. **Set** `ualberta.tex` as the **root file.**
+4. **Compile the document** using `pdflatex`.
+
+### Further Information/Instructions
+📖 Check the **[Full Feature Guide](ualberta.pdf)** for more detailed instructions.
 
 ## Download
-You can [download](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/) the latest version of the template.
+[![GitHub Release](https://img.shields.io/github/v/release/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&link=https%3A%2F%2Fgithub.com%2Fdraldric%2Fualberta-thesis-latex-template%2Freleases%2Flatest&color=197b2e&label=Latest)](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/latest)
 
-## Support this Project
-If you find this template useful and would like to support its development, please consider sending a donation via e-transfer to [donate@daniel-aldrich.ca](donate@daniel-aldrich.ca). Please include "LaTeX Template Donation" in the message section of your e-transfer. Your contribution will help ensure that this template remains free and open-source for all to use.
+📥 Get the **[latest version here](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/latest)**.
 
-## Authors
-* **Daniel Aldrich** - [@draldric](https://github.com/draldric) - [Website](https://daniel-aldrich.ca/)
+🗃️ See **[all versions here](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases)**.
+
+## Contribution
+[![GitHub Issues](https://img.shields.io/github/issues/draldric/ualberta-thesis-latex-template?style=for-the-badge)](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/issues) 
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/draldric/ualberta-thesis-latex-template?style=for-the-badge)](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/pulls) 
+[![GitHub Discussions](https://img.shields.io/github/discussions-search/draldric/ualberta-thesis-latex-template?query=is%3Aopen&style=for-the-badge&label=Discussions)](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/discussions)
+
+
+🤝 Contributions are welcome! To contribute:
+- **Report issues** via [GitHub Issues](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/issues)
+- **Submit pull requests** with improvements
+- **Request new features** via [GitHub Discussions](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/discussions) or [Discord Forums](https://discord.gg/dMgFcDYHEV)
+
+## Support This Project 
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/draldric?style=for-the-badge&color=fb8ec7)](https://github.com/sponsors/draldric)
+[![PayPal Donation Link](https://img.shields.io/badge/Donate-003087?style=for-the-badge&logo=PayPal&logoColor=003087&label=PayPal&link=https%3A%2F%2Fwww.paypal.com%2Fdonate%2F%3Fbusiness%3DX9N7J39L36S9U%26no_recurring%3D0%26item_name%3DYour%2Bcontribution%252C%2Bno%2Bmatter%2Bhow%2Bbig%2Bor%2Bsmall%252C%2Bhelps%2Bme%2Bcover%2Bthe%2Bcosts%2Bof%2Bmaintaining%2Bthis%2Bwebsite.%26currency_code%3DCAD)](https://www.paypal.com/donate/?business=X9N7J39L36S9U&no_recurring=0&item_name=Your+contribution%2C+no+matter+how+big+or+small%2C+helps+me+cover+the+costs+of+maintaining+this+website.&currency_code=CAD)
+
+
+This project is and always will be completely **free** and **open** to help students, researchers, and universities. I created this project to support the community without any financial expectations. However, if you feel like contributing to the project, you are welcome to support me via:
+- **[PayPal Direct](https://paypal.me/draldric)**
+- **[PayPal  Donation](https://www.paypal.com/donate/?business=X9N7J39L36S9U&no_recurring=0&item_name=Your+contribution%2C+no+matter+how+big+or+small%2C+helps+me+cover+the+costs+of+maintaining+this+website.&currency_code=CAD)** 
+- **[GitHub Sponsors](https://github.com/sponsors/draldric)**
+- **E-Transfer**: Subject: "LaTeX Template Donation" | Email: donate.daniel-aldrich.ca)
+
+Please know that donations are entirely **voluntary** and not necessary to enjoy or use the template. All support, whether through contributions, feedback, or simply using the template, is greatly appreciated—and, of course, completely free!
+
+Thank you for being part of this journey!
+
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
+[![GitHub License](https://img.shields.io/github/license/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&link=https%3A%2F%2Fgithub.com%2Fdraldric%2FuAlberta-Thesis-LaTeX-Template%2Fblob%2Fmain%2FLICENSE&color=a01c32&link=https%3A%2F%2Fgithub.com%2Fdraldric%2Fualberta-thesis-latex-template%2LICENSE)](LICENSE)
+
+📜 Licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
 ---
 
-> [Daniel R. Aldrich](https://www.linkedin.com/in/danielraldrich/) &nbsp;&middot;&nbsp;
-> GitHub [@draldric](https://github.com/draldric)
+✍️ **Developed by [Daniel R. Aldrich](https://daniel-aldrich.ca/)** | [Website](https://daniel-aldrich.ca) | [GitHub](https://github.com/draldric) | [LinkedIn](https://www.linkedin.com/in/danielraldrich/)
+
+🔗 **[Project Website](https://ualberta-thesis.daniel-aldrich.ca)**  | 💬 **[Discord Group](https://discord.gg/dMgFcDYHEV)**
