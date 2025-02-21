@@ -186,7 +186,7 @@
 \newcommand\@addmedia{\detokenize{./99_Inclusions/}}
 
 \newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia\detokenize{#1}}}
-\newcommand\@addimages{\detokenize{Images/}}
+\newcommand\@addimages{\@addmedia\detokenize{Images/}}
 \newcommand{\insertimage}[1]{%
 	"\@addimages#1"}
 
