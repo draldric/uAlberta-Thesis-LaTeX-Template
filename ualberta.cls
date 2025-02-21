@@ -178,7 +178,7 @@
 	\input{\@addchapters#1}}
 
 \newcommand\addappendices[1]{\renewcommand\@addappendices{\detokenize{#1}}}
-\newcommand\@addappendices{\detokenize{./03_Chapters/}}
+\newcommand\@addappendices{\detokenize{./04_Appendices/}}
 \newcommand{\insertappendix}[1]{
 	\input{\@addappendices#1}}
 
@@ -191,22 +191,22 @@
 	"\@addimages#1"}
 
 \newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia\detokenize{#1}}}
-\newcommand\@addtables{\detokenize{Tables/}}
+\newcommand\@addtables{\@addmedia\detokenize{Tables/}}
 \newcommand{\inserttable}[1]{%
 	\input{\@addtables#1}}
 
 \newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia\detokenize{#1}}}
-\newcommand\@addcode{\detokenize{Code/}}
+\newcommand\@addcode{\@addmedia\detokenize{Code/}}
 \newcommand{\insertcode}[1]{%
 	\@addcode#1}
 
 \newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia\detokenize{#1}}}
-\newcommand\@addpdf{\detokenize{Pdfs/}}
+\newcommand\@addpdf{\@addmedia\detokenize{Pdfs/}}
 \newcommand{\insertpdf}[1]{%
 	\@addpdf#1}
 
 \newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia\detokenize{#1}}}
-\newcommand\@adddata{\detokenize{Data/}}
+\newcommand\@adddata{\@addmedia\detokenize{Data/}}
 \newcommand\insertdata[1]{\@adddata\detokenize{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -963,6 +963,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtEndPreamble{
 	\if@pdfa
+		\def\@pdfcreator{LaTeX using a Template by Daniel R. Aldrich}
 		\usepackage[noerr,a-3b]{pdfx}
 	\fi
 }
