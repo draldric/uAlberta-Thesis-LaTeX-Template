@@ -1,7 +1,7 @@
 # Welcome to the (Un)Official uAlberta Thesis LaTeX Template
 
 <p align="center">
-  <img src="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/raw/main/logo.png" alt="uAlberta Thesis LaTeX Template Logo" width="150">
+  <img src="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/raw/main/logo.png/" alt="uAlberta Thesis LaTeX Template Logo" width="25%">
 </p>
 <div align="center">
   <img alt="GitHub Release" src="https://img.shields.io/github/v/release/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&link=https%3A%2F%2Fgithub.com%2Fdraldric%2Fualberta-thesis-latex-template%2Freleases%2Flatest&color=197b2e">
@@ -51,11 +51,8 @@ Ensure you have:
 
 ### Installation
 1. **Grab the latest files from this repository**:
-   a. **Clone the repository**:
-      ```sh
-      git clone https://github.com/draldric/uAlberta-Thesis-LaTeX-Template.git
-      ```
-   b. **[Download the *.zip](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/archive/refs/heads/main.zip)**
+   a. **Clone the repository**: `git clone https://github.com/draldric/uAlberta-Thesis-LaTeX-Template.git`
+   b. **Download** the Latest Release Source Code: [here](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/latest)
 2. **Open the project** in your LaTeX editor.
 3. **Set** `ualberta.tex` as the **root file.**
 4. **Compile the document** using `pdflatex`.
