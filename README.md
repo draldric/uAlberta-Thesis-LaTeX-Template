@@ -4,19 +4,24 @@
   <img src="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/raw/main/logo.png/" alt="uAlberta Thesis LaTeX Template Logo" width="25%">
 </p>
 <div align="center">
-  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&link=https%3A%2F%2Fgithub.com%2Fdraldric%2Fualberta-thesis-latex-template%2Freleases%2Flatest&color=197b2e">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&color=f2cb4d">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/draldric/ualberta-thesis-latex-template?style=for-the-badge&color=008080&logo=latex&logoColor=008080">
+  <a href="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/latest">
+  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&color=197b2e"></a>
+  <a href="https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/stargazers">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/draldric/uAlberta-Thesis-LaTeX-Template?style=for-the-badge&color=f2cb4d"></a>
+  <a href="https://www.latex-project.org/">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/draldric/ualberta-thesis-latex-template?style=for-the-badge&color=008080&logo=latex&logoColor=008080"></a>
 </div>
 <div align="center">
-  <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fualberta-thesis.daniel-aldrich.ca%2F&style=for-the-badge&link=https%3A%2F%2Fualberta-thesis.daniel-aldrich.ca%2F&color=185e35&">
-  <img alt="Discord" src="https://img.shields.io/discord/1336756415255281716?style=for-the-badge&link=https%3A%2F%2Fdiscord.com%2Finvite%2FWsz7chjw&color=5865F2&label=Discord&logo=discord&logoColor=5865F2">
+  <a href="https://ualberta-thesis.daniel-aldrich.ca">
+  <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fualberta-thesis.daniel-aldrich.ca%2F&style=for-the-badge&color=185e35&"></a>
+  <a href="https://discord.gg/dMgFcDYHEV">
+  <img alt="Discord" src="https://img.shields.io/discord/1336756415255281716?style=for-the-badge&color=5865F2&label=Discord&logo=discord&logoColor=5865F2"></a>
 </div>
 
 A **LaTeX template** for creating a University of Alberta thesis, compliant with **GPS formatting requirements** and supporting **PDF/A output** for submission.
 
 ## Table of Contents
-**[Why This Template?](#why-this-template?) | [Features](#features) | [Quick Start Guide](#quick-start-guide) | [Download](#download) | [Contribution](#contribution) | [Support](#support-this-project) | [License](#license)**
+**[Why This Template?](#why-this-template) | [Features](#features) | [Quick Start Guide](#quick-start-guide) | [Download](#download) | [Contribution](#contribution) | [Support](#support-this-project) | [License](#license)**
 
 ## Why This Template?
 Writing a thesis that meets **GPS's Thesis Formatting Requirements** can be frustrating, especially in word processors that are prone to crashes, c0R|u|p+10n, and *form***at**_ting_ i***ss***ues. Many students turn to [**LaTeX**](https://www.latex-project.org/), but the existing templates lack full compliance, were produced when you had to submit to the *FGSR* not the *GPS*, and fundamentally are not designed to help first time LaTeX or Thesis Writers.
