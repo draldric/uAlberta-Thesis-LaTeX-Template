@@ -590,7 +590,9 @@
 		\item\relax}
 	{\endlist}
 
-\newcommand\appendix{\par
+\newcommand\appendix{%
+	\let\chapter\originalchapter
+	\par
 	\setcounter{chapter}{0}%
 	\setcounter{section}{0}% MIGHT NOT BE NECESSARY
 	\gdef\@chapapp{\appendixname}%
@@ -890,7 +892,10 @@
 
 
 \def\bodyoftext{%
-	\if@chapterbib\preto{\chapter}{\clearpage\printbibliography[segment=\thebaseSection,heading=subbibintoc,title=References]}\fi%
+	\let\originalchapter\chapter
+	\if@chapterbib%
+		\preto{\chapter}{\printbibliography[segment=\the\numexpr\thebaseSection+1\relax,heading=subbibintoc,title=References]}
+	\fi%
 	\newpage
 	\setlength{\parindent}{2.6ex}
 	\setcounter{page}{0}
