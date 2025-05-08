@@ -56,11 +56,13 @@ Ensure you have:
 
 ### Installation
 1. **Grab the latest files from this repository**:
-   a. **Clone the repository**: `git clone https://github.com/draldric/uAlberta-Thesis-LaTeX-Template.git`
-   b. **Download** the Latest Release Source Code: [here](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/latest)
-2. **Open the project** in your LaTeX editor.
-3. **Set** `ualberta.tex` as the **root file.**
-4. **Compile the document** using `pdflatex`.
+  
+    a. **Clone the repository**: `git clone https://github.com/draldric/uAlberta-Thesis-LaTeX-Template.git`
+   
+    b. **Download** the Latest Release Source Code: [here](https://github.com/draldric/uAlberta-Thesis-LaTeX-Template/releases/latest)
+3. **Open the project** in your LaTeX editor.
+4. **Set** `ualberta.tex` as the **root file.**
+5. **Compile the document** using `pdflatex`.
 
 ### Further Information/Instructions
 📖 Check the **[Full Feature Guide](ualberta.pdf)** for more detailed instructions.
