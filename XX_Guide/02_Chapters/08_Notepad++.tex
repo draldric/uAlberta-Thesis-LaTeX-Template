@@ -1,0 +1,71 @@
+% !TeX root = ../guide
+\chapter{Notepad++: A Lightweight Text Editor for Advanced Workflows}\label{ch:notepadplusplus}
+	\section{Introduction}\label{sec:NPPIntroduction}
+		While dedicated IDEs like TeXstudio are highly recommended for writing the bulk of your thesis, there is undeniable value in having a fast, lightweight text editor in your toolkit. 
+		Notepad++ is a free, open-source source code editor that supports several languages, including \LaTeX.
+		
+		Unlike TeXstudio, Notepad++ will not hold your hand with integrated PDF viewers or built-in mathematical symbol libraries. 
+		However, its speed, robust search capabilities, and flexibility make it an excellent secondary tool for managing raw code, editing configuration files, or cleaning up messy bibliography data.
+	
+	\section{Key Features of Notepad++}
+		Notepad++ strips away the heavy graphical interfaces of full IDEs, focusing entirely on efficient text manipulation.
+
+		\subsection{Speed and Low Resource Usage}
+			Because it is a plain text editor at its core, Notepad++ opens almost instantly, even when loading massive text files or raw data sets. 
+			This makes it ideal for quick edits when you do not want to wait for a full IDE to initialize.
+
+		\subsection{Advanced Search and Replace}
+			Perhaps the most powerful feature of Notepad++ is its \enquote{Find in Files} capability. 
+			If you realize you have used the wrong terminology or need to change a variable name across all twenty chapters of your thesis, Notepad++ can search your entire project folder and replace the text in one click. 
+			It also fully supports Regular Expressions (Regex) for highly complex search patterns.
+		
+		\subsection{Syntax Highlighting}
+			Out of the box, Notepad++ recognizes \path{.tex} and \path{.bib} files and will apply basic syntax highlighting to your \LaTeX\ commands, making the raw code much easier to read than in standard Windows Notepad.
+		
+		\subsection{Plugin Ecosystem}
+			Through the built-in Plugin Admin, you can extend Notepad++'s functionality. 
+			Plugins like \textit{NppExec} allow you to send commands directly to your computer's command line, meaning you can set up a custom shortcut to compile your \LaTeX\ document directly from the editor.
+	
+	\section{Getting Started with Notepad++}
+		Setting up Notepad++ is quick and straightforward. 
+		
+		\subsection{Installation}
+			Notepad++ is available exclusively for Windows. 
+			To install the software, visit the official website: \url{https://notepad-plus-plus.org/}.
+			Navigate to the `Download' section, select the latest release, and download the installer. 
+			Follow the standard Windows installation prompts.
+		
+		\subsection{The Main Interface}
+			Upon launching, you will see a clean, tabbed interface as shown in \Cref{fig:NotepadMain}.
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{example-image}
+				\caption{Notepad++ Main Interface showing a \LaTeX\ document with syntax highlighting.}
+				\label{fig:NotepadMain}
+			\end{figure}
+		
+		\subsection{Compiling \LaTeX\ from Notepad++ (Advanced)}
+			If you wish to use Notepad++ as your primary editor, you will need a way to compile your document into a PDF. This requires the \textit{NppExec} plugin:
+			\begin{enumerate}
+				\item Go to `Plugins' $\rightarrow$ `Plugins Admin'.
+				\item Search for `NppExec', check the box, and click `Install'. Notepad++ will restart.
+				\item Press `F6' to open the Execute dialog.
+				\item Enter the command to compile your document (\textit{e.g.}, \texttt{pdflatex "\$(FULL\_CURRENT\_PATH)"}).
+				\item Save this script for future use.
+			\end{enumerate}
+			\note{%
+				For most thesis writers, it is far easier to use TeXstudio for compiling and reserve Notepad++ for quick text edits.}
+	
+	\section{Notepad++ in a Thesis Workflow}
+		You might wonder why you need Notepad++ if you already have TeXstudio. 
+		Here are a few scenarios where a lightweight text editor shines:
+		
+		\subsection{Editing Style (.sty) and Class (.cls) Files}
+			If you need to make a minor tweak to the uAlberta thesis template's underlying code (such as adjusting a margin or fixing a title page layout), opening the \texttt{.cls} file in Notepad++ is often cleaner and safer than loading it into your main IDE.
+		
+		\subsection{Cleaning up Bib\TeX\ Files}
+			Sometimes, exporting references from online databases results in messy \texttt{.bib} files with broken characters or formatting errors. 
+			Opening your bibliography database in Notepad++ allows you to view the raw text without any software trying to \enquote{interpret} it, making it easier to spot and delete corrupted lines.
+		
+		\subsection{Managing External Scripts}
+			If your research involves writing Python or other programming scripts for data analysis or generating complex TikZ plots, Notepad++ allows you to edit those external scripts side-by-side with your \LaTeX\ code in a lightweight environment.

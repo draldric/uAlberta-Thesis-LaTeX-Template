@@ -1,0 +1,79 @@
+% !TeX root = ../guide
+\chapter{ImageJ (Fiji): Scientific Image Processing}\label{ch:imagej}
+	\section{Introduction}\label{sec:ImageJIntroduction}
+		A technical thesis often requires the inclusion of experimental photographs, such as microscope micrographs, material cross-sections, or thermal imaging. 
+		While standard photo editors like Adobe Photoshop or Microsoft Paint can alter images, they are not designed for scientific rigor and can easily corrupt your data or degrade image quality.
+
+		\textbf{ImageJ} is a public domain, Java-based image processing program developed at the National Institutes of Health (NIH). 
+		It is the gold standard for scientific image analysis. 
+		This chapter will cover how to use ImageJ to analyze your experimental images, extract quantitative data, and properly format your pictures for high-quality printing in your \LaTeX\ thesis.
+
+	\section{Key Features of ImageJ}
+		ImageJ is built for scientists and engineers, meaning its tools prioritize measurable data over aesthetics.
+
+		\subsection{Spatial Calibration and Measurement}
+			Unlike a standard photo viewer that only understands ``pixels,'' ImageJ allows you to spatially calibrate your images. 
+			If you know that 500 pixels in your microscope image equates to 10 micrometers (\(\mu\)m), you can set this scale in ImageJ. 
+			Once calibrated, you can use the measurement tools to accurately calculate areas, perimeters, particle counts, and feature lengths in real-world units.
+
+		\subsection{Scientific Scale Bars}
+			A microscope or macro photograph without a scale bar is scientifically useless. 
+			Because ImageJ understands your spatial calibration, it can automatically generate and stamp highly accurate, customizable scale bars directly onto your images.
+
+		\subsection{Non-Destructive Processing}
+			When adjusting the brightness and contrast of a dark image so that it prints clearly in your thesis, ImageJ modifies the display lookup table (LUT) rather than permanently destroying the underlying pixel data, ensuring your raw data remains mathematically intact.
+
+	\section{Getting Started with Fiji (ImageJ)}
+		While you can download the base version of ImageJ, it is highly recommended to download \textbf{Fiji} (which stands for \textit{Fiji Is Just ImageJ}). 
+		Fiji is a \enquote{batteries-included} distribution of ImageJ that comes pre-packaged with all the most useful scientific plugins and automatic updaters.
+
+		\subsection{Installation}
+			Fiji is completely free and available for Windows, macOS, and Linux.
+			\begin{enumerate}
+				\item Visit the official website: \url{https://imagej.net/software/fiji/}.
+				\item Download the appropriate package for your operating system.
+				\item Fiji does not require a traditional installer on Windows; simply extract the downloaded \path{.zip} file into a safe directory (like \path{C:\Programs\Fiji}) and run \path{fiji-windows-x64.exe}.
+			\end{enumerate}
+
+		\subsection{The Main Interface}
+			When you launch Fiji, you will notice that it does not open a massive, screen-filling workspace. 
+			Instead, it opens a small, floating toolbar as shown in \Cref{fig:ImageJToolbar}.
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.6\linewidth]{example-image}
+				\caption{The floating Fiji (ImageJ) main toolbar.}
+				\label{fig:ImageJToolbar}
+			\end{figure}
+			
+			When you drag and drop an image onto this toolbar, the image will open in its own separate window. 
+			All tools, filters, and measurement functions selected from the toolbar will apply to the currently active image window.
+
+	\section{ImageJ in a \LaTeX\ Workflow}
+		The primary goal of using ImageJ in your thesis workflow is to prepare your experimental photographs so they compile cleanly and look professional in your final PDF.
+
+		\subsection{Adding a Scale Bar}
+			Before inserting an experimental image into your thesis, you must add a scale bar. 
+			\begin{enumerate}
+				\item Open your image in Fiji.
+				\item Calibrate the image using `Analyze' \(rightarrow\) `Set Scale'. Input the known distance and unit (\textit{e.g.}, \(10\), \(\mu\)m).
+				\item Go to `Analyze' \(rightarrow\) `Tools' \(rightarrow\) `Scale Bar'.
+				\item Adjust the width, height, font size, and color (usually black or white depending on the background). Ensure the `Hide Text' option is unchecked so the unit is visible.
+				\item Click `OK' to stamp the scale bar onto the image.
+			\end{enumerate}
+
+		\subsection{Exporting the Final Image}
+			\LaTeX\ and the uAlberta template compile best with high-resolution, lossless image formats.
+			
+			\textbf{Never save your scientific images as \path{.jpg} files.} 
+			The JPEG format uses \enquote{lossy} compression, which creates blurry artifacts around sharp edges like scale bars, text, and fine material features. 
+
+			Instead, once your image is processed, use `File' \(rightarrow\) `Save As':
+			\begin{itemize}
+				\item \textbf{PNG (\texttt{.png}):} The best choice for \LaTeX. 
+					It provides lossless compression, meaning your image retains 100\% of its quality and the scale bar text remains perfectly crisp, while keeping the file size reasonable.
+				\item \textbf{TIFF (\texttt{.tif}):} The archival standard for scientific images. 
+					TIFFs are completely uncompressed. 
+					You can use these in \LaTeX, but be warned that if you have dozens of TIFFs, your final thesis PDF file size may become massive.
+			\end{itemize}
+
+			Once exported as a PNG, you can comfortably insert the image into your document using the standard  \cmd{includegraphics} or the custom \cmd{insertimage} command within a \env{figure} environment.

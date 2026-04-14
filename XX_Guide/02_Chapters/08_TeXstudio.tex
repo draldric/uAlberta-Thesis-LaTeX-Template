@@ -1,0 +1,79 @@
+% !TeX root = ../guide
+\chapter{TeXstudio: A Comprehensive IDE for \LaTeX}\label{ch:texstudio}
+	\section{Introduction}\label{sec:TSIntroduction}
+		While \LaTeX\ documents can be written in any plain text editor, using a dedicated Integrated Development Environment (IDE) like TeXstudio significantly lowers the learning curve. 
+		TeXstudio is designed specifically for creating \LaTeX\ documents, offering features like real-time syntax checking, integrated PDF viewing, and automated command completion.
+		This chapter will provide an overview of TeXstudio's primary features and guide you through setting it up to work seamlessly with your thesis template.
+	
+	\section{Key Features of TeXstudio}
+		TeXstudio stands out because it brings together all the tools needed for document preparation into a single interface, reducing the need to interact directly with the command line.
+		
+		\subsection{Interactive Syntax Checking}
+			One of the most useful features for students is the \enquote{live} syntax checker. 
+			TeXstudio underlines errors in red and warnings in yellow as you type. 
+			This allows you to catch a missing bracket or a misspelled command immediately, rather than waiting until you try to compile the entire document.
+		
+		\subsection{Integrated PDF Viewer}
+			TeXstudio includes a built-in PDF viewer that supports \enquote{SyncTeX.} 
+			This allows for two-way communication between your code and your output: if you right-click a sentence in the PDF, you can jump directly to the corresponding line in the \LaTeX\ code, and vice versa.
+		
+		\subsection{Advanced Completion}
+			When you begin typing a command (\textit{e.g.}, \texttt{\textbackslash cite\{}), TeXstudio provides a dropdown list of available citation keys from your bibliography. 
+			It also automatically suggests the required arguments for complex environments like tables and figures, which is a massive time-saver for a thesis.
+		
+		\subsection{Structure View}
+			The side panel provides a hierarchical view of your document structure (Parts, Chapters, Sections). 
+			For a large thesis, this serves as an interactive Table of Contents, allowing you to jump between different chapters of your work with a single click.
+	
+	\section{Getting Started with TeXstudio}
+		Setting up TeXstudio correctly is essential for ensuring that your thesis compiles without errors, especially when using the uAlberta template.
+		
+		\subsection{Installation}
+			The software is available for Windows, macOS, and Linux. 
+			Visit the official website: \url{https://www.texstudio.org/} and download the installer for your operating system.
+			\note{%
+				Ensure you have already installed a \LaTeX\ distribution like MikTeX or TeXLive before installing TeXstudio, as the editor requires a compiler to function.}
+		
+		\subsection{The Main Interface}
+			Upon launching TeXstudio, you will see the primary workspace as shown in \Cref{fig:TeXstudioMain}.
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{example-image}
+				\caption{TeXstudio Main Interface showing editor, structure, and PDF viewer.}
+				\label{fig:TeXstudioMain}
+			\end{figure}
+		
+		\subsection{Configuration for Your Thesis}
+			To ensure the uAlberta template compiles correctly (especially if you are using specialized fonts or Bib\LaTeX), you should verify your build settings:
+			\begin{enumerate}
+				\item Go to `Options' $\rightarrow$ `Configure TeXstudio'.
+				\item Under the `Build' tab, ensure the `Default Compiler' is set to \textbf{PdfLaTeX}.
+				\item Ensure the `Default Bibliography Tool' is set to \textbf{Biber}.
+			\end{enumerate}
+
+	\section{Efficient Writing Workflows}
+		Beyond just typing text, TeXstudio has several tools that make the technical side of thesis writing easier.
+		
+		\subsection{Using the Bibliography with JabRef}
+			If you have your JabRef library open and saved as a \path{.bib} file in your project folder, TeXstudio will automatically \enquote{read} it. 
+			When you type \texttt{\textbackslash cite\{}, a list of your references will appear. 
+			You can search this list by author or title directly within the editor.
+		
+		\subsection{Managing Large Documents}
+			Since a thesis is usually split into multiple files (one for each chapter), you must tell TeXstudio which file is the \enquote{Root} file.
+			This can be done in one of two ways.
+
+			The first is to use \enquote{Magic Comments} at the top of each separate file.
+			The format of this comment (which should be the first line of the file) should be:
+			\texttt{\% !TeX root = ../ualberta.tex}.
+
+			The second way is to set the root in TeXstudio.
+			\begin{enumerate}
+				\item Open your main thesis file (\textit{e.g.}, \path{ualberta.tex}).
+				\item Go to `Options' $\rightarrow$ `Root Document' $\rightarrow$ `Set Current Document as Explicit Root'.
+			\end{enumerate}
+			This ensures that whenever you press \enquote{Compile} while working on a sub-chapter file, TeXstudio knows to compile the entire thesis starting from the main file.
+		
+		\subsection{Mathematical Assistance}
+			For the complex equations required in engineering and technical theses, the `Mathematical Symbols' panel on the left provides a clickable library of Greek letters, operators, and relations. 
+			Hovering over a symbol will even show you the required \LaTeX\ command.

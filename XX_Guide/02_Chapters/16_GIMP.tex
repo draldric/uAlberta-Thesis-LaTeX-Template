@@ -1,0 +1,86 @@
+% !TeX root = ../guide
+\chapter{GIMP: Preparing Illustrative and Equipment Photographs}\label{ch:gimp}
+	\section{Introduction}\label{sec:GIMPIntroduction}
+		While ImageJ is the strict standard for analyzing scientific data and micrographs, a thesis also requires standard photography. 
+		You will often need to include pictures of your experimental setup, custom-built test rigs, or field equipment. 
+
+		\textbf{GIMP} (GNU Image Manipulation Program) is a free, open-source raster graphics editor that serves as a highly capable alternative to Adobe Photoshop. 
+		This chapter will cover how to use GIMP to clean up distracting backgrounds, correct lighting, and ensure your illustrative photographs are formatted at the correct resolution for high-quality printing in your \LaTeX\ document.
+
+		\warning{%
+			You must never use GIMP's advanced cloning, healing, or manipulation tools on scientific data (such as altering a material fracture surface or removing an \enquote{outlier} particle from a microscope image). 
+			GIMP should be strictly reserved for illustrative photographs where the physical appearance of the equipment, rather than extractable data, is the focus.}
+
+	\section{Key Features of GIMP}
+		GIMP provides a comprehensive suite of tools for photo retouching and image composition.
+
+		\subsection{Layers and Masks}
+			Unlike basic photo viewers, GIMP utilizes a layer-based workflow. 
+			This allows you to stack edits on top of your original image without destroying it. 
+			More importantly, it allows you to use \enquote{Layer Masks} to hide distracting backgrounds. 
+			If you take a photo of a piece of equipment in a cluttered workshop, you can use masks to isolate the equipment and place it on a clean, professional white background for your thesis.
+
+		\subsection{Perspective and Lens Correction}
+			When taking photos of control panels or large equipment in tight laboratory spaces, the image is often skewed by lens distortion or captured at an angle. 
+			GIMP includes powerful perspective transformation tools that allow you to \enquote{square up} your photos, making them look as though they were taken perfectly straight-on.
+
+		\subsection{Color and Lighting Adjustments}
+			Lab environments often have terrible fluorescent lighting that washes out the contrast in your photos. 
+			GIMP's \enquote{Levels} and \enquote{Curves} tools allow you to correct the white balance and pull detail out of dark shadows, ensuring your equipment is clearly visible when printed on paper.
+
+	\section{Getting Started with GIMP}
+		GIMP is a fully-featured program with a layout that will be familiar to anyone who has used legacy versions of Photoshop.
+
+		\subsection{Installation}
+			GIMP is completely free and available for Windows, macOS, and Linux.
+			\begin{enumerate}
+				\item Visit the official website: \url{https://www.gimp.org/}.
+				\item Click the `Download' button and select the installer for your operating system.
+				\item Follow the standard installation prompts.
+			\end{enumerate}
+
+		\subsection{The Main Interface}
+			When you launch GIMP, the interface is divided into three main areas, as shown in \Cref{fig:GimpMain}.
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{example-image}
+				\caption{GIMP Main Interface showing the Toolbox, Image Canvas, and Layers Dialog.}
+				\label{fig:GimpMain}
+			\end{figure}
+			
+			\begin{itemize}
+				\item \textbf{Toolbox (Left):} Contains all your selection, drawing, and transformation tools.
+				\item \textbf{Image Canvas (Center):} Your primary workspace.
+				\item \textbf{Dockable Dialogs (Right):} This panel houses your Layers, Channels, and Undo History.
+			\end{itemize}
+
+	\section{GIMP in a \LaTeX\ Workflow}
+		The most important function GIMP serves in your thesis workflow is managing image resolution and file formats before they ever touch your \path{.tex} files.
+
+		\subsection{Managing Print Resolution (DPI)}
+			A common issue when writing a thesis is that photos taken on a smartphone look great on a screen but print out pixelated and blurry. 
+			This is an issue of Dots Per Inch (DPI). 
+			
+			Before exporting an image for \LaTeX, you must ensure it has a high enough resolution for physical printing:
+			\begin{enumerate}
+				\item Open your photo in GIMP.
+				\item Go to `Image' \(\rightarrow\) `Print Size'.
+				\item Ensure the X and Y resolution are set to a minimum of \textbf{300 pixels/in}. 
+				\item The dialog will show you the physical size (in inches or millimeters) the image will be when printed at that high resolution.
+			\end{enumerate}
+
+		\subsection{Cropping for Document Flow}
+			\LaTeX\ handles text wrapping and figure placement based strictly on the boundary of the image file. 
+			If your photograph has a massive amount of empty floor or ceiling space, \LaTeX\ will include that dead space, pushing your text further down the page. 
+			Always use GIMP's Crop tool (`Shift + C') to trim your photographs as tightly as possible to the subject matter before exporting.
+
+		\subsection{Exporting Images}
+			Unlike standard programs where you click \enquote{Save,} GIMP uses `File' \(\rightarrow\) `Save' to create a \path{.xcf} project file (which \LaTeX\ cannot read). 
+			To generate an image for your thesis, you must use `File' \(\rightarrow\) `Export As'.
+
+			\begin{itemize}
+				\item \textbf{PNG (\texttt{.png}):} Use this format if you have added any text annotations, arrows, or if you have removed the background to make it transparent. 
+					PNG prevents the blurry artifacts that JPEG compression causes around sharp text.
+				\item \textbf{JPEG (\texttt{.jpg}):} Use this format for standard, illustrative photographs of equipment or field work. 
+					It provides good compression for complex colors.
+			\end{itemize}

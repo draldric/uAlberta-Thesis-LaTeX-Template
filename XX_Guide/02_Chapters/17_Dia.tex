@@ -1,0 +1,84 @@
+% !TeX root = ../guide
+\chapter{Dia: Structured Diagramming and Flowcharts}\label{ch:dia}
+	\section{Introduction}\label{sec:DiaIntroduction}
+		A technical thesis often requires abstract visual representations of your work. 
+		Whether you need to map out the logic for a PLC program, draft a block diagram for a hydraulic circuit, or outline the step-by-step workflow of a process, you need a dedicated diagramming tool.
+
+		\textbf{Dia} is a free, open-source drawing program designed specifically for structured diagrams. 
+		It serves as an excellent, lightweight alternative to commercial software like Microsoft Visio. 
+		This chapter will introduce Dia and explain how to create professional, scalable diagrams that integrate perfectly into your \LaTeX\ document.
+
+	\section{Key Features of Dia}
+		Dia is not a freehand drawing tool; it is built for precision, structure, and connectivity.
+
+		\subsection{Extensive Shape Libraries}
+			Dia comes pre-loaded with standardized shape libraries for various technical disciplines. 
+			You will find dedicated sheets for basic flowcharts, UML (Unified Modeling Language) for software engineering, electrical circuits, pneumatic systems, and network topologies. 
+			This ensures your diagrams use industry-standard iconography.
+
+		\subsection{Dynamic Routing and Connectivity}
+			When drafting a complex control logic diagram, the last thing you want is for your lines to break when you move a box. 
+			Dia features dynamic connection points. 
+			When you anchor a line between two blocks and subsequently reposition one of the blocks, the connecting line automatically stretches and reroutes itself, keeping your system architecture intact.
+
+		\subsection{Snap-to-Grid Alignment}
+			Professional diagrams require perfect alignment. 
+			Dia includes a robust grid system and alignment tools that ensure your blocks and flowcharts are perfectly symmetrical, which is critical for the visual appeal of your printed thesis.
+
+	\section{Getting Started with Dia}
+		Dia is incredibly lightweight and easy to get running on any system.
+
+		\subsection{Installation}
+			Dia is available for Windows, macOS, and Linux.
+			\begin{enumerate}
+				\item For Windows users, the easiest way to download the software is via the installer website: \url{http://dia-installer.de/}.
+				\item Download the latest installer package.
+				\item Follow the standard installation prompts.
+			\end{enumerate}
+
+		\subsection{The Main Interface}
+			Upon launching Dia, you will see a straightforward interface that separates your tools from your drawing canvas, as shown in \Cref{fig:DiaMain}.
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.6\linewidth]{example-image}
+				\caption{Dia Main Interface showing the Toolbox, Shape Selector, and Diagram Canvas.}
+				\label{fig:DiaMain}
+			\end{figure}
+			
+			The primary areas include:
+			\begin{itemize}
+				\item \textbf{Toolbox:} Located on the left, containing basic drawing tools, text insertion, and line connectors.
+				\item \textbf{Shape Selector:} Located just below the toolbox, this drop-down menu allows you to switch between different libraries (\textit{e.g.}, from `Flowchart' to `Logic').
+				\item \textbf{Canvas:} Your main drawing area, complete with a background grid.
+			\end{itemize}
+
+	\section{Dia in a \LaTeX\ Workflow}
+		The most crucial aspect of using Dia is how you get your completed diagram out of the software and into your \LaTeX\ thesis without losing quality. 
+		Because diagrams are made of sharp lines and text, they must be exported as vector graphics.
+
+		\subsection{Exporting as Encapsulated PostScript (EPS)}
+			For a very long time, EPS was the gold standard for \LaTeX\ vector graphics. 
+			\begin{enumerate}
+				\item In Dia, go to `File' \(\rightarrow\) `Export'.
+				\item Select \textbf{Encapsulated PostScript (*.eps)} from the drop-down format list.
+				\item This file can be compiled directly into your document. 
+					However, note that modern \LaTeX\ workflows using \texttt{pdflatex} often convert EPS to PDF on the fly during compilation.
+			\end{enumerate}
+
+		\subsection{Exporting as PDF via Cairo}
+			For modern uAlberta templates that rely on \texttt{pdflatex}, exporting directly to a PDF is the safest and cleanest method.
+			\begin{enumerate}
+				\item Go to `File' \(\rightarrow\) `Export'.
+				\item Choose the \textbf{Cairo Portable Document Format (*.pdf)} option.
+				\item This creates a tightly cropped, infinitely scalable PDF of your diagram that you can insert using the standard \cmd{includegraphics} or the custom \cmd{insertimage} command.
+			\end{enumerate}
+
+		\subsection{Advanced: Exporting to PGF/TikZ}
+			Just like GNU Octave, Dia has a native export filter for \LaTeX's drawing package, \pkg{TikZ}. 
+			If you want the text in your diagram to perfectly match the font of your thesis (\textit{e.g.}, Times New Roman or Computer Modern), you can export your diagram as a \textbf{PGF macro file (*.tex)}. 
+			
+			This generates raw \LaTeX\ code. 
+			You can then include this diagram in your document using \cmd{insertplot}\mopt{my_diagram.tex}. 
+			\note{%
+				While exporting to \pkg{TikZ} ensures perfect font matching, complex Dia diagrams can generate a massive amount of raw code, which may slightly increase your document compile time. 
+				For most students, exporting via the Cairo PDF method strikes the best balance between quality and ease of use.}

@@ -1,0 +1,92 @@
+% !TeX root = ../guide
+\chapter{Getting Started with \LaTeX}\label{ch:gettingstarted}
+	\section{Installation}
+		To begin using \LaTeX, you need to install a \LaTeX\ distribution on your computer.
+		Here there are two main distributors: \href{https://tug.org/texlive}{TeX Live}, a free software distribution for the \TeX\ typesetting system which is provided by the \TeX\ User Group (TUG); or \href{https://miktex.org/}{MiKTeX}, a free and open-source distribution of the \TeX/\LaTeX\ typesetting system developed by Christian Schenk.
+		Here are the links for installing \LaTeX\ on different platforms:
+
+		\subsection{Windows}
+			For Windows users, you can install \href{https://tug.org/texlive/windows.html}{TeX Live} or \href{https://miktex.org/download}{MiKTeX}. 
+			Download the installer from the respective websites and follow the installation instructions.
+
+		\subsection{Mac}
+			On Mac, you can use \href{https://tug.org/mactex/}{MacTeX} (Mac version of TeX Live) or \href{https://miktex.org/download}{MiKTeX}. 
+			Download the package from the respective websites and follow the installation instructions.
+
+		\subsection{Linux}
+			For Linux users, \href{https://tug.org/texlive/quickinstall.html}{TeX Live} is a common choice or one can use \href{https://miktex.org/download}{MiKTeX}. 
+			Use your package manager to install it, or download the installer from the respective websites.
+
+	\section{Basic Document Structure}\label{sec:basicdocstucture}
+		Once \LaTeX\ is installed, you can start by creating a basic \LaTeX\ document.
+		For a test of the system, open the included program \path{TeXworks}.
+		Once it is open, copy the code below and press the typeset button (green play button).
+		When the document has finished compiling you will get a preview of the document in a new window.
+		Congratulations, you have compiled a new \LaTeX\ document.
+			\insertcode[style=LaTeXStyle]{basicTeXDocument}
+
+		This example demonstrates a simple \LaTeX\ document with a title, author, and date.
+		Now we will look a bit more into the example above and explain what exactly is happening with each line:
+
+		\begin{description}
+			\item[\cmd{documentclass}\mopt{article}] is a mandatory line that tells \LaTeX\ the type of document to create; in this case, it is the built-in article class.
+			\item[\cmd{title}\mopt{My First \LaTeX{} Document}] sets the title for the document to: My First \LaTeX{} Document
+			\item[\cmd{author}\mopt{}] sets the author of the document to: author.
+			\item[\cmd{date}\mopt{\today}] sets the date for the document to: \today
+			\item[\benv{document}] defines the beginning of the documents content.
+			\item[\cmd{maketitle}] is a command that is defined in the article class (as well as other built-in classes) that generates the layout and adds the content from the \cmd{title}, \cmd{author}, and \cmd{date} commands to the title of the document.
+ 			\item[\texttt{Hello, \cmd{LaTeX}\mopt{}!}] generates the text: Hello \LaTeX!
+			\item[\eenv{document}] defines the end of the documents content.
+		\end{description}
+
+		Now that we have installed \LaTeX\ and have created out first document with it, we should explore a couple other pieces of software to streamline using \LaTeX\ for creating a thesis.
+		The next section will go over two main pieces of software typically used for technical writing in \LaTeX: a \LaTeX\ editor and a Reference Manager.
+
+	\section{Other Software Considerations}
+		While by itself \LaTeX\ can be used with just a text editor and compiler (such as TeXworks), there are some additional software considerations that should be made.
+		Mainly, the use of a dedicated \textbf{\LaTeX\ editor} to help with the writing of the \LaTeX\ \enquote{code} and the use of a \textbf{reference manager} to organize all your references.
+
+		\subsection{\LaTeX\ Specific Editor}
+			While using a good text editor and compiling the document manually is all good, people new to \LaTeX\ are not going to be to happy with it.
+			So lets fix this by first getting you a sort of all-in-one program, a \LaTeX\ IDE/editor.
+	
+			While all of the distributions above come with \href{https://www.tug.org/texworks/}{TeXWorks} (a simple editor that allows for compilation) you might find it more beneficial to have some additional features.
+			Most \LaTeX\ editors have some form of editing, they help with the commands, they handle compilation, and viewing the final PDF.
+			For a \LaTeX\ editor I recommend one of the following:
+			\begin{itemize}
+				\item \href{https://www.texstudio.org/}{TeXstudio}%
+					\footnote{This is the editor that I personally use, and will provide some tips on using the software in \Cref{ch:texstudio}.}
+				\item \href{http://www.xm1math.net/texmaker/}{Texmaker}
+				\item \href{http://www.texniccenter.org/}{TeXnicCenter}
+				\item \href{https://www.overleaf.com/}{\sout{Overleaf}}\footnote{Due to changes with Overleaf, I recommend it less and less. While it is convenient, as it is a web based editor/compiler, they have restricted it more and more which forces the users to now pay more for the software... including to get longer compile times. While this is not an issue for short articles, in longer documents, such as a thesis, this can be a large hindrance and cost (\sout{\$100} \$109~CAD/year with student discount).}
+			\end{itemize}
+			It is even possible to use popular coding editor \href{https://code.visualstudio.com/}{Visual Studio Code} with the \href{https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop}{LaTeX Workshop} extension to edit and compile your document.
+			Though I don't recommend the use of Visual Studio Code, as it is not feature complete like most of the editors above and may make some of the required steps harder to complete, or harder to diagnose any other issues that appear.
+			
+			I am sure there are other editors besides the ones that I have listed, but any of these one will do you fine for writing your thesis.
+
+		\subsection{Reference Manager}
+			A reference manager is a database for streamlining the collection, management, and  use of the references in your research. 
+			Instead of manually typing out every author name, journal title, and DOI into a \path{.bib} file, these programs allow you to save papers directly from your browser and organize them into folders.
+
+			For \LaTeX\ users, the most important feature of a reference manager is the ability to export your library as a \path{.bib} file. 
+			This file contains all the metadata for your citations in a format that Bib\LaTeX\ or Bib\TeX\ can understand. 
+			When you cite a paper in your document using its unique \enquote{citation key,} \LaTeX\ looks into this file and formats the bibliography entry automatically according to your chosen style.
+			
+			Here are a couple of the more popular reference managers available:
+			\begin{itemize}
+				\item \href{https://www.jabref.org/}{JabRef\footnote{I personally use this as my reference manager, and will provide some tips on using the software in the \Cref{ch:jabref}.}}: An open-source manager designed specifically for Bib\TeX. 
+					It uses the \path{.bib} format as its native file format, meaning there is no \enquote{exporting} required—you are working directly on the file \LaTeX\ reads.
+					Further, JabRef has support for creating a Microsoft Word reference library file.
+				\item \href{https://www.zotero.org/}{Zotero}: It is free, open-source, and has an incredible browser extension for saving papers with one click. 
+					For \LaTeX\ users, the \href{https://retorque.re/zotero-better-bibtex/}{Better BibTeX} plugin is a must-have, as it automates the generation of citation keys and can keep your \texttt{.bib} file updated in real-time as you add new research.
+				\item \href{https://www.mendeley.com/}{Mendeley}: A popular choice owned by Elsevier. 
+					While it has a polished interface and good PDF annotation features, it has become increasingly \enquote{closed off} in recent years, making it slightly more cumbersome to use with external \LaTeX\ workflows compared to JabRef or Zotero.
+			\end{itemize}
+
+			Using one of these tools will save you dozens of hours during your thesis. 
+			Instead of worrying about where a comma goes in a citation, you can focus on the actual writing and the \path{.bib} file and \LaTeX\ will handle all the proper formatting for you.
+
+			\note{%
+				While a reference manager is suited for creating a thesis in \LaTeX, it is not exclusive for use with \LaTeX. 
+				In fact, even if you are writing your thesis in Microsoft Word or Google Docs I would recommend the use of the suggested reference managers to help keep track of all your references, and to keep track of the information you found within your references.}

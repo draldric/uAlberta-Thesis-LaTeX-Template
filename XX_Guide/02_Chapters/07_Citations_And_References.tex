@@ -1,0 +1,74 @@
+% !TeX root = ../guide
+\chapter{Citations, References, and Cross-References}\label{ch:citref}
+	This section will be showing off some of the different ways to include \enquote{citations} and \enquote{cross-references} within your document.
+	Note that \textbf{cross-references} in \LaTeX\ utilize \cmd{ref} as a command, while one might think that this is short for reference this is not the case citation/references utilize the \cmd{cite} command.
+	\section{Cross-References}
+		In \LaTeX, references will \enquote{reference} a \cmd{label}\mopt{Reference:Label} command. 
+		This section has the following command to define the Chapter:
+		\begin{Center}
+			\lstinline[basicstyle=\ttfamily]|\chapter{Citations/References, and Cross-References}\label{ch:citref}|
+		\end{Center}
+
+		By using \cmd{ref}\mopt{ch:citref}|, this allows you to insert a cross\hyp{}reference that look like this \ref{ch:citref}.
+		Now this by itself is not the most useful, to make it a bit better we should keep track of what we are cross\hyp{}referencing, in this case a \textbf{Chapter}, and add this label in front of the cross\hyp{}reference (\lstinline[basicstyle=\ttfamily]|Chapter~\ref{sec:citref}|) and this will display like this: Chapter~\ref{ch:citref}.
+		
+		\note{
+			To ensure the reference is not split we need add a non\hyp{}breaking space (\(\sim \)) to prevent \LaTeX\ from accidentally adding a line\hyp{}break between the label we added and the actual cross\hyp{}reference.}
+
+		While using the \cmd{ref} command, you might ask \enquote{\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}}
+		The answer is to provide more flexibility to the user.
+		However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
+		Some of these are provided by the \pkg{hyperref} and \pkg{cleveref} packages.
+		To include these packages add the following lines to the \textbf{bottom} of your preamble (order matters, \pkg{cleveref} needs to be after \pkg{hyperref}; and \pkg{hyperref} should be one of the last packages loaded):
+		\begin{lstlisting}[style=LaTeXStyle]
+			\usepackage{hyperref}
+			\usepackage[nameinlink]{cleveref}
+		\end{lstlisting}
+		With these packages loaded we can now use the commands listed in \Cref{tab:reftable}.\footnote{Note that because the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
+		\begin{table}[H]
+			\caption{Built-in, hyperref, and cleveref commands and outputs}
+			\label{tab:reftable}
+			\centering
+			\begin{tabularx}{0.5\linewidth}{CC} 
+				\toprule
+					\textbf{Command} & \textbf{Output} \\
+				\midrule
+					\multicolumn{2}{c}{built-in}\\
+					\cmd{ref}\mopt{}           & \ref{tab:reftable} \\
+					\cmd{pageref}\mopt{}       & \pageref{tab:reftable} \\
+				\midrule
+					\multicolumn{2}{c}{hyperref}\\
+					\cmd{autoref}\mopt{}       & \autoref{tab:reftable} \\
+					%\lstinline|\\autoref*\{\}|      & \autoref*{tab:reftable} \\
+				\midrule
+					\multicolumn{2}{c}{cleveref}\\
+					\cmd{cref}\mopt{}          & \cref{tab:reftable} \\
+					\cmd{Cref}\mopt{}          & \Cref{tab:reftable} \\
+					\cmd{cref*}\mopt{}         & \cref*{tab:reftable} \\
+					\cmd{Cref*}\mopt{}         & \Cref*{tab:reftable} \\
+					\cmd{cpageref}\mopt{}      & \cpageref{tab:reftable} \\
+					\cmd{Cpageref}\mopt{}      & \Cpageref{tab:reftable} \\
+					\cmd{namecref}\mopt{}      & \namecref{tab:reftable} \\
+					\cmd{nameCref}\mopt{}      & \nameCref{tab:reftable} \\
+				\bottomrule
+			\end{tabularx}
+		\end{table}
+		Further, the \pkg{cleveref} also includes features that allows for the auto sorting and combining of references:
+		\begin{lstlisting}[style=LaTeXStyle]
+			\Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}
+		\end{lstlisting}
+		Noting that there are \textbf{NO} spaces between the labels; this will produce: \Cref{fig:doubleImage,fig:singleImage,fig:tripleImage1,fig:quadImage}. 
+		Allowing one to quickly and efficiently keep references up-to-date and consistent in their style.
+		More examples of the use of the \pkg{cleveref} cross-referencing is found through the rest of this \nameCref{ch:citref}.
+	\section{Citations/References}
+		Citations are a lot easier than dealing with the cross-referencing.
+		There are no additional packages required for citations, the built-in ones are feature-rich enough.
+
+		Single citations can be included with the \cmd{cite}\mopt{citationKey} command, the one at the end of this sentence is created with the \cmd{cite}\mopt{TEST} command \cite{TEST}. 
+		Multiple citations can be included in a single cite command by adding commas in between the citation keys. 
+		The citation at the end of this sentence shows how to create more than one citation and how they are grouped together, it is created with the \cmd{cite}\mopt{testone,cite2,cite3,cite4,cite5} command \cite{testone,cite2,cite3,cite4,cite5}.
+		Finally this sentence shows how a gap in the citations is handled, this is created with the \cmd{cite}\mopt{testone,cite2,cite3,cite5} command \cite{testone,cite2,cite3,cite5}.
+
+		Finally, another useful citation command is the \cmd{fullcite}\mopt{citekey} command that will print out the full citation. The following is produced using the \cmd{fullcite}\mopt{Aldrich2017}:
+
+		\fullcite{Aldrich2017}

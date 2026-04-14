@@ -1,0 +1,26 @@
+% !TeX root = ../guide
+\chapter{Submitting Your Thesis}\label{ch:submitting}
+	So you have seemingly gotten to the end of the writing, and you may be already taking the steps to set up your last review with your supervisor, set up your thesis defence, or even submit your thesis to \Fac... but now what do you do?
+
+	Quick answer is: a lot; long answer: this will be discussed throughout this Chapter.
+
+	There are a number of steps that you will want to take to make sure that you are submitting the best version of your work.
+	This includes checking for some of the more obvious and less obvious pitfalls that writing a Thesis in \LaTeX\ or really any software poses.
+
+	\section{Missing Cross-References and Citations}
+		There are a couple of pitfalls when using \LaTeX to automatically produce your cross-reference and citation.
+		Because the compilation of the document is separated from the writing, it might not be obvious that \cmd{cite}\mopt{notakey} or \cmd{Cref}\mopt{ch:notachapter} are wrong until you compile the full document and check the document to see that they show up as \cite{notakey} and \Cref{ch:notachapter}, respectively.
+		However, it can happen that these become very easy to overlook in a document that can be well over 100+ pages.
+
+		We need a easy and straight forward way to make sure that all our cross-references and citations are correct.
+		That is where our compiler's log comes into play.
+		Go to `Tools' \(\rightarrow\) `View Log' to show the log under the editor in TeXstudio, then on the menu bar for the log un-select `show BadBox'.
+		Now you should be left with a bunch of orange warnings; read through them and look for one where the message starts with \enquote{Reference} or \enquote{Citation} and ends in undefined. 
+		These are the problematic references or citations.
+		You can click on the warnings to be taken to the file/line that the warning occurred on.
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.8\textwidth]{example-image}
+			\caption{Example log in TeXstudio with badbox option turned off.}\label{fig:examplelog}
+		\end{figure}

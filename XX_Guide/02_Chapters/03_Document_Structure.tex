@@ -1,0 +1,151 @@
+% !TeX root = ../guide
+\chapter{Document Structure and Formatting}\label{ch:documentstructure}
+	A thesis for the \University\ can consist of many different pieces that come together to create the final document.
+	These will include the Title Page, Abstract, and other Prefatory pages; and the chapters, sections, and paragraphs; as well as the content, figures, tables, and other content you would like to include.
+	In the rest of this chapter, we will look more specifically on the inclusion of the prefatory pages and how to structure your document with the various chapter, section, and paragraph commands with the help from the template.
+	
+	\section{Title Page, Abstract, and Other Prefatory Pages}
+		As we saw in \Cref{sec:basicdocstucture}, in \LaTeX\ to create a title page you use the \cmd{maketitle} command after providing the necessary title, author, and date information with the \cmd{title}\mopt{}, \cmd{author}\mopt{}, and \cmd{date}\mopt{} commands, respectively.
+		However, for a thesis at the \University\ a few more pieces of information are required for the title page.
+		To help with this I have recreated the title page to match the sample provided by the \Faculty\ and have add the corresponding commands too.
+		Additionally, a few more pages are also required (Abstract and Preface) and a few optional pages may be included too (Quote, Dedication, and Acknowledgements).
+		All of these pages have very specific formatting requirements provided by the \Fac.
+		
+		The \Faculty\ even provides a few different documents that attempt to provide the necessary information to create these pages \cite{FGPS2024}.
+		While these do a decent job at layout how these pages need to be laid out, I decided to take the guess work completely out of it. 
+		I have created a few new pairs of commands; one sets the text for the section, the other one generates the page with the text in the proper formatting.
+
+%TODO: Fix overflowing text
+		The following commands are used to \textbf{set the text} for each of their respective sections.
+		\begin{itemize}
+			\item \cmd{abstracttext}\mopt{}, 
+			\item \cmd{preface}\mopt{}, 
+			\item \cmd{thesisquote}\mopt{}, 
+			\item \cmd{dedication}\mopt{}, and 
+			\item \cmd{acknowledgementtext}\mopt{} 
+		\end{itemize}
+
+		Where the follow commands here are used to \textbf{print} the receptive sections.
+		\begin{itemize}
+			\item \cmd{makeabstract}, 
+			\item \cmd{makepreface}, 
+			\item \cmd{makequote}, 
+			\item \cmd{makededication}, and 
+			\item \cmd{acknowledgements} 
+		\end{itemize}
+		Because sometimes it can be easy to forget to comment or un-comment these, I have taken some time to make the system a bit smart.
+		It will analyze if the commands used to set the text are empty or commented out and automatically exclude those sections or in the case of the preface it will default to the minimum required preface example.
+
+		\subsection{Title Page}
+			The thesis Title Page has a few more fields to be filled in than a regular \LaTeX\ document.
+			These include \cmd{degree}, \cmd{specialization}, \cmd{deptfac}, and \cmd{convocationdate}.
+			An example of how to fill these in can be seen in the original \LaTeX\ code (\path{ualberta.tex}).
+
+			Most of the fields are fairly self-explanatory, however, to be extra clear as to what needs to be included I will now provide an explanation of each field:
+			\begin{description}
+				\item[\cmd{title}] this will the title of your thesis.
+				\item[\cmd{author}] this will be your full name.
+				\item[\cmd{degree}] this is already set up to read from the file \path{selectDegree.tex} from the \path{00_LaTeX_Files} folder. 
+					The \path{selectDegree.tex} file is pre-setup with all the options to choose from, just un-comment the one that matches your thesis.
+				\item[\cmd{specialization}] this will be where you write your specialization (if you have one) as it appears on beartracks.
+				\item[\cmd{deptfac}] this is already set up to read from the file \path{selectDeptartment.tex} from the \path{00_LaTeX_Files} folder. 
+				The \path{selectDeptartment.tex} file is pre-setup with all the options to choose from, just un-comment the one that matches your thesis. 
+				\item[\cmd{convocation}] this is set up to read th current year, but if you will be convocating in the fallowing year you must change this to match your convocation year.
+				\item[\cmd{creativecommons}] this is already set up to read from the file \path{selectCreativeCommons.tex} from the \path{00_LaTeX_Files} folder.  
+				The \path{selectCreativeCommons.tex} file is pre-setup with all the options to choose from, just un-comment the one that matches your thesis.
+			\end{description}
+
+			\notice{%
+				This class is not exclusive to the \University.
+				To customize this to your specific institution, use the command \cmd{university}\mopt{YOUR INSTITUTION NAME} before the \cmd{maketitle} command. I have also made a lot of effort to comment and organize the \path{ualberta.cls} file to make editing as easy as possible.}
+
+		\subsection{Abstract}\label{abstract}
+			\warning{%
+				This is often considered one of the hardest sections to get right.
+				This section is the summary of the entire work; you have just 700~words to convey your thesis, methodology, results, and conclusions while convincing the reader that the rest of the document is worth reading too.
+				With all of that, the best piece of advice I can offer is to write this section last.}
+
+			\caution{%
+				Your abstract must be absent of figures, tables, references, and cross-references.}
+
+			This is probably one of the simplest sections that needs to be created for your thesis.
+			Mainly because the content that can be included is so restrictive.
+			Further, the limit on the word count makes this section quite short.
+
+			The template automatically includes and formats your abstract according to the \Faculty's requirements, using the \cmd{makeabstract} command.
+			To edit the abstract open the file \path{01_Prefatory/Abstract.tex} and add your text to the \cmd{abstracttext} command.
+
+		\subsection{Preface}\label{preface}
+			The template automatically includes and formats your preface according to the \Faculty's requirements, using the \cmd{makepreface} command.
+			To edit the preface open the file \path{01_Prefatory/Preface.tex} and add your text to the \cmd{preface} command.
+			If it is left blank, with just a \{\} then the default mandatory preface will be used.
+
+		\subsection{Dedication or Quotations}\label{quote}\label{dedication}
+			\notice{%
+				Dedications or Quotations are limited to maximum of one page combined.}
+
+			In the template provided, you may fill in the appropriate Quote and Dedication fields in the document \path{01_Prefatory/Quotes_Dedications.tex}.
+			If they are left blank, with just a \{\} then they will automatically be excluded.
+			Or you can just comment out the line that they are on if you are unsure of whether you want to include one now or not and would just like to temporarily disable one or both of them.
+			The command \cmd{makededicationandquote} should never have to be commented out, as it will automatically detect the inclusion or exclusion of each and print the appropriate result.
+
+
+		\subsection{Acknowledgements}\label{acknowledgement}
+			In the template provided, you may fill in the appropriate Quote and Dedication fields in the document \path{01_Prefatory/Acknowledgements.tex}.
+			If it is left blank, with just a \{\} then it will automatically be excluded.
+			
+			The command \cmd{makeacknowledgements} should never have to be commented out, as it will automatically detect the inclusion or exclusion of it and print the appropriate result.
+
+		\subsection{Table of Contents}\label{toc}
+			For your thesis at the \University, the Table of Contents must include all the headings including those of the optional components that are included in your thesis.
+			Additionally, you must include full chapter headings and 2--4 levels of subheadings. 
+			This template will automatically include all required chapters including the correct ones from the prefatory pages.
+			However, due to stylistic considerations you may want more or fewer levels of subheadings included the in the Table of Contents.
+			To accomplish this I have created the command near the top of the \path{ualberta.tex} file that allows you to set both the depth of the Numbered Headings and the level of depth for the Table of Contents.
+			To do this change the number, \opt{n}, in the \cmd{settoclevel}\mopt{n} command to 2, 3, or 4 for two, three, or four levels of subheading, respectively.
+
+			\tip{For the \cmd{settoclevel}\mopt{n} command, setting \opt{n} to \opt{2} will included everything down to \texttt{subsection}, \opt{3} will include everything down to \texttt{subsubsection}, and \opt{4} will include everything down to \texttt{paragraph} in the Table of Contents.}
+
+		\subsection{Lists of Figures, Tables, ...}\label{listsof}
+			Include a separate list, beginning on a new page, for each kind of non-textual item appearing in the body of the thesis (one list for tables, another for illustrations, etc.).
+			Lists can be in any order.
+			These are included with the following set of commands:
+			\begin{itemize}
+				\item \cmd{listoffigures}
+				\item \cmd{listoftables}
+				\item \cmd{listofplates}
+			\end{itemize}
+			
+			\note{%
+				None of these commands need to be commented out, they can stay un-commented, and as long as \LaTeX\ is run at minimum twice (as is required for BibLaTeX/BibTeX, and any reference updates) they will update themselves to be included or excluded automatically.}
+
+	\section{Nomenclature, Glossary, \& Acronyms}\label{nomenclature}\label{glossary}\label{acronyms}
+		\subsection{Lists of Symbols/Abbreviations}
+			
+
+		\subsection{Glossary of Terms}
+			
+
+	\section{Chapters, Sections, Subsections, \textit{etc.}}
+		Organize your document hierarchically using chapters, sections, subsections, \textit{etc}.
+		These structures all utilize the base macros from \LaTeX{} including:
+			\begin{itemize}
+				\item \cmd{chapter}\mopt{Chapter Heading}|, 
+				\item \cmd{section}\mopt{Section Heading}|, 
+				\item \cmd{subsection}\mopt{Subsection Heading}|, 
+				\item \cmd{subsubsection}\mopt{Sub-Subsection Heading}|, 
+				\item \cmd{paragraph}\mopt{Paragraph Heading}|, 
+				\item \cmd{subparagraph}\mopt{Subparagraph Heading}|. 
+			\end{itemize}
+		\tip{%
+			For writing your thesis, it is strongly recommended that one outlines the thesis using these commands first, while also added in a small description of what that chapter, section, \textit{etc}., should accomplish. 
+			This will help you stay organized and on track. 
+			Remembering that you can use comments, \%, to hide these descriptions when you start to fill in your content.}
+
+	\section{Page Layout and Margins}
+		\warning{%
+			While one can adjust the values using the commands provided by the following packages, unless you really know \LaTeX\ inside and out this should be avoided.
+			Everything how I have provided in these files is aimed at making writing your thesis as easy as possible including the options I have chosen for the included packages.}
+
+		You can customize the layout and margins of your document using the \pkg{geometry} package. 
+		Additionally, you can use the \pkg{titlesec} package to customize the formatting of chapter and section titles.

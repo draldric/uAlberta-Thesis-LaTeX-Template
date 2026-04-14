@@ -1,0 +1,89 @@
+% !TeX root = ../guide
+\chapter{GNU Octave: Open-Source Numerical Computation and Plotting}\label{ch:octave}
+	\section{Introduction}\label{sec:OctaveIntroduction}
+		While \LaTeX\ is an unparalleled tool for typesetting your thesis, it is not designed to crunch numbers or analyze raw data. 
+		For that, you need a numerical computation environment. 
+		GNU Octave is a high-level programming language primarily intended for numerical computations, and it is largely compatible with MATLAB. 
+		This chapter will introduce you to GNU Octave and explain how to use it to process your research data and generate publication-quality figures that integrate perfectly into your \LaTeX\ document.
+
+	\section{Key Features of GNU Octave}
+		GNU Octave provides a powerful suite of tools for researchers, particularly those in engineering and the hard sciences, without the steep licensing fees associated with commercial software.
+
+		\subsection{MATLAB Compatibility}
+			The defining feature of Octave is its syntax compatibility with MATLAB. 
+			If you have written scripts or functions for MATLAB during your coursework or laboratory research, they will almost always run in Octave without modification. 
+			This makes it an ideal tool for working on your thesis from home or on a personal machine.
+
+		\subsection{Advanced Data Visualization}
+			A thesis requires clear, precise, and professional plots.
+			 Octave excels at 2D and 3D plotting. 
+			 More importantly for our purposes, it allows you to export these plots as scalable vector graphics (such as PDF or EPS files), ensuring that your graphs never become pixelated or blurry when compiled into your \LaTeX\ document.
+
+		\subsection{Extensive Package Ecosystem}
+			Similar to MATLAB toolboxes, Octave has a repository of community-contributed packages (Octave Forge). 
+			Whether you need to analyze hydraulic system responses, process control signals, or perform complex statistical modelling, there is likely a package available to simplify the task.
+
+	\section{Getting Started with GNU Octave}
+		Getting Octave running on your machine is a straightforward process.
+
+		\subsection{Installation}
+			GNU Octave is free and available for Windows, macOS, and Linux.
+			To download the software, visit the official website: \url{https://octave.org/}.
+			Navigate to the `Download' section, select the installer for your operating system, and follow the standard installation prompts. 
+			\note{%
+				During installation on Windows, ensure you select the GUI (Graphical User Interface) version, rather than just the command-line interface, as it is much easier for managing scripts and plots.}
+
+		\subsection{The Main Interface}
+			When you launch the Octave GUI, you will be presented with a workspace that integrates several important panels, as shown in \Cref{fig:OctaveMain}.
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{example-image}
+				\caption{GNU Octave GUI showing the Command Window, Workspace, and Editor.}
+				\label{fig:OctaveMain}
+			\end{figure}
+
+			The main areas include:
+			\begin{itemize}
+				\item \textbf{Command Window:} Where you can type commands for immediate execution.
+				\item \textbf{Workspace:} Displays all currently active variables and their values.
+				\item \textbf{Editor:} A built-in text editor for writing and saving longer scripts (\texttt{.m} files).
+			\end{itemize}
+
+	\section{Octave in a \LaTeX\ Thesis Workflow}
+		The most critical interaction between GNU Octave and \LaTeX\ is the generation of figures. 
+		Copying and pasting screenshots of your plots is highly discouraged in a thesis. 
+		Instead, you should script your plots to export automatically.
+
+		\subsection{Exporting Vector Graphics}
+			When you generate a plot in Octave, you want to save it in a format that \LaTeX\ handles well natively, such as PDF. 
+			This ensures the text and lines in your graph scale perfectly.
+
+			In your Octave script, after you have plotted your data and added your labels, you can use the \texttt{print} command to save the figure:
+			\begin{center}
+				\texttt{print -dpdf my\_thesis\_plot.pdf}
+			\end{center}
+			This file can then be directly included in your thesis using the standard \cmd{includegraphics} command or the custom command \cmd{insertimage}\footnote{\cmd{insertimage} just wraps the \cmd{includegraphics} command by automatically adding the image directory to the filename. \textit{i.e.}, \cmd{insertimage}\mopt{filename} is equivalent to \cmd{includegraphics}\mopt{./99_Inclusions/Images/filename}} within a \env{figure} environment.
+
+		\subsection{Consistent Formatting}
+			To make your thesis look cohesive, the font sizes and styles in your Octave plots should roughly match the text in your \LaTeX\ document. You can control this directly in your Octave scripts by specifying font properties before printing:
+			\begin{center}
+				\texttt{set(gca, 'fontsize', 12, 'fontname', 'Times')}
+			\end{center}
+
+		\subsection{Advanced: TikZ Export}
+			For the highest possible quality, advanced \LaTeX\ users sometimes use external scripts (like \texttt{matlab2tikz}) within Octave to export their plots directly into \LaTeX\ code (using the \pkg{PGFPlots} or \pkg{TikZ} packages). 
+			While this creates perfectly matched fonts and styles, it significantly increases compile time and is generally only recommended for simple 2D plots.
+
+		\subsection{Advanced: TikZ/PGFPlots Export}
+			For the highest possible quality and perfect font matching with your thesis template, you can export your Octave plots directly into \LaTeX\ code rather than saving them as PDFs. 
+
+			GNU Octave has native support for this via the \texttt{print} command using the \texttt{-dtikz} device:
+			\begin{center}
+				\texttt{print -dtikz my\_plot.tex}
+			\end{center}
+			This will generate a \texttt{.tex} file containing raw PGF drawing commands, which you can then include in your document using \cmd{input}\mopt{./99_Inclusions/plots/my_plot.tex} or using the custom command \cmd{insertplot}\mopt{my\_plot.tex}.
+			
+			\note{%
+				While the native export is convenient, many advanced users prefer to use an open-source script called \textbf{matlab2tikz}. 
+				Rather than generating low-level drawing commands, \texttt{matlab2tikz} extracts your data and generates a clean \env{pgfplots} environment. 
+				This makes the resulting code much easier to read and allows you to adjust the plot's scale, line weights, and axis labels directly within TeXstudio without having to regenerate the figure in Octave.}

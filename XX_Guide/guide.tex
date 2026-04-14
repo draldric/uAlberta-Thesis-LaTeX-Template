@@ -32,12 +32,14 @@
 
 % !TeX program = pdflatex
 % !TeX spellcheck = en_CA
+% !TeX TXS-program:bibliography = biber
 
 % Write command to allow the nomenclature to be generated properly.
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
-
+\makeatletter
+	\def\input@path{{../}}
+\makeatother
 \documentclass[
-	pdfa,
 	oneside,
 	chapterbib,
 	saychapapp,
@@ -51,12 +53,12 @@
 	% oneside - Standard for submitting to GPS.
 	%
 	% twoside - If you want to print your thesis double sided like a novel.
-	%           Note: GPS requires the submission to be one sided. Please use
-	%           the option `oneside' for submission to GPS.
+	%            Note: GPS requires the submission to be one sided. Please use
+	%            the option `oneside' for submission to GPS.
 	%
 	% saychapapp - If you want your thesis to say Chapter # and Appendix @ in
-	%              the ToC instead of just having the # or @.
-	%              (GPS is inconsistent on if this is truly a Requirement.)
+	%               the ToC instead of just having the # or @.
+	%               (GPS is inconsistent on if this is truly a Requirement.)
 	%
 	% fancyheader - If you want your thesis to have chapter headers rather than
 	%               just a page number at the bottom.
@@ -75,8 +77,9 @@
 % LaTeX FILES LOCATION
 	% .  - This folder
 	% .. - Up one Folder
-	\setlatexfiledir{./00_LaTeX_Files/}
+	\setlatexfiledir{../00_LaTeX_Files/}
 	\insertlatexfile{includePackages} % LOAD ALL PACKAGES TO BE INCLUDED
+	\input{./00_LaTeX_Files/guidePackages} % LOAD PACKAGES/MACROS FOR THE GUIDE
 
 % PREFATORY LOCATION
 	% .  - This folder
@@ -112,7 +115,6 @@
 	\setcodedir{Code/}
 	\setdatadir{Data/}
 	\setpdfdir{PDFs/}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                         ADD ADDITIONAL RESOURCES                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,13 +126,13 @@
 %                  TITLE PAGE AND FRONTMATTER INFORMATION                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TITLE PAGE INFO
-	\title{Thesis Title}                         % Title of your Thesis
-	\author{First Middle Last}                   % Your Full Name
+	\title{uAlberta Thesis User/Writing Guide}   % Title of your Thesis
+	\author{Daniel R.\ Aldrich}                  % Your Full Name
 	\degree{\insertlatexfile{selectDegree}}      % Uncomment Degree in file
 	\specialization{}                            % Leave blank if none
 	\deptfac{\insertlatexfile{selectDepartment}} % Uncomment Department in file
 	\convocationdate{\the\year}                  % Convocation Year
-	
+
 % SELECT IF YOUR THESIS IS TO BE PUBLISH UNDER CC
 	\creativecommons{\insertlatexfile{selectCreativeCommons}}
 
@@ -170,7 +172,7 @@
 	\maketitle                   % Creates the Title Page
 	\makeabstract                % Creates the Abstract Page
 	\makepreface                 % Creates the Preface Page
-	\makededicationandquote      % Creates the Quote and/or Dedication Page
+	\makededicationandquote      % Creates the Quote/Dedication Page
 	\acknowledgements            % Creates the Acknowledgements Page
 
 % SET ToC...etc SPACING
@@ -216,8 +218,59 @@
 % 		title=References]
 % \end{singlespace}
 
-	\insertchapter{00_Template_Chapter}
+	\insertchapter{01_Introduction}
 
+\part{Writing a Thesis at the \University}\label{prt:writing}
+	\insertchapter{XX_Requirements}
+	\insertchapter{XX_Submitting_Your_Thesis}
+
+\part{Writing with uAlberta Thesis \LaTeX\ Template}\label{prt:writingwithlatex}
+	The following part of the guide is focused on the practical application of \LaTeX.
+	Further, I will be showing you how to \LaTeX\ within the scope of the provided template. 
+	Because, while learning \LaTeX\ provides you with a powerful typesetting tool, the template acts as the \enquote{rulebook} that ensures your document will automatically adhere to the  formatting guidelines set by the \Faculty\ (\Fac). 
+
+	Using the template with \LaTeX\ effectively means you can spend your time on your research and data rather than tweaking margins, title page layout, or the ordering of front matter and other components of your thesis. 
+	These sections will walk you through the basic use of \LaTeX\ and how the template, folder/file structure, and pre-defined macros/commands make the process of writing your thesis more streamlined.
+
+	I will be covering the workflow from the ground up:
+	\begin{itemize}
+		\item \textbf{Setup:} Installing \LaTeX\ and the initialization of the template and understanding the \enquote{Main} document file (\path{ualberta.tex}).
+		\item \textbf{Structure:} Organizing your chapters, abstracts, and inclusions, as well as utilizing the template's commands for automatically generating the thesis' front matter (Abstract, Preface, and Acknowledgements).
+		\item \textbf{Content:} Best practices for inserting figures, tables, and complex equations.
+		\item \textbf{Visuals:} Incorporating high-quality plots and graphs that maintain consistency in the final PDF.
+		\item \textbf{Citations:} Managing a robust bibliography that integrates seamlessly with \University's required citation requirements.
+	\end{itemize}
+
+	\insertchapter{02_Getting_Started}
+	\insertchapter{03_Document_Structure}
+	\insertchapter{04_Figures_Tables}
+	\insertchapter{05_Plots_And_Graphs}
+	\insertchapter{06_Mathematical_Equations}
+	\insertchapter{07_Citations_And_References}
+
+% How to use the Recommended Softwares
+%% Technical Writing and Bibliography
+\part{Technical Writing and Reference Management}\label{prt:technicalwriting}
+	\insertchapter{08_TeXstudio}
+	
+	\insertchapter{08_JabRef}
+
+	\insertchapter{08_Notepad++}
+\part{Data Analysis and Programming}\label{prt:dataandprog}
+%% Data Analysis and Programming
+	\insertchapter{11_GNU_Octave}
+
+	\insertchapter{13_GitHub}
+
+	\insertchapter{14_Calcpad}
+
+\part{Images and Technical Figures}\label{prt:imgsandfigs}
+%% Images and Technical Figures
+	\insertchapter{15_ImageJ}
+
+	\insertchapter{16_GIMP}
+
+	\insertchapter{17_Dia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 BIBLIOGRAPHY                                 %
@@ -226,6 +279,7 @@
 % Uncomment the \nocite{*} if you want to include works read, but not cited
 %   within the body of your work.
 	% \nocite{*}
+	\singlespacing
 	\printbibliography[heading=bibintoc]
 
 
@@ -244,6 +298,14 @@
 % \input is the standard way of including a separate tex file
 % \input{"./Appendices/PDF_Appendix.tex"}
 
-	\insertappendix{0X_Template_Appendix}
+	\insertappendix{0A_Additional_Figures}
+
+	\insertappendix{0B_Additional_Tables}
+
+	\insertappendix{0C_Code_Listings}
+
+	\insertappendix{0D_Including_PDFs}
+
+	\insertappendix{0X_Math_Lettering}
 
 \end{document}

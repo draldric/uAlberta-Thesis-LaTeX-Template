@@ -1,0 +1,83 @@
+% !TeX root = ../guide
+\chapter{Git and GitHub: Robust Version Control for Your Thesis}\label{ch:github}
+	\section{Introduction}\label{sec:GitIntroduction}
+		Writing a thesis is a marathon, and over the course of months or years, your document will undergo hundreds of revisions. 
+		Relying on the traditional method of saving files as \texttt{thesis\_v1}, \texttt{thesis\_v2}, and \texttt{thesis\_final} quickly leads to a chaotic and unmanageable project folder. 
+
+		To solve this, we use \textbf{Git}, an industry-standard version control system, paired with \textbf{GitHub}, a cloud-based hosting service. 
+		Just as physical equipment designs rely on rigorous revision control to track changes and prevent manufacturing errors, a complex \LaTeX\ document requires a systematic approach to track document history, allow for safe experimentation, and prevent catastrophic data loss.
+
+	\section{Understanding Git vs. GitHub}
+		It is important to distinguish between these two interconnected tools:
+		\begin{itemize}
+			\item \textbf{Git:} The underlying software that runs locally on your computer. 
+				It acts as a tracking system, recording exactly what was changed, when, and by whom, line-by-line.
+			\item \textbf{GitHub:} The cloud-based platform where you upload (or ``push'') your Git repository. 
+				It serves as a secure off-site backup and a hub for collaboration if your supervisor wishes to review your source code.
+		\end{itemize}
+
+	\section{Key Features of Version Control}
+		Implementing version control might seem like an extra step, but its benefits for a large document are invaluable.
+
+		\subsection{Complete Document History and Rollback}
+			Every time you save a significant chunk of work, you create a ``commit'' in Git. 
+			If you delete a section of your literature review and realize three weeks later that you actually need it, you can easily browse your Git history and restore that specific text without affecting the rest of your current document.
+
+		\subsection{Secure Off-site Backup}
+			Hard drives fail, and laptops get stolen. 
+			By regularly pushing your commits to a private GitHub repository, you ensure that an up-to-date, trackable copy of your thesis is always safe in the cloud.
+
+		\subsection{Safe Experimentation (Branching)}
+			Suppose you want to completely restructure your methodology chapter, but you are worried about breaking the uAlberta template. 
+			Git allows you to create a ``branch''—an isolated copy of your thesis. 
+			You can make all the changes you want on this branch. 
+			If it works, you merge it back into your main document. 
+			If it breaks, you simply delete the branch and return to your stable main version.
+
+	\section{Getting Started with GitHub Desktop}
+		While Git can be run entirely from the command line, the easiest way to manage your thesis is through a graphical interface like GitHub Desktop.
+
+		\subsection{Installation and Setup}
+			\begin{enumerate}
+				\item Create a free account on \url{https://github.com/}.
+				\item Download and install \textbf{GitHub Desktop} from \url{https://desktop.github.com/}.
+				\item Open the application and sign in with your GitHub credentials.
+			\end{enumerate}
+
+		\subsection{Creating Your Thesis Repository}
+			A ``repository'' (or repo) is simply the main folder containing all your thesis files.
+			\begin{enumerate}
+				\item In GitHub Desktop, go to `File' $\rightarrow$ `New repository'.
+				\item Give it a name (\textit{e.g.}, \texttt{Main\_Thesis\_Smith}).
+				\item Choose the local path on your computer where your \LaTeX\ files are currently stored.
+				\item Check the box to keep the repository \textbf{Private} (you do not want your unpublished research available to the public).
+				\item Click `Create repository' and then click `Publish repository' to send the initial backup to the cloud.
+			\end{enumerate}
+
+	\section{The \LaTeX\ Workflow with Git}
+		Using Git with \LaTeX\ requires one specific, critical configuration: the \texttt{.gitignore} file.
+
+		\subsection{Ignoring Auxiliary Files}
+			When you compile a document in TeXstudio or Notepad++, the compiler generates a multitude of temporary files (\texttt{.aux}, \texttt{.log}, \texttt{.out}, \texttt{.toc}, \texttt{.synctex.gz}, etc.). \textbf{You should never track these files in Git.} Tracking them creates massive amounts of useless history and constant ``fake'' file changes.
+
+			Git handles this using a file called \texttt{.gitignore}. 
+			\begin{enumerate}
+				\item In the root folder of your thesis, create a plain text file named exactly \texttt{.gitignore} (note the leading period).
+				\item Open it and add the file extensions you wish to ignore. For a standard \LaTeX\ setup, you can copy a pre-made template from \href{https://github.com/github/gitignore/blob/main/TeX.gitignore}{GitHub's official TeX gitignore list}.
+			\end{enumerate}
+			Once saved, GitHub Desktop will only track your core files (\texttt{.tex}, \texttt{.bib}, and your image/plot files).
+
+		\subsection{The Daily Routine: Commit and Push}
+			Your workflow when writing should look like this:
+			\begin{itemize}
+				\item \textbf{Write:} Work on a section of your thesis in TeXstudio.
+				\item \textbf{Review:} Open GitHub Desktop. 
+					It will highlight the exact lines of text you added or modified.
+				\item \textbf{Commit:} In the bottom left corner, write a short, descriptive summary (\textit{e.g.}, \textit{``Drafted subsection on thesis topic A''}) and click `Commit to main'.
+				\item \textbf{Push:} Click `Push origin' at the top of the screen to send your new commit to the cloud.
+			\end{itemize}
+
+			\note{%
+				Get into the habit of committing your work logically. 
+				Do not wait until the end of the week to make one massive commit called ``Updates.'' 
+				Commit every time you finish a section, fix a complex table, or update a series of figures.}

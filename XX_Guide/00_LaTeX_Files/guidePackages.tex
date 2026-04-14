@@ -1,0 +1,244 @@
+% EVERYTHING AFTER THIS POINT IS USED ONLY FOR FORMATTING THE EXAMPLES IN THIS
+%  DOCUMENT (DO NOT USE THESE IN YOUR THESIS)
+%  PLEASE DELETE THESE.
+	\usepackage{float}
+
+	\usepackage{fontawesome}
+	\usepackage{lipsum}
+	\usepackage{xcolor}
+
+	\usepackage{showexpl}
+
+	\geometry{%
+		left =0.75in,
+		right=1.00in,
+	}
+
+	\usepackage{enumitem}
+	\setlist{noitemsep}
+
+%% COLOUR DEFINITIONS
+	\definecolor{signalRed}   {rgb}{0.631,0.149,0.176}
+	\definecolor{signalOrange}{rgb}{0.796,0.380,0.098}
+	\definecolor{signalYellow}{rgb}{0.910,0.749,0.157}
+	\definecolor{signalBlue}  {rgb}{0.000,0.282,0.451}
+	\definecolor{signalGreen} {rgb}{0.000,0.557,0.369}
+	\definecolor{signalBlack} {rgb}{0.055,0.075,0.075}
+	\definecolor{yellow}      {rgb}{0.8,0.8,0}
+	\definecolor{grey}        {rgb}{0.3,0.3,0.3}
+	\definecolor{gold}        {rgb}{0.4,0.4,0.0}
+	\definecolor{str}         {rgb}{1,0,1}
+	\definecolor{cmd}         {rgb}{0,0,1}
+	\definecolor{env}         {rgb}{0.5,0,1}
+	\definecolor{pkg}         {rgb}{0,0.6,0}
+	\definecolor{opt}         {rgb}{1,0.5,0}
+
+
+%% NEW COMMANDS
+	\newcommand{\exampleText}{\lipsum[1][1-4]}
+	\AtBeginDocument{\lstset{style=LaTeXStyle}}
+
+	\makeatletter
+		\newcommand\insertplotcode[1]{\@plotdir\detokenize{#1}}
+	\makeatother
+
+	\newcommand{\University}{University of Alberta}
+	\newcommand{\Uni}{UofA}
+	\newcommand{\Faculty}{Faculty of Graduate and Post-Doctorate Studies}
+	\newcommand{\Fac}{GPS}
+
+	\newcommand{\commenting}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{grey}{\faCommenting} & \textcolor{grey}{\textit{#1}}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\danger}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\color{white}\colorbox{signalRed}{\faWarning\ \textsc{\textbf{DANGER}}} & {\textbf{\MakeUppercase{#1}}}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\warning}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\color{signalBlack}\colorbox{signalOrange}{\faWarning\ \textsc{\textbf{WARNING}}} &  {\textbf{#1}}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\caution}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\color{signalBlack}\colorbox{signalYellow}{\faWarning\ \textsc{\textbf{CAUTION}}} & {#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\notice}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\color{white}\colorbox{signalBlue}{\textsc{\textbf{\textsl{NOTICE}}}} & {#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\alert}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\faWarning & {#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\note}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textbf{\textsl{Note:}} & {\textit{#1}}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\info}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{blue}{\faInfoCircle} & \textcolor{blue}{#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\question}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{orange}{\faQuestionCircle} & \textbf{#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\answer}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\-\hspace{4ex}{\color{orange}{\faCheckCircle}} & \textit{#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\qna}[2]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{orange}{\faQuestionCircle} & \textbf{#1}
+			\end{tabularx}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\-\hspace{4ex} & \textit{#2}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\tip}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{gold}{\faLightbulbO{}} & \textcolor{gold}{#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\key}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{black}{\faKey} & {#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\clouddownload}[2]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\faCloudDownload & \href{#1}{#2}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\important}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{red}{\faExclamationCircle} & \textcolor{red}{#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\tool}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{black}{\faWrench} & #1
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\setting}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{black}{\faCogs} & #1
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\software}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\textwidth}{@{}lX@{}}
+				\textcolor{black}{\faFileCodeO} & #1
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\option}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\linewidth}{@{}X@{}}
+				`\textbf{#1}'
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\file}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\linewidth}{@{}X@{}}
+				\faFileO{} \texttt{#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\folder}[1]{%
+		\begin{singlespace}
+			\noindent
+			\begin{tabularx}{\linewidth}{@{}X@{}}
+				\faFolderO{} \texttt{#1}
+			\end{tabularx}
+		\end{singlespace}~\par}
+
+	\newcommand{\str}[1]{%
+		\texttt{\textcolor{str}{#1}}}
+
+	\newcommand{\pkg}[1]{%
+		\texttt{\textcolor{pkg}{#1}}}
+
+	\newcommand{\cmd}[1]{%
+		\texttt{\textcolor{cmd}{\textbackslash\detokenize{#1}}}}
+
+	\newcommand{\opt}[1]{%
+		\texttt{\textcolor{opt}{\detokenize{#1}}}}
+	\newcommand{\oopt}[1]{%
+		\texttt{[\textcolor{opt}{\detokenize{#1}}]}}
+	\newcommand{\mopt}[1]{%
+		\texttt{\{\textcolor{opt}{\detokenize{#1}}\}}}
+
+	\newcommand{\env}[1]{%
+		\texttt{\textcolor{env}{#1}}}
+
+	\newcommand{\benv}[1]{%
+		\texttt{\cmd{begin}\{\textcolor{env}{#1}\}}}
+	\newcommand{\eenv}[1]{%
+		\texttt{\cmd{end}\{\textcolor{env}{#1}\}}}

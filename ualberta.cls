@@ -4,7 +4,7 @@
 %%                               Daniel Aldrich                               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-%       Copyright (c) 2024 Daniel Aldrich                                      %
+%       Copyright (c) 2026 Daniel Aldrich                                      %
 %                                                                              %
 %       Permission is hereby granted, free of charge, to any person            %
 %       obtaining a copy of this software and associated documentation         %
@@ -30,8 +30,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{ualberta}
-              [2024/08/20 V:2.0.0 ualberta Document Class]
+              [2026/04/03 V:3.0.0 ualberta Document Class]
 \pdfminorversion=7
+\RequirePackage{iftex}
+\ifPDFTeX
+	% If compiling with standard pdflatex (99% of users)
+	\RequirePackage[T1]{fontenc}
+\else
+	% If compiling with modern XeLaTeX or LuaLaTeX
+	\RequirePackage{fontspec}
+\fi
 \RequirePackage{etoolbox}
 \RequirePackage{xstring}
 
@@ -39,12 +47,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            LINE SPACING COMMANDS                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\singlespacing}{\baselineskip 1em}
-\newcommand{\onehalfspacing}{\baselineskip 1.50em}
-\newcommand{\doublespacing}{\baselineskip 1.75em}
-\newcommand{\truedoublespacing}{\baselineskip 2em}
-\newcommand{\normalspacing}{\baselineskip 1em}
-\newcommand{\triplespacing}{\baselineskip 3em}
+\RequirePackage{setspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                DATE COMMANDS                                 %
@@ -74,6 +77,9 @@
 
 \newif\if@pdfa
 \@pdfafalse
+
+\newif\if@colourlinks
+\@colourlinksfalse
 
 \newif\iffigures
 
@@ -121,6 +127,10 @@
 	\newcommand\degree[1]{\renewcommand\@degree{#1}}
 	\newcommand\@degree{Select or Enter a Degree}
 
+% CREATIVE COMMONS
+	\newcommand\creativecommons[1]{\renewcommand\@creativecommons{#1}}
+	\newcommand\@creativecommons{Select or Enter a Creative Commons License}
+
 % ABSTRACT
 	\newcommand\abstracttext[1]{%
 		\renewcommand\@abstracttext{#1}
@@ -131,10 +141,6 @@
 	\newcommand\keywords[1]{\renewcommand\@keywords{#1}}
 	\newcommand\@keywords{}
 
-% QUOTE
-	\newcommand\thesisquote[1]{\renewcommand\@thesisquote{#1}}
-	\newcommand\@thesisquote{}
-
 % PREFACE
 	\newcommand\preface[1]{%
 		\renewcommand\@preface{%
@@ -144,13 +150,17 @@
 				#1}}}
 	\newcommand\@preface{This thesis is an original work by \@author. No part of this thesis has been previously published.}
 
+% QUOTE
+	\newcommand\thesisquote[1]{\renewcommand\@thesisquote{#1}}
+	\newcommand\@thesisquote{ }
+
 % DEDICATION
 	\newcommand\dedication[1]{\renewcommand\@dedication{#1}}
-	\newcommand\@dedication{}
+	\newcommand\@dedication{ }
 
 % ACKNOWLEDGEMENT
 	\newcommand\acknowledgementtext[1]{\renewcommand\@acknowledgementtext{#1}}
-	\newcommand\@acknowledgementtext{}
+	\newcommand\@acknowledgementtext{ }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                             FORMATTING COMMANDS                              %
@@ -162,52 +172,79 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            FILE LOCATION COMMANDS                            %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand\addlatexfiles[1]{\renewcommand\@addlatexfiles{\detokenize{#1}}}
-\newcommand\@addlatexfiles{\detokenize{./00_LaTeX_Files/}}
-\newcommand{\insertlatexfile}[1]{%
-    \input{\@addlatexfiles#1}}
+% --- LATEX SETUP FILES ---
+\newcommand\setlatexfiledir[1]{\renewcommand\@latexfiledir{\detokenize{#1}}}
+\newcommand\@latexfiledir{./00\_LaTeX\_Files/}
+\newcommand{\insertlatexfile}[1]{\input{\@latexfiledir\detokenize{#1}}}
 
-\newcommand\addprefatory[1]{\renewcommand\@addprefatory{\detokenize{#1}}}
-\newcommand\@addprefatory{\detokenize{./01_Prefatory/}}
-\newcommand{\insertprefatory}[1]{
-	\input{\@addprefatory#1}}
+% --- PREFATORY (Frontmatter) ---
+\newcommand\setprefatorydir[1]{\renewcommand\@prefatorydir{\detokenize{#1}}}
+\newcommand\@prefatorydir{./01\_Prefatory/}
+\newcommand{\insertprefatory}[1]{\input{\@prefatorydir\detokenize{#1}}}
 
-\newcommand\addchapters[1]{\renewcommand\@addchapters{\detokenize{#1}}}
-\newcommand\@addchapters{\detokenize{./02_Chapters/}}
-\newcommand{\insertchapter}[1]{
-	\input{\@addchapters#1}}
+% --- CHAPTERS (Main Content) ---
+\newcommand\setchapterdir[1]{\renewcommand\@chapterdir{\detokenize{#1}}}
+\newcommand\@chapterdir{./02\_Chapters/}
+\newcommand{\insertchapter}[1]{%
+	\input{\@chapterdir\detokenize{#1}}%
+	\if@chapterbib%
+		\begin{singlespace}
+			\printbibliography[segment=\therefsegment,heading=subbibintoc,title=References]
+		\end{singlespace}
+	\fi%
+}
 
-\newcommand\addappendices[1]{\renewcommand\@addappendices{\detokenize{#1}}}
-\newcommand\@addappendices{\detokenize{./04_Appendices/}}
-\newcommand{\insertappendix}[1]{
-	\input{\@addappendices#1}}
+% --- APPENDICES ---
+\newcommand\setappendixdir[1]{\renewcommand\@appendixdir{\detokenize{#1}}}
+\newcommand\@appendixdir{./04\_Appendices/}
+\newcommand{\insertappendix}[1]{\input{\@appendixdir\detokenize{#1}}}
 
-\newcommand\addmedia[1]{\renewcommand\@addmedia{\detokenize{#1}}}
-\newcommand\@addmedia{\detokenize{./99_Inclusions/}}
+% --- MEDIA ROOT ---
+\newcommand\setmediadir[1]{\renewcommand\@mediadir{\detokenize{#1}}}
+\newcommand\@mediadir{./99\_Inclusions/}
 
-\newcommand\addimages[1]{\renewcommand\@addimages{\@addmedia\detokenize{#1}}}
-\newcommand\@addimages{\@addmedia\detokenize{Images/}}
-\newcommand{\insertimage}[1]{%
-	"\@addimages#1"}
+% --- IMAGES ---
+\newcommand\setimagedir[1]{\renewcommand\@imagesdir{\@mediadir\detokenize{#1}}}
+\newcommand\@imagesdir{\@mediadir Images/}
+\newcommand{\insertimage}[2][width=\textwidth]{%
+	\includegraphics[#1]{\@imagesdir\detokenize{#2}}%
+}
 
-\newcommand\addtables[1]{\renewcommand\@addtables{\@addmedia\detokenize{#1}}}
-\newcommand\@addtables{\@addmedia\detokenize{Tables/}}
+% --- TABLES ---
+\newcommand{\settabledir}[1]{\renewcommand{\@tabledir}{\@mediadir\detokenize{#1}}}
+\newcommand{\@tabledir}{\@mediadir Tables/}
 \newcommand{\inserttable}[1]{%
-	\input{\@addtables#1}}
+	\begin{singlespace}
+		\input{\@tabledir\detokenize{#1}}%
+	\end{singlespace}
+}
 
-\newcommand\addcode[1]{\renewcommand\@addcode{\@addmedia\detokenize{#1}}}
-\newcommand\@addcode{\@addmedia\detokenize{Code/}}
-\newcommand{\insertcode}[1]{%
-	\@addcode#1}
+% --- CODE ---
+\newcommand\setcodedir[1]{\renewcommand\@codedir{\@mediadir\detokenize{#1}}}
+\newcommand\@codedir{\@mediadir Code/}
+\newcommand{\insertcode}[2][]{%
+	\begin{singlespace}
+		\vspace{-\baselineskip}
+		\lstinputlisting[#1]{\@codedir\detokenize{#2}}%
+	\end{singlespace}
+}
 
-\newcommand\addpdf[1]{\renewcommand\@addpdf{\@addmedia\detokenize{#1}}}
-\newcommand\@addpdf{\@addmedia\detokenize{Pdfs/}}
-\newcommand{\insertpdf}[1]{%
-	\@addpdf#1}
+% --- PDFS ---
+\newcommand\setpdfdir[1]{\renewcommand\@pdfdir{\@mediadir\detokenize{#1}}}
+\newcommand\@pdfdir{\@mediadir Pdfs/}
+\newcommand{\insertpdf}[2][]{%
+	\includepdf[#1]{\@pdfdir\detokenize{#2}}%
+}
 
-\newcommand\adddata[1]{\renewcommand\@adddata{\@addmedia\detokenize{#1}}}
-\newcommand\@adddata{\@addmedia\detokenize{Data/}}
-\newcommand\insertdata[1]{\@adddata\detokenize{#1}}
+% --- RAW DATA ---
+\newcommand\setdatadir[1]{\renewcommand\@datadir{\@mediadir\detokenize{#1}}}
+\newcommand\@datadir{\@mediadir Data/}
+\newcommand\insertdata[1]{\@datadir\detokenize{#1}}
+
+% --- PLOTS ---
+\newcommand\setplotdir[1]{\renewcommand\@plotdir{\@mediadir\detokenize{#1}}}
+\newcommand\@plotdir{\@mediadir Plots/}
+\newcommand\insertplot[1]{\input{\@plotdir\detokenize{#1}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                CLASS OPTIONS                                 %
@@ -247,12 +284,12 @@
 \DeclareOption{fancyheaders}{\@fancyheaderstrue}
 \DeclareOption{saychapapp}{\@saychapapptrue}
 
+\DeclareOption{colourlinks}{\@colourlinkstrue}
+
 \DeclareOption{a4paper}{\def\@paperoption{a4paper}}
 \DeclareOption{letterpaper}{\def\@paperoption{letterpaper}}
 \DeclareOption{legalpaper}{\def\@paperoption{legalpaper}}
-\DeclareOption{landscape}{\def\@landscape{landscape}}
 \def\@paperoption{letterpaper} % Default paper size
-\def\@landscape{}          % Default is no landscape mode
 
 \ExecuteOptions{letterpaper,12pt,oneside,onecolumn,final,openany}
 \ProcessOptions
@@ -351,6 +388,7 @@
 		\fi}
 
 \newcommand\maketitle{%
+	\singlespacing
 	\hypersetup{pageanchor=false}
 	\begin{titlepage}%
 		\pagenumbering{roman}
@@ -365,7 +403,8 @@
 			\@specialization
 			\@deptfac\\
 			\@university\\[8.5\baselineskip]
-			\copyright{} \@author, \@convocationdate
+			\copyright{} \@author, \@convocationdate\\
+			\@creativecommons
 		\end{center}
 		\newpage
 	\end{titlepage}%
@@ -391,9 +430,6 @@
 
 	% CLEAR OUT OLD VARIABLES AND MACROS
 		\global\let\maketitle\relax
-		%\global\let\@author\@empty
-		%\global\let\@convocationdate\@empty
-		%\global\let\@title\@empty
 		\global\let\title\relax
 		\global\let\author\relax
 		\global\let\convocationdate\relax
@@ -407,12 +443,14 @@
 \setcounter{baseSection}{0}
 \newcommand*\chaptermark[1]{}
 \setcounter {secnumdepth}{2}
+\newcounter {part}
 \newcounter {chapter}
 \newcounter {section}[chapter]
 \newcounter {subsection}[section]
 \newcounter {subsubsection}[subsection]
 \newcounter {paragraph}[subsubsection]
 \newcounter {subparagraph}[paragraph]
+\renewcommand \thepart          {\@Roman\c@part}
 \renewcommand \thechapter       {\@arabic\c@chapter}
 \renewcommand \thesection       {\thechapter.\@arabic\c@section}
 \renewcommand \thesubsection    {\thesection.\@arabic\c@subsection}
@@ -438,7 +476,7 @@
 		\refstepcounter{chapter}%
 		\typeout{\@chapapp\space\thechapter.}%
 		\addcontentsline{toc}{chapter}%
-		{\if@saychapapp \@chapapp\ \fi\protect\numberline{\thechapter\if@saychapapp:\fi}#1}%
+		{\if@saychapapp \@chapapp\ \fi\protect\numberline{\thechapter\if@saychapapp:\fi} #1}%
 	\else
 		\addcontentsline{toc}{chapter}{#1}%
 	\fi
@@ -485,7 +523,50 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                             SECTION DEFINITIONS                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand\section{\@startsection {section}{1}{\z@}%
+\newcommand\part{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \null\vfil
+  \secdef\@part\@spart}
+
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\partname\nobreakspace\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    \markboth{}{}%
+    {\centering
+     \interlinepenalty \@M
+     \normalfont
+     \ifnum \c@secnumdepth >-2\relax
+       \huge\bfseries \partname\nobreakspace\thepart
+       \par
+       \vskip 20\p@
+     \fi
+     \Huge \bfseries #2\par}%
+    \@endpart}
+\def\@spart#1{%
+    {\centering
+     \interlinepenalty \@M
+     \normalfont
+     \Huge \bfseries #1\par}%
+    \@endpart}
+\def\@endpart{\vfil\newpage
+              \if@twoside
+               \if@openright
+                \null
+                \thispagestyle{empty}%
+                \newpage
+               \fi
+              \fi}
+
+\newcommand\section{\@startsection{section}{1}{\z@}%
 	{-3.5ex \@plus -1ex \@minus -.2ex}%
 	{2.3ex \@plus.2ex}%
 	{\normalfont\Large\bfseries}}
@@ -591,7 +672,6 @@
 	{\endlist}
 
 \newcommand\appendix{%
-	\let\chapter\originalchapter
 	\par
 	\setcounter{chapter}{0}%
 	\setcounter{section}{0}% MIGHT NOT BE NECESSARY
@@ -642,7 +722,7 @@
 		{\@dblfloat{figure}}
 		{\end@dblfloat}
 
-% TALBES
+% TABLES
 	\newcounter{table}[chapter]
 	\renewcommand \thetable
 		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@table}
@@ -733,8 +813,9 @@
 					\@mkboth{\MakeUppercase\contentsname}
 							{\MakeUppercase\contentsname}}]%
 		\else
-			\@makeschapterhead{\contentsname
-			\@mkboth{\MakeUppercase\contentsname}
+			\@makeschapterhead{%
+				\contentsname
+				\@mkboth{\MakeUppercase\contentsname}
 					{\MakeUppercase\contentsname}}%
 			\@afterheading
 		\fi%
@@ -798,6 +879,21 @@
 		\fi}
 
 % DEFINITIONS FOR EACH LEVEL IN TOC
+	\newcommand*\l@part[2]{%
+		\ifnum \c@tocdepth >\m@ne
+			\addpenalty{-\@highpenalty}%
+			\vskip 1.0em \@plus\p@
+			\setlength\@tempdima{1.5em}%
+			\begingroup
+				\parindent \z@ \rightskip \@pnumwidth
+				\parfillskip -\@pnumwidth
+				\leavevmode \bfseries
+				\advance\leftskip\@tempdima
+				\hskip -\leftskip
+				\large#1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+				\penalty\@highpenalty
+			\endgroup
+		\fi}
 	\newcommand*\l@chapter[2]{%
 		\ifnum \c@tocdepth >\m@ne
 			\addpenalty{-\@highpenalty}%
@@ -833,7 +929,7 @@
 			\addcontentsline{toc}{chapter}{\abstractname}
 			\@mkboth{\MakeUppercase\abstractname}%
 					{\MakeUppercase\abstractname}
-			\truedoublespacing\@abstracttext}}
+			\doublespacing\@abstracttext}}
 
 % LIST OF SYMBOLS
 	\newcommand\listofsymbols{\printnomenclature}
@@ -859,9 +955,6 @@
 % QUOTE
 	\newcommand\makequote{%
 		\ifdefvoid{\@thesisquote}{}{\chapter*{}
-			% \addcontentsline{toc}{chapter}{\quotename}
-			% \@mkboth{\MakeUppercase\quotename}%
-					% {\MakeUppercase\quotename}
 			\@mkboth{}%
 					{}
 			\begin{center}\em \@thesisquote \em\end{center}}}
@@ -869,9 +962,6 @@
 % DEDICATION
 	\newcommand\makededication{%
 		\ifdefvoid{\@dedication}{}{\chapter*{}
-			% \addcontentsline{toc}{chapter}{\dedicationname}
-			% \@mkboth{\MakeUppercase\dedicationname}%
-					% {\MakeUppercase\dedicationname}
 			\@mkboth{}%
 					{}
 			\begin{center}\em \@dedication \em\end{center}}}
@@ -881,21 +971,12 @@
 		\ifdefvoid{\@dedication}{\makequote}{%
 			\ifdefvoid{\@thesisquote}{\makededication}{%
 				\chapter*{}
-				%\addcontentsline{toc}{chapter}{\quoteanddedicationname}
-				%\@mkboth{\MakeUppercase\quoteanddedicationname}%
-				%		{\MakeUppercase\quoteanddedicationname}
 				\@mkboth{}%
 						{}
 				\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}}}
 
 
-
-
 \def\bodyoftext{%
-	\let\originalchapter\chapter
-	\if@chapterbib%
-		\preto{\chapter}{\printbibliography[segment=\the\numexpr\thebaseSection+1\relax,heading=subbibintoc,title=References]}
-	\fi%
 	\newpage
 	\setlength{\parindent}{2.6ex}
 	\setcounter{page}{0}
@@ -940,6 +1021,7 @@
 \newcommand\listplatename               {List of Plates}
 \newcommand\listsymbolname              {List of Symbols}
 \newcommand\listtablename               {List of Tables}
+\newcommand\partname                    {Part}
 \newcommand\platename                   {Plate}
 \newcommand\prefacename                 {Preface}
 \newcommand\quotename                   {Quote}
@@ -966,26 +1048,76 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                             ADDITIONAL PACKAGES                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\AtEndPreamble{
-	\if@pdfa
-		\def\@pdfcreator{LaTeX using a Template by Daniel R. Aldrich}
-		\usepackage[noerr,a-3b]{pdfx}
-	\fi
-}
+% The defacto package for including graphics
+\RequirePackage{graphicx}
+
+% Allows the inclusion PDF files
+\RequirePackage{pdfpages}
+
+% Used for inserting syntax highlighted code
+\RequirePackage{listings}
+
+\RequirePackage[intoc]{nomencl}
+	\makenomenclature
+	\renewcommand{\nomname}{List of Symbols}
+	\newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+
+\RequirePackage[acronym,nonumberlist]{glossaries}
+	\glstoctrue
+	\makenoidxglossaries
+	\newcommand{\addacronym}[2]{\newacronym{#1}{#1}{#2}}
+	\newcommand{\addterm}[2]{\newglossaryentry{#1}{name={#1},description={#2}}}
+	\newcommand\generateglossary{
+		\printnoidxglossary[title={\glossaryname}]}
+	\newcommand\abbreviations{
+		\printnoidxglossary[type=\acronymtype,title={\abbreviationsname}]}
 
 \RequirePackage[
-	\@paperoption,
-	left=1in,
-	right=1.5in,
-	headheight=0.25in,
-	headsep=0.25in,
-	%textwidth=6.75in,
-	textheight=8.5in,
-	\@landscape
-]{geometry}
+\@paperoption,
+left=1in,
+right=1.5in,
+headheight=0.25in,
+headsep=0.25in,
+textheight=8.5in]{geometry}
+
+\AtEndPreamble{
+	\RequirePackage{xurl}
+	\if@colourlinks%
+		\RequirePackage{hyperref}
+		\hypersetup{
+			colorlinks,
+			linkcolor={red!50!black},
+			citecolor={blue!50!black},
+			urlcolor={blue!80!black},
+			pdfencoding=unicode,
+			breaklinks=true}
+	\else%
+		\RequirePackage{hyperref}
+		\hypersetup{
+			hidelinks,
+			pdfencoding=unicode,
+			breaklinks=true}
+	\fi%
+	\urlstyle{same}
+	\Urlmuskip=0mu plus 1mu\relax
+	\RequirePackage[capitalise,nameinlink]{cleveref}
+	\if@pdfa%
+		\def\@pdfcreator{LaTeX using a Template by Daniel R. Aldrich}
+		\RequirePackage[noerr,a-3b]{pdfx}
+	\fi%
+}
 
 % PDFPAGES CHECK AND DEFAULTS SET
 \AtBeginDocument{
+	\@ifpackageloaded{listings}{%
+		\lstset{
+			basicstyle=\ttfamily\singlespacing, % Forces code to be single-spaced
+			breaklines=true,                    % Allows long lines to wrap
+			frame=tb,                           % Puts a line at top and bottom
+			columns=flexible,
+			keepspaces=true
+		}}{}
+	\@ifpackageloaded{biblatex}{\setlength{\bibitemsep}{\baselineskip}}{}
 	\@ifpackageloaded{pdfpages}{
 		\if@fancyheaders
 			\includepdfset{%

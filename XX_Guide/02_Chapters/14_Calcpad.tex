@@ -1,0 +1,79 @@
+% !TeX root = ../guide
+\chapter{Calcpad: Transparent Engineering Calculations}\label{ch:calcpad}
+	\section{Introduction}\label{sec:CalcpadIntroduction}
+		In many technical and engineering theses, simply stating a final numerical result is insufficient; your reviewers and defence committee will want to see the underlying design calculations. 
+		While Microsoft Excel is ubiquitous in engineering, it is notoriously poor for academic documentation because formulas are hidden within cells, making peer review incredibly tedious.
+
+		\textbf{Calcpad} is a free, programmable software designed specifically for mathematical and engineering calculations. 
+		It takes your raw formulas, variables, and units, and automatically generates beautifully formatted, step-by-step calculation reports. 
+		This chapter will explore how Calcpad can replace cumbersome spreadsheets and provide transparent, verifiable math for your thesis appendices.
+
+	\section{Key Features of Calcpad}
+		Calcpad operates similarly to a programming script, but its output is purely focused on readable mathematics.
+
+		\subsection{Transparent Variable Substitution}
+			The most powerful feature of Calcpad is how it displays results. 
+			When you define an equation, Calcpad does not just output the final number. 
+			It outputs the algebraic formula, the formula with the substituted numerical values, and the final result (\textit{e.g.}, \(A = b \cdot h = 2\text{ m} \cdot 3\text{ m} = 6\text{ m}^2\)). 
+			This level of transparency is exactly what a thesis committee expects to see in a sample calculation appendix.
+
+		\subsection{Intelligent Unit Management}
+			Engineering calculations are prone to unit conversion errors. 
+			Calcpad has a built-in, comprehensive library of units (SI, Imperial, and US Customary). 
+			If you attempt to add a force in Newtons to a pressure in Pascals, Calcpad will flag the error. 
+			Furthermore, it automatically handles complex conversions behind the scenes, ensuring your final results are dimensionally accurate.
+
+		\subsection{HTML and PDF Output}
+			Calcpad parses your scripts and renders the output as a clean HTML document using MathJax (the same underlying rendering technology used by many \LaTeX\ web viewers). 
+			These reports can be directly printed to high-quality PDF files, making them incredibly easy to append to your main thesis document.
+
+	\section{Getting Started with Calcpad}
+		Setting up Calcpad is quick and requires minimal system resources.
+
+		\subsection{Installation}
+			Calcpad is a free, open-source application available for Windows.
+			To install the software:
+			\begin{enumerate}
+				\item Visit the official website: \url{https://calcpad.eu/} or their GitHub repository.
+				\item Download the latest \texttt{.exe} installer for Windows (either the x64 or x86 version depending on your system).
+				\item Follow the standard installation prompts.
+			\end{enumerate}
+
+		\subsection{The Main Interface}
+			Upon launching Calcpad, you will see a split-screen interface as shown in \Cref{fig:CalcpadMain}.
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.8\linewidth]{example-image}
+				\caption{Calcpad Main Interface showing the code editor on the left and the rendered HTML output on the right.}
+				\label{fig:CalcpadMain}
+			\end{figure}
+
+			The interface is divided into two primary sections:
+			\begin{itemize}
+				\item \textbf{Code Editor (Left):} Where you type your variables, formulas, and comments using Calcpad's simple syntax.
+				\item \textbf{Output Window (Right):} A real-time preview of your formatted calculations. 
+				Every time you press `F5' (or click calculate), this window updates.
+			\end{itemize}
+
+	\section{Integrating Calcpad into Your Thesis Workflow}
+		While Calcpad formats its own math beautifully, it is a separate program from your \LaTeX\ IDE. Here is how best to use them together.
+
+		\subsection{Generating Calculation Appendices}
+			Rather than re-typing pages of step-by-step math into \LaTeX\ (which is highly prone to transcription errors), you can write your sample calculations in Calcpad and export them as a PDF. 
+
+			Once you have saved your Calcpad PDF (\textit{e.g.}, \texttt{Appendix\_A\_Sample\_Calcs.pdf}), you can seamlessly merge it into your thesis using the \pkg{pdfpages} package in \LaTeX:
+
+			\begin{center}
+				\cmd{includepdf}\oopt{pages=-, pagecommand=\ thispagestyle{plain}}\mopt{Appendix_A_Hydraulic_Calcs.pdf}
+			\end{center}
+
+			This command inserts the external PDF directly into your thesis while maintaining your uAlberta template's page numbering at the bottom.
+		
+		\subsection{A \LaTeX\ Scratchpad}
+			Writing complex, multi-line equations in \LaTeX\ (using \texttt{align} or \texttt{split} environments) can be visually confusing in the raw code. 
+			Many engineers use Calcpad as a \enquote{scratchpad.} 
+			You can define your complex formula in Calcpad, ensure the math is physically correct and the units balance, and then carefully transcribe the final, verified algebraic equation into your main thesis chapters.
+
+			\note{%
+				Calcpad supports adding plain text and HTML formatting alongside your equations. 
+				Use this feature to add descriptive headings and explanations between your formulas so that your appended PDF reads like a professional engineering report rather than just a list of numbers.}
