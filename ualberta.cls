@@ -42,6 +42,7 @@
 \fi
 \RequirePackage{etoolbox}
 \RequirePackage{xstring}
+\RequirePackage{morewrites}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,6 +87,14 @@
 \newif\iftables
 
 \newif\ifplates
+
+\newif\ifphotos
+
+\newif\ifvideos
+
+\newif\ifsounds
+
+\newif\ifillustrations
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               THESIS COMMANDS                                %
@@ -484,6 +493,10 @@
 	\addtocontents{lof}{\protect\addvspace{10\p@}}%
 	\addtocontents{lot}{\protect\addvspace{10\p@}}%
 	\addtocontents{lop}{\protect\addvspace{10\p@}}%
+	\addtocontents{loh}{\protect\addvspace{10\p@}}%
+	\addtocontents{loi}{\protect\addvspace{10\p@}}%
+	\addtocontents{lov}{\protect\addvspace{10\p@}}%
+	\addtocontents{los}{\protect\addvspace{10\p@}}%
 	\if@twocolumn
 		\@topnewpage[\@makechapterhead{#2}]%
 	\else
@@ -748,7 +761,7 @@
 	\renewcommand \theplate
 		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@plate}
 	\def\fps@plate{tbp}
-	\def\ftype@plate{3}
+	\def\ftype@plate{4}
 	\def\ext@plate{lop}
 	\def\fnum@plate{\platename\nobreakspace\theplate}
 
@@ -762,6 +775,90 @@
 
 	\newenvironment{plate*}
 		{\@dblfloat{plate}}
+		{\end@dblfloat}
+
+% PHOTOS
+	\newcounter{photo}[chapter]
+	\renewcommand \thephoto
+		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@photo}
+	\def\fps@photo{tbp}
+	\def\ftype@photo{8}
+	\def\ext@photo{loh}
+	\def\fnum@photo{\photoname\nobreakspace\thephoto}
+
+	\newenvironment{photo}
+		{\photos@in@document\@float{photo}}
+		{\end@float}
+
+	\def\photos@in@document {%
+		\immediate\write\@mainaux {\global\string\photostrue}%
+		\global\let\photos@in@document\empty}
+
+	\newenvironment{photo*}
+		{\@dblfloat{photo}}
+		{\end@dblfloat}
+
+% VIDEOS
+	\newcounter{video}[chapter]
+	\renewcommand \thevideo
+		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@video}
+	\def\fps@video{tbp}
+	\def\ftype@video{16}
+	\def\ext@video{lov}
+	\def\fnum@video{\videoname\nobreakspace\thevideo}
+
+	\newenvironment{video}
+		{\videos@in@document\@float{video}}
+		{\end@float}
+
+	\def\videos@in@document {%
+		\immediate\write\@mainaux {\global\string\videostrue}%
+		\global\let\videos@in@document\empty}
+
+	\newenvironment{video*}
+		{\@dblfloat{video}}
+		{\end@dblfloat}
+
+% ILLUSTRATIONS
+	\newcounter{illustration}[chapter]
+	\renewcommand \theillustration
+		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@illustration}
+	\def\fps@illustration{tbp}
+	\def\ftype@illustration{32}
+	\def\ext@illustration{loi}
+	\def\fnum@illustration{\illustrationname\nobreakspace\theillustration}
+
+	\newenvironment{illustration}
+		{\illustrations@in@document\@float{illustration}}
+		{\end@float}
+
+	\def\illustrations@in@document {%
+		\immediate\write\@mainaux {\global\string\illustrationstrue}%
+		\global\let\illustrations@in@document\empty}
+
+	\newenvironment{illustration*}
+		{\@dblfloat{illustration}}
+		{\end@dblfloat}
+
+% SOUNDS
+	\newcounter{sound}[chapter]
+	\renewcommand \thesound
+		{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@sound}
+	\def\fps@sound{tbp}
+	\def\ftype@sound{64}
+	\def\ext@sound{los}
+	\def\fnum@sound{\soundname\nobreakspace\thesound}
+
+	\newenvironment{sound}
+		{\sounds@in@document\@float{sound}}
+		{\end@float}
+
+	\def\sounds@in@document {%
+		\immediate\write\@mainaux {\global\string\soundstrue}%
+		\global\let\sounds@in@document\empty}
+
+	\newenvironment{sound*}
+		{\@dblfloat{sound}}
 		{\end@dblfloat}
 
 
@@ -878,6 +975,78 @@
 			\fi
 		\fi}
 
+% LIST OF SOUNDS
+	\newcommand\listofsounds{%
+		\ifsounds
+			\if@twocolumn
+				\@restonecoltrue\onecolumn
+			\else
+				\@restonecolfalse
+			\fi
+			\chapter*{\listsoundname}%
+			\addcontentsline{toc}{chapter}{\listsoundname}
+			\@mkboth{\MakeUppercase\listsoundname}%
+					{\MakeUppercase\listsoundname}%
+			\@starttoc{los}%
+			\if@restonecol
+				\twocolumn
+			\fi
+		\fi}
+
+% LIST OF VIDEOS
+	\newcommand\listofvideos{%
+		\ifvideos
+			\if@twocolumn
+				\@restonecoltrue\onecolumn
+			\else
+				\@restonecolfalse
+			\fi
+			\chapter*{\listvideoname}%
+			\addcontentsline{toc}{chapter}{\listvideoname}
+			\@mkboth{\MakeUppercase\listvideoname}%
+					{\MakeUppercase\listvideoname}%
+			\@starttoc{lov}%
+			\if@restonecol
+				\twocolumn
+			\fi
+		\fi}
+
+% LIST OF ILLUSTRATIONS
+	\newcommand\listofillustrations{%
+		\ifillustrations
+			\if@twocolumn
+				\@restonecoltrue\onecolumn
+			\else
+				\@restonecolfalse
+			\fi
+			\chapter*{\listillustrationname}%
+			\addcontentsline{toc}{chapter}{\listillustrationname}
+			\@mkboth{\MakeUppercase\listillustrationname}%
+					{\MakeUppercase\listillustrationname}%
+			\@starttoc{loi}%
+			\if@restonecol
+				\twocolumn
+			\fi
+		\fi}
+
+% LIST OF PHOTOS
+	\newcommand\listofphotos{%
+		\ifphotos
+			\if@twocolumn
+				\@restonecoltrue\onecolumn
+			\else
+				\@restonecolfalse
+			\fi
+			\chapter*{\listphotoname}%
+			\addcontentsline{toc}{chapter}{\listphotoname}
+			\@mkboth{\MakeUppercase\listphotoname}%
+					{\MakeUppercase\listphotoname}%
+			\@starttoc{loh}%
+			\if@restonecol
+				\twocolumn
+			\fi
+		\fi}
+
 % DEFINITIONS FOR EACH LEVEL IN TOC
 	\newcommand*\l@part[2]{%
 		\ifnum \c@tocdepth >\m@ne
@@ -917,6 +1086,10 @@
 	\newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 	\let\l@table\l@figure
 	\let\l@plate\l@figure
+	\let\l@photo\l@figure
+	\let\l@video\l@figure
+	\let\l@sound\l@figure
+	\let\l@illustration\l@figure
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -944,7 +1117,7 @@
 			\@preface}}
 
 % ACKNOWLEDGEMENTS
-	\newcommand\acknowledgements{%
+	\newcommand\makeacknowledgements{%
 		\ifdefvoid{\@acknowledgementtext}{}{
 			\chapter*{\acknowledgementname}
 			\addcontentsline{toc}{chapter}{\acknowledgementname}
@@ -1017,16 +1190,24 @@
 \newcommand\figurename                  {Figure}
 \newcommand\glossaryname                {Glossary of Terms}
 \newcommand\indexname                   {Index}
+\newcommand\illustrationname            {Illustrations}
 \newcommand\listfigurename              {List of Figures}
+\newcommand\listillustrationname        {List of Illustrations}
+\newcommand\listphotoname               {List of Photos}
 \newcommand\listplatename               {List of Plates}
+\newcommand\listsoundname               {List of Sound Files}
 \newcommand\listsymbolname              {List of Symbols}
 \newcommand\listtablename               {List of Tables}
+\newcommand\listvideoname               {List of Videos}
 \newcommand\partname                    {Part}
+\newcommand\photoname                   {Photo}
 \newcommand\platename                   {Plate}
 \newcommand\prefacename                 {Preface}
 \newcommand\quotename                   {Quote}
 \newcommand\quoteanddedicationname      {\quotename\ \&\ \dedicationname}
+\newcommand\soundname                   {Sound File}
 \newcommand\tablename                   {Table}
+\newcommand\videoname                   {Video}
 
 % CONTROL THE BOTTOM OF THE PAGE WHEN IN TWOSIDED
 	\if@twoside

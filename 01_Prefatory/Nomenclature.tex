@@ -2,16 +2,16 @@
 %   Nommenclature/List of Symbols
 \renewcommand\nomgroup[1]{%
 	\item[\bfseries
-	\ifstrequal{#1}{A}{Constants}{%
-		\ifstrequal{#1}{B}{Latin}{%
-			\ifstrequal{#1}{C}{Greek}{%
-				\ifstrequal{#1}{D}{Subscripts}{}}}}]%
+		\ifstrequal{#1}{A}{Constants}{}%
+		\ifstrequal{#1}{B}{Latin}{}%
+		\ifstrequal{#1}{C}{Greek}{}%
+		\ifstrequal{#1}{D}{Subscripts}{}]%
 }
 % Note: Nomenclature is automatically sorted alphabetically
 % [A] : Constants
 % [B] : Latin
 % [C] : Greek
 % [D] : Subscripts
-% Use \nomunit{$Value\, Units$} to add the value and units for a defined constant
+% Use \nomunit{\(Value\, Units\)} to add the value and units for a defined constant
 
-\nomenclature[A]{$Eg$}{Example of how to a an entry to the nomenclature.\nomunit{$1\, m/s$}}
+\nomenclature[A]{\(Eg\)}{Example of how to a an entry to the nomenclature.\nomunit{\(1\, m/s\)}}

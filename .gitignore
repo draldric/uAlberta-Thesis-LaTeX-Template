@@ -7,6 +7,11 @@
 *.log
 *.lop
 *.lot
+*.loh
+*.loi
+*.los
+*.lov
+*.mw
 *.nlo
 *.nls
 *.out

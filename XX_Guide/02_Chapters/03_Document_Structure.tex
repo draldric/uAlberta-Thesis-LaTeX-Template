@@ -31,10 +31,10 @@
 			\item \cmd{makepreface}, 
 			\item \cmd{makequote}, 
 			\item \cmd{makededication}, and 
-			\item \cmd{acknowledgements} 
+			\item \cmd{makeacknowledgements} 
 		\end{itemize}
 		Because sometimes it can be easy to forget to comment or un-comment these, I have taken some time to make the system a bit smart.
-		It will analyze if the commands used to set the text are empty or commented out and automatically exclude those sections or in the case of the preface it will default to the minimum required preface example.
+		It will analyze if the commands that are used to set the text are empty or commented out and automatically exclude those sections or in the case of the preface it will default to the minimum required preface example, see \Cref{preface:DNA}.
 
 		\subsection{Title Page}
 			The thesis Title Page has a few more fields to be filled in than a regular \LaTeX\ document.
@@ -60,18 +60,6 @@
 				To customize this to your specific institution, use the command \cmd{university}\mopt{YOUR INSTITUTION NAME} before the \cmd{maketitle} command. I have also made a lot of effort to comment and organize the \path{ualberta.cls} file to make editing as easy as possible.}
 
 		\subsection{Abstract}\label{abstract}
-			\warning{%
-				This is often considered one of the hardest sections to get right.
-				This section is the summary of the entire work; you have just 700~words to convey your thesis, methodology, results, and conclusions while convincing the reader that the rest of the document is worth reading too.
-				With all of that, the best piece of advice I can offer is to write this section last.}
-
-			\caution{%
-				Your abstract must be absent of figures, tables, references, and cross-references.}
-
-			This is probably one of the simplest sections that needs to be created for your thesis.
-			Mainly because the content that can be included is so restrictive.
-			Further, the limit on the word count makes this section quite short.
-
 			The template automatically includes and formats your abstract according to the \Faculty's requirements, using the \cmd{makeabstract} command.
 			To edit the abstract open the file \path{01_Prefatory/Abstract.tex} and add your text to the \cmd{abstracttext} command.
 
@@ -84,7 +72,7 @@
 			\notice{%
 				Dedications or Quotations are limited to maximum of one page combined.}
 
-			In the template provided, you may fill in the appropriate Quote and Dedication fields in the document \path{01_Prefatory/Quotes_Dedications.tex}.
+			In the template provided, you may fill in the appropriate Quote and Dedication fields (\cmd{thesisquote and \cmd{dedication}, respectively}) in the document \path{01_Prefatory/Quotes_Dedications.tex}.
 			If they are left blank, with just a \{\} then they will automatically be excluded.
 			Or you can just comment out the line that they are on if you are unsure of whether you want to include one now or not and would just like to temporarily disable one or both of them.
 			The command \cmd{makededicationandquote} should never have to be commented out, as it will automatically detect the inclusion or exclusion of each and print the appropriate result.
@@ -97,9 +85,7 @@
 			The command \cmd{makeacknowledgements} should never have to be commented out, as it will automatically detect the inclusion or exclusion of it and print the appropriate result.
 
 		\subsection{Table of Contents}\label{toc}
-			For your thesis at the \University, the Table of Contents must include all the headings including those of the optional components that are included in your thesis.
-			Additionally, you must include full chapter headings and 2--4 levels of subheadings. 
-			This template will automatically include all required chapters including the correct ones from the prefatory pages.
+			For your thesis, this template will automatically include all required chapters including the correct ones from the prefatory pages.
 			However, due to stylistic considerations you may want more or fewer levels of subheadings included the in the Table of Contents.
 			To accomplish this I have created the command near the top of the \path{ualberta.tex} file that allows you to set both the depth of the Numbered Headings and the level of depth for the Table of Contents.
 			To do this change the number, \opt{n}, in the \cmd{settoclevel}\mopt{n} command to 2, 3, or 4 for two, three, or four levels of subheading, respectively.
@@ -107,24 +93,49 @@
 			\tip{For the \cmd{settoclevel}\mopt{n} command, setting \opt{n} to \opt{2} will included everything down to \texttt{subsection}, \opt{3} will include everything down to \texttt{subsubsection}, and \opt{4} will include everything down to \texttt{paragraph} in the Table of Contents.}
 
 		\subsection{Lists of Figures, Tables, ...}\label{listsof}
-			Include a separate list, beginning on a new page, for each kind of non-textual item appearing in the body of the thesis (one list for tables, another for illustrations, etc.).
-			Lists can be in any order.
-			These are included with the following set of commands:
+			This template is setup to for figures, tables, plates, illustrations, photos, videos, and sound files.
+			Each of items has their own environment \env{figure}, \env{table}, \env{plate}, \env{illustration}, \env{photo}, \env{video}, and \env{sound}, respectively.
+			These following set of smart-commands will automatically include or exclude the respective \enquote{List of ...} in the prefatory pages, no need to comment or uncomment them.
+			If you would like them to appear in a different order, just change their order in the the \path{ualberta.tex} file.
 			\begin{itemize}
 				\item \cmd{listoffigures}
 				\item \cmd{listoftables}
 				\item \cmd{listofplates}
+				\item \cmd{listofillustrations}
+				\item \cmd{listofvideos}
+				\item \cmd{listofphotos}
+				\item \cmd{listofsounds}
 			\end{itemize}
 			
 			\note{%
 				None of these commands need to be commented out, they can stay un-commented, and as long as \LaTeX\ is run at minimum twice (as is required for BibLaTeX/BibTeX, and any reference updates) they will update themselves to be included or excluded automatically.}
 
 	\section{Nomenclature, Glossary, \& Acronyms}\label{nomenclature}\label{glossary}\label{acronyms}
-		\subsection{Lists of Symbols/Abbreviations}
+		\subsection{Lists of Symbols}
+			The \cmd{listofsymbols} command will print the List of Symbols.
+			\cmd{nomenclature}\oopt{CATEGORY}\mopt{SYMBOL}\mopt{DEFINITION}
+
+			Adding the \cmd{nomunit} command inside and at the end of the \opt{DEFINITION} will add its \opt{CONTENTS} to the end of the line with the content being right justified.
+			\cmd{nomunit}\mopt{CONTENTS}
+
+			To add more categories to sort the Nomenclature or List of Symbols by you just need to add a new line to the code, show in \Cref{lst:nomencalturesettings}, at the top of the \path{Nomencalture.tex} file in \path{01_Prefatory} folder.
 			
+			\begin{lstlisting}[caption=Nomenclature Grouping Settings,label=lst:nomencalturesettings]
+\renewcommand\nomgroup[1]{%
+	\item[\bfseries%
+		\ifstrequal{#1}{A}{Constants}{}%
+		\ifstrequal{#1}{B}{Latin}{}%
+		\ifstrequal{#1}{C}{Greek}{}%
+		\ifstrequal{#1}{D}{Subscripts}{}]%
+			\end{lstlisting}
+
+		\subsection{Lists of Abbreviations}
+			The \cmd{abbreviations} command will print the List of Symbols.
+			\cmd{addacronym}\mopt{ACRONYM}\mopt{DEFINITION}
 
 		\subsection{Glossary of Terms}
-			
+			The \cmd{generateglossary} command will print the List of Symbols.
+			\cmd{addterm}\mopt{TERM}\mopt{DEFINITION}
 
 	\section{Chapters, Sections, Subsections, \textit{etc.}}
 		Organize your document hierarchically using chapters, sections, subsections, \textit{etc}.

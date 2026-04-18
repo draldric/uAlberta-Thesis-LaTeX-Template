@@ -36,15 +36,12 @@
 
 % Write command to allow the nomenclature to be generated properly.
 \immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
-\makeatletter
-	\def\input@path{{../}}
-\makeatother
 \documentclass[
 	oneside,
 	chapterbib,
 	saychapapp,
 	fancyheaders,
-	colourlinks]{ualberta}
+	colourlinks]{../ualberta}
 	% OPTIONS FOR ualberta.cls:
 	% chapterbib - Automatically prints references at the end of each chapter.
 	%
@@ -167,13 +164,14 @@
 %                              BEGIN DOCUMENT                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
 % These are ``Magic'' Macros... no need to comment them out. If their sections 
 %  are empty then they will automagically not be included.
 	\maketitle                   % Creates the Title Page
 	\makeabstract                % Creates the Abstract Page
 	\makepreface                 % Creates the Preface Page
 	\makededicationandquote      % Creates the Quote/Dedication Page
-	\acknowledgements            % Creates the Acknowledgements Page
+	\makeacknowledgements        % Creates the Acknowledgements Page
 
 % SET ToC...etc SPACING
 	%\singlespacing              % 1.00x Spacing
@@ -188,6 +186,10 @@
 	\listoftables                % Creates the List of Tables
 	\listoffigures               % Creates the List of Figures
 	\listofplates                % Creates the List of Plates (photographs)
+	\listofillustrations         % Creates the List of Illustration
+	\listofvideos                % Creates the List of Videos
+	\listofsounds                % Creates the List of Sounds
+	\listofphotos                % Creates the List of Photos
 	\listofsymbols               % Creates the List of Symbols (Nomenclature)
 	\abbreviations               % Creates the List of Acronyms (Abbreviations)
 	\glsaddall                   % Required for List of Acronyms and Glossary
@@ -212,10 +214,10 @@
 %  \print bibliography command will generate the end of Chapter references.
 % \input{./02_Chapters/ExampleChapter}
 % \begin{singlespace}
-% 	\printbibliography[%
-% 		segment=\therefsegment,
-% 		heading=subbibintoc,
-% 		title=References]
+%       \printbibliography[%
+%               segment=\therefsegment,
+%               heading=subbibintoc,
+%               title=References]
 % \end{singlespace}
 
 	\insertchapter{01_Introduction}
@@ -234,11 +236,11 @@
 
 	I will be covering the workflow from the ground up:
 	\begin{itemize}
-		\item \textbf{Setup:} Installing \LaTeX\ and the initialization of the template and understanding the \enquote{Main} document file (\path{ualberta.tex}).
-		\item \textbf{Structure:} Organizing your chapters, abstracts, and inclusions, as well as utilizing the template's commands for automatically generating the thesis' front matter (Abstract, Preface, and Acknowledgements).
-		\item \textbf{Content:} Best practices for inserting figures, tables, and complex equations.
-		\item \textbf{Visuals:} Incorporating high-quality plots and graphs that maintain consistency in the final PDF.
-		\item \textbf{Citations:} Managing a robust bibliography that integrates seamlessly with \University's required citation requirements.
+			\item \textbf{Setup:} Installing \LaTeX\ and the initialization of the template and understanding the \enquote{Main} document file (\path{ualberta.tex}).
+			\item \textbf{Structure:} Organizing your chapters, abstracts, and inclusions, as well as utilizing the template's commands for automatically generating the thesis' front matter (Abstract, Preface, and Acknowledgements).
+			\item \textbf{Content:} Best practices for inserting figures, tables, and complex equations.
+			\item \textbf{Visuals:} Incorporating high-quality plots and graphs that maintain consistency in the final PDF.
+			\item \textbf{Citations:} Managing a robust bibliography that integrates seamlessly with \University's required citation requirements.
 	\end{itemize}
 
 	\insertchapter{02_Getting_Started}
