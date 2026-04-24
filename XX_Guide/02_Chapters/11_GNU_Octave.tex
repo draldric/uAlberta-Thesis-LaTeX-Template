@@ -1,5 +1,6 @@
 % !TeX root = ../guide
 \chapter{GNU Octave: Open-Source Numerical Computation and Plotting}\label{ch:octave}
+\chaptermark{GNU Octave}
 	\section{Introduction}\label{sec:OctaveIntroduction}
 		While \LaTeX\ is an unparalleled tool for typesetting your thesis, it is not designed to crunch numbers or analyze raw data. 
 		For that, you need a numerical computation environment. 
@@ -62,7 +63,7 @@
 			\begin{center}
 				\texttt{print -dpdf my\_thesis\_plot.pdf}
 			\end{center}
-			This file can then be directly included in your thesis using the standard \cmd{includegraphics} command or the custom command \cmd{insertimage}\footnote{\cmd{insertimage} just wraps the \cmd{includegraphics} command by automatically adding the image directory to the filename. \textit{i.e.}, \cmd{insertimage}\mopt{filename} is equivalent to \cmd{includegraphics}\mopt{./99_Inclusions/Images/filename}} within a \env{figure} environment.
+			This file can then be directly included in your thesis using the standard \cmd{includegraphics} command or the custom command \cmd{insertimage}\footnote{The \cmd{insertimage} just wraps the \cmd{includegraphics} command by automatically adding the image directory to the filename. \par\textit{i.e.}, \cmd{insertimage}\mopt{filename} is equivalent to \cmd{includegraphics}\mopt{./99_Inclusions/Images/filename}.} within a \env{figure} environment.
 
 		\subsection{Consistent Formatting}
 			To make your thesis look cohesive, the font sizes and styles in your Octave plots should roughly match the text in your \LaTeX\ document. You can control this directly in your Octave scripts by specifying font properties before printing:

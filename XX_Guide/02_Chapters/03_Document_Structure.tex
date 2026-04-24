@@ -72,9 +72,9 @@
 			\notice{%
 				Dedications or Quotations are limited to maximum of one page combined.}
 
-			In the template provided, you may fill in the appropriate Quote and Dedication fields (\cmd{thesisquote and \cmd{dedication}, respectively}) in the document \path{01_Prefatory/Quotes_Dedications.tex}.
-			If they are left blank, with just a \{\} then they will automatically be excluded.
-			Or you can just comment out the line that they are on if you are unsure of whether you want to include one now or not and would just like to temporarily disable one or both of them.
+			In the template provided, you may fill in the appropriate \path{Quote} and \path{Dedication} files from the prefatory folder: \path{01_Prefatory/}.
+			If they are left blank, then they will automatically be excluded.
+			Or you can just comment out the command \cmd{setquotetext} or \cmd{setdedicationtext} if you are unsure of whether you want to include one now or not and would just like to temporarily disable one or both of them.
 			The command \cmd{makededicationandquote} should never have to be commented out, as it will automatically detect the inclusion or exclusion of each and print the appropriate result.
 
 
@@ -113,7 +113,9 @@
 	\section{Nomenclature, Glossary, \& Acronyms}\label{nomenclature}\label{glossary}\label{acronyms}
 		\subsection{Lists of Symbols}
 			The \cmd{listofsymbols} command will print the List of Symbols.
-			\cmd{nomenclature}\oopt{CATEGORY}\mopt{SYMBOL}\mopt{DEFINITION}
+			\begin{center}
+				\cmd{nomenclature}\oopt{CATEGORY}\mopt{SYMBOL}\mopt{DEFINITION}
+			\end{center}
 
 			Adding the \cmd{nomunit} command inside and at the end of the \opt{DEFINITION} will add its \opt{CONTENTS} to the end of the line with the content being right justified.
 			\cmd{nomunit}\mopt{CONTENTS}
@@ -131,11 +133,15 @@
 
 		\subsection{Lists of Abbreviations}
 			The \cmd{abbreviations} command will print the List of Symbols.
-			\cmd{addacronym}\mopt{ACRONYM}\mopt{DEFINITION}
+			\begin{center}
+				\cmd{addacronym}\mopt{ACRONYM}\mopt{DEFINITION}
+			\end{center}
 
 		\subsection{Glossary of Terms}
 			The \cmd{generateglossary} command will print the List of Symbols.
-			\cmd{addterm}\mopt{TERM}\mopt{DEFINITION}
+			\begin{center}
+				\cmd{addterm}\mopt{TERM}\mopt{DEFINITION}
+			\end{center}
 
 	\section{Chapters, Sections, Subsections, \textit{etc.}}
 		Organize your document hierarchically using chapters, sections, subsections, \textit{etc}.

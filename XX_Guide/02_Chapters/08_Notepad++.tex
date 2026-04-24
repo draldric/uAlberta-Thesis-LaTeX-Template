@@ -1,5 +1,6 @@
 % !TeX root = ../guide
 \chapter{Notepad++: A Lightweight Text Editor for Advanced Workflows}\label{ch:notepadplusplus}
+\chaptermark{Notepad++}
 	\section{Introduction}\label{sec:NPPIntroduction}
 		While dedicated IDEs like TeXstudio are highly recommended for writing the bulk of your thesis, there is undeniable value in having a fast, lightweight text editor in your toolkit. 
 		Notepad++ is a free, open-source source code editor that supports several languages, including \LaTeX.
@@ -50,7 +51,9 @@
 				\item Go to `Plugins' $\rightarrow$ `Plugins Admin'.
 				\item Search for `NppExec', check the box, and click `Install'. Notepad++ will restart.
 				\item Press `F6' to open the Execute dialog.
-				\item Enter the command to compile your document (\textit{e.g.}, \texttt{pdflatex "\$(FULL\_CURRENT\_PATH)"}).
+				\item Enter the following commands to compile your document:\par
+					\texttt{cd "\$(CURRENT\_DIRECTORY)"})\par
+					\texttt{latexmk -pdf -silent -synctex=1 "\$(FILE\_NAME)"})
 				\item Save this script for future use.
 			\end{enumerate}
 			\note{%

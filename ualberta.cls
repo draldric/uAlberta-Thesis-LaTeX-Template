@@ -30,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{ualberta}
-              [2026/04/03 V:3.0.0 ualberta Document Class]
+              [2026/04/24 V:3.0.0 ualberta Document Class]
 \pdfminorversion=7
 \RequirePackage{iftex}
 \ifPDFTeX
@@ -1238,6 +1238,8 @@
 		\onecolumn
 	\fi
 
+\newcommand{\thepage}{\arabic{page}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                             ADDITIONAL PACKAGES                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1275,8 +1277,21 @@ textheight=8.5in]{geometry}
 
 \AtEndPreamble{
 	\RequirePackage{xurl}
+	\if@pdfa%
+		\RequirePackage[noerr,a-3b]{pdfx}
+	\fi%
+	\RequirePackage{hyperref}
+	\urlstyle{same}
+	\Urlmuskip=0mu plus 1mu\relax
+	\RequirePackage[capitalise,nameinlink]{cleveref}
+	\if@pdfa%
+		\def\@pdfcreator{LaTeX using a Template by Daniel R. Aldrich}
+	\fi%
+}
+
+% PDFPAGES CHECK AND DEFAULTS SET
+\AtBeginDocument{
 	\if@colourlinks%
-		\RequirePackage{hyperref}
 		\hypersetup{
 			colorlinks,
 			linkcolor={red!50!black},
@@ -1285,23 +1300,11 @@ textheight=8.5in]{geometry}
 			pdfencoding=unicode,
 			breaklinks=true}
 	\else%
-		\RequirePackage{hyperref}
 		\hypersetup{
 			hidelinks,
 			pdfencoding=unicode,
 			breaklinks=true}
 	\fi%
-	\urlstyle{same}
-	\Urlmuskip=0mu plus 1mu\relax
-	\RequirePackage[capitalise,nameinlink]{cleveref}
-	\if@pdfa%
-		\def\@pdfcreator{LaTeX using a Template by Daniel R. Aldrich}
-		\RequirePackage[noerr,a-3b]{pdfx}
-	\fi%
-}
-
-% PDFPAGES CHECK AND DEFAULTS SET
-\AtBeginDocument{
 	\@ifpackageloaded{listings}{%
 		\lstset{
 			basicstyle=\ttfamily\singlespacing, % Forces code to be single-spaced
