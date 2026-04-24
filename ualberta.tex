@@ -134,17 +134,22 @@
 % SELECT IF YOUR THESIS IS TO BE PUBLISH UNDER CC
 	\creativecommons{\insertlatexfile{selectCreativeCommons}}
 
-% ABSTRACT
-	\insertprefatory{Abstract}
+% AN EASY WAY TO INCLUDE OR EXCLUDE THE FOLLOWING SECTIONS IS TO COMMENT OR 
+%  UNCOMMENT THE FOLLOWING LINES.
+	% ABSTRACT
+		\setabstracttext{}
 
-% PREFACE
-	\insertprefatory{Preface}
+	% PREFACE
+		\setprefacetext{}
 
-% DEDICATION OR QUOTE
-	\insertprefatory{Quotes_Dedications}
+	% DEDICATION
+		\setdedicationtext{}
 
-% ACKNOWLEDGEMENTS
-	\insertprefatory{Acknowledgements}
+	% QUOTE
+		\setquotetext{}
+
+	% ACKNOWLEDGEMENTS
+		\setacknowledgementtext{}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,7 +176,7 @@
 	\makeabstract                % Creates the Abstract Page
 	\makepreface                 % Creates the Preface Page
 	\makededicationandquote      % Creates the Quote and/or Dedication Page
-	\acknowledgements            % Creates the Acknowledgements Page
+	\makeacknowledgements        % Creates the Acknowledgements Page
 
 % SET ToC...etc SPACING
 	%\singlespacing              % 1.00x Spacing

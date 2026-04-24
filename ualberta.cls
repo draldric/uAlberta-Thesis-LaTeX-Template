@@ -43,6 +43,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage{xstring}
 \RequirePackage{morewrites}
+\RequirePackage{catchfile}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,6 +145,9 @@
 	\newcommand\abstracttext[1]{%
 		\renewcommand\@abstracttext{#1}
 		\StrSubstitute{\@abstracttext}{\par}{ }[\@cleanabstract]}
+	\newcommand\setabstracttext[1][./01_Prefatory/Abstract]{%
+		\CatchFileDef{\@abstracttext}{#1}{}
+		\StrSubstitute{\@abstracttext}{\par}{ }[\@cleanabstract]}
 	\newcommand\@abstracttext{}
 
 % KEYWORDS
@@ -151,24 +155,32 @@
 	\newcommand\@keywords{}
 
 % PREFACE
-	\newcommand\preface[1]{%
-		\renewcommand\@preface{%
+	\newcommand\prefacetext[1]{%
+		\renewcommand\@prefacetext{%
 			\ifblank{#1}{%
 				This thesis is an original work by \@author. No part of this thesis has been previously published.
 			}{%
 				#1}}}
-	\newcommand\@preface{This thesis is an original work by \@author. No part of this thesis has been previously published.}
+	\newcommand\setprefacetext[1][./01_Prefatory/Preface]{%
+		\CatchFileDef{\@prefacetext}{#1}{}}
+	\newcommand\@prefacetext{This thesis is an original work by \@author. No part of this thesis has been previously published.}
 
 % QUOTE
-	\newcommand\thesisquote[1]{\renewcommand\@thesisquote{#1}}
-	\newcommand\@thesisquote{ }
+	\newcommand\quotetext[1]{\renewcommand\@quotetext{#1}}
+	\newcommand\setquotetext[1][./01_Prefatory/Quote]{%
+		\CatchFileDef{\@quotetext}{#1}{}}
+	\newcommand\@quotetext{ }
 
 % DEDICATION
-	\newcommand\dedication[1]{\renewcommand\@dedication{#1}}
-	\newcommand\@dedication{ }
+	\newcommand\dedicationtext[1]{\renewcommand\@dedicationtext{#1}}
+	\newcommand\setdedicationtext[1][./01_Prefatory/Dedication]{%
+		\CatchFileDef{\@dedicationtext}{#1}{}}
+	\newcommand\@dedicationtext{ }
 
 % ACKNOWLEDGEMENT
 	\newcommand\acknowledgementtext[1]{\renewcommand\@acknowledgementtext{#1}}
+	\newcommand\setacknowledgementtext[1][./01_Prefatory/Acknowledgement]{%
+		\CatchFileDef{\@acknowledgementtext}{#1}{}}
 	\newcommand\@acknowledgementtext{ }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1109,12 +1121,12 @@
 
 % PREFACE
 	\newcommand\makepreface{%
-		\ifdefvoid{\@preface}{}{%
+		\ifdefvoid{\@prefacetext}{}{%
 			\chapter*{\prefacename}
 			\addcontentsline{toc}{chapter}{\prefacename}
 			\@mkboth{\MakeUppercase\prefacename}%
 					{\MakeUppercase\prefacename}
-			\@preface}}
+			\@prefacetext}}
 
 % ACKNOWLEDGEMENTS
 	\newcommand\makeacknowledgements{%
@@ -1127,26 +1139,26 @@
 
 % QUOTE
 	\newcommand\makequote{%
-		\ifdefvoid{\@thesisquote}{}{\chapter*{}
+		\ifdefvoid{\@quotetext}{}{\chapter*{}
 			\@mkboth{}%
 					{}
-			\begin{center}\em \@thesisquote \em\end{center}}}
+			\vfill\begin{center}\em \@quotetext \em\end{center}\vfill}}
 
 % DEDICATION
 	\newcommand\makededication{%
-		\ifdefvoid{\@dedication}{}{\chapter*{}
+		\ifdefvoid{\@dedicationtext}{}{\chapter*{}
 			\@mkboth{}%
 					{}
-			\begin{center}\em \@dedication \em\end{center}}}
+			\vfill\begin{center}\em \@dedicationtext \em\end{center}\vfill}}
 
 % COMBO QUOTE & DEDICATION
 	\newcommand\makededicationandquote{%
-		\ifdefvoid{\@dedication}{\makequote}{%
-			\ifdefvoid{\@thesisquote}{\makededication}{%
+		\ifdefvoid{\@dedicationtext}{\makequote}{%
+			\ifdefvoid{\@quotetext}{\makededication}{%
 				\chapter*{}
 				\@mkboth{}%
 						{}
-				\vfill\begin{center}\em \@dedication \em\end{center}\vfill\begin{center}\em \@thesisquote \em\end{center}\vfill}}}
+				\vfill\begin{center}\em \@dedicationtext \em\end{center}\vfill\begin{center}\em \@quotetext \em\end{center}\vfill}}}
 
 
 \def\bodyoftext{%
