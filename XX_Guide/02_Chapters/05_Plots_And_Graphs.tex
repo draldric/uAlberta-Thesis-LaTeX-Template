@@ -1,7 +1,7 @@
 % !TeX root = ../guide
 \chapter{Plots, Charts, \& Graphs}\label{ch:plotsandgraphs}
 		Throughout this chapter we will be exploring some of the different ways of displaying your data in your thesis.
-		Mainly this will be accomplished with the \pkg{pgfplots} package.
+		Mainly this will be accomplished with the \pkg{pgfplots}\footfullcite{pgfplots} package.
 		In the following sections, there will be a few examples of how to generate different plots.
 		For more information on how to create plots, \href{https://mirror.its.dal.ca/ctan/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf}{\textcolor{blue}{\underline{here}}} is the manual for \pkg{pgfplots} (the package used to generate the information for TikZ to create the plots).
 		For an extensive list of examples please refer to \href{https://pgfplots.sourceforge.net/gallery.html}{\textcolor{blue}{\underline{this}}}
@@ -38,7 +38,7 @@
 			Each plot is individually added to the legend by adding a \cmd{addlegendentry}\mopt{YOUR LEGEND ENTRY HERE} command following the \cmd{addplot} command.
 			
 			\note{
-				The position of the legend can be specified by using the optional parameter \opt{legend pos=}} followed by a set of compass coordinates.
+				The position of the legend can be specified by using the optional parameter \opt{legend pos=} followed by a set of compass coordinates.}
 			
 			\begin{lstlisting}[float=htbp,caption=,label=lst:legend-plot-header,style=LaTeXStyle,basicstyle=\small\ttfamily,]
 \begin{figure}[H]
@@ -375,8 +375,8 @@
 				\begin{tikzpicture}
 					\begin{polaraxis}[
 						title={Polar Plot},
-						xlabel={Radius},
-						ylabel={Angle (degrees)},
+						xlabel={Angle (degrees)},
+						ylabel={Radius},
 					]
 						\addplot coordinates {
 							(0,1) (30,2) (60,3) (90,4)

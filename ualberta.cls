@@ -1307,7 +1307,7 @@ textheight=8.5in]{geometry}
 	\fi%
 	\@ifpackageloaded{listings}{%
 		\lstset{
-			basicstyle=\ttfamily\singlespacing, % Forces code to be single-spaced
+			basicstyle=\small\ttfamily\singlespacing, % Forces code to be single-spaced
 			breaklines=true,                    % Allows long lines to wrap
 			frame=tb,                           % Puts a line at top and bottom
 			columns=flexible,

@@ -1,14 +1,14 @@
 % !TeX root = ../guide
 \chapter{Figures, Tables, \& Plates}\label{ch:figureandtables}
-		\warning{%
-			Throughout this Chapter there will be code listings that include lines that show the required packages. 
-			These lines should be included in your \LaTeX\ preamble, not in the body of your document.
-			To make this easy I have actually included a document specifically to add your packages too. This can be found in the \path{includePackages.tex} file found in the \path{00_LaTeX_Files} folder.}
+	\warning{%
+		Throughout this Chapter there will be code listings that include lines that show the required packages. 
+		These lines should be included in your \LaTeX\ preamble, not in the body of your document.
+		To make this easy I have actually included a document specifically to add your packages too. This can be found in the \path{includePackages.tex} file found in the \path{00_LaTeX_Files} folder.}
 
-		\tip{%
-			\path{./00_LaTeX_Files/includePackages.tex} includes all the packages required for creating all the examples in this document, some of these will not be necessary for your own thesis, however, I have included comments on all packages for what they are used for. 
-			This allows you to make a decision on if you will need them as well. 
-			If you are unsure, you may just comment out the line so as to not forget the packages that were originally included.}
+	\tip{%
+		\path{./00_LaTeX_Files/includePackages.tex} includes all the packages required for creating all the examples in this document, some of these will not be necessary for your own thesis, however, I have included comments on all packages for what they are used for. 
+		This allows you to make a decision on if you will need them as well. 
+		If you are unsure, you may just comment out the line so as to not forget the packages that were originally included.}
 	\section{Introduction}
 		Figures, Tables, and Plates play a crucial role in conveying complex information effectively within academic documents. 
 		This chapter will delve into the intricacies of incorporating these visual elements into your \LaTeX\ document, exploring both basic features and advanced techniques to enhance the visual appeal and clarity of your content.
@@ -19,138 +19,52 @@
 		The \cmd{includegraphics} command is used to insert an image. 
 		Let's consider an example:
 
-		\begin{lstlisting}[float=ht,caption={A basic example of including a figure.},label={lst:figureExample},style=LaTeXStyle,basicstyle=\small\ttfamily,]
-\usepackage{graphicx}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.7\linewidth]{example-image}
-	\caption{Example Figure}
-	\label{fig:example}
-\end{figure}
-		\end{lstlisting}
-
-		\begin{figure}[H]
-			\centering
-			\includegraphics{example-image}
-			\caption{This is an example of a single figure similar to that produced by \Cref{lst:figureExample}.}
-			\label{fig:singleImage}
-		\end{figure}
+		\LTXinputExample{./99_Inclusions/Code/example-figure}
 
 		In this example, the \env{figure} environment is used to contain the image. 
+		The optional argument \oopt{htbp} for the \env{figure} environment controls the order in which \LaTeX\ will attempt to insert the float (figure).
+		\begin{itemize}
+			\item \opt{h} tries to place the float \textbf{here}.
+			\item \opt{t} tries to place the float at the \textbf{top} of the page.
+			\item \opt{b} tries to place the float at the \textbf{bottom} of the page.
+			\item \opt{p} tries to place the float on a float only \textbf{page}.
+		\end{itemize}
+
 		The \cmd{centering} command ensures the image is centred horizontally.
-		The optional argument (\opt{htbp}) for the \env{figure} environment controls the order in which \LaTeX\ will attempt to insert the float (figure).
-
-		\begin{description}
-			\item[h] try to place the float \textbf{here}.
-			\item[t] try to place the float at the \textbf{top} of the page.
-			\item[b] try to place the float at the \textbf{bottom} of the page.
-			\item[p] try to place the float on a float only \textbf{page}.
-		\end{description}
-
-		The \opt{width} parameter is used to control the size of the image; in this case, it has been set to \opt{0.45\cmd{linewidth}} which will make it fill a space that is 0.45 times (45\%) the width of the current line.
+		The \opt{width} parameter is used to control the size of the image; in this case, it has been set to \path{0.45\linewidth} which will make it fill a space that is 0.45 times (45\%) the width of the current line.
 		The \cmd{caption} and \cmd{label} commands provide a caption and label for referencing, respectively.
 
 		Figures can be formatted to meet specific requirements. 
-		The \cmd{subfigure} command from the \pkg{subcaption} package can be used for side-by-side figures:
+		The \cmd{subfigure} command from the \pkg{subcaption}\footfullcite{subcaption} package can be used for side-by-side figures:
 
-		\begin{lstlisting}[float=ht,caption={A basic example of a double image figure.},label={lst:subfigureExample},style=LaTeXStyle,basicstyle=\small\ttfamily,]
-\usepackage{subcaption}
+		\LTXinputExample{./99_Inclusions/Code/example-subfigure}
 
-\begin{figure}[htb]
-	\begin{subfigure}{0.45\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{example-image-a}
-		\caption{Subfigure A} % Leave blank for just letter
-		\label{subfig:a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.45\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{example-image-b}
-		\caption{Subfigure B} % Leave blank for just letter
-		\label{subfig:b}
-	\end{subfigure}
-	\caption{Example with Subfigures}
-	\label{fig:subfigures}
-\end{figure}
-		\end{lstlisting}
-
-		This example uses the \env{subfigure} environment to create subfigures within a larger figure (as shown in \Cref{fig:doubleImage}. 
+		This example uses the \env{subfigure} environment to create subfigures within a larger \env{figure} environment. 
 		The \cmd{hfill} command adds horizontal space between the subfigures.
-
-		\begin{figure}[H]
-			\centering
-			\begin{subfigure}{0.45\linewidth}
-				\includegraphics[width=\linewidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:doubleImage:a}
-			\end{subfigure}
-			~
-			\begin{subfigure}{0.45\linewidth}
-				\includegraphics[width=\linewidth]{example-image}
-				\caption{} % Leave blank for just letter
-				\label{fig:doubleImage:b}
-			\end{subfigure}
-			\caption{This is an example of a double image figure similar to that produced by \Cref{lst:subfigureExample}.}
-			\label{fig:doubleImage}
-		\end{figure}
 
 		While this section provided a few examples on how to make some figures and subfigures, I would strongly recommend checking out some of the more complex examples of figures shown in \Cref{app:examplefigures}.
 		That appendix provides the exact code and examples for creating much more intricate subfigure grids and layouts.
 		
 	\section{Tables and Tabularx}
 		Tables in \LaTeX\ are traditionally created using the \env{tabular} environment.
-		However, the \pkg{tabularx} package is particularly useful when you want the table to automatically calculate and adjust its column widths to fit a specific dimension. 
-		To make writing tables a little easier, let's define some custom column types in our \path{includeMacros.tex} file:
+		However, the \pkg{tabularx}\footfullcite{tabularx} package is particularly useful when you want the table to automatically calculate and adjust its column widths to fit a specific dimension. 
+		To make writing tables a little easier, lets define some custom column types in our \path{includeMacros.tex} file:
 
-		\begin{lstlisting}[float=ht,caption=,label=lst:newcolumntyps,style=LaTeXStyle,basicstyle=\small\ttfamily,]
-\usepackage{tabularx}
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-\newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
-		\end{lstlisting}
-Now, let's implement a table utilizing the \pkg{tabularx} custom columns:
-\begin{lstlisting}[float=ht,caption=,label=lst:tabularx,style=LaTeXStyle,basicstyle=\small\ttfamily,]
-\begin{table}[htb]
-	\centering
-	\begin{tabularx}{\linewidth}{|C|L|R|}
-		\hline
-		\textbf{Centered} & \textbf{Left Justified} & \textbf{Right Justified} \\
-		\hline
-		Content & More content & Additional content \\
-		\hline
-	\end{tabularx}
-	\caption{Example Table with Tabularx}
-	\label{tab:example}
-\end{table}
-		\end{lstlisting}
+		\lstinputlisting{./99_Inclusions/Code/tabularx-setup}
+
+		Now, lets implement a table utilizing the \pkg{tabularx} custom columns:
+
+		\LTXinputExample{./99_Inclusions/Code/tabularx-example}
 
 		In this example, the \env{tabularx} environment is used, and the custom column types \opt{C}, \opt{L}, and \opt{R} are applied to the columns. 
 		This ensures the content is cleanly centered, left-justified, and right-justified, respectively
 
 	\section{Advanced Table Features}
 
-		To create professional-looking, publication-ready tables, the \pkg{booktabs} package is the industry standard. 
+		To create professional-looking, publication-ready tables, the \pkg{booktabs}\footfullcite{booktabs} package is the industry standard. 
 		It provides specialized commands for better vertical spacing and styling of table rules (lines):
 
-		\begin{lstlisting}[float=ht,caption=,label=lst:booktabs,style=LaTeXStyle,basicstyle=\small\ttfamily,]
-\usepackage{booktabs}
-
-\begin{table}[htb]
-	\centering
-	\begin{tabular}{ccc}
-		\toprule
-		\textbf{Header 1} & \textbf{Header 2} & \textbf{Header 3} \\
-		\midrule
-		Content 1 & Content 2 & Content 3 \\
-		Content 4 & Content 5 & Content 6 \\
-		\bottomrule
-	\end{tabular}
-	\caption{Example Table with Booktabs}
-	\label{tab:booktabs_example}
-\end{table}
-		\end{lstlisting}
+		\LTXinputExample{./99_Inclusions/Code/booktabs-example}
 
 		By replacing standard \cmd{hline} commands with \cmd{toprule}, \cmd{midrule}, and \cmd{bottomrule}, you create horizontal rules with appropriate, aesthetically pleasing spacing that adheres to formal typesetting guidelines.
 
@@ -159,9 +73,9 @@ Now, let's implement a table utilizing the \pkg{tabularx} custom columns:
 		Depending on your data, several other packages can be employed to heavily enhance table functionality:
 
 		\begin{itemize}
-		    \item The \pkg{longtable} package allows tables to seamlessly span across multiple pages, which is essential for displaying large datasets.
-		    \item The \pkg{multirow} package provide targeted commands for merging cells that need to span across multiple rows.
-		    \item The \pkg{makecell} package enables much more complex table cell layouts, such as forced line breaks within a single cell.
+		    \item The \pkg{longtable}\footfullcite{longtable} package allows tables to seamlessly span across multiple pages, which is essential for displaying large datasets.
+		    \item The \pkg{multirow}\footfullcite{multirow} package provide targeted commands for merging cells that need to span across multiple rows.
+		    \item The \pkg{makecell}\footfullcite{makecell} package enables much more complex table cell layouts, such as forced line breaks within a single cell.
 		\end{itemize}
 		Each of these packages comes with its own set of commands and options. 
 		Let's briefly explore the usage of \pkg{longtable}, \pkg{multirow}, and \pkg{makecell}:

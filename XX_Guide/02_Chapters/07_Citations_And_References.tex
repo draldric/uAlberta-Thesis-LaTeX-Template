@@ -9,7 +9,7 @@
 			\lstinline[basicstyle=\ttfamily]|\chapter{Citations/References, and Cross-References}\label{ch:citref}|
 		\end{Center}
 
-		By using \cmd{ref}\mopt{ch:citref}|, this allows you to insert a cross\hyp{}reference that look like this \ref{ch:citref}.
+		By using \cmd{ref}\mopt{ch:citref}, this allows you to insert a cross\hyp{}reference that look like this \ref{ch:citref}.
 		Now this by itself is not the most useful, to make it a bit better we should keep track of what we are cross\hyp{}referencing, in this case a \textbf{Chapter}, and add this label in front of the cross\hyp{}reference (\lstinline[basicstyle=\ttfamily]|Chapter~\ref{sec:citref}|) and this will display like this: Chapter~\ref{ch:citref}.
 		
 		\note{
@@ -21,8 +21,8 @@
 		Some of these are provided by the \pkg{hyperref} and \pkg{cleveref} packages.
 		To include these packages add the following lines to the \textbf{bottom} of your preamble (order matters, \pkg{cleveref} needs to be after \pkg{hyperref}; and \pkg{hyperref} should be one of the last packages loaded):
 		\begin{lstlisting}[style=LaTeXStyle]
-			\usepackage{hyperref}
-			\usepackage[nameinlink]{cleveref}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
 		\end{lstlisting}
 		With these packages loaded we can now use the commands listed in \Cref{tab:reftable}.\footnote{Note that because the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
 		\begin{table}[H]

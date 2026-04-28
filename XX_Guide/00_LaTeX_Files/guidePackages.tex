@@ -20,6 +20,13 @@
 	\usepackage{enumitem}
 	\setlist{noitemsep}
 
+	\usepackage{accsupp}
+	\newcommand{\noncopynumber}[1]{
+		\BeginAccSupp{method=escape,ActualText={}}
+		#1
+		\EndAccSupp{}
+	}
+
 %% COLOUR DEFINITIONS
 	\definecolor{signalRed}   {rgb}{0.631,0.149,0.176}
 	\definecolor{signalOrange}{rgb}{0.796,0.380,0.098}
