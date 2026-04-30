@@ -18,12 +18,9 @@
 		While using the \cmd{ref} command, you might ask \enquote{\textit{Why does \LaTeX{} not just know what it is that I am referencing and insert that automatically in front of the reference?}}
 		The answer is to provide more flexibility to the user.
 		However, that being said, individuals have created a number of packages that work to enhance the workflow of adding these cross-references.
-		Some of these are provided by the \pkg{hyperref} and \pkg{cleveref} packages.
+		Some of these are provided by the \pkg{hyperref}\footfullcite{hyperref} and \pkg{cleveref}\footfullcite{cleveref} packages.
 		To include these packages add the following lines to the \textbf{bottom} of your preamble (order matters, \pkg{cleveref} needs to be after \pkg{hyperref}; and \pkg{hyperref} should be one of the last packages loaded):
-		\begin{lstlisting}[style=LaTeXStyle]
-\usepackage{hyperref}
-\usepackage[nameinlink]{cleveref}
-		\end{lstlisting}
+		\lstinputlisting{./99_Inclusions/Code/cleveref-setup}
 		With these packages loaded we can now use the commands listed in \Cref{tab:reftable}.\footnote{Note that because the floats are added where they are in the text this causes them to insert large amounts of white space because it only fits on the following page.}
 		\begin{table}[H]
 			\caption{Built-in, hyperref, and cleveref commands and outputs}
@@ -42,13 +39,9 @@
 					%\lstinline|\\autoref*\{\}|      & \autoref*{tab:reftable} \\
 				\midrule
 					\multicolumn{2}{c}{cleveref}\\
-					\cmd{cref}\mopt{}          & \cref{tab:reftable} \\
 					\cmd{Cref}\mopt{}          & \Cref{tab:reftable} \\
-					\cmd{cref*}\mopt{}         & \cref*{tab:reftable} \\
 					\cmd{Cref*}\mopt{}         & \Cref*{tab:reftable} \\
-					\cmd{cpageref}\mopt{}      & \cpageref{tab:reftable} \\
 					\cmd{Cpageref}\mopt{}      & \Cpageref{tab:reftable} \\
-					\cmd{namecref}\mopt{}      & \namecref{tab:reftable} \\
 					\cmd{nameCref}\mopt{}      & \nameCref{tab:reftable} \\
 				\bottomrule
 			\end{tabularx}
