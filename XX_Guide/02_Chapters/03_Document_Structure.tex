@@ -6,22 +6,30 @@
 	
 	\section{Title Page, Abstract, and Other Prefatory Pages}
 		As we saw in \Cref{sec:basicdocstucture}, in \LaTeX\ to create a title page you use the \cmd{maketitle} command after providing the necessary title, author, and date information with the \cmd{title}\mopt{}, \cmd{author}\mopt{}, and \cmd{date}\mopt{} commands, respectively.
-		However, for a thesis at the \University\ a few more pieces of information are required for the title page.
-		To help with this I have recreated the title page to match the sample provided by the \Faculty\ and have add the corresponding commands too.
-		Additionally, a few more pages are also required (Abstract and Preface) and a few optional pages may be included too (Quote, Dedication, and Acknowledgements).
+		However, for a thesis at the \University, a few more pieces of information are required for the title page, including:
+		\begin{itemize}
+			\item Degree,
+			\item Department or Faculty,
+			\item Specialization, and 
+			\item Creative Commons.
+		\end{itemize}
+		To help with this I have recreated the title page to match the sample provided by the \Faculty\ and have add corresponding commands to set the content for these.
+		Additionally, a few more pages are also required (Abstract and Preface) and a few optional pages may be included as well (Quote, Dedication, and Acknowledgements).
 		All of these pages have very specific formatting requirements provided by the \Fac.
 		
-		The \Faculty\ even provides a few different documents that attempt to provide the necessary information to create these pages \cite{FGPS2024}.
-		While these do a decent job at layout how these pages need to be laid out, I decided to take the guess work completely out of it. 
+		The \Faculty\ even provides a few different documents that provide the necessary information to create these pages \cite{FGPS2024}.
+		While these do a decent job at describing how these pages need to be laid out, I decided to take the guess work completely out of it. 
 		I have created a few new pairs of commands; one sets the text for the section, the other one generates the page with the text in the proper formatting.
 
-		The following commands are used to \textbf{set the text} for each of their respective sections.
+		The following commands are used to \textbf{set} the text for each of their respective sections.
+		These commands look for their respective \texttt{*.tex}\footnote{If you would rather set the text using a macro to keep the text in the same file, change \texttt{get} in the respective command to \texttt{set} and write in the content. \textit{e.g.} \cmd{setabstracttext}\mopt{<Your Content Here>}} file in the \path{01_LaTeX_Prefatory} folder.
+		These commands can be commented out if they are unused and their respective sections will be excluded completely from the document or in some cases set to a predetermined output.
 		\begin{itemize}
-			\item \cmd{abstracttext}\mopt{}, 
-			\item \cmd{preface}\mopt{}, 
-			\item \cmd{thesisquote}\mopt{}, 
-			\item \cmd{dedication}\mopt{}, and 
-			\item \cmd{acknowledgementtext}\mopt{} 
+			\item \cmd{getabstracttext}\mopt{}, 
+			\item \cmd{getprefacetext}\mopt{}, 
+			\item \cmd{getquotetext}\mopt{}, 
+			\item \cmd{getdedicationtext}\mopt{}, and 
+			\item \cmd{getacknowledgementtext}\mopt{}
 		\end{itemize}
 
 		Where the follow commands here are used to \textbf{print} the receptive sections.
@@ -48,10 +56,10 @@
 					The \path{selectDegree.tex} file is pre-setup with all the options to choose from, just un-comment the one that matches your thesis.
 				\item[\cmd{specialization}] this will be where you write your specialization (if you have one) as it appears on beartracks.
 				\item[\cmd{deptfac}] this is already set up to read from the file \path{selectDeptartment.tex} from the \path{00_LaTeX_Files} folder. 
-				The \path{selectDeptartment.tex} file is pre-setup with all the options to choose from, just un-comment the one that matches your thesis. 
+					The \path{selectDeptartment.tex} file is pre-setup with all the options to choose from, just un-comment the one that matches your thesis. 
 				\item[\cmd{convocation}] this is set up to read th current year, but if you will be convocating in the fallowing year you must change this to match your convocation year.
 				\item[\cmd{creativecommons}] this is already set up to read from the file \path{selectCreativeCommons.tex} from the \path{00_LaTeX_Files} folder.  
-				The \path{selectCreativeCommons.tex} file is pre-setup with all the options to choose from, just un-comment the one that matches your thesis.
+					The \path{selectCreativeCommons.tex} file is pre-setup with all the options to choose from, just un-comment the one that matches your thesis.
 			\end{description}
 
 			\notice{%
@@ -60,12 +68,12 @@
 
 		\subsection{Abstract}\label{abstract}
 			The template automatically includes and formats your abstract according to the \Faculty's requirements, using the \cmd{makeabstract} command.
-			To edit the abstract open the file \path{01_Prefatory/Abstract.tex} and add your text to the \cmd{abstracttext} command.
+			To edit the abstract open the file \path{01_Prefatory/Abstract.tex} and add your text to the file.
 
 		\subsection{Preface}\label{preface}
 			The template automatically includes and formats your preface according to the \Faculty's requirements, using the \cmd{makepreface} command.
-			To edit the preface open the file \path{01_Prefatory/Preface.tex} and add your text to the \cmd{preface} command.
-			If it is left blank, with just a \{\} then the default mandatory preface will be used.
+			To edit the preface open the file \path{01_Prefatory/Preface.tex} and add your text to the file.
+			If file is left blank then the default mandatory preface will be used.
 
 		\subsection{Dedication or Quotations}\label{quote}\label{dedication}
 			\notice{%
@@ -73,14 +81,12 @@
 
 			In the template provided, you may fill in the appropriate \path{Quote} and \path{Dedication} files from the prefatory folder: \path{01_Prefatory/}.
 			If they are left blank, then they will automatically be excluded.
-			Or you can just comment out the command \cmd{setquotetext} or \cmd{setdedicationtext} if you are unsure of whether you want to include one now or not and would just like to temporarily disable one or both of them.
+			Or you can just comment out the command \cmd{getquotetext} or \cmd{getdedicationtext} if you are unsure of whether you want to include one now or not and would just like to temporarily disable one or both of them.
 			The command \cmd{makededicationandquote} should never have to be commented out, as it will automatically detect the inclusion or exclusion of each and print the appropriate result.
 
-
 		\subsection{Acknowledgements}\label{acknowledgement}
-			In the template provided, you may fill in the appropriate Quote and Dedication fields in the document \path{01_Prefatory/Acknowledgements.tex}.
-			If it is left blank, with just a \{\} then it will automatically be excluded.
-			
+			The template automatically includes and formats your acknowledgements according to the \Faculty's requirements, using the \cmd{makeacknowledgements} command.
+			To edit the acknowledgements open the file \path{01_Prefatory/Acknowledgements.tex} and add your text to the file.
 			The command \cmd{makeacknowledgements} should never have to be commented out, as it will automatically detect the inclusion or exclusion of it and print the appropriate result.
 
 		\subsection{Table of Contents}\label{toc}

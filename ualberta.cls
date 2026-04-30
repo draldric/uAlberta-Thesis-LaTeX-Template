@@ -142,10 +142,10 @@
 	\newcommand\@creativecommons{Select or Enter a Creative Commons License}
 
 % ABSTRACT
-	\newcommand\abstracttext[1]{%
+	\newcommand\setabstracttext[1]{%
 		\renewcommand\@abstracttext{#1}
 		\StrSubstitute{\@abstracttext}{\par}{ }[\@cleanabstract]}
-	\newcommand\setabstracttext[1][./01_Prefatory/Abstract]{%
+	\newcommand\getabstracttext[1][./01_Prefatory/Abstract]{%
 		\CatchFileDef{\@abstracttext}{#1}{}
 		\StrSubstitute{\@abstracttext}{\par}{ }[\@cleanabstract]}
 	\newcommand\@abstracttext{}
@@ -155,31 +155,31 @@
 	\newcommand\@keywords{}
 
 % PREFACE
-	\newcommand\prefacetext[1]{%
+	\newcommand\setprefacetext[1]{%
 		\renewcommand\@prefacetext{%
 			\ifblank{#1}{%
 				This thesis is an original work by \@author. No part of this thesis has been previously published.
 			}{%
 				#1}}}
-	\newcommand\setprefacetext[1][./01_Prefatory/Preface]{%
+	\newcommand\getprefacetext[1][./01_Prefatory/Preface]{%
 		\CatchFileDef{\@prefacetext}{#1}{}}
 	\newcommand\@prefacetext{This thesis is an original work by \@author. No part of this thesis has been previously published.}
 
 % QUOTE
-	\newcommand\quotetext[1]{\renewcommand\@quotetext{#1}}
-	\newcommand\setquotetext[1][./01_Prefatory/Quote]{%
+	\newcommand\setquotetext[1]{\renewcommand\@quotetext{#1}}
+	\newcommand\getquotetext[1][./01_Prefatory/Quote]{%
 		\CatchFileDef{\@quotetext}{#1}{}}
 	\newcommand\@quotetext{ }
 
 % DEDICATION
-	\newcommand\dedicationtext[1]{\renewcommand\@dedicationtext{#1}}
-	\newcommand\setdedicationtext[1][./01_Prefatory/Dedication]{%
+	\newcommand\setdedicationtext[1]{\renewcommand\@dedicationtext{#1}}
+	\newcommand\getdedicationtext[1][./01_Prefatory/Dedication]{%
 		\CatchFileDef{\@dedicationtext}{#1}{}}
 	\newcommand\@dedicationtext{ }
 
 % ACKNOWLEDGEMENT
-	\newcommand\acknowledgementtext[1]{\renewcommand\@acknowledgementtext{#1}}
-	\newcommand\setacknowledgementtext[1][./01_Prefatory/Acknowledgement]{%
+	\newcommand\setacknowledgementtext[1]{\renewcommand\@acknowledgementtext{#1}}
+	\newcommand\getacknowledgementtext[1][./01_Prefatory/Acknowledgement]{%
 		\CatchFileDef{\@acknowledgementtext}{#1}{}}
 	\newcommand\@acknowledgementtext{ }
 
