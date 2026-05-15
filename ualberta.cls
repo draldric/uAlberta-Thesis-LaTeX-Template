@@ -74,6 +74,12 @@
 \newif\if@fancyheaders
 \@fancyheadersfalse
 
+\newif\if@simpleheaders
+\@simpleheadersfalse
+
+\newif\if@numberheaders
+\@numberheadersfalse
+
 \newif\if@saychapapp
 \@saychapappfalse
 
@@ -303,6 +309,8 @@
 \DeclareOption{pdfa}{\@pdfatrue}
 \DeclareOption{chapterbib}{\@chapterbibtrue}
 \DeclareOption{fancyheaders}{\@fancyheaderstrue}
+\DeclareOption{simpleheaders}{\@simpleheaderstrue\@fancyheaderstrue}
+\DeclareOption{numberheaders}{\@numberheaderstrue\@fancyheaderstrue}
 \DeclareOption{saychapapp}{\@saychapapptrue}
 
 \DeclareOption{colourlinks}{\@colourlinkstrue}
@@ -351,44 +359,41 @@
 	\def\ps@headings{%
 		\let\@oddfoot\@empty
 		\let\@evenfoot\@empty
-		\def\@evenhead{\thepage\hfil\slshape\leftmark}%
-		\def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+		\def\@evenhead{\thepage\hfil{\if@numberheaders\else{\slshape\leftmark}\fi}%
+		\def\@oddhead{{\if@numberheaders\else{\slshape\rightmark}\fi\hfil\thepage}%
 		\let\@mkboth\markboth
 		\def\chaptermark##1{%
 			\markboth {\MakeUppercase{%
 				\ifnum \c@secnumdepth >\m@ne
 					\@chapapp\ \thechapter. \ %
 				\fi
-				##1}}{}}%
+				\if@simpleheaders\else##1\fi}}{}}%
 		\def\sectionmark##1{%
 			\markright {\MakeUppercase{%
 				\ifnum \c@secnumdepth >\z@
 					\thesection. \ %
 				\fi
-				##1}}}}
+				\if@simpleheaders\else##1\fi}}}}
 \else
 	\def\ps@headings{%
 		\let\@oddfoot\@empty
-		\def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+		\def\@oddhead{\if@numberheaders\else{\slshape\rightmark}\fi\hfil\thepage}%
 		\let\@mkboth\markboth
 		\def\chaptermark##1{%
 			\markright {\MakeUppercase{%
 				\ifnum \c@secnumdepth >\m@ne
 					\@chapapp\ \thechapter. \ %
 				\fi
-				##1}}}}
+				\if@simpleheaders\else##1\fi}}}
+	}
 \fi
 
-\def\ps@myheadings{%
+\def\ps@cheadings{%
 	\let\@oddfoot\@empty
 	\let\@evenfoot\@empty
-	\def\@evenhead{\thepage\hfil\slshape\leftmark}%
-	\def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
-	\let\@mkboth\@gobbletwo
-	\let\chaptermark\@gobble
-	\let\sectionmark\@gobble}
-
-
+	\def\@oddhead{\hfil\thepage}%
+	\def\@evenhead{\hfil\thepage}%
+	\let\@mkboth\markboth}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            TITLE PAGE GENERATION                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -433,7 +438,7 @@
 
 	% SETUP PAGES FOR REST OF PREFATORY PAGES
 		\if@fancyheaders
-			\pagestyle{headings}
+			\pagestyle{cheadings}
 		\else
 			\pagestyle{plain}
 		\fi
@@ -487,7 +492,11 @@
 
 \newcommand\chapter{\stepcounter{baseSection}
 	\if@openright\cleardoublepage\else\clearpage\fi
-	\thispagestyle{plain}%
+	\if@fancyheaders
+		\thispagestyle{cheadings}%
+	\else
+		\thispagestyle{plain}%
+	\fi	
 	\global\@topnum\z@
 	\@afterindentfalse
 	\secdef\@chapter\@schapter}
