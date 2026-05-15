@@ -1,3 +1,1 @@
-\RequirePackage{import}
-
-\subimport{../}{ualberta.cls}
+../ualberta.cls
